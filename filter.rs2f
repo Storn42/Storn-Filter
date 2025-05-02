@@ -1711,6 +1711,72 @@ enum: ["Shark","Potato with cheese","Prayer potion(*)"]
 
 rule (area:[2950,3675,0,3008,3724,0] && name:CRAZY_ARCHAEOLOGIST_SUPPLY) {SUPPLY_DROP_STYLE}
 
+/*@ define:module:dagannoth_kings
+name: Dagannoth Kings
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:dagannoth_kings
+label: Unique T3
+type: enumlist
+enum: ["Dragon axe", "Berserker ring", "Warrior ring", "Seers ring", "Mud battlestaff", "Archers ring", "Seercull"]
+*/
+
+#define DAGANNOTH_KINGS_T3_UNIQUES []
+
+rule (name:DAGANNOTH_KINGS_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:dagannoth_kings
+label: Unique T2
+type: enumlist
+enum: ["Dragon axe", "Berserker ring", "Warrior ring", "Seers ring", "Mud battlestaff", "Archers ring", "Seercull"]
+*/
+
+#define DAGANNOTH_KINGS_T2_UNIQUES ["Berserker ring", "Seers ring", "Archers ring"] 
+
+rule (name:DAGANNOTH_KINGS_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:dagannoth_kings
+label: Unique T1
+type: enumlist
+enum: ["Dragon axe", "Berserker ring", "Warrior ring", "Seers ring", "Mud battlestaff", "Archers ring", "Seercull"]
+*/
+
+#define DAGANNOTH_KINGS_T1_UNIQUES ["Dragon axe", "Warrior ring", "Mud battlestaff", "Seercull"]
+
+rule (name:DAGANNOTH_KINGS_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:dagannoth_kings
+label: Hide Items
+type: stringlist
+*/
+
+#define DAGANNOTH_KINGS_HIDE ["Dagannoth hide", "Fremennik blade", "Rune axe", "Fremennik shield", "Fremennik helm", "Ring of life", "Antifire potion(2)", "Restore potion(2)", "Zamorak brew(2)", "Oyster pearls", "Red d'hide vambraces", "Ensouled dagannoth head"]
+
+rule (area:[2889,4362,0,2937,4473,0] && name:DAGANNOTH_KINGS_HIDE) {hidden = true;}
+
+/*@ define:input:dagannoth_kings
+label: Supply Drop
+type: enumlist
+enum: ["Bass", "Swordfish", "Shark"]
+*/
+
+#define DAGANNOTH_KINGS_SUPPLY ["Swordfish", "Shark"]
+
+rule (area:[2889,4362,0,2937,4473,0] && name:DAGANNOTH_KINGS_SUPPLY) {SUPPLY_DROP_STYLE}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
