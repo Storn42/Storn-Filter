@@ -1831,7 +1831,75 @@ enum: ["*Pineapple pizza", "Prayer potion(*)", "Super combat potion(*)"]
 
 rule (area:[3027,6433,0,3052,6459,0] && name:DUKE_SUCELLUS_SUPPLY) {SUPPLY_DROP_STYLE}
 
+/*@ define:module:fight_caves
+name: Fight Caves
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
 
+/*@ define:input:fight_caves
+label: Unique T3
+type: enumlist
+enum: ["Fire cape"]
+*/
+
+#define FIGHT_CAVES_T3_UNIQUES []
+
+rule (name:FIGHT_CAVES_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:fight_caves
+label: Unique T2
+type: enumlist
+enum: ["Fire cape"]
+*/
+
+#define FIGHT_CAVES_T2_UNIQUES ["Fire cape"] 
+
+rule (name:FIGHT_CAVES_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:fight_caves
+label: Unique T1
+type: enumlist
+enum: ["Fire cape"]
+*/
+
+#define FIGHT_CAVES_T1_UNIQUES []
+
+rule (name:FIGHT_CAVES_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:module:fortis_colosseum
+name: Fortis Colosseum
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:fortis_colosseum
+label: Unique T3
+type: enumlist
+enum: ["Echo crystal", "Sunfire fanatic helm", "Sunfire fanatic cuirass", "Sunfire fanatic chausses", "Tonalztics of ralos*", "Dizana's quiver*"]
+*/
+
+#define FORTIS_COLOSSEUM_T3_UNIQUES ["Tonalztics of ralos*", "Dizana's quiver*"]
+
+rule (name:FORTIS_COLOSSEUM_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:fortis_colosseum
+label: Unique T2
+type: enumlist
+enum: ["Echo crystal", "Sunfire fanatic helm", "Sunfire fanatic cuirass", "Sunfire fanatic chausses"]
+*/
+
+#define FORTIS_COLOSSEUM_T2_UNIQUES [] 
+
+rule (name:FORTIS_COLOSSEUM_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:fortis_colosseum
+label: Unique T1
+type: enumlist
+enum: []
+*/
+
+#define FORTIS_COLOSSEUM_T1_UNIQUES []
+
+rule (name:FORTIS_COLOSSEUM_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 
 
