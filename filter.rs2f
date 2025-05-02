@@ -1894,7 +1894,7 @@ rule (name:FORTIS_COLOSSEUM_T2_UNIQUES) {UNIQUE_T2_STYLE}
 /*@ define:input:fortis_colosseum
 label: Unique T1
 type: enumlist
-enum: []
+enum: ["Echo crystal", "Sunfire fanatic helm", "Sunfire fanatic cuirass", "Sunfire fanatic chausses"]
 */
 
 #define FORTIS_COLOSSEUM_T1_UNIQUES []
@@ -1903,7 +1903,7 @@ rule (name:FORTIS_COLOSSEUM_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 /*@ define:module:gauntlet
 name: Guantlet
-subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+subtitle: Set Unique Teirs
 */
 
 /*@ define:input:gauntlet
