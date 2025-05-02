@@ -521,7 +521,7 @@ exampleItem: Wild pie
 
 /*@ define:module:abyssal_demons
 name: Abyssal Demons
-subtitle: Hide Drops and Highlight Supplies
+subtitle: Hide Drops, Highlight Supplies, and Set Rarity for Meme Drops
 description: Set a Unique Tier for Abyssal Daggers when dropped from Abyssal Demons
 */
 
@@ -744,7 +744,7 @@ rule (area:[2950,3724,0,3004,3780,0] && name:ANKOU_WILDERNESS_CAVE_SUPPLY) {SUPP
 
 /*@ define:module:araxytes
 name: Araxytes
-subtitle: Hide Drops and Highlight Supplies
+subtitle: Hide Drops
 */
 
 /*@ define:input:araxytes
@@ -758,7 +758,7 @@ rule (area:[3654,9795,0,3711,9868,0]  && name:ARAXYTE_HIDE) {hidden=true;}
 
 /*@ define:module:cave_horrors
 name: Cave Horrors
-subtitle: Hide Drops and Highlight Supplies
+subtitle: Hide Drops
 */
 
 /*@ define:input:cave_horrors
@@ -797,7 +797,7 @@ rule (area:[2066,5637,0,2166,5691,0] && name:DEMONIC_GORILLA_SUPPLY) {SUPPLY_DRO
 
 /*@ define:module:dust_devils
 name: Dust Devils
-subtitle: Hide Drops and Highlight Supplies
+subtitle: Hide Drops, Highlight Supplies, and Set Rarity for Meme Drops
 description: Set a Unique Tier for Dragon Chainbodys when dropped from Dust Devils
 */
 
@@ -909,7 +909,7 @@ rule (area:[3423,10113,0,3454,10133,0] && name: DUST_DEVIL_WILDY_SUPPLY) {SUPPLY
 
 /*@ define:module:hellhounds
 name: Hellhounds
-subtitle: Hide Drops and Highlight Supplies
+subtitle: Hide Drops and Set Rarity for Meme Drops
 description: Set a Unique Tier for Smouldering Stones when dropped from Hellhounds
 */
 
@@ -1833,7 +1833,7 @@ rule (area:[3027,6433,0,3052,6459,0] && name:DUKE_SUCELLUS_SUPPLY) {SUPPLY_DROP_
 
 /*@ define:module:fight_caves
 name: Fight Caves
-subtitle: Set Unique Tiers, Hide Drops, and Highlight Supplies
+subtitle: Set Unique Tiers
 */
 
 /*@ define:input:fight_caves
