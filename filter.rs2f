@@ -2114,26 +2114,114 @@ enum: ["Mushroom potato", "Saradomin brew(*)", "Magic potion(*)", "Ranging potio
 rule (area:[1671,4549,0,1724,4603,0] && name:GROTESQUE_GUARDIANS_SUPPLY) {SUPPLY_DROP_STYLE}
 
 
+/*@ define:module:hespori
+name: Hespori
+subtitle: Set Unique Teirs and Hide Drops
+*/
+
+/*@ define:input:hespori
+label: Unique T3
+type: enumlist
+enum: ["Bottomless compost bucket", "Attas seed", "Iasor seed", "Kronos seed"]
+*/
+
+#define HESPORI_T3_UNIQUES []
+
+rule (name:HESPORI_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:hespori
+label: Unique T2
+type: enumlist
+enum: ["Bottomless compost bucket", "Attas seed", "Iasor seed", "Kronos seed"]
+*/
+
+#define HESPORI_T2_UNIQUES ["Bottomless compost bucket"] 
+
+rule (name:HESPORI_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:hespori
+label: Unique T1
+type: enumlist
+enum: ["Bottomless compost bucket", "Attas seed", "Iasor seed", "Kronos seed"]
+*/
+
+#define HESPORI_T1_UNIQUES ["Attas seed", "Iasor seed", "Kronos seed"]
+
+rule (name:HESPORI_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 
+/*@ define:input:hespori
+label: Hide Items
+type: stringlist
+*/
+
+#define HESPORI_HIDE []
+
+rule (area:[1239,10078,0,1257,10097,0] && name:HESPORI_HIDE) {hidden = true;}
+
+/*@ define:module:hueycoatle
+name: Hueycoatle
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:hueycoatle
+label: Unique T3
+type: enumlist
+enum: ["Hueycoatl hide", "Hueycoatl hide body", "Hueycoatl hide chaps", "Hueycoatl hide coif", "Hueycoatl hide vambraces", "Tome of earth*", "Dragon hunter wand"]
+*/
+
+#define HUEYCOATL_T3_UNIQUES []
+
+rule (name:HUEYCOATL_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:hueycoatle
+label: Unique T2
+type: enumlist
+enum: []
+*/
+
+#define HUEYCOATL_T2_UNIQUES [] 
+
+rule (name:HUEYCOATL_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:hueycoatle
+label: Unique T1
+type: enumlist
+enum: []
+*/
+
+#define HUEYCOATL_T1_UNIQUES []
+
+rule (name:HUEYCOATL_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 
+/*@ define:input:hueycoatle
+label: Hide Items
+type: stringlist
+*/
 
+#define HUEYCOATL_HIDE []
 
+rule (area:[1501,3268,0,1538,3298,0] && name:HUEYCOATL_HIDE) {hidden = true;}
 
+/*@ define:input:hueycoatle
+label: Supply Drop
+type: enumlist
+enum: []
+*/
 
+#define HUEYCOATL_SUPPLY []
 
+rule (area:[1501,3268,0,1538,3298,0] && name:HUEYCOATL_SUPPLY) {SUPPLY_DROP_STYLE}
 
+/*@ define:input:name1
+label: Show MVP
+type: boolean
+*/
 
+#define ENABLE_HUEYCOATL_MVP true
 
-
-
-
-
-
-
-
-
+apply (area:[1501,3268,0,1538,3298,0] && name:"Big Bones" && ENABLE_HUEYCOATL_MVP) {hidden=false; sound=3018;}
 
 
 
@@ -2656,7 +2744,7 @@ type: stringlist
 group: Items
 */
 
-#define CHARGE_NAMES ["Zulrah's scales","Granite dust","Ancient essence","Lava scale*","Sunfire splinters","Araxyte venom sack","Crystal shard","Ancient shard","sapphire ring","ring of recoil","Revenant ether"]
+#define CHARGE_NAMES ["Zulrah's scales","Granite dust","Ancient essence","Lava scale*","Sunfire splinters","Araxyte venom sack","Crystal shard","Ancient shard","sapphire ring","ring of recoil","Revenant ether", "Soiled page", "Burnt page", "Soaked page", "Desiccated page"]
 
 /*@ define:input:charges
 label: Style 1
