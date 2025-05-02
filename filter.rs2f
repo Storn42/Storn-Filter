@@ -4,7 +4,7 @@ name: header
 */
 
 meta {
-    name = "Storn's Filter (website)";
+    name = "Storn's Filter";
     description = "Storn's Ironman Focused Filter";
 	}
 
@@ -1766,6 +1766,70 @@ enum: ["Bass", "Swordfish", "Shark"]
 
 rule (area:[2889,4362,0,2937,4473,0] && name:DAGANNOTH_KINGS_SUPPLY) {SUPPLY_DROP_STYLE}
 
+/*@ define:module:duke_sucellus
+name: Duke Sucellus
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:duke_sucellus
+label: Enable Sound
+type: boolean
+group: Perfect Kill
+*/
+
+#define ENABLE_DUKE_SUCELLUS_PERFECT true
+
+apply (area:[3027,6433,0,3052,6459,0] && ENABLE_DUKE_SUCELLUS_PERFECT && ((name:"Bronze chainbody" && quantity:==17) || (name:"Mithril chainbody" && quantity:==7) || (name:"Adamant chainbody" && quantity:==7) || (name:"Dragon platelegs" && quantity:==7) || (name:"Coal" && quantity:==325) || (name: "Adamantite ore" && quantity:==112) || (name:"Rune javelin heads" && quantity:== 90) || (name:"Dragon javelin heads" && quantity:== 90) || (name:"Uncut ruby" && quantity:== 62) || (name:"Uncut diamond" && quantity:== 62) || (name:"Runite ore" && quantity:==45) || (name:"Dragon arrowtips" && quantity:==250) || (name:"Pure essence" && quantity:==300) || (name:"Iron ore" && quantity:==95) || (name:"Mithril ore" && quantity:==50) || (name:"Sapphire" && quantity:==42) || (name:"Emerald" && quantity:==42) || (name:"Ruby" && quantity:==42) || (name:"Bronze bar" && quantity:==95) || (name:"Raw sea turtle" && quantity:==300) || (name:"Chaos rune" && quantity:==150) || (name:"Mist rune" && quantity:==150) || (name:"Soul rune" && quantity:==1000) || (name:"Air rune" && quantity:==300))) {sound=3018;}
+
+/*@ define:input:duke_sucellus
+label: Unique T3
+type: enumlist
+enum: ["Magus vestige", "Magus icon", "Magus ring", "Eye of the duke", "Frozen tablet", "Ice quartz"]
+*/
+
+#define DUKE_SUCELLUS_T3_UNIQUES ["Magus vestige", "Magus icon", "Magus ring", "Eye of the duke"]
+
+rule (name:DUKE_SUCELLUS_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:duke_sucellus
+label: Unique T2
+type: enumlist
+enum: ["Magus vestige", "Magus icon", "Magus ring", "Eye of the duke", "Frozen tablet", "Ice quartz"]
+*/
+
+#define DUKE_SUCELLUS_T2_UNIQUES ["Frozen tablet"] 
+
+rule (name:DUKE_SUCELLUS_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:duke_sucellus
+label: Unique T1
+type: enumlist
+enum: ["Magus vestige", "Magus icon", "Magus ring", "Eye of the duke", "Frozen tablet", "Ice quartz"]
+*/
+
+#define DUKE_SUCELLUS_T1_UNIQUES ["Ice quartz"]
+
+rule (name:DUKE_SUCELLUS_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:duke_sucellus
+label: Hide Items
+type: stringlist
+*/
+
+#define DUKE_SUCELLUS_HIDE []
+
+rule (area:[3027,6433,0,3052,6459,0] && name:DUKE_SUCELLUS_HIDE) {hidden = true;}
+
+/*@ define:input:duke_sucellus
+label: Supply Drop
+type: enumlist
+enum: ["*Pineapple pizza", "Prayer potion(*)", "Super combat potion(*)"]
+*/
+
+#define DUKE_SUCELLUS_SUPPLY ["*Pineapple pizza", "Prayer potion(*)"]
+
+rule (area:[3027,6433,0,3052,6459,0] && name:DUKE_SUCELLUS_SUPPLY) {SUPPLY_DROP_STYLE}
 
 
 
@@ -1785,12 +1849,45 @@ rule (area:[2889,4362,0,2937,4473,0] && name:DAGANNOTH_KINGS_SUPPLY) {SUPPLY_DRO
 
 
 
+/*@ define:module:dt2_bosses
+name: DT2 Bosses
+subtitle: Set Unique Tiera
+*/
 
+/*@ define:input:dt2_bosses
+label: Unique T3
+type: enumlist
+enum: ["Virtus mask","Virtus robe top","Virtus robe bottom", "Chromium ingot", "Awakener's orb", "Ancient blood ornament kit", "Soulreaper axe"]
+*/
+
+#define DT2_BOSSES_T3_UNIQUES ["Virtus mask","Virtus robe top","Virtus robe bottom", "Ancient blood ornament kit", "Soulreaper axe"]
+
+rule (name:DT2_BOSSES_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:dt2_bosses
+label: Unique T2
+type: enumlist
+enum: ["Virtus mask","Virtus robe top","Virtus robe bottom", "Chromium ingot", "Awakener's orb", "Ancient blood ornament kit", "Soulreaper axe"]
+*/
+
+#define DT2_BOSSES_T2_UNIQUES ["Awakener's orb"] 
+
+rule (name:DT2_BOSSES_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:dt2_bosses
+label: Unique T1
+type: enumlist
+enum: ["Virtus mask","Virtus robe top","Virtus robe bottom", "Chromium ingot","Awakener's orb", "Ancient blood ornament kit", "Soulreaper axe"]
+*/
+
+#define DT2_BOSSES_T1_UNIQUES ["Chromium ingot"]
+
+rule (name:DT2_BOSSES_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 
 /*@ define:module:god_wars_bosses
 name: God Wars Bosses
-subtitle: Set Unique Teirs
+subtitle: Set Unique Tiera
 */
 
 /*@ define:input:god_wars_bosses
@@ -1826,7 +1923,7 @@ rule (name:GOD_WARS_BOSSES_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 /*@ define:module:wilderness_bosses
 name: Wilderness Bosses
-subtitle: Set Unique Teirs
+subtitle: Set Unique Tiera
 */
 
 /*@ define:input:wilderness_bosses
