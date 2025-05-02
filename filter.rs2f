@@ -2066,27 +2066,27 @@ subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
 /*@ define:input:grotesque_guardians
 label: Unique T3
 type: enumlist
-enum: ["Granite maul", "Granite gloves", "Granite ring", "Granite hammer", "Black tourmaline core"]
+enum: ["Granite maul", "Granite gloves", "Granite ring", "Granite hammer", "Black tourmaline core", "Jar of stone"]
 */
 
-#define GROTESQUE_GUARDIANS_T3_UNIQUES ["Black tourmaline core"]
+#define GROTESQUE_GUARDIANS_T3_UNIQUES ["Jar of stone"]
 
 rule (name:GROTESQUE_GUARDIANS_T3_UNIQUES) {UNIQUE_T3_STYLE}
 
 /*@ define:input:grotesque_guardians
 label: Unique T2
 type: enumlist
-enum: ["Granite maul", "Granite gloves", "Granite ring", "Granite hammer", "Black tourmaline core"]
+enum: ["Granite maul", "Granite gloves", "Granite ring", "Granite hammer", "Black tourmaline core", "Jar of stone"]
 */
 
-#define GROTESQUE_GUARDIANS_T2_UNIQUES [] 
+#define GROTESQUE_GUARDIANS_T2_UNIQUES ["Black tourmaline core"] 
 
 rule (name:GROTESQUE_GUARDIANS_T2_UNIQUES) {UNIQUE_T2_STYLE}
 
 /*@ define:input:grotesque_guardians
 label: Unique T1
 type: enumlist
-enum: ["Granite maul", "Granite gloves", "Granite ring", "Granite hammer", "Black tourmaline core"]
+enum: ["Granite maul", "Granite gloves", "Granite ring", "Granite hammer", "Black tourmaline core", "Jar of stone"]
 */
 
 #define GROTESQUE_GUARDIANS_T1_UNIQUES ["Granite maul", "Granite gloves", "Granite ring", "Granite hammer"]
