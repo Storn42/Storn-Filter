@@ -977,7 +977,7 @@ rule (area:[1635,10053,0,1655,10077,0] && name:HELLHOUND_CATACOMBS_HIDE) {hidden
 /*@ define:input:hellhounds
 label: Hide Items
 type: stringlist
-group: Catacombs of Kourend
+group: Karuulm Slayer Dungeon
 */
 
 #define HELLHOUND_KARUULM_HIDE ["vile ashes"]
