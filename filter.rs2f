@@ -2161,7 +2161,7 @@ rule (area:[1239,10078,0,1257,10097,0] && name:HESPORI_HIDE) {hidden = true;}
 
 /*@ define:module:hueycoatle
 name: Hueycoatle
-subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+subtitle: Set Unique Teirs and Hide Drops
 */
 
 /*@ define:input:hueycoatle
@@ -2177,20 +2177,20 @@ rule (name:HUEYCOATL_T3_UNIQUES) {UNIQUE_T3_STYLE}
 /*@ define:input:hueycoatle
 label: Unique T2
 type: enumlist
-enum: []
+enum: ["Hueycoatl hide", "Hueycoatl hide body", "Hueycoatl hide chaps", "Hueycoatl hide coif", "Hueycoatl hide vambraces", "Tome of earth*", "Dragon hunter wand"]
 */
 
-#define HUEYCOATL_T2_UNIQUES [] 
+#define HUEYCOATL_T2_UNIQUES ["Hueycoatl hide body", "Hueycoatl hide chaps", "Hueycoatl hide coif", "Hueycoatl hide vambraces", "Tome of earth*", "Dragon hunter wand"] 
 
 rule (name:HUEYCOATL_T2_UNIQUES) {UNIQUE_T2_STYLE}
 
 /*@ define:input:hueycoatle
 label: Unique T1
 type: enumlist
-enum: []
+enum: ["Hueycoatl hide", "Hueycoatl hide body", "Hueycoatl hide chaps", "Hueycoatl hide coif", "Hueycoatl hide vambraces", "Tome of earth*", "Dragon hunter wand"]
 */
 
-#define HUEYCOATL_T1_UNIQUES []
+#define HUEYCOATL_T1_UNIQUES ["Hueycoatl hide"]
 
 rule (name:HUEYCOATL_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
@@ -2204,15 +2204,6 @@ type: stringlist
 
 rule (area:[1501,3268,0,1538,3298,0] && name:HUEYCOATL_HIDE) {hidden = true;}
 
-/*@ define:input:hueycoatle
-label: Supply Drop
-type: enumlist
-enum: []
-*/
-
-#define HUEYCOATL_SUPPLY []
-
-rule (area:[1501,3268,0,1538,3298,0] && name:HUEYCOATL_SUPPLY) {SUPPLY_DROP_STYLE}
 
 /*@ define:input:name1
 label: Show MVP
