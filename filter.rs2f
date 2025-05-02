@@ -1936,6 +1936,202 @@ enum: ["Crystal weapon seed", "Crystal armour seed", "Enhanced crystal weapon se
 
 rule (name:GUANTLET_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
+/*@ define:module:general_graardor
+name: General Graardor
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:general_graardor
+label: Unique T3
+type: enumlist
+enum: ["Bandos chestplate","Bandos tassets", "Bandos boots", "Bandos hilt", "Bandos godsword"]
+*/
+
+#define GENERAL_GRAARDOR_T3_UNIQUES ["Bandos chestplate","Bandos tassets", "Bandos hilt", "Bandos godsword"]
+
+rule (name:GENERAL_GRAARDOR_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:general_graardor
+label: Unique T2
+type: enumlist
+enum: ["Bandos chestplate","Bandos tassets", "Bandos boots", "Bandos hilt", "Bandos godsword"]
+*/
+
+#define GENERAL_GRAARDOR_T2_UNIQUES ["Bandos boots"] 
+
+rule (name:GENERAL_GRAARDOR_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:general_graardor
+label: Unique T1
+type: enumlist
+enum: ["Bandos chestplate","Bandos tassets", "Bandos boots", "Bandos hilt", "Bandos godsword"]
+*/
+
+#define GENERAL_GRAARDOR_T1_UNIQUES []
+
+rule (name:GENERAL_GRAARDOR_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:general_graardor
+label: Hide Items
+type: stringlist
+*/
+
+#define GENERAL_GRAARDOR_HIDE []
+
+rule (area:[2863,5350,2,2878,5374,2] && name:GENERAL_GRAARDOR_HIDE) {hidden = true;}
+
+/*@ define:input:general_graardor
+label: Supply Drop
+type: enumlist
+enum: ["Super restore(*)", "Shark", "Chilli potato"]
+*/
+
+#define GENERAL_GRAARDOR_SUPPLY ["Super restore(*)", "Shark", "Chilli potato"]
+
+rule (area:[2863,5350,2,2878,5374,2] && name:GENERAL_GRAARDOR_SUPPLY) {SUPPLY_DROP_STYLE}
+
+
+/*@ define:input:general_graardor
+label: Bones to Peaches
+type: boolean
+*/
+
+#define ENABLE_GENERAL_GRAARDOR_PEACHES true
+
+apply (area:[2863,5350,2,2878,5374,2] && name:["Bones", "Big Bones"] && ENABLE_GENERAL_GRAARDOR_PEACHES) {hidden=false;}
+
+
+/*@ define:module:giant_mole
+name: Giant Mole
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:giant_mole
+label: Unique T3
+type: enumlist
+enum: ["Mole claw", "Mole skin"]
+*/
+
+#define GIANT_MOLE_T3_UNIQUES []
+
+rule (name:GIANT_MOLE_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:giant_mole
+label: Unique T2
+type: enumlist
+enum: ["Mole claw", "Mole skin"]
+*/
+
+#define GIANT_MOLE_T2_UNIQUES [] 
+
+rule (name:GIANT_MOLE_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:giant_mole
+label: Unique T1
+type: enumlist
+enum: ["Mole claw", "Mole skin"]
+*/
+
+#define GIANT_MOLE_T1_UNIQUES ["Mole claw", "Mole skin"]
+
+rule (name:GIANT_MOLE_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:giant_mole
+label: Hide Items
+type: stringlist
+*/
+
+#define GIANT_MOLE_HIDE ["Amulet of strength", "Oyster pearls"]
+
+rule (area:[1728,5129,0,1792,5247,0] && name:GIANT_MOLE_HIDE) {hidden = true;}
+
+/*@ define:input:giant_mole
+label: Supply Drop
+type: enumlist
+enum: ["Shark"]
+*/
+
+#define GIANT_MOLE_SUPPLY ["Shark"]
+
+rule (area:[1728,5129,0,1792,5247,0] && name:GIANT_MOLE_SUPPLY) {SUPPLY_DROP_STYLE}
+
+
+/*@ define:module:grotesque_guardians
+name: Grotesque Guardians
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:grotesque_guardians
+label: Unique T3
+type: enumlist
+enum: ["Granite maul", "Granite gloves", "Granite ring", "Granite hammer", "Black tourmaline core"]
+*/
+
+#define GROTESQUE_GUARDIANS_T3_UNIQUES ["Black tourmaline core"]
+
+rule (name:GROTESQUE_GUARDIANS_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:grotesque_guardians
+label: Unique T2
+type: enumlist
+enum: ["Granite maul", "Granite gloves", "Granite ring", "Granite hammer", "Black tourmaline core"]
+*/
+
+#define GROTESQUE_GUARDIANS_T2_UNIQUES [] 
+
+rule (name:GROTESQUE_GUARDIANS_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:grotesque_guardians
+label: Unique T1
+type: enumlist
+enum: ["Granite maul", "Granite gloves", "Granite ring", "Granite hammer", "Black tourmaline core"]
+*/
+
+#define GROTESQUE_GUARDIANS_T1_UNIQUES ["Granite maul", "Granite gloves", "Granite ring", "Granite hammer"]
+
+rule (name:GROTESQUE_GUARDIANS_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:grotesque_guardians
+label: Hide Items
+type: stringlist
+*/
+
+#define GROTESQUE_GUARDIANS_HIDE ["Magic potion(*)"]
+
+rule (area:[1671,4549,0,1724,4603,0] && name:GROTESQUE_GUARDIANS_HIDE) {hidden = true;}
+
+/*@ define:input:grotesque_guardians
+label: Supply Drop
+type: enumlist
+enum: ["Mushroom potato", "Saradomin brew(*)", "Magic potion(*)", "Ranging potion(*)", "Super combat potion(*)", "Prayer potion(*)"]
+*/
+
+#define GROTESQUE_GUARDIANS_SUPPLY ["Mushroom potato", "Saradomin brew(*)", "Prayer potion(*)"]
+
+rule (area:[1671,4549,0,1724,4603,0] && name:GROTESQUE_GUARDIANS_SUPPLY) {SUPPLY_DROP_STYLE}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
