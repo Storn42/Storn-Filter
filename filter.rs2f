@@ -1868,7 +1868,7 @@ rule (name:FIGHT_CAVES_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 /*@ define:module:fortis_colosseum
 name: Fortis Colosseum
-subtitle: Set Unique Tiers, Hide Drops, and Highlight Supplies
+subtitle: Set Unique Tiers
 */
 
 /*@ define:input:fortis_colosseum
@@ -1901,6 +1901,40 @@ enum: []
 
 rule (name:FORTIS_COLOSSEUM_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
+/*@ define:module:gauntlet
+name: Guantlet
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:gauntlet
+label: Unique T3
+type: enumlist
+enum: ["Crystal weapon seed", "Crystal armour seed", "Enhanced crystal weapon seed"]
+*/
+
+#define GUANTLET_T3_UNIQUES ["Enhanced crystal weapon seed"]
+
+rule (name:GUANTLET_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:gauntlet
+label: Unique T2
+type: enumlist
+enum: ["Crystal weapon seed", "Crystal armour seed", "Enhanced crystal weapon seed"]
+*/
+
+#define GUANTLET_T2_UNIQUES ["Crystal armour seed"] 
+
+rule (name:GUANTLET_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:gauntlet
+label: Unique T1
+type: enumlist
+enum: ["Crystal weapon seed", "Crystal armour seed", "Enhanced crystal weapon seed"]
+*/
+
+#define GUANTLET_T1_UNIQUES ["Crystal weapon seed"]
+
+rule (name:GUANTLET_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 
 
