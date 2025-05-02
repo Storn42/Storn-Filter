@@ -1594,6 +1594,7 @@ rule (area:[2884,5255,0,2909,5278,0] && name:COMMANDER_ZILYANA_SUPPLY) {SUPPLY_D
 /*@ define:input:commander_zilyana
 label: Bones to Peaches
 type: boolean
+group: Bones to Peaches
 */
 
 #define ENABLE_COMMANDER_ZILYANA_PEACHES true
@@ -1995,6 +1996,7 @@ rule (area:[2863,5350,2,2878,5374,2] && name:GENERAL_GRAARDOR_SUPPLY) {SUPPLY_DR
 /*@ define:input:general_graardor
 label: Bones to Peaches
 type: boolean
+group: Bones to Peaches
 */
 
 #define ENABLE_GENERAL_GRAARDOR_PEACHES true
@@ -2208,6 +2210,7 @@ rule (area:[1501,3268,0,1538,3298,0] && name:HUEYCOATL_HIDE) {hidden = true;}
 /*@ define:input:name1
 label: Show MVP
 type: boolean
+group: MVP
 */
 
 #define ENABLE_HUEYCOATL_MVP true
