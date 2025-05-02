@@ -1956,17 +1956,17 @@ subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
 /*@ define:input:general_graardor
 label: Unique T3
 type: enumlist
-enum: ["Bandos chestplate","Bandos tassets", "Bandos boots", "Bandos hilt", "Bandos godsword"]
+enum: ["Bandos chestplate","Bandos tassets", "Bandos boots", "Bandos hilt", "Bandos godsword", "Bandosian components"]
 */
 
-#define GENERAL_GRAARDOR_T3_UNIQUES ["Bandos chestplate","Bandos tassets", "Bandos hilt", "Bandos godsword"]
+#define GENERAL_GRAARDOR_T3_UNIQUES ["Bandos chestplate","Bandos tassets", "Bandos hilt", "Bandos godsword", "Bandosian components"]
 
 rule (name:GENERAL_GRAARDOR_T3_UNIQUES) {UNIQUE_T3_STYLE}
 
 /*@ define:input:general_graardor
 label: Unique T2
 type: enumlist
-enum: ["Bandos chestplate","Bandos tassets", "Bandos boots", "Bandos hilt", "Bandos godsword"]
+enum: ["Bandos chestplate","Bandos tassets", "Bandos boots", "Bandos hilt", "Bandos godsword", "Bandosian components"]
 */
 
 #define GENERAL_GRAARDOR_T2_UNIQUES ["Bandos boots"] 
@@ -1976,7 +1976,7 @@ rule (name:GENERAL_GRAARDOR_T2_UNIQUES) {UNIQUE_T2_STYLE}
 /*@ define:input:general_graardor
 label: Unique T1
 type: enumlist
-enum: ["Bandos chestplate","Bandos tassets", "Bandos boots", "Bandos hilt", "Bandos godsword"]
+enum: ["Bandos chestplate","Bandos tassets", "Bandos boots", "Bandos hilt", "Bandos godsword", "Bandosian components"]
 */
 
 #define GENERAL_GRAARDOR_T1_UNIQUES []
@@ -2428,6 +2428,71 @@ enum: ["Shark", "Edible seaweed", "Sanfew serum(*)"]
 
 rule (area:[2268,10020,0,2292,10049,0] && name:KRAKEN_SUPPLY) {SUPPLY_DROP_STYLE}
 
+/*@ define:module:kreearra
+name: Kree'arra
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:kreearra
+label: Unique T3
+type: enumlist
+enum: ["Armadyl helmet", "Armadyl chestplate", "Armadyl chainskirt", "Armadyl hilt", "Armadyl Godsword", "Armadylean plate"]
+*/
+
+#define KREEARRA_T3_UNIQUES ["Armadyl helmet", "Armadyl chestplate", "Armadyl chainskirt", "Armadyl hilt", "Armadyl Godsword", "Armadylean plate"]
+
+rule (name:KREEARA_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:kreearra
+label: Unique T2
+type: enumlist
+enum: ["Armadyl helmet", "Armadyl chestplate", "Armadyl chainskirt", "Armadyl hilt", "Armadyl Godsword", "Armadylean plate"]
+*/
+
+#define KREEARRA_T2_UNIQUES [] 
+
+rule (name:KREEARRA_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:kreearra
+label: Unique T1
+type: enumlist
+enum: ["Armadyl helmet", "Armadyl chestplate", "Armadyl chainskirt", "Armadyl hilt", "Armadyl Godsword", "Armadylean plate"]
+*/
+
+#define KREEARRA_T1_UNIQUES []
+
+rule (name:KREEARRA_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:kreearra
+label: Hide Items
+type: stringlist
+*/
+
+#define KREEARRA_HIDE []
+
+rule (area:[2820,5295,2,2844,5310,2] && name:KREEARRA_HIDE) {hidden = true;}
+
+/*@ define:input:kreearra
+label: Supply Drop
+type: enumlist
+enum: ["Ranging potion(*)", "Super defence(*)", "Manta ray", "Mushroom potato"]
+*/
+
+#define KREEARRA_SUPPLY ["Manta ray", "Mushroom potato"]
+
+rule (area:[2820,5295,2,2844,5310,2] && name:KREEARRA_SUPPLY) {SUPPLY_DROP_STYLE}
+
+
+/*@ define:input:kreearra
+label: Bones to Peaches
+type: boolean
+group: Bones to Peaches
+*/
+
+#define ENABLE_KREEARRA_PEACHES true
+
+apply (area:[2820,5295,2,2844,5310,2] && name:["Bones", "Big bones"] && ENABLE_KREEARRA_PEACHES) {hidden=false;}
 
 
 
