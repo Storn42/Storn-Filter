@@ -2281,7 +2281,7 @@ rule (name:KALPHITE_QUEEN_T3_UNIQUES) {UNIQUE_T3_STYLE}
 /*@ define:input:kalphite_queen
 label: Unique T2
 type: enumlist
-enum: []
+enum: ["Kq head*", "Dragon chainbody", "Jar of sand"]
 */
 
 #define KALPHITE_QUEEN_T2_UNIQUES ["Dragon chainbody"] 
@@ -2291,7 +2291,7 @@ rule (name:KALPHITE_QUEEN_T2_UNIQUES) {UNIQUE_T2_STYLE}
 /*@ define:input:kalphite_queen
 label: Unique T1
 type: enumlist
-enum: []
+enum: ["Kq head*", "Dragon chainbody", "Jar of sand"]
 */
 
 #define KALPHITE_QUEEN_T1_UNIQUES ["Kq head*"]
@@ -2311,7 +2311,7 @@ rule (area:[3464,9480,0,3510,9521,0] && name:KALPHITE_QUEEN_HIDE) {hidden = true
 /*@ define:input:kalphite_queen
 label: Supply Drop
 type: enumlist
-enum: ["Monkfish", "Shark", "Dark crab", "Saradomin brew(*)", "Prayer potion(*)", "Super restore(*)", "Super combat potion(*),"Ranging potion(*)", "Superantipoison(*)"]
+enum: ["Monkfish", "Shark", "Dark crab", "Saradomin brew(*)", "Prayer potion(*)", "Super restore(*)", "Super combat potion(*)", "Ranging potion(*)", "Superantipoison(*)"]
 */
 
 #define KALPHITE_QUEEN_SUPPLY ["Monkfish", "Shark", "Dark crab", "Saradomin brew(*)", "Prayer potion(*)", "Super restore(*)"]
@@ -2384,7 +2384,7 @@ type: enumlist
 enum: ["Trident of the seas*", "Kraken tentacle", "Jar of dirt"]
 */
 
-#define KRAKEN_T3_UNIQUES ["Jar of dirt]
+#define KRAKEN_T3_UNIQUES ["Jar of dirt"]
 
 rule (name:KRAKEN_T3_UNIQUES) {UNIQUE_T3_STYLE}
 
