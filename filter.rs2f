@@ -1,0 +1,8280 @@
+/*@ define:module:header
+hidden: true
+name: header
+*/
+
+meta {
+    name = "Storn's Filter (website)";
+    description = "Storn's Ironman Focused Filter";
+	}
+
+/*@ define:module:greetings
+name: Greetings
+subtitle: Welcome to Storn's Filter
+description: |
+    This is my personal filter from the perspective of an endgame ironman. Here you'll find 
+*/
+
+/*@ define:module:settings
+name: Settings
+subtitle: Basic Global Settings 
+*/
+
+/*@ define:input:settings
+label: Global Drops
+type: boolean
+group: Show
+*/
+#define SHOW_GLOBAL_DROPS true
+
+apply (!SHOW_GLOBAL_DROPS && ownership:0) {hidden = true;}
+
+/*@ define:input:settings
+label: Unowned Drops
+type: boolean
+group: Show
+*/
+#define SHOW_OTHER_DROPS false
+
+apply (!SHOW_OTHER_DROPS && ownership:2) {hidden = true;}
+
+/*@ define:input:settings
+label: Despawn Timer
+type: boolean
+group: Show
+*/
+
+#define SHOW_DEPSAWN_TIMER true
+
+apply (SHOW_DEPSAWN_TIMER) {showDespawn = true;}
+
+/*@ define:input:settings
+label: Item Value
+type: boolean
+group: Show
+*/
+
+#define SHOW_ITEM_VALUE true
+
+apply (SHOW_ITEM_VALUE) {showDespawn = true;}
+
+/*@ define:module:values
+name: Value Customization
+subtitle: Set the Values you'll be using for the Filter's Tiering System. 
+*/
+
+/*@ define:input:values
+type: number
+label: Tier 1
+group: Values
+*/
+#define VALUE_TIER_1 5000
+
+/*@ define:input:values
+type: number
+label: Tier 2
+group: Values
+*/
+#define VALUE_TIER_2 20000
+
+/*@ define:input:values
+type: number
+label: Tier 3
+group: Values
+*/
+#define VALUE_TIER_3 100000
+
+/*@ define:input:values
+type: number
+label: Tier 4
+group: Values
+*/
+#define VALUE_TIER_4 1000000
+
+/*@ define:input:values
+type: number
+label: Tier 5
+group: Values
+*/
+#define VALUE_TIER_5 10000000
+
+/*@ define:input:values
+type: text
+label: Tier 1
+group: Drop Sounds
+*/
+#define TIER_1_SOUND "Tier1.wav"
+
+/*@ define:input:values
+type: text
+label: Tier 2
+group: Drop Sounds
+*/
+#define TIER_2_SOUND "Tier2.wav"
+
+/*@ define:input:values
+type: text
+label: Tier 3
+group: Drop Sounds
+*/
+#define TIER_3_SOUND "Tier3.wav"
+
+/*@ define:input:values
+type: text
+label: Tier 4
+group: Drop Sounds
+*/
+#define TIER_4_SOUND "Tier4.wav"
+
+/*@ define:input:values
+type: text
+label: Tier 5
+group: Drop Sounds
+*/
+#define TIER_5_SOUND "Tier5.wav"
+
+apply (value:>=VALUE_TIER_1 && !ownership:2) {sound = TIER_1_SOUND;}
+apply (value:>=VALUE_TIER_2 && !ownership:2) {sound = TIER_2_SOUND;}
+apply (value:>=VALUE_TIER_3 && !ownership:2) {sound = TIER_3_SOUND;}
+apply (value:>=VALUE_TIER_4 && !ownership:2) {sound = TIER_4_SOUND;}
+apply (value:>=VALUE_TIER_5 && !ownership:2) {sound = TIER_5_SOUND;}
+
+apply (tradeable: false) {color = WHITE;}
+
+#define VALUE_RULESET(_name, _style5, _style4, _style3, _style2, _style1, _style0)\
+rule (name:_name && value:>=VALUE_TIER_5) {_style5}\
+rule (name:_name && value:>=VALUE_TIER_4) {_style4}\
+rule (name:_name && value:>=VALUE_TIER_3) {_style3}\
+rule (name:_name && value:>=VALUE_TIER_2) {_style2}\
+rule (name:_name && value:>=VALUE_TIER_1) {_style1}\
+rule (name:_name) {_style0}
+
+/*@ define:module:hidden
+name: Hidden Items
+subtitle: For when you NEVER want to see that item again  
+*/
+
+/*@ define:input:hidden
+label: User Hide
+type: stringlist
+group: User
+*/
+
+#define HIDE_USER []
+
+apply (name:HIDE_USER) {hidden=true;}
+
+/*@ define:input:hidden
+label: Bronze
+type: stringlist
+group: Equipment
+*/
+
+#define HIDE_BRONZE ["Bronze dagger", "Bronze axe","Bronze mace","Bronze sword","Bronze pickaxe","Bronze scimitar","Bronze hasta","Bronze longsword","Bronze warhammer","Bronze battleaxe","Bronze claws","Bronze spear","Bronze halberd","Bronze 2h sword","Bronze crossbow","Bronze dart*","Bronze knife*","Bronze thrownaxe","Bronze arrow*","Bronze bolts*","Bronze brutal","Bronze javelin","Bronze boots","Bronze med helm","Bronze full helm","Bronze sq shield","Bronze platelegs","Bronze plateskirt","Bronze kiteshield","Bronze chainbody","Bronze platebody"]
+
+apply (name:HIDE_BRONZE) {hidden=true;}
+
+/*@ define:input:hidden
+label: Iron
+type: stringlist
+group: Equipment
+*/
+
+#define HIDE_IRON ["Iron dagger", "Iron axe","Iron mace","Iron sword","Iron pickaxe","Iron scimitar","Iron hasta","Iron longsword","Iron warhammer","Iron battleaxe","Iron claws","Iron spear","Iron halberd","Iron 2h sword","Iron crossbow","Iron dart*","Iron knife*","Iron thrownaxe","Iron arrow*","Iron bolts*","Iron brutal","Iron javelin","Iron boots","Iron med helm","Iron full helm","Iron sq shield","Iron platelegs","Iron plateskirt","Iron kiteshield","Iron chainbody","Iron platebody"]
+
+apply (name:HIDE_IRON) {hidden=true;}
+
+/*@ define:input:hidden
+label: Steel
+type: stringlist
+group: Equipment
+*/
+
+#define HIDE_STEEL ["Steel dagger", "Steel axe","Steel mace","Steel sword","Steel pickaxe","Steel scimitar","Steel hasta","Steel longsword","Steel warhammer","Steel battleaxe","Steel claws","Steel spear","Steel halberd","Steel 2h sword","Steel crossbow","Steel dart*","Steel knife*","Steel thrownaxe","Steel arrow*","Steel bolts*","Steel brutal","Steel javelin","Steel boots","Steel med helm","Steel full helm","Steel sq shield","Steel platelegs","Steel plateskirt","Steel kiteshield","Steel chainbody","Steel platebody"]
+
+apply (name:HIDE_STEEL) {hidden=true;}
+
+/*@ define:input:hidden
+label: Black
+type: stringlist
+group: Equipment
+*/
+
+#define HIDE_BLACK ["Black dagger","Black mace","Black sword","Black scimitar","Black hasta","Black longsword","Black warhammer","Black battleaxe","Black claws","Black spear","Black halberd","Black 2h sword","Black crossbow","Black dart*","Black knife*","Black thrownaxe","Black arrow*","Black bolts*","Black brutal","Black javelin","Black boots","Black med helm","Black full helm","Black sq shield","Black platelegs","Black plateskirt","Black kiteshield","Black chainbody"]
+
+apply (name:HIDE_BLACK) {hidden=true;}
+
+/*@ define:input:hidden
+label: White
+type: stringlist
+group: Equipment
+*/
+
+#define HIDE_WHITE []
+
+apply (name:HIDE_WHITE) {hidden=true;}
+
+/*@ define:input:hidden
+label: Mithril
+type: stringlist
+group: Equipment
+*/
+
+#define HIDE_MITHRIL ["Mithril dagger", "Mithril axe","Mithril mace","Mithril sword","Mithril pickaxe","Mithril scimitar","Mithril hasta","Mithril longsword","Mithril warhammer","Mithril battleaxe","Mithril claws","Mithril spear","Mithril halberd","Mithril 2h sword","Mithril crossbow","Mithril dart*","Mithril knife*","Mithril thrownaxe","Mithril arrow*","Mithril bolts*","Mithril brutal","Mithril javelin","Mithril boots","Mithril med helm","Mithril full helm","Mithril sq shield","Mithril platelegs","Mithril plateskirt","Mithril kiteshield","Mithril chainbody"]
+
+apply (name:HIDE_MITHRIL) {hidden=true;}
+
+/*@ define:input:hidden
+label: Adamant
+type: stringlist
+group: Equipment
+*/
+
+#define HIDE_ADAMANT ["Adamant dagger", "Adamant axe","Adamant mace","Adamant sword","Adamant pickaxe","Adamant scimitar","Adamant hasta","Adamant longsword","Adamant claws","Adamant spear*","Adamant crossbow","Adamant dart*","Adamant knife*","Adamant thrownaxe","Adamant arrow*","Adamant brutal","Adamant javelin","Adamant boots","Adamant med helm","Adamant chainbody"]
+
+apply (name:HIDE_ADAMANT) {hidden=true;}
+
+/*@ define:input:hidden
+label: Rune
+type: stringlist
+group: Equipment
+*/
+
+#define HIDE_RUNE []
+
+apply (name:HIDE_RUNE) {hidden=true;}
+
+/*@ define:input:hidden
+label: Dragon
+type: stringlist
+group: Equipment
+*/
+
+#define HIDE_DRAGON []
+
+apply (name:HIDE_DRAGON) {hidden=true;}
+
+
+/*@ define:input:hidden
+label: Ranged
+type: stringlist
+group: Equipment
+*/
+
+#define HIDE_RANGED ["Leather gloves", "Leather boots", "Coif", "Leather body", "Leather chaps", "Leather cowl", "Leather vambraces", "Studded body", "Studded chaps","Frog-leather body","Frog-leather chaps", "Frog-leather boots","Snakeskin bandana","Snakeskin body","Snakeskin boots","Snakeskin chaps","Snakeskin vambraces","Shortbow","Oak shortbow","Willow shortbow","Maple shortbow","Yew shortbow","Magic shortbow","Longbow","Oak longbow","Willow longbow","Maple longbow","Yew longbow","Magic longbow","Dorgeshuun crossbow"]
+
+apply (name:HIDE_RANGED) {hidden=true;}
+
+/*@ define:input:hidden
+label: Mage
+type: stringlist
+group: Equipment
+*/
+
+#define HIDE_MAGE ["Staff of air", "Staff of water", "Staff of earth", "Staff of fire", "magic staff","Staff", "Zamorak monk top", "Zamorak monk bottom","Blue wizard hat","Blue wizard robe","Blue skirt","Wizard hat","Black robe","Black skirt","Xerician hat","Xerician top","Xerician robe"]
+
+apply (name:HIDE_MAGE) {hidden=true;}
+
+/*@ define:input:hidden
+label: Herbs
+type: stringlist
+group: Skilling
+*/
+#define HIDE_HERBS []
+
+apply (name:HIDE_HERBS) {hidden=true;}
+
+/*@ define:input:hidden
+label: Herblore Secondaries
+type: stringlist
+group: Skilling
+*/
+#define HIDE_SECONDARIES ["Ashes", "Jangerberries"]
+
+apply (name:HIDE_SECONDARIES) {hidden=true;}
+
+
+/*@ define:input:hidden
+label: Seeds
+type: stringlist
+group: Skilling
+*/
+#define HIDE_SEEDS []
+
+apply (name:HIDE_SEEDS) {hidden=true;}
+
+/*@ define:input:hidden
+label: Prayer
+type: stringlist
+group: Skilling
+*/
+#define HIDE_PRAYER ["Bones", "Big Bones", "Bat bones"]
+
+apply (name:HIDE_PRAYER) {hidden=true;}
+
+/*@ define:input:hidden
+label: Cooking
+type: stringlist
+group: Skilling
+*/
+#define HIDE_COOKING ["Cake tin", "Pie dish", "Pot of flour", "Jug of water", "Bucket of water", "Bowl of water", "Bucket of milk", "Pineapple"]
+
+apply (name:HIDE_COOKING) {hidden=true;}
+
+/*@ define:input:hidden
+label: Crafting
+type: stringlist
+group: Skilling
+*/
+#define HIDE_CRAFTING ["Cowhide", "Leather", "Hard Leather", "Snake hide", "Snakeskin", "Suqah hide", "Amulet mould", "Bolt mould","Bracelet mould","Holy mould","Necklace mould","Ring mould","Sickle mould","Tiara mould","Unholy mould","Needle","Glassblowing pipe","thread"]
+
+apply (name:HIDE_CRAFTING) {hidden=true;}
+
+/*@ define:input:hidden
+label: Fishing
+type: stringlist
+group: Skilling
+*/
+#define HIDE_FISHING ["Big fishing net", "Small fishing net", "Lobster pot", "Fishing rod", "Fly fishing rod", "Harpoon"]
+
+apply (name:HIDE_FISHING) {hidden=true;}
+
+/*@ define:input:hidden
+label: Runecraft
+type: stringlist
+group: Skilling
+*/
+#define HIDE_RUNECRAFT ["Air talisman", "Mind talisman", "Water talisman", "Earth talisman", "Fire talisman", "Body talisman", "Cosmic talisman", "Chaos talisman", "Nature talisman", "Law talisman", "Wrath talisman"]
+
+apply (name:HIDE_RUNECRAFT) {hidden=true;}
+
+/*@ define:input:hidden
+label: Hunter
+type: stringlist
+group: Skilling
+*/
+#define HIDE_HUNTER ["Bird snare", "Teasing stick", "Butterfly net", "Noose wand", "Rabbit snare"]
+
+apply (name:HIDE_HUNTER) {hidden=true;}
+
+/*@ define:input:hidden
+label: Cooked Food
+type: stringlist
+group: Misc
+*/
+
+#define HIDE_FOOD ["Bread", "Beer", "Asgarnian ale", "Cup of tea", "Beer tankard", "Keg of beer"]
+
+apply (name:HIDE_FOOD){hidden=true;}
+
+/*@ define:input:hidden
+label: Burnt Food
+type: stringlist
+group: Misc
+*/
+
+#define HIDE_BURNT_FOOD ["burnt *", "Ruined chompy", "Snake over-cooked", "Spider on shaft (burnt)"]
+
+apply (name:HIDE_BURNT_FOOD) {hidden=true;}
+
+/*@ define:input:hidden
+label: Potions
+type: stringlist
+group: Misc
+*/
+
+#define HIDE_POTIONS []
+
+apply (name:HIDE_POTIONS) {hidden=true;}
+
+/*@ define:input:hidden
+label: Containers
+type: stringlist
+group: Misc
+*/
+
+#define HIDE_CONTAINERS ["Vial", "Pot", "Jug", "Bucket", "Bowl", "Barrel", "Beer glass", "Tankard"]
+
+apply (name:HIDE_CONTAINERS) {hidden=true;}
+
+/*@ define:input:hidden
+label: Tools
+type: stringlist
+group: Misc
+*/
+
+#define HIDE_TOOLS ["Hammer","Chisel","Rope","knife","Pestle and mortar","saw","shears","tinderbox","Gardening trowel","Rake","Secateurs","Seed dibber","Spade","Trowel","Watering can"]
+
+apply (name:HIDE_TOOLS) {hidden=true;}
+
+
+/*@ define:input:hidden
+label: Misc
+type: stringlist
+group: Misc
+*/
+
+#define HIDE_MISC ["Seaweed", "Waterskin*", "Doogle leaves", "Papyrus", "Broken glass", "Lit candle", "Candle", "King worm", "Tile", "Stone ball", "Silk", "Fingernails", "Rusty sword"]
+
+apply (name:HIDE_MISC) {hidden=true;}
+
+
+/*@ define:module:uniques
+name: Uniques 
+subtitle: Style your Collection Log drops 
+*/
+
+/*@ define:input:uniques
+label: T1 Uniques
+type: style
+*/
+#define UNIQUE_T1_STYLE \
+	color = "#ffbc6025"; \
+	borderColor = "#ffbc6025"; \
+	backgroundColor = "#ff350d0d"; \
+	showLootbeam = true; \
+	textAccent = 3; \
+	fontType = 2; \
+    sound = "Unique_T1.wav";
+
+/*@ define:input:uniques
+label: T2 Uniques
+type: style
+*/
+#define UNIQUE_T2_STYLE \
+	color = "#ffffffff"; \
+	borderColor = "#ffffffff"; \
+	backgroundColor = "#ffbc6025"; \
+	showLootbeam = true; \
+	textAccent = 3; \
+	fontType = 2; \
+    sound = "Unique_T2.wav";
+
+/*@ define:input:uniques
+label: T3 Uniques
+type: style
+*/
+#define UNIQUE_T3_STYLE \
+	color = "#ffff0000"; \
+	borderColor = "#ffff0000"; \
+	backgroundColor = "#ffffffff"; \
+    showLootbeam = true; \
+    textAccent = 3; \
+    fontType = 3; \
+    sound = "Unique_T3.wav";
+
+
+/*@ define:module:food_and_pots
+name: Food and Potions
+subtitle: Never Forget your Pots Again
+*/
+
+/*@ define:input:food_and_pots
+label: Food
+type: stringlist
+group: My Food and Potoins
+*/
+
+#define MYFOOD_NAMES ["Manta ray", "Dark crab", "Anglerfish", "Sea turtle", "Shark", "Cooked karambwan"] 
+
+/*@ define:input:food_and_pots
+label: Potions
+type: stringlist
+group: My Food and Potoins
+*/
+
+#define MYPOTS_NAMES ["Saradomin brew*", "Super restore*", "Ranging potion*", "Super combat potion*", "Prayer potion*", "Extended anti-venom+*", "Superantipoison*", "Stamina potion*", "Extended super antifire*", "Prayer regeneration*", "Goading potion*"]
+
+/*@ define:input:food_and_pots
+label: Food Style
+type: style
+group: Styles
+exampleItem: Shark
+*/
+
+#define MYFOOD_STYLE \
+    fontType = 3;
+
+/*@ define:input:food_and_pots
+label: Potion Style
+type: style
+group: Styles
+exampleItem: Saradomin brew(4)
+*/
+
+#define MYPOTS_STYLE \
+    fontType = 3; \
+    showLootbeam = true;
+
+rule (name:MYFOOD_NAMES && stackable:false) {MYFOOD_STYLE}
+rule (name:MYPOTS_NAMES && stackable:false) {MYPOTS_STYLE}
+
+/*@ define:input:food_and_pots
+label: Supply Drops
+type: style
+group: Styles
+exampleItem: Wild pie
+*/
+
+#define SUPPLY_DROP_STYLE \
+    fontType = 2; 
+
+/*@ define:module:abyssal_demons
+name: Abyssal Demons
+subtitle: Hide Drops and Highlight Supplies
+description: Set a Unique Tier for Abyssal Daggers when dropped from Abyssal Demons
+*/
+
+/*@ define:input:abyssal_demons
+label: Tier 3 Unique
+type: boolean
+group: Abyssal Dagger Ratity
+*/
+
+#define ENABLE_ABBY_DAGGER_T3 true
+
+rule (area:[1666,10083,0,1682,10103,0] && ENABLE_ABBY_DAGGER_T3 && name:"Abyssal dagger") {UNIQUE_T3_STYLE} // Catacombs of Kourend - Main
+rule (area:[1667,10050,0,1684,10064,0] && ENABLE_ABBY_DAGGER_T3 && name:"Abyssal dagger") {UNIQUE_T3_STYLE} // Catacombs of Kourend - Center
+rule (area:[3405,3555,2,3580,10064,2] && ENABLE_ABBY_DAGGER_T3 && name:"Abyssal dagger") {UNIQUE_T3_STYLE} // Slayer Tower
+rule (area:[3423,9953,3,3448,9953,3] && ENABLE_ABBY_DAGGER_T3 && name:"Abyssal dagger") {UNIQUE_T3_STYLE} // Slayer Tower - Basement
+rule (area:[3331,10152,0,3352,10174,0] && ENABLE_ABBY_DAGGER_T3 && name:"Abyssal dagger") {UNIQUE_T3_STYLE} // Wilderness Slayer Cave
+rule (area:[3011,4867,0,3069,4926,0] && ENABLE_ABBY_DAGGER_T3 && name:"Abyssal dagger") {UNIQUE_T3_STYLE} // Abyssal Area
+
+/*@ define:input:abyssal_demons
+label: Tier 2 Unique
+type: boolean
+group: Abyssal Dagger Ratity
+*/
+
+#define ENABLE_ABBY_DAGGER_T2 false
+
+rule (area:[1666,10083,0,1682,10103,0] && ENABLE_DUST_DCHAIN_T2 && name:"Abyssal dagger") {UNIQUE_T2_STYLE} // Catacombs of Kourend - Main
+rule (area:[1667,10050,0,1684,10064,0] && ENABLE_DUST_DCHAIN_T2 && name:"Abyssal dagger") {UNIQUE_T2_STYLE} // Catacombs of Kourend - Center
+rule (area:[3405,3555,2,3580,10064,2] && ENABLE_DUST_DCHAIN_T2 && name:"Abyssal dagger") {UNIQUE_T2_STYLE} // Slayer Tower
+rule (area:[3423,9953,3,3448,9953,3] && ENABLE_DUST_DCHAIN_T2 && name:"Abyssal dagger") {UNIQUE_T2_STYLE} // Slayer Tower - Basement
+rule (area:[3331,10152,0,3352,10174,0] && ENABLE_DUST_DCHAIN_T2 && name:"Abyssal dagger") {UNIQUE_T2_STYLE} // Wilderness Slayer Cave
+rule (area:[3011,4867,0,3069,4926,0] && ENABLE_DUST_DCHAIN_T2 && name:"Abyssal dagger") {UNIQUE_T2_STYLE} // Abyssal Area
+
+/*@ define:input:abyssal_demons
+label: Tier 1 Unique
+type: boolean
+group: Abyssal Dagger Ratity
+*/
+
+#define ENABLE_ABBY_DAGGER_T1 false
+
+rule (area:[1666,10083,0,1682,10103,0] && ENABLE_ABBY_DAGGER_T1 && name:"Abyssal dagger") {UNIQUE_T1_STYLE} // Catacombs of Kourend - Main
+rule (area:[1667,10050,0,1684,10064,0] && ENABLE_ABBY_DAGGER_T1 && name:"Abyssal dagger") {UNIQUE_T1_STYLE} // Catacombs of Kourend - Center
+rule (area:[3405,3555,2,3580,10064,2] && ENABLE_ABBY_DAGGER_T1 && name:"Abyssal dagger") {UNIQUE_T1_STYLE} // Slayer Tower
+rule (area:[3423,9953,3,3448,9953,3] && ENABLE_ABBY_DAGGER_T1 && name:"Abyssal dagger") {UNIQUE_T1_STYLE} // Slayer Tower - Basement
+rule (area:[3331,10152,0,3352,10174,0] && ENABLE_ABBY_DAGGER_T1 && name:"Abyssal dagger") {UNIQUE_T1_STYLE} // Wilderness Slayer Cave
+rule (area:[3011,4867,0,3069,4926,0] && ENABLE_ABBY_DAGGER_T1 && name:"Abyssal dagger") {UNIQUE_T1_STYLE} // Abyssal Area
+
+/*@ define:input:abyssal_demons
+label: Hide Items
+type: stringlist
+group: Catacombs of Kourend
+*/
+
+#define ABBYDEMONS_CATACOMBS_HIDE ["Black sword", "Steel battleaxe", "Black axe", "Mithril kiteshield", "Lobster", "Cosmic talisman", "Chaos talisman", "Defence potion(3)"]
+
+
+rule (area:[1666,10083,0,1682,10103,0] && name:ABBYDEMONS_CATACOMBS_HIDE) {hidden = true;} // Catacombs of Kourend - Main
+rule (area:[1667,10050,0,1684,10064,0] && name:ABBYDEMONS_CATACOMBS_HIDE) {hidden = true;} // Catacombs of Kourend - Center
+
+/*@ define:input:abyssal_demons
+label: Supply Drop
+type: enumlist
+enum: ["Lobster"]
+group: Catacombs of Kourend
+*/
+
+#define ABBYDEMONS_CATACOMBS_SUPPLY []
+
+rule (area:[1666,10083,0,1682,10103,0] && name:ABBYDEMONS_CATACOMBS_SUPPLY) {SUPPLY_DROP_STYLE} // Catacombs of Kourend - Main
+rule (area:[1667,10050,0,1684,10064,0] && name:ABBYDEMONS_CATACOMBS_SUPPLY) {SUPPLY_DROP_STYLE} // Catacombs of Kourend - Center
+
+/*@ define:input:abyssal_demons
+label: Hide Items
+type: stringlist
+group: Slayer Tower
+*/
+
+#define ABBYDEMONS_SLAYER_TOWER_HIDE ["Black sword", "Steel battleaxe", "Black axe", "Mithril kiteshield", "Lobster", "Cosmic talisman", "Chaos talisman", "Defence potion(3)"]
+
+rule (area:[3405,3555,2,3580,10064,2] && name:ABBYDEMONS_SLAYER_TOWER_HIDE) {hidden = true;} // Slayer Tower
+rule (area:[3423,9953,3,3448,9953,3] && name:ABBYDEMONS_SLAYER_TOWER_HIDE) {hidden = true;} // Slayer Tower - Basement
+
+/*@ define:input:abyssal_demons
+label: Supply Drop
+type: enumlist
+enum: ["Lobster"]
+group: Slayer Tower
+*/
+
+#define ABBYDEMONS_SLAYER_TOWER_SUPPLY []
+
+rule (area:[3405,3555,2,3580,10064,2] && name:ABBYDEMONS_SLAYER_TOWER_SUPPLY) {SUPPLY_DROP_STYLE} // Slayer Tower
+rule (area:[3423,9953,3,3448,9953,3] && name:ABBYDEMONS_SLAYER_TOWER_SUPPLY) {SUPPLY_DROP_STYLE} // Slayer Tower - Basement
+
+/*@ define:input:abyssal_demons
+label: Hide Items
+type: stringlist
+group: Wilderness
+*/
+#define ABBYDEMONS_WILDERNESS_HIDE ["Black sword", "Steel battleaxe", "Black axe", "Mithril kiteshield", "Lobster", "Cosmic talisman", "Chaos talisman", "Defence potion(3)", "Grimy guam leaf", "Grimy marrentill", "Grimy tarromin", "Grimy harralander"]
+
+rule (area:[3331,10152,0,3352,10174,0] && name:ABBYDEMONS_WILDERNESS_HIDE) {hidden = true;}
+
+/*@ define:input:abyssal_demons
+label: Supply Drop
+type: enumlist
+enum: ["Lobster","Blighted anglerfish","Blighted manta ray","Blighted karambwan","Blighted super restore(*)"]
+group: Wilderness
+*/
+
+#define ABBYDEMONS_WILDERNESS_SUPPLY ["Blighted anglerfish","Blighted manta ray","Blighted karambwan","Blighted super restore(*)"]
+
+rule (area:[3331,10152,0,3352,10174,0] && name:ABBYDEMONS_WILDERNESS_SUPPLY) {SUPPLY_DROP_STYLE}
+
+/*@ define:module:ankou
+name: Ankou
+subtitle: Hide Drops and Highlight Supplies
+*/
+
+/*@ define:input:ankou
+label: Hide Items
+type: stringlist
+group: Catacombs of Kourend
+*/
+#define ANKOU_CATACOMBS_HIDE ["Weapon poison", "Black knife", "Black robe", "Fried mushrooms", "Bass"]
+
+rule (area:[1633,9986,0,1653,10003,0] && name:ANKOU_CATACOMBS_HIDE) {hidden = true;}
+
+/*@ define:input:ankou
+label: Supply Drop
+type: enumlist
+enum: ["bass"]
+group: Catacombs of Kourend
+*/
+
+#define ANKOU_CATACOMBS_SUPPLY []
+
+rule (area:[1633,9986,0,1653,10003,0] && name:ANKOU_CATACOMBS_SUPPLY) {SUPPLY_DROP_STYLE}
+
+/*@ define:input:ankou
+label: Hide Items
+type: stringlist
+group: Stronghold of Security
+*/
+#define ANKOU_SECURITY_HIDE ["Weapon poison", "Black knife", "Black robe", "Fried mushrooms", "Bass"]
+
+rule (area:[2303,5183,0,2369,5249,0] && name:ANKOU_SECURITY_HIDE) {hidden = true;}
+
+/*@ define:input:ankou
+label: Supply Drop
+type: enumlist
+enum: ["bass"]
+group: Stronghold of Security
+*/
+
+#define ANKOU_SECURITY_SUPPLY []
+
+rule (area:[2303,5183,0,2369,5249,0] && name:ANKOU_SECURITY_SUPPLY) {SUPPLY_DROP_STYLE}
+
+/*@ define:input:ankou
+label: Hide Items
+type: stringlist
+group: Stronghold Slayer Cave
+*/
+#define ANKOU_STRONGHOLD_HIDE ["Weapon poison", "Black knife", "Black robe", "Fried mushrooms", "Bass"]
+
+rule (area:[2466,9792,0,2488,9814,0] && name:ANKOU_STRONGHOLD_HIDE) {hidden = true;}
+
+/*@ define:input:ankou
+label: Supply Drop
+type: enumlist
+enum: ["bass"]
+group: Stronghold Slayer Cave
+*/
+
+#define ANKOU_STRONGHOLD_SUPPLY []
+
+rule (area:[2466,9792,0,2488,9814,0] && name:ANKOU_STRONGHOLD_SUPPLY) {SUPPLY_DROP_STYLE}
+
+/*@ define:input:ankou
+label: Hide Items
+type: stringlist
+group: Wilderness
+*/
+#define ANKOU_WILDERNESS_HIDE ["Weapon poison", "Black knife", "Black robe", "Fried mushrooms", "Bass"]
+
+rule (area:[2950,3724,0,3004,3780,0] && name:ANKOU_WILDERNESS_HIDE) {hidden = true;}
+
+/*@ define:input:ankou
+label: Supply Drop
+type: enumlist
+enum: ["bass"]
+group: Wilderness
+*/
+
+#define ANKOU_WILDERNESS_SUPPLY []
+
+rule (area:[2950,3724,0,3004,3780,0] && name:ANKOU_WILDERNESS_SUPPLY) {SUPPLY_DROP_STYLE}
+
+/*@ define:input:ankou
+label: Hide Items
+type: stringlist
+group: Wilderness Slayer Cave
+*/
+#define ANKOU_WILDERNESS_CAVE_HIDE ["Grimy guam leaf","Grimy marrentill","Grimy tarromin","Grimy harralander"]
+
+rule (area:[2950,3724,0,3004,3780,0] && name:ANKOU_WILDERNESS_CAVE_HIDE) {hidden = true;}
+
+/*@ define:input:ankou
+label: Supply Drop
+type: enumlist
+enum: ["Blighted anglerfish","Blighted manta ray","Blighted karambwan","Blighted super restore(*)"]
+group: Wilderness Slayer Cave
+*/
+
+#define ANKOU_WILDERNESS_CAVE_SUPPLY ["Blighted anglerfish","Blighted manta ray","Blighted karambwan","Blighted super restore(*)"]
+
+rule (area:[2950,3724,0,3004,3780,0] && name:ANKOU_WILDERNESS_CAVE_SUPPLY) {SUPPLY_DROP_STYLE}
+
+/*@ define:module:araxytes
+name: Araxytes
+subtitle: Hide Drops and Highlight Supplies
+*/
+
+/*@ define:input:araxytes
+label: Hide Items
+type: stringlist
+*/
+
+#define ARAXYTE_HIDE ["Adamant longsword"]
+
+rule (area:[3654,9795,0,3711,9868,0]  && name:ARAXYTE_HIDE) {hidden=true;}
+
+/*@ define:module:cave_horrors
+name: Cave Horrors
+subtitle: Hide Drops and Highlight Supplies
+*/
+
+/*@ define:input:cave_horrors
+label: Hide Items
+type: stringlist
+*/
+#define CAVE_HORROR_HIDE ["Adamant full helm", "Mahogany logs", "Limpwurt root"]
+
+rule (area:[3716,9348,0,3839,9472,0] && name:CAVE_HORROR_HIDE) {hidden = true;}
+
+
+/*@ define:module:demonic_gorillas
+name: Demonic Gorillas
+subtitle: Hide Drops and Highlight Supplies
+*/
+
+/*@ define:input:demonic_gorillas
+label: Hide Items
+type: stringlist
+*/
+
+#define DEMONIC_GORILLA_HIDE ["Javelin shaft"]
+
+rule (area:[2066,5637,0,2166,5691,0] && name:DEMONIC_GORILLA_HIDE) {hidden = true;}
+
+/*@ define:input:demonic_gorillas
+label: Supply Drop
+type: enumlist
+enum: ["Shark","Saradomin brew*"]
+*/
+
+#define DEMONIC_GORILLA_SUPPLY ["Shark"]
+
+rule (area:[2066,5637,0,2166,5691,0] && name:DEMONIC_GORILLA_SUPPLY) {SUPPLY_DROP_STYLE}
+
+
+/*@ define:module:dust_devils
+name: Dust Devils
+subtitle: Hide Drops and Highlight Supplies
+description: Set a Unique Tier for Dragon Chainbodys when dropped from Dust Devils
+*/
+
+/*@ define:input:dust_devils
+label: Tier 3 Unique
+type: boolean
+group: Dragon Chainbody Ratity
+*/
+
+#define ENABLE_DUST_DCHAIN_T3 true
+
+rule (area:[1699,10009,0,1721,10039,0] && ENABLE_DUST_DCHAIN_T3 && name:"Dragon chainbody") {UNIQUE_T3_STYLE} // Catacombs of Kourend
+rule (area:[3167,9345,0,3328,9407,0] && ENABLE_DUST_DCHAIN_T3 && name:"Dragon chainbody") {UNIQUE_T3_STYLE} // Smoke dungeon
+rule (area:[3423,10113,0,3454,10133,0] && ENABLE_DUST_DCHAIN_T3 && name:"Dragon chainbody") {UNIQUE_T3_STYLE} // Wilderness Slayer Cave
+
+/*@ define:input:dust_devils
+label: Tier 2 Unique
+type: boolean
+group: Dragon Chainbody Ratity
+*/
+
+#define ENABLE_DUST_DCHAIN_T2 false
+
+rule (area:[1699,10009,0,1721,10039,0] && ENABLE_DUST_DCHAIN_T2 && name:"Dragon chainbody") {UNIQUE_T2_STYLE} // Catacombs of Kourend
+rule (area:[3167,9345,0,3328,9407,0] && ENABLE_DUST_DCHAIN_T2 && name:"Dragon chainbody") {UNIQUE_T2_STYLE} // Smoke dungeon
+rule (area:[3423,10113,0,3454,10133,0] && ENABLE_DUST_DCHAIN_T2 && name:"Dragon chainbody") {UNIQUE_T2_STYLE} // Wilderness Slayer Cave
+
+/*@ define:input:dust_devils
+label: Tier 1 Unique
+type: boolean
+group: Dragon Chainbody Ratity
+*/
+
+#define ENABLE_DUST_DCHAIN_T1 false
+
+rule (area:[1699,10009,0,1721,10039,0] && ENABLE_DUST_DCHAIN_T1 && name:"Dragon chainbody") {UNIQUE_T1_STYLE} // Catacombs of Kourend
+rule (area:[3167,9345,0,3328,9407,0] && ENABLE_DUST_DCHAIN_T1 && name:"Dragon chainbody") {UNIQUE_T1_STYLE} // Smoke dungeon
+rule (area:[3423,10113,0,3454,10133,0] && ENABLE_DUST_DCHAIN_T1 && name:"Dragon chainbody") {UNIQUE_T1_STYLE} // Wilderness Slayer Cave
+
+
+/*@ define:input:dust_devils
+label: Hide Items
+type: stringlist
+group: Catacombs of Kourend
+*/
+
+#define DUST_DEVIL_CATACOMBS_HIDE ["Adamant axe","Ugthanki kebab"]
+
+rule (area:[1699,10009,0,1721,10039,0] && name: DUST_DEVIL_CATACOMBS_HIDE) {hidden = true;}
+
+/*@ define:input:dust_devils
+label: Supply Drop
+type: enumlist
+enum: ["Ugthanki kebab"]
+group: Catacombs of Kourend
+*/
+
+#define DUST_DEVIL_CATACOMBS_SUPPLY []
+
+rule (area:[1699,10009,0,1721,10039,0] && name: DUST_DEVIL_CATACOMBS_SUPPLY) {SUPPLY_DROP_STYLE}
+
+
+/*@ define:input:dust_devils
+label: Hide Items
+type: stringlist
+group: Smoke Dungeon
+*/
+
+#define DUST_DEVIL_SMOKE_HIDE ["Adamant axe","Ugthanki kebab"]
+
+rule (area:[3167,9345,0,3328,9407,0] && name: DUST_DEVIL_SMOKE_HIDE) {hidden = true;} 
+
+/*@ define:input:dust_devils
+label: Supply Drop
+type: enumlist
+enum: ["Ugthanki kebab"]
+group: Smoke Dungeon
+*/
+
+#define DUST_DEVIL_SMOKE_SUPPLY []
+
+rule (area:[3167,9345,0,3328,9407,0] && name: DUST_DEVIL_SMOKE_SUPPLY) {SUPPLY_DROP_STYLE}
+
+/*@ define:input:dust_devils
+label: Hide Items
+type: stringlist
+group: Wilderness Slayer Cave
+*/
+
+#define DUST_DEVIL_WILDY_HIDE ["Adamant axe","Ugthanki kebab","Grimy guam leaf","Grimy marrentill","Grimy tarromin","Grimy harralander", "Red d'hide vambraces", "Black d'hide vambraces", "Rune dagger"]
+
+rule (area:[3423,10113,0,3454,10133,0] && name: DUST_DEVIL_WILDY_HIDE) {hidden = true;}
+
+/*@ define:input:dust_devils
+label: Supply Drop
+type: enumlist
+enum: ["Blighted anglerfish","Blighted manta ray","Blighted karambwan","Blighted super restore(*)"]
+group: Wilderness Slayer Cave
+*/
+
+#define DUST_DEVIL_WILDY_SUPPLY ["Blighted anglerfish","Blighted manta ray","Blighted karambwan","Blighted super restore(*)"]
+
+rule (area:[3423,10113,0,3454,10133,0] && name: DUST_DEVIL_WILDY_SUPPLY) {SUPPLY_DROP_STYLE}
+
+
+
+
+
+
+/*@ define:module:hellhounds
+name: Hellhounds
+subtitle: Hide Drops and Highlight Supplies
+description: Set a Unique Tier for Smouldering Stones when dropped from Hellhounds
+*/
+
+/*@ define:input:hellhounds
+label: Tier 3 Unique
+type: boolean
+group: Smouldering Stone Ratity
+*/
+
+#define ENABLE_HELLHOUND_STONE_T3 true
+
+rule (area:[3155,3905,0,3207,3968,0] && ENABLE_HELLHOUND_STONE_T3 && name:"Smouldering stone") {UNIQUE_T3_STYLE} // Wilderness Lever
+rule (area:[2728,9676,0,2748,9702,0] && ENABLE_HELLHOUND_STONE_T3 && name:"Smouldering stone") {UNIQUE_T3_STYLE} // Witchaven Dungeon
+rule (area:[2819,5280,2,2944,5376,2] && ENABLE_HELLHOUND_STONE_T3 && name:"Smouldering stone") {UNIQUE_T3_STYLE} // God Wars Dungeon
+rule (area:[2405,9768,0,2437,9808,0] && ENABLE_HELLHOUND_STONE_T3 && name:"Smouldering stone") {UNIQUE_T3_STYLE} // Stronghold Slayer Cave
+rule (area:[2837,9816,0,2876,9856,0] && ENABLE_HELLHOUND_STONE_T3 && name:"Smouldering stone") {UNIQUE_T3_STYLE} // Taverly Dungeon
+rule (area:[3427,10067,0,3454,10103,0] && ENABLE_HELLHOUND_STONE_T3 && name:"Smouldering stone") {UNIQUE_T3_STYLE} // Wilderness Slayer Cave
+rule (area:[1635,10053,0,1655,10077,0] && ENABLE_HELLHOUND_STONE_T3 && name:"Smouldering stone") {UNIQUE_T3_STYLE} // Catacombs of Kourend
+rule (area:[1325,10189,2,1358,10217,2] && ENABLE_HELLHOUND_STONE_T3 && name:"Smouldering stone") {UNIQUE_T3_STYLE} // Karuulm Slayer Dungeon
+
+/*@ define:input:hellhounds
+label: Tier 2 Unique
+type: boolean
+group: Smouldering Stone Ratity
+*/
+
+#define ENABLE_HELLHOUND_STONE_T2 false
+
+rule (area:[3155,3905,0,3207,3968,0] && ENABLE_HELLHOUND_STONE_T2 && name:"Smouldering stone") {UNIQUE_T2_STYLE} // Wilderness Lever
+rule (area:[2728,9676,0,2748,9702,0] && ENABLE_HELLHOUND_STONE_T2 && name:"Smouldering stone") {UNIQUE_T2_STYLE} // Witchaven Dungeon
+rule (area:[2819,5280,2,2944,5376,2] && ENABLE_HELLHOUND_STONE_T2 && name:"Smouldering stone") {UNIQUE_T2_STYLE} // God Wars Dungeon
+rule (area:[2405,9768,0,2437,9808,0] && ENABLE_HELLHOUND_STONE_T2 && name:"Smouldering stone") {UNIQUE_T2_STYLE} // Stronghold Slayer Cave
+rule (area:[2837,9816,0,2876,9856,0] && ENABLE_HELLHOUND_STONE_T2 && name:"Smouldering stone") {UNIQUE_T2_STYLE} // Taverly Dungeon
+rule (area:[3427,10067,0,3454,10103,0] && ENABLE_HELLHOUND_STONE_T2 && name:"Smouldering stone") {UNIQUE_T2_STYLE} // Wilderness Slayer Cave
+rule (area:[1635,10053,0,1655,10077,0] && ENABLE_HELLHOUND_STONE_T2 && name:"Smouldering stone") {UNIQUE_T2_STYLE} // Catacombs of Kourend
+rule (area:[1325,10189,2,1358,10217,2] && ENABLE_HELLHOUND_STONE_T2 && name:"Smouldering stone") {UNIQUE_T2_STYLE} // Karuulm Slayer Dungeon
+
+/*@ define:input:hellhounds
+label: Tier 1 Unique
+type: boolean
+group: Smouldering Stone Ratity
+*/
+
+#define ENABLE_HELLHOUND_STONE_T1 false
+
+rule (area:[3155,3905,0,3207,3968,0] && ENABLE_HELLHOUND_STONE_T1 && name:"Smouldering stone") {UNIQUE_T1_STYLE} // Wilderness Lever
+rule (area:[2728,9676,0,2748,9702,0] && ENABLE_HELLHOUND_STONE_T1 && name:"Smouldering stone") {UNIQUE_T1_STYLE} // Witchaven Dungeon
+rule (area:[2819,5280,2,2944,5376,2] && ENABLE_HELLHOUND_STONE_T1 && name:"Smouldering stone") {UNIQUE_T1_STYLE} // God Wars Dungeon
+rule (area:[2405,9768,0,2437,9808,0] && ENABLE_HELLHOUND_STONE_T1 && name:"Smouldering stone") {UNIQUE_T1_STYLE} // Stronghold Slayer Cave
+rule (area:[2837,9816,0,2876,9856,0] && ENABLE_HELLHOUND_STONE_T1 && name:"Smouldering stone") {UNIQUE_T1_STYLE} // Taverly Dungeon
+rule (area:[3427,10067,0,3454,10103,0] && ENABLE_HELLHOUND_STONE_T1 && name:"Smouldering stone") {UNIQUE_T1_STYLE} // Wilderness Slayer Cave
+rule (area:[1635,10053,0,1655,10077,0] && ENABLE_HELLHOUND_STONE_T1 && name:"Smouldering stone") {UNIQUE_T1_STYLE} // Catacombs of Kourend
+rule (area:[1325,10189,2,1358,10217,2] && ENABLE_HELLHOUND_STONE_T1 && name:"Smouldering stone") {UNIQUE_T1_STYLE} // Karuulm Slayer Dungeon
+
+/*@ define:input:hellhounds
+label: Hide Items
+type: stringlist
+group: Catacombs of Kourend
+*/
+
+#define HELLHOUND_CATACOMBS_HIDE ["vile ashes"]
+
+rule (area:[1635,10053,0,1655,10077,0] && name:HELLHOUND_CATACOMBS_HIDE) {hidden = true;}
+
+/*@ define:input:hellhounds
+label: Hide Items
+type: stringlist
+group: Catacombs of Kourend
+*/
+
+#define HELLHOUND_KARUULM_HIDE ["vile ashes"]
+
+rule (area:[1325,10189,2,1358,10217,2] && name:HELLHOUND_KARUULM_HIDE) {hidden = true;}
+
+
+/*@ define:input:hellhounds
+label: Hide Items
+type: stringlist
+group: Stronghold Slayer Cave
+*/
+
+#define HELLHOUND_STRONGHOLD_HIDE ["vile ashes"]
+
+rule (area:[2405,9768,0,2437,9808,0] && name:HELLHOUND_STRONGHOLD_HIDE) {hidden = true;}
+
+
+/*@ define:input:hellhounds
+label: Hide Items
+type: stringlist
+group: Taverly Dungeon
+*/
+
+#define HELLHOUND_TAVERLY_HIDE ["vile ashes"]
+
+rule (area:[2837,9816,0,2876,9856,0] && name:HELLHOUND_TAVERLY_HIDE) {hidden = true;}
+
+
+/*@ define:input:hellhounds
+label: Hide Items
+type: stringlist
+group: Wilderness Lever
+*/
+
+#define HELLHOUND_WILDERNESS_HIDE ["vile ashes"]
+
+rule (area:[3155,3905,0,3207,3968,0] && name:HELLHOUND_WILDERNESS_HIDE) {hidden = true;}
+
+
+/*@ define:input:hellhounds
+label: Hide Items
+type: stringlist
+group: Wilderness Slayer Cave
+*/
+
+#define HELLHOUND_WILDERNESS_CAVE_HIDE ["vile ashes"]
+
+rule (area:[3427,10067,0,3454,10103,0] && name:HELLHOUND_WILDERNESS_CAVE_HIDE) {hidden = true;}
+
+
+/*@ define:input:hellhounds
+label: Hide Items
+type: stringlist
+group: Witchaven Dungeon
+*/
+
+#define HELLHOUND_WITCHAVEN_HIDE ["vile ashes"]
+
+rule (area:[2728,9676,0,2748,9702,0] && name:HELLHOUND_WITCHAVEN_HIDE) {hidden = true;}
+
+
+
+/*@ define:module:abyssal_sire
+name: Abyssal Sire
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:abyssal_sire
+label: Unique T3
+type: enumlist
+enum: ["Unsired","Bludgeon claw","Bludgeon spine","Bludgeon axon","Abyssal bludgeon","Abyssal dagger*","Abyssal whip","Jar of miasma","Abyssal head"]
+*/
+
+#define ABYSSAL_SIRE_T3_UNIQUES ["Abyssal bludgeon","Jar of miasma"]
+
+rule (name:ABYSSAL_SIRE_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:abyssal_sire
+label: Unique T2
+type: enumlist
+enum: ["Unsired","Bludgeon claw","Bludgeon spine","Bludgeon axon","Abyssal bludgeon","Abyssal dagger*","Abyssal whip","Jar of miasma","Abyssal head"]
+*/
+
+#define ABYSSAL_SIRE_T2_UNIQUES ["Unsired","Bludgeon claw","Bludgeon spine","Bludgeon axon","Abyssal dagger*","Abyssal whip"]
+
+rule (name:ABYSSAL_SIRE_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:abyssal_sire
+label: Unique T1
+type: enumlist
+enum: ["Unsired","Bludgeon claw","Bludgeon spine","Bludgeon axon","Abyssal bludgeon","Abyssal dagger*","Abyssal whip","Jar of miasma","Abyssal head"]
+*/
+
+#define ABYSSAL_SIRE_T1_UNIQUES ["Abyssal head"]
+
+rule (name:ABYSSAL_SIRE_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:abyssal_sire
+label: Hide Items
+type: stringlist
+*/
+
+#define ABYSSAL_SIRE_HIDE ["Fiendish ashes"]
+
+rule (area:[2949,4737,0,3135,4865,0] && name:ABYSSAL_SIRE_HIDE) {hidden = true;}
+
+/*@ define:input:abyssal_sire
+label: Supply Drop
+type: enumlist
+enum: ["Chilli potato", "Super restore(*)", "Saradomin brew(*)"]
+*/
+
+#define ABYSSAL_SIRE_SUPPLY ["Chilli potato", "Super restore(*)", "Saradomin brew(*)"]
+
+rule (area:[2949,4737,0,3135,4865,0] && name:ABYSSAL_SIRE_SUPPLY) {SUPPLY_DROP_STYLE}
+
+/*@ define:module:alchemical_hydra
+name: Alchemical Hydra
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:alchemical_hydra
+label: Unique T3
+type: enumlist
+enum: ["Hydra's eye","Hydra's fang","Hydra's heart","Brimstone ring","Hydra tail","Hydra leather","Ferocious gloves","Hydra's claw","Dragon hunter lance","Dragon thrownaxe", "Dragon knife", "Jar of chemicals", "Alchemical hydra heads"]
+*/
+
+#define ALCHEMICAL_HYDRA_T3_UNIQUES ["Hydra's claw","Dragon hunter lance", "Jar of chemicals"]
+
+rule (name:ALCHEMICAL_HYDRA_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:alchemical_hydra
+label: Unique T2
+type: enumlist
+enum: ["Hydra's eye","Hydra's fang","Hydra's heart","Brimstone ring","Hydra tail","Hydra leather","Ferocious gloves","Hydra's claw","Dragon hunter lance","Dragon thrownaxe", "Dragon knife", "Jar of chemicals", "Alchemical hydra heads"]
+*/
+
+#define ALCHEMICAL_HYDRA_T2_UNIQUES ["Hydra's eye","Hydra's fang","Hydra's heart","Brimstone ring","Hydra leather","Ferocious gloves"]
+
+rule (name:ALCHEMICAL_HYDRA_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:alchemical_hydra
+label: Unique T1
+type: enumlist
+enum: ["Hydra's eye","Hydra's fang","Hydra's heart","Brimstone ring","Hydra tail","Hydra leather","Ferocious gloves","Hydra's claw","Dragon hunter lance","Dragon thrownaxe", "Dragon knife", "Jar of chemicals", "Alchemical hydra heads"]
+*/
+
+#define ALCHEMICAL_HYDRA_T1_UNIQUES ["Hydra tail","Dragon knife","Alchemical hydra heads"]
+
+rule (name:ALCHEMICAL_HYDRA_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:alchemical_hydra
+label: Hide Items
+type: stringlist
+*/
+
+#define ALCHEMICAL_HYDRA_HIDE []
+
+rule (area:[1355,10254,0,1380,10282,0] && name:ALCHEMICAL_HYDRA_HIDE) {hidden = true;}
+
+/*@ define:input:alchemical_hydra
+label: Supply Drop
+type: enumlist
+enum: ["Shark", "Super restore(*)"]
+*/
+
+#define ALCHEMICAL_HYDRA_SUPPLY ["Shark", "*Wild pie", "Prayer potion(*)", "Super combat potion(*)"]
+
+rule (area:[1355,10254,0,1380,10282,0] && name:ALCHEMICAL_HYDRA_SUPPLY) {SUPPLY_DROP_STYLE}
+
+
+/*@ define:module:amoxliatl
+name: Amoxliatl
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:amoxliatl
+label: Unique T3
+type: enumlist
+enum: ["Glacial temotli"]
+*/
+
+#define AMOXLIATL_T3_UNIQUES []
+
+rule (name:AMOXLIATL_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:amoxliatl
+label: Unique T2
+type: enumlist
+enum: ["Glacial temotli"]
+*/
+
+#define AMOXLIATL_T2_UNIQUES []
+
+rule (name:AMOXLIATL_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:amoxliatl
+label: Unique T1
+type: enumlist
+enum: ["Glacial temotli"]
+*/
+
+#define AMOXLIATL_T1_UNIQUES ["Glacial temotli"]
+
+rule (name:AMOXLIATL_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:amoxliatl
+label: Hide Items
+type: stringlist
+*/
+
+#define AMOXLIATL_HIDE []
+
+rule (area:[1346,4493,0,1388,4530,0] && name:AMOXLIATL_HIDE) {hidden = true;}
+
+/*@ define:input:amoxliatl
+label: Supply Drop
+type: enumlist
+enum: ["Prayer potion(*)"]
+*/
+
+#define AMOXLIATL_SUPPLY ["Prayer potion(*)"]
+
+rule (area:[1346,4493,0,1388,4530,0] && name:AMOXLIATL_SUPPLY) {SUPPLY_DROP_STYLE}
+
+/*@ define:module:araxxor
+name: Araxxor
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:araxxor
+label: Unique T3
+type: enumlist
+enum: ["Noxious pommel","Noxious point","Noxious blade","Noxious halberd","Araxyte fang","Amulet of rancour", "Araxyte head", "Jar of venom"]
+*/
+
+#define ARAXXOR_T3_UNIQUES ["Noxious pommel","Noxious point","Noxious blade","Noxious halberd","Araxyte fang","Amulet of rancour","Jar of venom"]
+
+rule (name:ARAXXOR_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:araxxor
+label: Unique T2
+type: enumlist
+enum: ["Noxious pommel","Noxious point","Noxious blade","Noxious halberd","Araxyte fang","Amulet of rancour", "Araxyte head", "Jar of venom"]
+*/
+
+#define ARAXXOR_T2_UNIQUES []
+
+rule (name:ARAXXOR_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:araxxor
+label: Unique T1
+type: enumlist
+enum: ["Noxious pommel","Noxious point","Noxious blade","Noxious halberd","Araxyte fang","Amulet of rancour", "Araxyte head", "Jar of venom"]
+*/
+
+#define ARAXXOR_T1_UNIQUES ["Araxyte head"]
+
+rule (name:ARAXXOR_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:araxxor
+label: Hide Items
+type: stringlist
+*/
+
+#define ARAXXOR_HIDE []
+
+rule (area:[3607,9795,0,3651,9837,0] && name:ARAXXOR_HIDE) {hidden = true;}
+
+/*@ define:input:araxxor
+label: Supply Drop
+type: enumlist
+enum: ["Shark", "*Wild pie", "Prayer potion(*)", "Super combat potion(*)", "Araxyte venom sack"]
+*/
+
+#define ARAXXOR_SUPPLY ["Shark", "*Wild pie", "Prayer potion(*)"]
+
+rule (area:[3607,9795,0,3651,9837,0] && name:ARAXXOR_SUPPLY) {SUPPLY_DROP_STYLE}
+
+/*@ define:module:barrows
+name: Barrows
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:barrows
+label: Unique T3
+type: enumlist
+enum: ["Ahrim's hood*","Ahrim's robetop*","Ahrim's robeskirt*","Ahrim's staff*","Dharok's helm*","Dharok's platebody*","Dharok's platelegs*","Dharok's greataxe*","Guthan's helm*", "Guthan's platebody*","Guthan's chainskirt*","Guthan's warspear*","Karil's coif*","Karil's leathertop*","Karil's leatherskirt*","Karil's crossbow*","Torag's helm*","Torag's platebody*","Torag's platelegs*","Torag's hammers*","Verac's helm*","Verac's brassard*","Verac's plateskirt*","Verac's flail*"]
+*/
+
+#define BARROWS_T3_UNIQUES []
+
+rule (name:BARROWS_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:barrows
+label: Unique T2
+type: enumlist
+enum: ["Ahrim's hood*","Ahrim's robetop*","Ahrim's robeskirt*","Ahrim's staff*","Dharok's helm*","Dharok's platebody*","Dharok's platelegs*","Dharok's greataxe*","Guthan's helm*", "Guthan's platebody*","Guthan's chainskirt*","Guthan's warspear*","Karil's coif*","Karil's leathertop*","Karil's leatherskirt*","Karil's crossbow*","Torag's helm*","Torag's platebody*","Torag's platelegs*","Torag's hammers*","Verac's helm*","Verac's brassard*","Verac's plateskirt*","Verac's flail*"]
+*/
+
+#define BARROWS_T2_UNIQUES ["Ahrim's hood*","Ahrim's robetop*","Ahrim's robeskirt*","Ahrim's staff*","Dharok's helm*","Dharok's platebody*","Dharok's platelegs*","Dharok's greataxe*","Guthan's helm*", "Guthan's platebody*","Guthan's chainskirt*","Guthan's warspear*","Karil's coif*","Karil's leathertop*","Karil's leatherskirt*","Karil's crossbow*","Torag's helm*","Torag's platebody*","Torag's platelegs*","Torag's hammers*","Verac's helm*","Verac's brassard*","Verac's plateskirt*","Verac's flail*"]
+
+rule (name:BARROWS_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:barrows
+label: Unique T1
+type: enumlist
+enum: ["Ahrim's hood*","Ahrim's robetop*","Ahrim's robeskirt*","Ahrim's staff*","Dharok's helm*","Dharok's platebody*","Dharok's platelegs*","Dharok's greataxe*","Guthan's helm*", "Guthan's platebody*","Guthan's chainskirt*","Guthan's warspear*","Karil's coif*","Karil's leathertop*","Karil's leatherskirt*","Karil's crossbow*","Torag's helm*","Torag's platebody*","Torag's platelegs*","Torag's hammers*","Verac's helm*","Verac's brassard*","Verac's plateskirt*","Verac's flail*"]
+*/
+
+#define BARROWS_T1_UNIQUES []
+
+rule (name:BARROWS_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:module:bryophyta
+name: Bryophyta
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:bryophyta
+label: Unique T3
+type: enumlist
+enum: ["Bryophyta's essence"]
+*/
+
+#define BRYOPHYTA_T3_UNIQUES ["Bryophyta's essence"]
+
+rule (name:BRYOPHYTA_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:bryophyta
+label: Unique T2
+type: enumlist
+enum: ["Bryophyta's essence"]
+*/
+
+#define BRYOPHYTA_T2_UNIQUES []
+
+rule (name:BRYOPHYTA_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:bryophyta
+label: Unique T1
+type: enumlist
+enum: [""]
+*/
+
+#define BRYOPHYTA_T1_UNIQUES ["Bryophyta's essence"]
+
+rule (name:BRYOPHYTA_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:input:bryophyta
+label: Hide Items
+type: stringlist
+*/
+
+#define BRYOPHYTA_HIDE []
+
+rule (area:[3203,9924,0,3233,9947,0] && name:BRYOPHYTA_HIDE) {hidden = true;}
+
+
+/*@ define:module:callisto_and_artio
+name: Callisto and Artio
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:callisto_and_artio
+label: Unique T3
+type: enumlist
+enum: ["Claws of callisto","Voidwaker hilt","Tyrannical ring"]
+*/
+
+#define CALLISTO_AND_ARTIO_T3_UNIQUES ["Claws of callisto","Voidwaker hilt"]
+
+rule (name:CALLISTO_AND_ARTIO_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:callisto_and_artio
+label: Unique T2
+type: enumlist
+enum: ["Claws of callisto","Voidwaker hilt","Tyrannical ring"]
+*/
+
+#define CALLISTO_AND_ARTIO_T2_UNIQUES ["Tyrannical ring"]
+
+rule (name:CALLISTO_AND_ARTIO_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:callisto_and_artio
+label: Unique T1
+type: enumlist
+enum: ["Claws of callisto","Voidwaker hilt","Tyrannical ring"]
+*/
+
+#define CALLISTO_AND_ARTIO_T1_UNIQUES []
+
+rule (name:CALLISTO_AND_ARTIO_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:callisto_and_artio
+label: Hide Items
+type: stringlist
+*/
+
+#define CALLISTO_AND_ARTIO_HIDE []
+
+rule (area:[3336,10306,0,3383,10349,0] && name:CALLISTO_AND_ARTIO_HIDE) {hidden = true;}
+rule (area:[1739,11522,0,1782,11566,0] && name:CALLISTO_AND_ARTIO_HIDE) {hidden = true;}
+
+/*@ define:input:callisto_and_artio
+label: Supply Drop
+type: enumlist
+enum: ["Blighted anglerfish","Blighted karambwan","Blighted super restore(*)","Ranging potion(*)","Super combat potion(*)","Dark crab","Super restore(*)"]
+*/
+
+#define CALLISTO_AND_ARTIO_SUPPLY ["Blighted anglerfish","Blighted karambwan","Blighted super restore(*)","Ranging potion(*)","Super combat potion(*)","Dark crab","Super restore(*)"]
+
+rule (area:[3336,10306,0,3383,10349,0] && name:CALLISTO_AND_ARTIO_SUPPLY && stackable:false) {SUPPLY_DROP_STYLE}
+rule (area:[1739,11522,0,1782,11566,0] && name:CALLISTO_AND_ARTIO_SUPPLY && stackable:false) {SUPPLY_DROP_STYLE}
+
+/*@ define:module:cerberus
+name: Cerberus
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:cerberus
+label: Unique T3
+type: enumlist
+enum: ["Primordial crystal", "Primordial boots", "Pegasian crystal", "Pegasian boots", "Eternal crystal", "Eternal boots", "Smouldering stone", "Infernal axe", "Infernal harpoon", "Infernal pickaxe", "Jar of souls"]
+*/
+
+#define CERBERUS_T3_UNIQUES ["Primordial crystal", "Primordial boots", "Pegasian boots", "Eternal boots", "Infernal axe", "Infernal harpoon", "Infernal pickaxe", "Jar of souls"]
+
+rule (name:CERBERUS_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:cerberus
+label: Unique T2
+type: enumlist
+enum: ["Primordial crystal", "Primordial boots", "Pegasian crystal", "Pegasian boots", "Eternal crystal", "Eternal boots", "Smouldering stone", "Infernal axe", "Infernal harpoon", "Infernal pickaxe", "Jar of souls"]
+*/
+
+#define CERBERUS_T2_UNIQUES ["Pegasian crystal", "Eternal crystal", "Smouldering stone"]
+
+rule (name:CERBERUS_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:cerberus
+label: Unique T1
+type: enumlist
+enum: ["Primordial crystal", "Primordial boots", "Pegasian crystal", "Pegasian boots", "Eternal crystal", "Eternal boots", "Smouldering stone", "Infernal axe", "Infernal harpoon", "Infernal pickaxe", "Jar of souls"]
+*/
+
+#define CERBERUS_T1_UNIQUES []
+
+rule (name:CERBERUS_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:cerberus
+label: Hide Items
+type: stringlist
+*/
+
+#define CERBERUS_HIDE ["Unholy symbol"]
+
+rule (area:[1211,1213,0,1390,1346,0] && name:CERBERUS_HIDE) {hidden = true;}
+
+/*@ define:input:cerberus
+label: Supply Drop
+type: enumlist
+enum: ["Super restore(*)", "*Summer pie"]
+*/
+
+#define CERBERUS_SUPPLY ["Super restore(*)", "*Summer pie"]
+
+rule (area:[1211,1213,0,1390,1346,0] && name:CERBERUS_SUPPLY) {SUPPLY_DROP_STYLE}
+
+
+/*@ define:module:chaos_elemental
+name: Chaos Elemental
+subtitle: Hide Drops and Highlight Supplies
+*/
+
+/*@ define:input:chaos_elemental
+label: Hide Items
+type: stringlist
+*/
+
+#define CHAOS_ELEMENTAL_HIDE ["Weapon poison(++)"]
+
+rule (area:[3172,3904,0,3300,3967,0] && name:CHAOS_ELEMENTAL_HIDE) {hidden = true;}
+
+/*@ define:input:chaos_elemental
+label: Supply Drop
+type: enumlist
+enum: ["Blighted anglerfish", "Blighted karambwan", "Blighted super restore(*)", "Super combat potion(*)"]
+*/
+
+#define CHAOS_ELEMENTAL_SUPPLY ["Blighted anglerfish", "Blighted karambwan", "Blighted super restore(*)"]
+
+rule (area:[3172,3904,0,3300,3967,0] && name:CHAOS_ELEMENTAL_SUPPLY) {SUPPLY_DROP_STYLE}
+
+/*@ define:module:chaos_fanatic
+name: Chaos Fanatic
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:chaos_fanatic
+label: Unique T3
+type: enumlist
+enum: ["Odium shard 1", "Malediction shard 1"]
+*/
+
+#define CHAOS_FANATIC_T3_UNIQUES []
+
+rule (name:CHAOS_FANATIC_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:chaos_fanatic
+label: Unique T2
+type: enumlist
+enum: ["Odium shard 1", "Malediction shard 1"]
+*/
+
+#define CHAOS_FANATIC_T2_UNIQUES ["Odium shard 1", "Malediction shard 1"]
+
+rule (name:CHAOS_FANATIC_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:chaos_fanatic
+label: Unique T1
+type: enumlist
+enum: ["Odium shard 1", "Malediction shard 1"]
+*/
+
+#define CHAOS_FANATIC_T1_UNIQUES []
+
+rule (name:CHAOS_FANATIC_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:chaos_fanatic
+label: Hide Items
+type: stringlist
+*/
+
+#define CHAOS_FANATIC_HIDE []
+
+rule (area:[2961,3830,0,2995,3856,0] && name:CHAOS_FANATIC_HIDE) {hidden = true;}
+
+/*@ define:input:chaos_fanatic
+label: Supply Drop
+type: enumlist
+enum: ["Monkfish", "Shark", "Prayer potion(*)"]
+*/
+
+#define CHAOS_FANATIC_SUPPLY ["Prayer potion(*)"]
+
+rule (area:[2961,3830,0,2995,3856,0] && name:CHAOS_FANATIC_SUPPLY) {SUPPLY_DROP_STYLE}
+
+/*@ define:module:commander_zilyana
+name: Commander Zilyana
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:commander_zilyana
+label: Unique T3
+type: enumlist
+enum: ["Saradomin sword","Saradomin's light","Staff of light","Armadyl crossbow","Saradomin hilt","Saradomin Godsword"]
+*/
+
+#define COMMANDER_ZILYANA_T3_UNIQUES ["Staff of light","Armadyl crossbow","Saradomin hilt","Saradomin Godsword"]
+
+rule (name:COMMANDER_ZILYANA_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:commander_zilyana
+label: Unique T2
+type: enumlist
+enum: ["Saradomin sword","Saradomin's light","Staff of light","Armadyl crossbow","Saradomin hilt","Saradomin Godsword"]
+*/
+
+#define COMMANDER_ZILYANA_T2_UNIQUES ["Saradomin sword"] 
+
+rule (name:COMMANDER_ZILYANA_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:commander_zilyana
+label: Unique T1
+type: enumlist
+enum: ["Saradomin sword","Saradomin's light","Staff of light","Armadyl crossbow","Saradomin hilt","Saradomin Godsword"]
+*/
+
+#define COMMANDER_ZILYANA_T1_UNIQUES ["Saradomin's light"]
+
+rule (name:COMMANDER_ZILYANA_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:commander_zilyana
+label: Hide Items
+type: stringlist
+*/
+
+#define COMMANDER_ZILYANA_HIDE ["Steel dart","Steel arrow","Magic potion(3)"]
+
+rule (area:[2884,5255,0,2909,5278,0] && name:COMMANDER_ZILYANA_HIDE) {hidden = true;}
+
+/*@ define:input:commander_zilyana
+label: Supply Drop
+type: enumlist
+enum: ["Monkfish", "*Summer pie", "Prayer potion(*)","Super defence(*)","Magic potion(*)","Saradomin brew(*)", "Super restore(*)"]
+*/
+
+#define COMMANDER_ZILYANA_SUPPLY ["Monkfish", "*Summer pie", "Prayer potion(*)", "Saradomin brew(*)", "Super restore(*)"]
+
+rule (area:[2884,5255,0,2909,5278,0] && name:COMMANDER_ZILYANA_SUPPLY) {SUPPLY_DROP_STYLE}
+
+
+/*@ define:input:commander_zilyana
+label: Bones to Peaches
+type: boolean
+*/
+
+#define ENABLE_COMMANDER_ZILYANA_PEACHES true
+
+apply (area:[2884,5255,0,2909,5278,0] && name:"Bones" && ENABLE_COMMANDER_ZILYANA_PEACHES) {hidden=false;}
+
+
+/*@ define:module:corporeal_beast
+name: Corporeal Beast
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:corporeal_beast
+label: Unique T3
+type: enumlist
+enum: ["Spectral sigil", "Spectral spirit shield", "Arcane sigil", "Arcane spirit shield", "Elysian sigil", "Elysian spirit shield", "Spirit shield", "Holy elixir", "Blessed spirit shield", "Jar of spirits"]
+*/
+
+#define CORPOREAL_BEAST_T3_UNIQUES ["Spectral sigil", "Spectral spirit shield", "Arcane sigil", "Arcane spirit shield", "Elysian sigil", "Elysian spirit shield", "Jar of spirits"]
+
+rule (name:CORPOREAL_BEAST_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:corporeal_beast
+label: Unique T2
+type: enumlist
+enum: ["Spectral sigil", "Spectral spirit shield", "Arcane sigil", "Arcane spirit shield", "Elysian sigil", "Elysian spirit shield", "Spirit shield", "Holy elixir", "Blessed spirit shield", "Jar of spirits"]
+*/
+
+#define CORPOREAL_BEAST_T2_UNIQUES ["Spirit shield", "Holy elixir", "Blessed spirit shield"] 
+
+rule (name:CORPOREAL_BEAST_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:corporeal_beast
+label: Unique T1
+type: enumlist
+enum: ["Spectral sigil", "Spectral spirit shield", "Arcane sigil", "Arcane spirit shield", "Elysian sigil", "Elysian spirit shield", "Spirit shield", "Holy elixir", "Blessed spirit shield", "Jar of spirits"]
+*/
+
+#define CORPOREAL_BEAST_T1_UNIQUES []
+
+rule (name:CORPOREAL_BEAST_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:corporeal_beast
+label: Hide Items
+type: stringlist
+*/
+
+#define CORPOREAL_BEAST_HIDE []
+
+rule (area:[2884,5255,0,2909,5278,0] && name:CORPOREAL_BEAST_HIDE) {hidden = true;}
+
+/*@ define:input:corporeal_beast
+label: Supply Drop
+type: enumlist
+enum: ["Tuna potato"]
+*/
+
+#define CORPOREAL_BEAST_SUPPLY ["Tuna potato"]
+
+rule (area:[2884,5255,0,2909,5278,0] && name:CORPOREAL_BEAST_SUPPLY) {SUPPLY_DROP_STYLE}
+
+/*@ define:module:crazy_archaeologist
+name: Crazy Archaeologist
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:crazy_archaeologist
+label: Unique T3
+type: enumlist
+enum: ["Odium shard 2", "Malediction shard 2", "Fedora"]
+*/
+
+#define CRAZY_ARCHAEOLOGIST_T3_UNIQUES []
+
+rule (name:CRAZY_ARCHAEOLOGIST_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:crazy_archaeologist
+label: Unique T2
+type: enumlist
+enum: ["Odium shard 2", "Malediction shard 2", "Fedora"]
+*/
+
+#define CRAZY_ARCHAEOLOGIST_T2_UNIQUES ["Odium shard 2", "Malediction shard 2"] 
+
+rule (name:CRAZY_ARCHAEOLOGIST_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:crazy_archaeologist
+label: Unique T1
+type: enumlist
+enum: ["Odium shard 2", "Malediction shard 2", "Fedora"]
+*/
+
+#define CRAZY_ARCHAEOLOGIST_T1_UNIQUES ["Fedora"]
+
+rule (name:CRAZY_ARCHAEOLOGIST_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:crazy_archaeologist
+label: Hide Items
+type: stringlist
+*/
+
+#define CRAZY_ARCHAEOLOGIST_HIDE []
+
+rule (area:[2950,3675,0,3008,3724,0] && name:CRAZY_ARCHAEOLOGIST_HIDE) {hidden = true;}
+
+/*@ define:input:crazy_archaeologist
+label: Supply Drop
+type: enumlist
+enum: ["Shark","Potato with cheese","Prayer potion(*)"]
+*/
+
+#define CRAZY_ARCHAEOLOGIST_SUPPLY ["Shark","Potato with cheese","Prayer potion(*)"]
+
+rule (area:[2950,3675,0,3008,3724,0] && name:CRAZY_ARCHAEOLOGIST_SUPPLY) {SUPPLY_DROP_STYLE}
+
+
+
+
+
+
+
+
+
+
+
+
+/*@ define:module:god_wars_bosses
+name: God Wars Bosses
+subtitle: Set Unique Teirs
+*/
+
+/*@ define:input:god_wars_bosses
+label: Unique T3
+type: enumlist
+enum: ["Godsword shard 1", "Godsword shard 2", "Godsword shard 3", "Godsword shards 1 & 2", "Godsword shards 1 & 3", "Godsword shards 2 & 3", "Godsword blade", "Frozen key piece*"]
+*/
+
+#define GOD_WARS_BOSSES_T3_UNIQUES []
+
+rule (name:GOD_WARS_BOSSES_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:god_wars_bosses
+label: Unique T2
+type: enumlist
+enum: ["Godsword shard 1", "Godsword shard 2", "Godsword shard 3", "Godsword shards 1 & 2", "Godsword shards 1 & 3", "Godsword shards 2 & 3", "Godsword blade", "Frozen key piece*"]
+*/
+
+#define GOD_WARS_BOSSES_T2_UNIQUES ["Frozen key piece*"]
+
+rule (name:GOD_WARS_BOSSES_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:god_wars_bosses
+label: Unique T1
+type: enumlist
+enum: ["Godsword shard 1", "Godsword shard 2", "Godsword shard 3", "Godsword shards 1 & 2", "Godsword shards 1 & 3", "Godsword shards 2 & 3", "Godsword blade", "Frozen key piece*"]
+*/
+
+#define GOD_WARS_BOSSES_T1_UNIQUES ["Godsword shard 1", "Godsword shard 2", "Godsword shard 3", "Godsword shards 1 & 2", "Godsword shards 1 & 3", "Godsword shards 2 & 3", "Godsword blade"]
+
+rule (name:GOD_WARS_BOSSES_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:module:wilderness_bosses
+name: Wilderness Bosses
+subtitle: Set Unique Teirs
+*/
+
+/*@ define:input:wilderness_bosses
+label: Unique T3
+type: enumlist
+enum: ["Dragon 2h sword", "Dragon pickaxe", "Odium ward", "Malediction ward"]
+*/
+
+#define WILDERNESS_BOSSES_T3_UNIQUES []
+
+rule (name:WILDERNESS_BOSSES_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:wilderness_bosses
+label: Unique T2
+type: enumlist
+enum: ["Dragon 2h sword", "Dragon pickaxe"]
+*/
+
+#define WILDERNESS_BOSSES_T2_UNIQUES ["Dragon pickaxe","Odium ward", "Malediction ward"]
+
+rule (name:WILDERNESS_BOSSES_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:wilderness_bosses
+label: Unique T1
+type: enumlist
+enum: ["Dragon 2h sword", "Dragon pickaxe"]
+*/
+
+#define WILDERNESS_BOSSES_T1_UNIQUES ["Dragon 2h sword"]
+
+rule (name:WILDERNESS_BOSSES_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+
+
+/*@ define:module:alchs
+name: Alchs
+subtitle: Turn Everything to Gold
+*/
+
+/*@ define:input:alchs
+label: Alchable Items
+type: stringlist
+group: Alchs
+*/
+
+#define ALCHS_NAMES ["* dagger", "*axe", "* mace", "* claws", "* sword", "* Longsword", "* scimitar", "* spear", "* warhammer", "* Battleaxe", "* 2h sword", "* halberd", "* hasta", "* pickaxe", "* full helm", "* platebody", "* platelegs", "* plateskirt", "* kiteshield", "* med helm", "* chainbody", "* sq shield", "* boots", "* crossbow", "*battlestaff", "mystic *", "*d'hide*", "Onyx bolts*"]
+
+/*@ define:input:alchs
+label: non-alchable Items
+type: stringlist
+group: Alchs
+*/
+
+#define ALCHS_BAD_NAMES ["3rd age pickaxe"]
+
+/*@ define:input:alchs
+label: Minimum Value
+type: number
+group: Alchs
+*/
+
+#define ALCHS_VALUE 1000
+
+/*@ define:input:alchs
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Steel platebody
+*/
+
+#define ALCHS_T0_STYLE \
+    color = "#ffffff00"; \
+	menuTextColor = "#ffffff70"; \
+    textAccent = 2;\
+    textAccentColor = "#999e9e29";\
+	icon = Sprite(41,0);
+
+/*@ define:input:alchs
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Adamant platebody
+*/
+
+#define ALCHS_T1_STYLE \
+    color = "#ffffff70";\
+    backgroundColor = "#449e9e29";\
+	menuTextColor = "#ffffff70";\
+	textAccent = 3;\
+	icon = Sprite(41,0);
+
+/*@ define:input:alchs
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Mystic air battlestaff
+*/
+
+#define ALCHS_T2_STYLE \
+	color ="#ffffff70";\
+    backgroundColor = "#999e9e29";\
+	menuTextColor = "#ffffff70";\
+	textAccent = 3;\
+	icon = Sprite(41,0);
+
+/*@ define:input:alchs
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Dragon battleaxe
+*/
+
+#define ALCHS_T3_STYLE \
+	color = "#ffffff70";\
+	backgroundColor = "#cc9e9e29";\
+	menuTextColor = "#ffffff70"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffff70";\
+	icon = Sprite(41,0);
+
+/*@ define:input:alchs
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Dragon halberd
+*/
+
+#define ALCHS_T4_STYLE \
+	backgroundColor = "#ff9e9e29";\
+	menuTextColor = "#ffffff70";\
+	color = "#ffffff70";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffff70";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffffff70";\
+	icon = Sprite(41,0);
+
+/*@ define:input:alchs
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Dragon platelegs
+*/
+
+#define ALCHS_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffbbbb22";\
+	color = "#ffbbbb22";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffbbbb22";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffbbbb22";\
+	icon = Sprite(41,0);
+
+rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && gevalue:>=VALUE_TIER_5) {ALCHS_T5_STYLE}\
+rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && gevalue:>=VALUE_TIER_4) {ALCHS_T4_STYLE}\
+rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && gevalue:>=VALUE_TIER_3) {ALCHS_T3_STYLE}\
+rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && gevalue:>=VALUE_TIER_2) {ALCHS_T2_STYLE}\
+rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && gevalue:>=VALUE_TIER_1) {ALCHS_T1_STYLE}\
+rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && gevalue:>=ALCHS_VALUE) {ALCHS_T0_STYLE}
+
+
+/*@ define:module:coins
+name: Coins
+subtitle: Used to Trade with other Players
+*/
+
+/*@ define:input:coins
+label: Minimum Value
+type: number
+group: Coins
+*/
+
+#define COINS_VALUE 100
+
+/*@ define:input:coins
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Coins
+*/
+
+#define COINS_T0_STYLE \
+    color = "#ffffff00"; \
+	menuTextColor = "#ffffff70"; \
+    textAccent = 2;\
+    textAccentColor = "#999e9e29";
+	
+/*@ define:input:coins
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Coins
+*/
+
+#define COINS_T1_STYLE \
+    color = "#ffffff70";\
+    backgroundColor = "#449e9e29";\
+	menuTextColor = "#ffffff70";\
+	textAccent = 3;
+
+/*@ define:input:coins
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Coins
+*/
+
+#define COINS_T2_STYLE \
+	color ="#ffffff70";\
+    backgroundColor = "#999e9e29";\
+	menuTextColor = "#ffffff70";\
+	textAccent = 3;
+
+/*@ define:input:coins
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Coins
+*/
+
+#define COINS_T3_STYLE \
+	color = "#ffffff70";\
+	backgroundColor = "#cc9e9e29";\
+	menuTextColor = "#ffffff70"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffff70";
+
+/*@ define:input:coins
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Coins 
+*/
+
+#define COINS_T4_STYLE \
+	backgroundColor = "#ff9e9e29";\
+	menuTextColor = "#ffffff70";\
+	color = "#ffffff70";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffff70";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffffff70";
+	
+/*@ define:input:coins
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Coins
+*/
+
+#define COINS_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffbbbb22";\
+	color = "#ffbbbb22";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffbbbb22";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffbbbb22";
+	
+rule (name:"coins" && value:<COINS_VALUE) {hidden=true;}
+
+VALUE_RULESET("coins", COINS_T5_STYLE, COINS_T4_STYLE, COINS_T3_STYLE, COINS_T2_STYLE, COINS_T1_STYLE, COINS_T0_STYLE)
+
+/*@ define:module:keys
+name: Keys
+subtitle: Keys for Chests and Bosses
+*/
+
+/*@ define:input:keys
+label: Style
+type: style
+group: Keys
+exampleItem: Brimstone key
+*/
+#define KEY_STYLE \
+	color = "#ffea02ff"; \
+	borderColor = "#ffea02ff"; \
+	backgroundColor = "#ff621075"; \
+	showLootbeam = true;
+
+/*@ define:input:keys
+label: Keys
+type: stringlist
+group: Keys
+*/
+#define KEY_NAMES ["Dark totem*","Awakener's orb","Giant key","Mossy key","Zombie pirate key","Ogre coffin key","Moon key","Tooth half of key","Loop half of key","Brimstone key","Ecumenical key*","*Crystal key","Frozen key*","Grubby key","Larran's key","Muddy key","Sinister key"]
+
+rule (name:KEY_NAMES) {KEY_STYLE}
+
+/*@ define:input:keys
+label: Style
+type: style
+group: Shades of Mort'ton
+exampleItem: Bronze key red
+*/
+#define KEY_SHADES_BRONZE \
+	color = "#ffcd7f32"; \
+	borderColor = "#ffcd7f32"; \
+	backgroundColor = "#ff703818"; \
+	showLootbeam = true; 
+
+rule (name:"Bronze key *") {KEY_SHADES_BRONZE}
+
+/*@ define:input:keys
+label: Style
+type: style
+group: Shades of Mort'ton
+exampleItem: Steel key brown
+*/
+#define KEY_SHADES_STEEL \
+	color = "#ffb5c0c9"; \
+	borderColor = "#ffb5c0c9"; \
+	backgroundColor = "#ff636363"; \
+	showLootbeam = true;
+	
+rule (name:"Steel key *") {KEY_SHADES_STEEL}
+ 
+/*@ define:input:keys
+label: Style
+type: style
+group: Shades of Mort'ton
+exampleItem: Black key crimson
+*/
+#define KEY_SHADES_BLACK \
+	color = "#ff000000"; \
+	borderColor = "#ff000000"; \
+	backgroundColor = "#ff3b3b3b"; \
+	showLootbeam = true; 
+	
+rule (name:"Black key *") {KEY_SHADES_BLACK}
+
+/*@ define:input:keys
+label: Style
+type: style
+group: Shades of Mort'ton
+exampleItem: Silver key black
+*/
+#define KEY_SHADES_SILVER \
+	color = "#ffffffff"; \
+	borderColor = "#ffffffff"; \
+	backgroundColor = "#ffbcbcbc"; \
+	showLootbeam = true; 
+	
+rule (name:"Silver key *") {KEY_SHADES_SILVER}
+
+/*@ define:input:keys
+label: Style
+type: style
+group: Shades of Mort'ton
+exampleItem: Gold key purple
+*/
+#define KEY_SHADES_GOLD \
+	color = "#ffffd700"; \
+	borderColor = "#ffffd700"; \
+	backgroundColor = "#ff8c8600"; \
+	showLootbeam = true; 
+	
+rule (name:"Gold key *") {KEY_SHADES_GOLD}
+
+/*@ define:module:teleports
+name: Teleports
+subtitle: Teleport Items and Teleport Charges
+*/
+
+/*@ define:input:teleports
+label: Items
+type: stringlist
+group: Items
+*/
+
+#define TELEPORT_NAMES ["*Teleport","Lizardman fang","Frozen tear","Bone fragments","Left skull half","Right skull half","Top of sceptre","Bottom of sceptre","Xeric's talisman (inert)","Giantsoul amulet (uncharged)"]
+
+/*@ define:input:teleports
+label: Style 1
+type: style
+group: Style
+exampleItem: Lizardman fang
+*/
+
+#define TELEPORT_STYLE_1 \
+    color = "#ffffffff"; \
+	backgroundColor = "#99999999"; 
+
+/*@ define:input:teleports
+label: Style 2
+type: style
+group: Style
+exampleItem: Xeric's talisman (inert)
+*/
+
+#define TELEPORT_STYLE_2 \
+    color = "#ffffffff"; \
+    borderColor = "#ffffffff"; \
+    backgroundColor = "#ff999999";
+
+/*@ define:input:teleports
+label: Lizardman Fang
+type: number
+group: Minimum Quantity for Style 2
+*/
+#define LIZARDMAN_FANG_QUANT 2
+
+rule (name:"lizardman fang" && quantity:<LIZARDMAN_FANG_QUANT) {TELEPORT_STYLE_1}
+
+/*@ define:input:teleports
+label: Frozen Tear
+type: number
+group: Minimum Quantity for Style 2
+*/
+#define FROZEN_TEAR_QUANT 5
+
+rule (name:"Frozen tear" && quantity:<FROZEN_TEAR_QUANT) {TELEPORT_STYLE_1}
+
+rule (name:TELEPORT_NAMES) {TELEPORT_STYLE_2}
+
+/*@ define:module:charges
+name: Item Charges
+subtitle: Charges for Various Items
+*/
+
+/*@ define:input:charges
+label: Items
+type: stringlist
+group: Items
+*/
+
+#define CHARGE_NAMES ["Zulrah's scales","Granite dust","Ancient essence","Lava scale*","Sunfire splinters","Araxyte venom sack","Crystal shard","Ancient shard","sapphire ring","ring of recoil","Revenant ether"]
+
+/*@ define:input:charges
+label: Style 1
+type: style
+group: Style
+exampleItem: Ancient essence
+*/
+
+#define CHARGE_STYLE_1 \
+	color = "#ff00ffee"; \
+	backgroundColor = "#992fa79f";  
+
+/*@ define:input:charges
+label: Style 2
+type: style
+group: Style
+exampleItem: Ring of recoil
+*/
+
+#define CHARGE_STYLE_2 \
+	color = "#ff00ffee"; \
+	borderColor = "#ff00ffee"; \
+	backgroundColor = "#ff2fa79f";
+
+/*@ define:input:charges
+label: Ancient Essence
+type: number
+group: Minimum Quantity for Style 2
+*/
+#define ANCIENT_ESSENCE_QUANT 600
+
+rule (name:"Ancient essence" && quantity:<LIZARDMAN_FANG_QUANT) {CHARGE_STYLE_1}
+
+/*@ define:input:charges
+label: Araxyte Venom Sack
+type: number
+group: Minimum Quantity for Style 2
+*/
+#define ARAXYTE_VENOM_SACK_QUANT 2
+
+rule (name:"Araxyte venom sack" && quantity:<ARAXYTE_VENOM_SACK_QUANT) {CHARGE_STYLE_1}
+
+/*@ define:input:charges
+label: Crystal Shard
+type: number
+group: Minimum Quantity for Style 2
+*/
+#define CRYSTAL_SHARD_QUANT 10
+
+rule (name:"Crystal shard" && quantity:<CRYSTAL_SHARD_QUANT) {CHARGE_STYLE_1}
+
+/*@ define:input:charges
+label: Sunfire Splinters
+type: number
+group: Minimum Quantity for Style 2
+*/
+#define SUNFIRE_SPLINTERS_QUANT 10
+
+rule (name:"Sunfire splinters" && quantity:<SUNFIRE_SPLINTERS_QUANT) {CHARGE_STYLE_1}
+
+/*@ define:input:charges
+label: Zulrah's Scales
+type: number
+group: Minimum Quantity for Style 2
+*/
+#define ZULRAHS_SCALES_QUANT 300
+
+rule (name:"Zulrah's scales" && quantity:<ZULRAHS_SCALES_QUANT) {CHARGE_STYLE_1}
+
+rule (name:CHARGE_NAMES) {CHARGE_STYLE_2}
+
+/*@ define:module:herbs
+name: Herbs
+subtitle: Dont forget your sack! 
+*/
+
+/*@ define:input:herbs
+label: Alwasy Show
+type: enumlist
+enum: ["*Guam leaf","*Marrentill","*Tarromin","*Harralander","*Ranarr weed","*Toadflax","*Irit leaf","*Avantoe","*Kwuarm","*Huasca","*Snapdragon","*Cadantine","*Lantadyme","*Dwarf weed","*Torstol"]
+group: Herbs
+*/
+
+#define HERBS_ALWAYS_SHOW ["*Ranarr weed","*Toadflax","*Irit leaf","*Avantoe","*Kwuarm","*Huasca","*Snapdragon","*Cadantine","*Lantadyme","*Dwarf weed","*Torstol"]
+
+/*@ define:input:herbs
+label: Show if Stackable
+type: enumlist
+enum: ["*Guam leaf","*Marrentill","*Tarromin","*Harralander","*Ranarr weed","*Toadflax","*Irit leaf","*Avantoe","*Kwuarm","*Huasca","*Snapdragon","*Cadantine","*Lantadyme","*Dwarf weed","*Torstol"]
+group: Herbs
+*/
+
+#define HERBS_IF_STACKABLE ["*Guam leaf","*Marrentill","*Tarromin","*Harralander"]
+
+
+/*@ define:input:herbs
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Grimy guam leaf
+*/
+
+#define HERBS_T0_STYLE \
+    color = "#ff00e024"; \
+	textAccent = 2;\
+	textAccentColor = "#ff017300"; \
+	menuTextColor = "#ff017300";
+
+/*@ define:input:herbs
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Grimy Irit leaf
+*/
+
+#define HERBS_T1_STYLE \
+    color = "#ff00e024";\
+    backgroundColor = "#33017300";\
+	menuTextColor = "#ff017300";\
+	textAccent = 3;
+
+/*@ define:input:herbs
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Grimy torstol
+*/
+
+#define HERBS_T2_STYLE \
+	color = "#ff00e024";\
+    backgroundColor = "#99017300";\
+	menuTextColor = "#ff017300";\
+	textAccent = 3;
+
+/*@ define:input:herbs
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Grimy ranarr weed
+*/
+
+#define HERBS_T3_STYLE \
+	color = "#ff00e024";\
+	backgroundColor = "#cc017300";\
+	menuTextColor = "#ff017300"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ff00e024";
+
+/*@ define:input:herbs
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Grimy snapdragon
+*/
+
+#define HERBS_T4_STYLE \
+	backgroundColor = "#ff017300";\
+	menuTextColor = "#ff017300";\
+	color = "#ff00e024";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff00e024";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff00e024";
+
+/*@ define:input:herbs
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Grimy huasca
+*/
+
+#define HERBS_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff017300";\
+	color = "#ff00ff00";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff00ff00";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff00ff00";
+
+VALUE_RULESET(HERBS_ALWAYS_SHOW, HERBS_T5_STYLE, HERBS_T4_STYLE, HERBS_T3_STYLE, HERBS_T2_STYLE, HERBS_T1_STYLE, HERBS_T0_STYLE)
+
+VALUE_RULESET(HERBS_IF_STACKABLE && stackable:true, HERBS_T5_STYLE, HERBS_T4_STYLE, HERBS_T3_STYLE, HERBS_T2_STYLE, HERBS_T1_STYLE, HERBS_T0_STYLE)
+
+
+
+/*@ define:module:seeds
+name: Seeds
+subtitle: Grow some Herbs and Feed some Birds
+*/
+
+/*@ define:input:seeds
+label: Alwasy Show
+type: stringlist
+group: Seeds
+*/
+
+#define SEEDS_ALWAYS_SHOW ["Snape grass seed","Limpwurt seed","White lily seed","Ranarr seed","Toadflax seed","Irit seed","Avantoe seed","Kwuarm seed","Snapdragon seed","Cadantine seed","Lantadyme seed","Dwarf weed seed","Torstol seed","Huasca seed","Maple seed","Yew seed","Magic seed","Teak seed","Mahogany seed","Calquat tree seed","Celastrus seed","Spirit seed","Redwood tree seed","Crystal acorn","Papaya tree seed","Palm tree seed","Dragonfruit tree seed","Seaweed spore","Grape seed","Hespori seed","Potato cactus seed"]
+
+/*@ define:input:seeds
+label: Show if over Minimum Quantity
+type: stringlist
+group: Seeds
+*/
+
+#define SEEDS_IF_LOTS ["Potato seed","Onion seed","Cabbage seed","Tomato seed","Sweetcorn seed","Strawberry seed","Watermelon seed","Marigold seed","Nasturtium seed","Rosemary seed","Woad seed","White lily seed","Guam seed","Marrentill seed","Tarromin seed","Harralander seed","Asgarnian seed","Barley seed","Hammerstone seed","Jute seed","Krandorian seed","Wildblood seed","Yanillian seed","Redberry seed","Cadavaberry seed","Dwellberry seed","Jangerberry seed","Whiteberry seed","Poison ivy seed","Acorn","Willow seed","Apple tree seed","Banana tree seed","Orange tree seed","Curry tree seed","Pineapple seed"]
+
+/*@ define:input:seeds
+label: Minimum Quantity
+type: number
+group: Seeds
+*/
+
+#define SEED_QUANTITY 15
+
+/*@ define:input:seeds
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Kwuarm seed
+*/
+
+#define SEEDS_T0_STYLE \
+    color = "#ff00e024"; \
+	textAccent = 2;\
+	textAccentColor = "#ff017300"; \
+	menuTextColor = "#ff017300";
+
+/*@ define:input:seeds
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Torstol seed
+*/
+
+#define SEEDS_T1_STYLE \
+    color = "#ff00e024";\
+    backgroundColor = "#33017300";\
+	menuTextColor = "#ff017300";\
+	textAccent = 3;
+
+/*@ define:input:seeds
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Ranarr seed
+*/
+
+#define SEEDS_T2_STYLE \
+	color = "#ff00e024";\
+    backgroundColor = "#99017300";\
+	menuTextColor = "#ff017300";\
+	textAccent = 3;
+
+/*@ define:input:seeds
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Celastrus seed
+*/
+
+#define SEEDS_T3_STYLE \
+	color = "#ff00e024";\
+	backgroundColor = "#cc017300";\
+	menuTextColor = "#ff017300"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ff00e024";
+
+/*@ define:input:seeds
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Magic seed
+*/
+
+#define SEEDS_T4_STYLE \
+	backgroundColor = "#ff017300";\
+	menuTextColor = "#ff017300";\
+	color = "#ff00e024";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff00e024";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff00e024";
+
+/*@ define:input:seeds
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Dragonfruit tree seed
+*/
+
+#define SEEDS_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff017300";\
+	color = "#ff00ff00";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff00ff00";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff00ff00";
+
+VALUE_RULESET(SEEDS_ALWAYS_SHOW, SEEDS_T5_STYLE, SEEDS_T4_STYLE, SEEDS_T3_STYLE, SEEDS_T2_STYLE, SEEDS_T1_STYLE, SEEDS_T0_STYLE)
+
+VALUE_RULESET(SEEDS_IF_LOTS && quantity:>=SEED_QUANTITY, SEEDS_T5_STYLE, SEEDS_T4_STYLE, SEEDS_T3_STYLE, SEEDS_T2_STYLE, SEEDS_T1_STYLE, SEEDS_T0_STYLE)
+
+rule (name:["Potato seed","Onion seed","Cabbage seed","Tomato seed","Sweetcorn seed","Strawberry seed","Watermelon seed","Snape grass seed","Marigold seed","Nasturtium seed","Rosemary seed","Woad seed","Limpwurt seed","White lily seed","Guam seed","Marrentill seed","Tarromin seed","Harralander seed","Ranarr seed","Toadflax seed","Irit seed","Avantoe seed","Kwuarm seed","Snapdragon seed","Cadantine seed","Lantadyme seed","Dwarf weed seed","Torstol seed","Huasca seed","Asgarnian seed","Barley seed","Hammerstone seed","Jute seed","Krandorian seed","Wildblood seed","Yanillian seed","Redberry seed","Cadavaberry seed","Dwellberry seed","Jangerberry seed","Whiteberry seed","Poison ivy seed","Acorn","Willow seed","Maple seed","Yew seed","Magic seed","Teak seed","Mahogany seed","Calquat tree seed","Celastrus seed","Spirit seed","Redwood tree seed","Crystal acorn","Apple tree seed","Banana tree seed","Orange tree seed","Curry tree seed","Pineapple seed","Papaya tree seed","Palm tree seed","Dragonfruit tree seed","Seaweed spore","Grape seed","Mushroom spore","Belladonna seed","Hespori seed","Cactus seed","Potato cactus seed"] && !name:SEEDS_ALWAYS_SHOW && !name:SEEDS_IF_LOTS) {hidden=true;}
+
+/*@ define:module:cooking
+name: Cooking 
+subtitle: Raw Food and other Ingrediants
+*/
+
+/*@ define:input:cooking
+label: Desired Ingrediants
+type: stringlist
+group: Cooking
+*/
+
+#define COOKING_NAMES ["Raw shark", "Raw karambwan", "Raw sea turtle", "Raw manta ray", "Raw anglerfish", "Raw moonlight antelope", "Raw dashing kebbit", "Raw sunlight antelope", "Raw pyre fox", "Raw dark crab", "Raw monkfish", "Raw swordfish", "grapes"]
+
+/*@ define:input:cooking
+label: Show unnoted
+type: boolean
+group: Cooking
+*/
+
+#define COOKING_SHOW_UNNOTED true
+
+/*@ define:input:cooking
+label: Reaplce T1 with Noted
+type: boolean
+group: Cooking
+*/
+
+#define COOKING_REPLACE_T1 true
+
+/*@ define:input:cooking
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Grapes
+*/
+
+#define COOKING_T0_STYLE \
+    color = "#ffc42533"; \
+	menuTextColor = "#ff4c0369"; 
+
+/*@ define:input:cooking
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Raw monkfish
+*/
+
+#define COOKING_T1_STYLE \
+    color = "#ffc42533";\
+    backgroundColor = "#334c0369";\
+	menuTextColor = "#ff4c0369";\
+	textAccent = 3;
+
+/*@ define:input:cooking
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Raw shark
+*/
+
+#define COOKING_T2_STYLE \
+	color ="#ffc42533";\
+    backgroundColor = "#994c0369";\
+	menuTextColor = "#ff4c0369";\
+	textAccent = 3;
+
+/*@ define:input:cooking
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Raw sea turtle
+*/
+
+#define COOKING_T3_STYLE \
+	color = "#ffc42533";\
+	backgroundColor = "#dd4c0369";\
+	menuTextColor = "#ff4c0369"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffc42533";
+
+/*@ define:input:cooking
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Raw manta ray
+*/
+
+#define COOKING_T4_STYLE \
+	backgroundColor = "#ff4c0369";\
+	menuTextColor = "#ff4c0369";\
+	color = "#ffc42533";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffc42533";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff4c0369";
+
+/*@ define:input:cooking
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Raw anglerfish
+*/
+
+#define COOKING_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff4c0369";\
+	color = "#ff4c0369";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff4c0369";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff4c0369";
+
+rule (!COOKING_SHOW_UNNOTED && name:COOKING_NAMES && stackable:false) {hidden=true;}
+
+rule (COOKING_REPLACE_T1 && name:COOKING_NAMES && stackable:true && value:<VALUE_TIER_2) {COOKING_T1_STYLE}
+
+VALUE_RULESET(COOKING_NAMES, COOKING_T5_STYLE, COOKING_T4_STYLE, COOKING_T3_STYLE, COOKING_T2_STYLE, COOKING_T1_STYLE, COOKING_T0_STYLE)
+
+/*@ define:module:runes
+name: Runes
+subtitle: Cast some Magic Spells
+*/
+
+/*@ define:input:runes
+label: Minimum Value
+type: number
+group: Runes
+*/
+
+#define RUNES_VALUE 100
+
+/*@ define:input:runes
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Air rune
+*/
+
+#define RUNES_T0_STYLE \
+    color = "#ffffffff"; \
+	menuTextColor = "#ff6a9190"; \
+    textAccent = 2;\
+    textAccentColor = "#ff6a9190";
+
+
+/*@ define:input:runes
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Mind rune
+*/
+
+#define RUNES_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#446a9190";\
+	menuTextColor = "#ff6a9190";\
+	textAccent = 3;
+
+/*@ define:input:runes
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Chaos rune
+*/
+
+#define RUNES_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#996a9190";\
+	menuTextColor = "#ff6a9190";\
+	textAccent = 3;
+
+/*@ define:input:runes
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Death rune
+*/
+
+#define RUNES_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#cc6a9190";\
+	menuTextColor = "#ff6a9190"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:runes
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Blood rune
+*/
+
+#define RUNES_T4_STYLE \
+	backgroundColor = "#ff6a9190";\
+	menuTextColor = "#ff6a9190";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff6a9190";
+
+/*@ define:input:runes
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Wrath rune
+*/
+
+#define RUNES_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff6a9190";\
+	color = "#ff6a9190";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff6a9190";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff6a9190";
+
+rule (name:"*rune" && value:<RUNES_VALUE) {hidden=true;}
+
+VALUE_RULESET("*rune" && value:>=RUNES_VALUE, RUNES_T5_STYLE, RUNES_T4_STYLE, RUNES_T3_STYLE, RUNES_T2_STYLE, RUNES_T1_STYLE, RUNES_T0_STYLE)
+
+/*@ define:module:rune
+name: Rune Ores & Bars
+subtitle: The Iconic Metal
+*/
+
+/*@ define:input:rune
+label: Show unnoted
+type: boolean
+group: Rune
+*/
+
+#define RUNE_SHOW_UNNOTED true
+
+/*@ define:input:rune
+label: Reaplce T1 with Noted
+type: boolean
+group: Rune
+*/
+
+#define RUNE_REPLACE_T1 false
+
+/*@ define:input:rune
+label: Minimum Quantity
+type: number
+group: Rune
+*/
+
+#define RUNE_QUANTITY 1
+
+/*@ define:input:rune
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Runite ore
+*/
+
+#define RUNE_T0_STYLE \
+    color = "#ff5B8796"; \
+	menuTextColor = "#ff5B8796"; 
+
+
+/*@ define:input:rune
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Runite bar
+*/
+
+#define RUNE_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#555B8796";\
+	menuTextColor = "#ff5B8796";\
+	textAccent = 3;
+
+/*@ define:input:rune
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Runite ore
+*/
+
+#define RUNE_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#995B8796";\
+	menuTextColor = "#ff5B8796";\
+	textAccent = 3;
+
+/*@ define:input:rune
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Runite bar
+*/
+
+#define RUNE_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#dd5B8796";\
+	menuTextColor = "#ff5B8796"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:runes
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Runite ore
+*/
+
+#define RUNE_T4_STYLE \
+	backgroundColor = "#ff5B8796";\
+	menuTextColor = "#ff5B8796";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff5B8796";
+
+/*@ define:input:runes
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Runite bar
+*/
+
+#define RUNE_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff5B8796";\
+	color = "#ff5B8796";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff5B8796";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff5B8796";
+
+rule (name:["Runite ore", "Runite bar"] && quantity:<RUNE_QUANTITY) {hidden=true;}
+
+rule (!RUNE_SHOW_UNNOTED && name:["Runite ore", "Runite bar"] && stackable:false) {hidden=true;}
+
+rule (RUNE_REPLACE_T1 && name:["Runite ore", "Runite bar"] && stackable:true && value:<VALUE_TIER_2) {RUNE_T1_STYLE}
+
+VALUE_RULESET(["Runite ore", "Runite bar"], RUNE_T5_STYLE, RUNE_T4_STYLE, RUNE_T3_STYLE, RUNE_T2_STYLE, RUNE_T1_STYLE, RUNE_T0_STYLE)
+
+/*@ define:module:adamant
+name: Adamant Ores & Bars
+subtitle: The Green Metal
+*/
+
+/*@ define:input:adamant
+label: Show unnoted
+type: boolean
+group: adamant
+*/
+
+#define ADAMANTITE_SHOW_UNNOTED true
+
+/*@ define:input:adamant
+label: Reaplce T1 with Noted
+type: boolean
+group: adamant
+*/
+
+#define ADAMANTITE_REPLACE_T1 true
+
+/*@ define:input:adamant
+label: Minimum Quantity
+type: number
+group: adamant
+*/
+
+#define ADAMANTITE_QUANTITY 1
+
+/*@ define:input:adamant
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Adamantite ore
+*/
+
+#define ADAMANTITE_T0_STYLE \
+    color = "#ff506450"; \
+	menuTextColor = "#ff506450"; 
+
+
+/*@ define:input:adamant
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Adamantite bar
+*/
+
+#define ADAMANTITE_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#55506450";\
+	menuTextColor = "#ff506450";\
+	textAccent = 3;
+
+/*@ define:input:adamant
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Adamantite ore
+*/
+
+#define ADAMANTITE_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#99506450";\
+	menuTextColor = "#ff506450";\
+	textAccent = 3;
+
+/*@ define:input:adamant
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Adamantite bar
+*/
+
+#define ADAMANTITE_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#dd506450";\
+	menuTextColor = "#ff506450"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:adamant
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Adamantite ore
+*/
+
+#define ADAMANTITE_T4_STYLE \
+	backgroundColor = "#ff506450";\
+	menuTextColor = "#ff506450";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff506450";
+
+/*@ define:input:adamant
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Adamantite bar
+*/
+
+#define ADAMANTITE_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff506450";\
+	color = "#ff506450";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff506450";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff506450";
+
+
+rule (name:["Adamantite bar", "Adamantite ore"] && quantity:<ADAMANTITE_QUANTITY) {hidden=true;}
+
+rule (!ADAMANTITE_SHOW_UNNOTED && name:["Adamantite bar", "Adamantite ore"] && stackable:false) {hidden=true;}
+
+rule (ADAMANTITE_REPLACE_T1 && name:["Adamantite bar", "Adamantite ore"] && stackable:true && value:<VALUE_TIER_2) {ADAMANTITE_T1_STYLE}
+
+VALUE_RULESET(["Adamantite bar", "Adamantite ore"] && quantity:>=ADAMANTITE_QUANTITY, ADAMANTITE_T5_STYLE, ADAMANTITE_T4_STYLE, ADAMANTITE_T3_STYLE, ADAMANTITE_T2_STYLE, ADAMANTITE_T1_STYLE, ADAMANTITE_T0_STYLE)
+
+/*@ define:module:mithril
+name: Mithril Ores & Bars
+subtitle: The Lord of the Rings Metal
+*/
+
+/*@ define:input:mithril
+label: Show unnoted
+type: boolean
+group: mithril
+*/
+
+#define MITHRIL_SHOW_UNNOTED false
+
+/*@ define:input:mithril
+label: Reaplce T1 with Noted
+type: boolean
+group: mithril
+*/
+
+#define MITHRIL_REPLACE_T1 true
+
+/*@ define:input:mithril
+label: Minimum Quantity
+type: number
+group: mithril
+*/
+
+#define MITHRIL_QUANTITY 1
+
+/*@ define:input:mithril
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Mithril ore
+*/
+
+#define MITHRIL_T0_STYLE \
+    color = "#ff4c4c70"; \
+	menuTextColor = "#ff4c4c70"; 
+
+
+/*@ define:input:mithril
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Mithril bar
+*/
+
+#define MITHRIL_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#554c4c70";\
+	menuTextColor = "#ff4c4c70";\
+	textAccent = 3;
+
+/*@ define:input:mithril
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Mithril ore
+*/
+
+#define MITHRIL_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#994c4c70";\
+	menuTextColor = "#ff4c4c70";\
+	textAccent = 3;
+
+/*@ define:input:mithril
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Mithril bar
+*/
+
+#define MITHRIL_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#dd4c4c70";\
+	menuTextColor = "#ff4c4c70"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:mithril
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Mithril ore
+*/
+
+#define MITHRIL_T4_STYLE \
+	backgroundColor = "#ff4c4c70";\
+	menuTextColor = "#ff4c4c70";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff4c4c70";
+
+/*@ define:input:mithril
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Mithril bar
+*/
+
+#define MITHRIL_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff4c4c70";\
+	color = "#ff4c4c70";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff4c4c70";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff4c4c70";
+
+
+rule (name:["Mithril bar", "Mithril ore"] && quantity:<MITHRIL_QUANTITY) {hidden=true;}
+
+rule (!MITHRIL_SHOW_UNNOTED && name:["Mithril bar", "Mithril ore"] && stackable:false) {hidden=true;}
+
+rule (MITHRIL_REPLACE_T1 && name:["Mithril bar", "Mithril ore"] && stackable:true && value:<VALUE_TIER_2) {MITHRIL_T1_STYLE}
+
+VALUE_RULESET(["Mithril bar", "Mithril ore"] && quantity:>=MITHRIL_QUANTITY, MITHRIL_T5_STYLE, MITHRIL_T4_STYLE, MITHRIL_T3_STYLE, MITHRIL_T2_STYLE, MITHRIL_T1_STYLE, MITHRIL_T0_STYLE)
+
+/*@ define:module:gold
+name: Gold Ores & Bars
+subtitle: The Shiny Metal
+*/
+
+/*@ define:input:gold
+label: Show unnoted
+type: boolean
+group: Gold
+*/
+
+#define GOLD_SHOW_UNNOTED false
+
+/*@ define:input:gold
+label: Reaplce T1 with Noted
+type: boolean
+group: Gold
+*/
+
+#define GOLD_REPLACE_T1 true
+
+/*@ define:input:gold
+label: Minimum Quantity
+type: number
+group: Gold
+*/
+
+#define GOLD_QUANTITY 5
+
+/*@ define:input:gold
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Gold ore
+*/
+
+#define GOLD_T0_STYLE \
+    color = "#ffd8b01a"; \
+	menuTextColor = "#ffd8b01a"; 
+
+
+/*@ define:input:gold
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Gold bar
+*/
+
+#define GOLD_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#55d8b01a";\
+	menuTextColor = "#ffd8b01a";\
+	textAccent = 3;
+
+/*@ define:input:gold
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Gold ore
+*/
+
+#define GOLD_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#99d8b01a";\
+	menuTextColor = "#ffd8b01a";\
+	textAccent = 3;
+
+/*@ define:input:gold
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Gold bar
+*/
+
+#define GOLD_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#ddd8b01a";\
+	menuTextColor = "#ffd8b01a"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:gold
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Gold ore
+*/
+
+#define GOLD_T4_STYLE \
+	backgroundColor = "#ffd8b01a";\
+	menuTextColor = "#ffd8b01a";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffd8b01a";
+
+/*@ define:input:gold
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Gold bar
+*/
+
+#define GOLD_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffd8b01a";\
+	color = "#ffd8b01a";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffd8b01a";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffd8b01a";
+
+
+rule (name:["Gold bar", "Gold ore"] && quantity:<GOLD_QUANTITY) {hidden=true;}
+
+rule (!GOLD_SHOW_UNNOTED && name:["Gold bar", "Gold ore"] && stackable:false) {hidden=true;}
+
+rule (GOLD_REPLACE_T1 && name:["Gold bar", "Gold ore"] && stackable:true && value:<VALUE_TIER_2) {GOLD_T1_STYLE}
+
+VALUE_RULESET(["Gold bar", "Gold ore"] && quantity:>=GOLD_QUANTITY, GOLD_T5_STYLE, GOLD_T4_STYLE, GOLD_T3_STYLE, GOLD_T2_STYLE, GOLD_T1_STYLE, GOLD_T0_STYLE)
+
+/*@ define:module:steel
+name: Steel Bars
+subtitle: The Classic Medieval Metal
+*/
+
+/*@ define:input:steel
+label: Show unnoted
+type: boolean
+group: Steel
+*/
+
+#define STEEL_SHOW_UNNOTED false
+
+/*@ define:input:steel
+label: Reaplce T1 with Noted
+type: boolean
+group: Steel
+*/
+
+#define STEEL_REPLACE_T1 true
+
+/*@ define:input:steel
+label: Minimum Quantity
+type: number
+group: Steel
+*/
+
+#define STEEL_QUANTITY 5
+
+/*@ define:input:steel
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Steel bar
+*/
+
+#define STEEL_T0_STYLE \
+    color = "#ff908686"; \
+	menuTextColor = "#ff908686"; 
+
+
+/*@ define:input:steel
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Steel bar
+*/
+
+#define STEEL_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#55908686";\
+	menuTextColor = "#ff908686";\
+	textAccent = 3;
+
+/*@ define:input:steel
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Steel bar
+*/
+
+#define STEEL_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#99908686";\
+	menuTextColor = "#ff908686";\
+	textAccent = 3;
+
+/*@ define:input:steel
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Steel bar
+*/
+
+#define STEEL_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#dd908686";\
+	menuTextColor = "#ff908686"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:steel
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Steel bar
+*/
+
+#define STEEL_T4_STYLE \
+	backgroundColor = "#ff908686";\
+	menuTextColor = "#ff908686";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff908686";
+
+/*@ define:input:steel
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Steel bar
+*/
+
+#define STEEL_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff908686";\
+	color = "#ff908686";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff908686";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff908686";
+
+
+rule (name:["Steel bar"] && quantity:<STEEL_QUANTITY) {hidden=true;}
+
+rule (!STEEL_SHOW_UNNOTED && name:["Steel bar"] && stackable:false) {hidden=true;}
+
+rule (STEEL_REPLACE_T1 && name:["Steel bar"] && stackable:true && value:<VALUE_TIER_2) {STEEL_T1_STYLE}
+
+VALUE_RULESET(["Steel bar"] && quantity:>=STEEL_QUANTITY, STEEL_T5_STYLE, STEEL_T4_STYLE, STEEL_T3_STYLE, STEEL_T2_STYLE, STEEL_T1_STYLE, STEEL_T0_STYLE)
+
+/*@ define:module:iron
+name: Iron Ores & Bars
+subtitle: The BTW Metal
+*/
+
+/*@ define:input:iron
+label: Show unnoted
+type: boolean
+group: Iron
+*/
+
+#define IRON_SHOW_UNNOTED false
+
+/*@ define:input:iron
+label: Reaplce T1 with Noted
+type: boolean
+group: Iron
+*/
+
+#define IRON_REPLACE_T1 true
+
+/*@ define:input:iron
+label: Minimum Quantity
+type: number
+group: Iron
+*/
+
+#define IRON_QUANTITY 5
+
+/*@ define:input:iron
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Iron ore
+*/
+
+#define IRON_T0_STYLE \
+    color = "#ff391D14"; \
+	menuTextColor = "#ff391D14"; 
+
+
+/*@ define:input:iron
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Iron bar
+*/
+
+#define IRON_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#55391D14";\
+	menuTextColor = "#ff391D14";\
+	textAccent = 3;
+
+/*@ define:input:iron
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Iron ore
+*/
+
+#define IRON_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#99391D14";\
+	menuTextColor = "#ff391D14";\
+	textAccent = 3;
+
+/*@ define:input:iron
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Iron bar
+*/
+
+#define IRON_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#dd391D14";\
+	menuTextColor = "#ff391D14"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:iron
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Iron ore
+*/
+
+#define IRON_T4_STYLE \
+	backgroundColor = "#ff391D14";\
+	menuTextColor = "#ff391D14";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff391D14";
+
+/*@ define:input:iron
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Iron bar
+*/
+
+#define IRON_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff391D14";\
+	color = "#ff391D14";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff391D14";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff391D14";
+
+
+rule (name:["Iron bar","Iron ore"] && quantity:<IRON_QUANTITY) {hidden=true;}
+
+rule (!IRON_SHOW_UNNOTED && name:["Iron bar","Iron ore"] && stackable:false) {hidden=true;}
+
+rule (IRON_REPLACE_T1 && name:["Iron bar","Iron ore"] && stackable:true && value:<VALUE_TIER_2) {IRON_T1_STYLE}
+
+VALUE_RULESET(["Iron bar","Iron ore"] && quantity:>=IRON_QUANTITY, IRON_T5_STYLE, IRON_T4_STYLE, IRON_T3_STYLE, IRON_T2_STYLE, IRON_T1_STYLE, IRON_T0_STYLE)
+
+/*@ define:module:silver
+name: Silver Ores & Bars
+subtitle: The Forgotten Metal
+*/
+
+/*@ define:input:silver
+label: Show unnoted
+type: boolean
+group: Silver
+*/
+
+#define SILVER_SHOW_UNNOTED false
+
+/*@ define:input:silver
+label: Reaplce T1 with Noted
+type: boolean
+group: Silver
+*/
+
+#define SILVER_REPLACE_T1 true
+
+/*@ define:input:silver
+label: Minimum Quantity
+type: number
+group: Silver
+*/
+
+#define SILVER_QUANTITY 5
+
+/*@ define:input:silver
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Silver ore
+*/
+
+#define SILVER_T0_STYLE \
+    color = "#ffa8a8b4"; \
+	menuTextColor = "#ffa8a8b4"; 
+
+
+/*@ define:input:silver
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Silver bar
+*/
+
+#define SILVER_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#55a8a8b4";\
+	menuTextColor = "#ffa8a8b4";\
+	textAccent = 3;
+
+/*@ define:input:silver
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Silver ore
+*/
+
+#define SILVER_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#99a8a8b4";\
+	menuTextColor = "#ffa8a8b4";\
+	textAccent = 3;
+
+/*@ define:input:silver
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Silver bar
+*/
+
+#define SILVER_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#dda8a8b4";\
+	menuTextColor = "#ffa8a8b4"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:silver
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Silver ore
+*/
+
+#define SILVER_T4_STYLE \
+	backgroundColor = "#ffa8a8b4";\
+	menuTextColor = "#ffa8a8b4";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffa8a8b4";
+
+/*@ define:input:silver
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Silver bar
+*/
+
+#define SILVER_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffa8a8b4";\
+	color = "#ffa8a8b4";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffa8a8b4";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffa8a8b4";
+
+
+rule (name:["Silver bar","Silver ore"] && quantity:<SILVER_QUANTITY) {hidden=true;}
+
+rule (!SILVER_SHOW_UNNOTED && name:["Silver bar","Silver ore"] && stackable:false) {hidden=true;}
+
+rule (SILVER_REPLACE_T1 && name:["Silver bar","Silver ore"] && stackable:true && value:<VALUE_TIER_2) {SILVER_T1_STYLE}
+
+VALUE_RULESET(["Silver bar","Silver ore"] && quantity:>=SILVER_QUANTITY, SILVER_T5_STYLE, SILVER_T4_STYLE, SILVER_T3_STYLE, SILVER_T2_STYLE, SILVER_T1_STYLE, SILVER_T0_STYLE)
+
+/*@ define:module:bronze
+name: Bronze Bars
+subtitle: The Beginner Metal
+*/
+
+/*@ define:input:bronze
+label: Show unnoted
+type: boolean
+group: Bronze
+*/
+
+#define BRONZE_SHOW_UNNOTED false
+
+/*@ define:input:bronze
+label: Reaplce T1 with Noted
+type: boolean
+group: Bronze
+*/
+
+#define BRONZE_REPLACE_T1 true
+
+/*@ define:input:bronze
+label: Minimum Quantity
+type: number
+group: Bronze
+*/
+
+#define BRONZE_QUANTITY 25
+
+/*@ define:input:bronze
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Bronze bar
+*/
+
+#define BRONZE_T0_STYLE \
+    color = "#ff5b462a"; \
+	menuTextColor = "#ff5b462a"; 
+
+
+/*@ define:input:bronze
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Bronze bar
+*/
+
+#define BRONZE_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#555b462a";\
+	menuTextColor = "#ff5b462a";\
+	textAccent = 3;
+
+/*@ define:input:bronze
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Bronze bar
+*/
+
+#define BRONZE_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#995b462a";\
+	menuTextColor = "#ff5b462a";\
+	textAccent = 3;
+
+/*@ define:input:bronze
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Bronze bar
+*/
+
+#define BRONZE_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#dd5b462a";\
+	menuTextColor = "#ff5b462a"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:bronze
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Bronze bar
+*/
+
+#define BRONZE_T4_STYLE \
+	backgroundColor = "#ff5b462a";\
+	menuTextColor = "#ff5b462a";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff5b462a";
+
+/*@ define:input:bronze
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Bronze bar
+*/
+
+#define BRONZE_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff5b462a";\
+	color = "#ff5b462a";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff5b462a";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff5b462a";
+
+
+rule (name:["Bronze bar"] && quantity:<BRONZE_QUANTITY) {hidden=true;}
+
+rule (!BRONZE_SHOW_UNNOTED && name:["Bronze bar"] && stackable:false) {hidden=true;}
+
+rule (BRONZE_REPLACE_T1 && name:["Bronze bar"] && stackable:true && value:<VALUE_TIER_2) {BRONZE_T1_STYLE}
+
+VALUE_RULESET(["Bronze bar"] && quantity:>=BRONZE_QUANTITY, BRONZE_T5_STYLE, BRONZE_T4_STYLE, BRONZE_T3_STYLE, BRONZE_T2_STYLE, BRONZE_T1_STYLE, BRONZE_T0_STYLE)
+
+/*@ define:module:copper
+name: Copper Ores
+subtitle: Smelt with Tin to get Bronze Metal
+*/
+
+/*@ define:input:copper
+label: Show unnoted
+type: boolean
+group: Copper
+*/
+
+#define COPPER_SHOW_UNNOTED false
+
+/*@ define:input:copper
+label: Reaplce T1 with Noted
+type: boolean
+group: Copper
+*/
+
+#define COPPER_REPLACE_T1 true
+
+/*@ define:input:copper
+label: Minimum Quantity
+type: number
+group: Copper
+*/
+
+#define COPPER_QUANTITY 25
+
+/*@ define:input:copper
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Copper ore
+*/
+
+#define COPPER_T0_STYLE \
+    color = "#ffCE6422"; \
+	menuTextColor = "#ffCE6422"; 
+
+
+/*@ define:input:copper
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Copper ore
+*/
+
+#define COPPER_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#55CE6422";\
+	menuTextColor = "#ffCE6422";\
+	textAccent = 3;
+
+/*@ define:input:copper
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Copper ore
+*/
+
+#define COPPER_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#99CE6422";\
+	menuTextColor = "#ffCE6422";\
+	textAccent = 3;
+
+/*@ define:input:copper
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Copper ore
+*/
+
+#define COPPER_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#ddCE6422";\
+	menuTextColor = "#ffCE6422"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:copper
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Copper ore
+*/
+
+#define COPPER_T4_STYLE \
+	backgroundColor = "#ffCE6422";\
+	menuTextColor = "#ffCE6422";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffCE6422";
+
+/*@ define:input:copper
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Copper ore
+*/
+
+#define COPPER_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffCE6422";\
+	color = "#ffCE6422";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffCE6422";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffCE6422";
+
+
+rule (name:["Copper ore"] && quantity:<COPPER_QUANTITY) {hidden=true;}
+
+rule (!COPPER_SHOW_UNNOTED && name:["Copper ore"] && stackable:false) {hidden=true;}
+
+rule (COPPER_REPLACE_T1 && name:["Copper ore"] && stackable:true && value:<VALUE_TIER_2) {COPPER_T1_STYLE}
+
+VALUE_RULESET(["Copper ore"] && quantity:>=COPPER_QUANTITY, COPPER_T5_STYLE, COPPER_T4_STYLE, COPPER_T3_STYLE, COPPER_T2_STYLE, COPPER_T1_STYLE, COPPER_T0_STYLE)
+
+
+/*@ define:module:tin
+name: Tin Ores
+subtitle: Smelt with Copper to get Bronze Metal
+*/
+
+/*@ define:input:tin
+label: Show unnoted
+type: boolean
+group: Tin
+*/
+
+#define TIN_SHOW_UNNOTED false
+
+/*@ define:input:tin
+label: Reaplce T1 with Noted
+type: boolean
+group: Tin
+*/
+
+#define TIN_REPLACE_T1 true
+
+/*@ define:input:tin
+label: Minimum Quantity
+type: number
+group: Tin
+*/
+
+#define TIN_QUANTITY 25
+
+/*@ define:input:tin
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Tin ore
+*/
+
+#define TIN_T0_STYLE \
+    color = "#ff746A69"; \
+	menuTextColor = "#ff746A69"; 
+
+
+/*@ define:input:tin
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Tin ore
+*/
+
+#define TIN_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#55746A69";\
+	menuTextColor = "#ff746A69";\
+	textAccent = 3;
+
+/*@ define:input:tin
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Tin ore
+*/
+
+#define TIN_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#99746A69";\
+	menuTextColor = "#ff746A69";\
+	textAccent = 3;
+
+/*@ define:input:tin
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Tin ore
+*/
+
+#define TIN_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#dd746A69";\
+	menuTextColor = "#ff746A69"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:tin
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Tin ore
+*/
+
+#define TIN_T4_STYLE \
+	backgroundColor = "#ff746A69";\
+	menuTextColor = "#ff746A69";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff746A69";
+
+/*@ define:input:tin
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Tin ore
+*/
+
+#define TIN_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff746A69";\
+	color = "#ff746A69";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff746A69";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff746A69";
+
+
+rule (name:["Tin ore"] && quantity:<TIN_QUANTITY) {hidden=true;}
+
+rule (!TIN_SHOW_UNNOTED && name:["Tin ore"] && stackable:false) {hidden=true;}
+
+rule (TIN_REPLACE_T1 && name:["Tin ore"] && stackable:true && value:<VALUE_TIER_2) {TIN_T1_STYLE}
+
+VALUE_RULESET(["Tin ore"] && quantity:>=TIN_QUANTITY, TIN_T5_STYLE, TIN_T4_STYLE, TIN_T3_STYLE, TIN_T2_STYLE, TIN_T1_STYLE, TIN_T0_STYLE)
+
+/*@ define:module:coal
+name: Coal
+subtitle: Used to Make Metal
+*/
+
+/*@ define:input:coal
+label: Show unnoted
+type: boolean
+group: Coal
+*/
+
+#define COAL_SHOW_UNNOTED false
+
+/*@ define:input:coal
+label: Reaplce T1 with Noted
+type: boolean
+group: Coal
+*/
+
+#define COAL_REPLACE_T1 true
+
+/*@ define:input:coal
+label: Minimum Quantity
+type: number
+group: Coal
+*/
+
+#define COAL_QUANTITY 25
+
+/*@ define:input:coal
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Coal
+*/
+
+#define COAL_T0_STYLE \
+    color = "#ff5C5455"; \
+	menuTextColor = "#ff000000"; 
+
+
+/*@ define:input:coal
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Coal
+*/
+
+#define COAL_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#44000000";\
+	menuTextColor = "#ff000000";\
+	textAccent = 3;
+
+/*@ define:input:coal
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Coal
+*/
+
+#define COAL_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#77000000";\
+	menuTextColor = "#ff000000";\
+	textAccent = 3;
+
+/*@ define:input:coal
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Coal
+*/
+
+#define COAL_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#aa000000";\
+	menuTextColor = "#ff000000"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:coal
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Coal
+*/
+
+#define COAL_T4_STYLE \
+	backgroundColor = "#ff000000";\
+	menuTextColor = "#ff000000";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff000000";
+
+/*@ define:input:coal
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Coal
+*/
+
+#define COAL_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff000000";\
+	color = "#ff000000";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff000000";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff000000";
+
+
+rule (name:["Coal"] && quantity:<COAL_QUANTITY) {hidden=true;}
+
+rule (!COAL_SHOW_UNNOTED && name:["Coal"] && stackable:false) {hidden=true;}
+
+rule (COAL_REPLACE_T1 && name:["Coal"] && stackable:true && value:<VALUE_TIER_2) {COAL_T1_STYLE}
+
+VALUE_RULESET(["Coal"] && quantity:>=COAL_QUANTITY, COAL_T5_STYLE, COAL_T4_STYLE, COAL_T3_STYLE, COAL_T2_STYLE, COAL_T1_STYLE, COAL_T0_STYLE)
+
+/*@ define:module:onyx
+name: Onyx
+subtitle: You Hate to See It
+*/
+
+/*@ define:input:onyx
+label: Onyx Gems
+type: style
+group: Styles
+exampleItem: Uncut onyx
+*/
+
+#define ONYX_GEM_STYLE \
+	color = "#ffffffff"; \
+	borderColor = "#ffffffff"; \
+	backgroundColor = "#ff000000"; \
+    fontType = 2; \
+	showLootbeam = true;
+
+rule (name:["Uncut onyx", "onyx"]) {ONYX_GEM_STYLE}
+
+/*@ define:input:onyx
+label: Jewelry
+type: style
+group: Styles
+exampleItem: Amulet of Fury
+*/
+
+#define ONYX_JEWELRY_STYLE \
+	color = "#ffffffff"; \
+	borderColor = "#ffffffff"; \
+	backgroundColor = "#ff000000"; \
+    fontType = 2; \
+	showLootbeam = true;
+
+rule (name:["Onyx amulet (u)", "Onyx amulet", "Amulet of fury","Onyx bracelet", "Regen bracelet", "Onyx necklace", "Berserker necklace", "Onyx ring", "Ring of stone"]) {ONYX_JEWELRY_STYLE}
+
+/*@ define:input:onyx
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Onyx bolt tips
+*/
+
+#define ONYX_TIPS_T0_STYLE \
+    color = "#ff000000"; \
+	menuTextColor = "#ff000000"; 
+
+
+/*@ define:input:onyx
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Onyx bolt tips
+*/
+
+#define ONYX_TIPS_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#66000000";\
+	menuTextColor = "#ff000000";\
+	textAccent = 3;
+
+/*@ define:input:onyx
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Onyx bolt tips
+*/
+
+#define ONYX_TIPS_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#99000000";\
+	menuTextColor = "#ff000000";\
+	textAccent = 3;
+
+/*@ define:input:onyx
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Onyx bolt tips
+*/
+
+#define ONYX_TIPS_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#bb000000";\
+	menuTextColor = "#ff000000"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:onyx
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Onyx bolt tips
+*/
+
+#define ONYX_TIPS_T4_STYLE \
+	backgroundColor = "#ff000000";\
+	menuTextColor = "#ff000000";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff000000";
+
+/*@ define:input:onyx
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Onyx bolt tips
+*/
+
+#define ONYX_TIPS_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff000000";\
+	color = "#ff000000";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff000000";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff000000";
+
+VALUE_RULESET(["Onyx bolt tips"], ONYX_TIPS_T5_STYLE, ONYX_TIPS_T4_STYLE, ONYX_TIPS_T3_STYLE, ONYX_TIPS_T2_STYLE, ONYX_TIPS_T1_STYLE, ONYX_TIPS_T0_STYLE)
+
+/*@ define:module:dragonstone
+name: Dragonstone
+subtitle: The Early Ironman Chase Item
+*/
+
+/*@ define:input:dragonstone
+label: Tier 0
+type: style
+group: Gems & Bolt Tips
+exampleItem: Dragonstone bolt tips
+*/
+
+#define DRAGONSTONE_T0_STYLE \
+    color = "#ffbb00ff"; \
+	menuTextColor = "#ffbb00ff"; 
+
+
+/*@ define:input:dragonstone
+label: Tier 1
+type: style
+group: Gems & Bolt Tips
+exampleItem: Uncut dragonstone
+*/
+
+#define DRAGONSTONE_T1_STYLE \
+    color = "#ff000000";\
+    backgroundColor = "#44bb00ff";\
+	menuTextColor = "#ffbb00ff";\
+	textAccent = 3;
+
+/*@ define:input:dragonstone
+label: Tier 2
+type: style
+group: Gems & Bolt Tips
+exampleItem: Dragonstone
+*/
+
+#define DRAGONSTONE_T2_STYLE \
+	color ="#ff000000";\
+    backgroundColor = "#77bb00ff";\
+	menuTextColor = "#ffbb00ff";\
+	textAccent = 3;
+
+/*@ define:input:dragonstone
+label: Tier 3
+type: style
+group: Gems & Bolt Tips
+exampleItem: Dragonstone bolt tips
+*/
+
+#define DRAGONSTONE_T3_STYLE \
+	color = "#ff000000";\
+	backgroundColor = "#bbbb00ff";\
+	menuTextColor = "#ffbb00ff"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ff000000";
+
+/*@ define:input:dragonstone
+label: Tier 4
+type: style
+group: Gems & Bolt Tips
+exampleItem: Uncut dragonstone
+*/
+
+#define DRAGONSTONE_T4_STYLE \
+	backgroundColor = "#ffbb00ff";\
+	menuTextColor = "#ffbb00ff";\
+	color = "#ff000000";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff000000";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffbb00ff";
+
+/*@ define:input:dragonstone
+label: Tier 5
+type: style
+group: Gems & Bolt Tips
+exampleItem: Dragonstone
+*/
+
+#define DRAGONSTONE_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffbb00ff";\
+	color = "#ffbb00ff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffbb00ff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffbb00ff";
+
+/*@ define:input:dragonstone
+label: Tier 0
+type: style
+group: Jewelry
+exampleItem: Dragon necklace
+*/
+
+#define DRAGONSTONE_JEWELRY_T0_STYLE \
+    color = "#ffd8b01a"; \
+	menuTextColor = "#ffbb00ff"; \
+    textAccent = 2; \
+    textAccentColor = "#ffbb00ff"; \
+
+
+/*@ define:input:dragonstone
+label: Tier 1
+type: style
+group: Jewelry
+exampleItem: Dragonstone amulet
+*/
+
+#define DRAGONSTONE_JEWELRY_T1_STYLE \
+    color = "#ffd8b01a";\
+    backgroundColor = "#44bb00ff";\
+	menuTextColor = "#ffbb00ff";\
+	textAccent = 3;
+
+/*@ define:input:dragonstone
+label: Tier 2
+type: style
+group: Jewelry
+exampleItem: Dragonstone ring
+*/
+
+#define DRAGONSTONE_JEWELRY_T2_STYLE \
+	color ="#ffd8b01a";\
+    backgroundColor = "#77bb00ff";\
+	menuTextColor = "#ffbb00ff";\
+	textAccent = 3;
+
+/*@ define:input:dragonstone
+label: Tier 3
+type: style
+group: Jewelry
+exampleItem: Ring of wealth
+*/
+
+#define DRAGONSTONE_JEWELRY_T3_STYLE \
+	color = "#ffd8b01a";\
+	backgroundColor = "#bbbb00ff";\
+	menuTextColor = "#ffbb00ff"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffd8b01a";
+
+/*@ define:input:dragonstone
+label: Tier 4
+type: style
+group: Jewelry
+exampleItem: Combat bracelet
+*/
+
+#define DRAGONSTONE_JEWELRY_T4_STYLE \
+	backgroundColor = "#ffbb00ff";\
+	menuTextColor = "#ffbb00ff";\
+	color = "#ffd8b01a";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffd8b01a";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffbb00ff";
+
+/*@ define:input:dragonstone
+label: Tier 5
+type: style
+group: Jewelry
+exampleItem: Amulet of glory(4)
+*/
+
+#define DRAGONSTONE_JEWELRY_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffbb00ff";\
+	color = "#ffbb00ff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffbb00ff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffbb00ff";
+	
+VALUE_RULESET(["Uncut dragonstone", "Dragonstone", "Dragonstone bolt tips"], DRAGONSTONE_T5_STYLE, DRAGONSTONE_T4_STYLE, DRAGONSTONE_T3_STYLE, DRAGONSTONE_T2_STYLE, DRAGONSTONE_T1_STYLE, DRAGONSTONE_T0_STYLE)
+VALUE_RULESET(["Dragon necklace", "Skills necklace*", "Dragonstone ring", "Ring of wealth*", "Dragonstone amulet", "Dragonstone amulet (u)", "Amulet of Glory*", "Dragonstone bracelet", "Combat bracelet*"], DRAGONSTONE_JEWELRY_T5_STYLE, DRAGONSTONE_JEWELRY_T4_STYLE, DRAGONSTONE_JEWELRY_T3_STYLE, DRAGONSTONE_JEWELRY_T2_STYLE, DRAGONSTONE_JEWELRY_T1_STYLE, DRAGONSTONE_JEWELRY_T0_STYLE)
+
+/*@ define:module:diamond
+name: Diamond
+subtitle: A Girls Bestfriend
+*/
+
+/*@ define:input:diamond
+label: Tier 0
+type: style
+group: Gems & Bolt Tips
+exampleItem: Diamond bolt tips
+*/
+
+#define DIAMOND_T0_STYLE \
+    color = "#ffffffff"; \
+	menuTextColor = "#ffffffff"; 
+
+
+/*@ define:input:diamond
+label: Tier 1
+type: style
+group: Gems & Bolt Tips
+exampleItem: Uncut diamond
+*/
+
+#define DIAMOND_T1_STYLE \
+    color = "#ff000000";\
+    backgroundColor = "#44ffffff";\
+	menuTextColor = "#ffffffff";\
+	textAccent = 3;
+
+/*@ define:input:diamond
+label: Tier 2
+type: style
+group: Gems & Bolt Tips
+exampleItem: Diamond
+*/
+
+#define DIAMOND_T2_STYLE \
+	color ="#ff000000";\
+    backgroundColor = "#77ffffff";\
+	menuTextColor = "#ffffffff";\
+	textAccent = 3;
+
+/*@ define:input:diamond
+label: Tier 3
+type: style
+group: Gems & Bolt Tips
+exampleItem: Diamond bolt tips
+*/
+
+#define DIAMOND_T3_STYLE \
+	color = "#ff000000";\
+	backgroundColor = "#bbffffff";\
+	menuTextColor = "#ffffffff"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ff000000";
+
+/*@ define:input:diamond
+label: Tier 4
+type: style
+group: Gems & Bolt Tips
+exampleItem: Uncut diamond
+*/
+
+#define DIAMOND_T4_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffffffff";\
+	color = "#ff000000";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff000000";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffffffff";
+
+/*@ define:input:diamond
+label: Tier 5
+type: style
+group: Gems & Bolt Tips
+exampleItem: Diamond
+*/
+
+#define DIAMOND_T5_STYLE \
+	backgroundColor = "#ff00000";\
+	menuTextColor = "#ffffffff";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffffffff";
+
+/*@ define:input:diamond
+label: Tier 0
+type: style
+group: Jewelry
+exampleItem: Diamond necklace
+*/
+
+#define DIAMOND_JEWELRY_T0_STYLE \
+    color = "#ffd8b01a"; \
+	menuTextColor = "#ffffffff"; \
+    textAccent = 2; \
+    textAccentColor = "#ffffffff"; \
+
+
+/*@ define:input:diamond
+label: Tier 1
+type: style
+group: Jewelry
+exampleItem: Diamond amulet
+*/
+
+#define DIAMOND_JEWELRY_T1_STYLE \
+    color = "#ffd8b01a";\
+    backgroundColor = "#44ffffff";\
+	menuTextColor = "#ffffffff";\
+	textAccent = 3;
+
+/*@ define:input:diamond
+label: Tier 2
+type: style
+group: Jewelry
+exampleItem: Diamond ring
+*/
+
+#define DIAMOND_JEWELRY_T2_STYLE \
+	color ="#ffd8b01a";\
+    backgroundColor = "#77ffffff";\
+	menuTextColor = "#ffffffff";\
+	textAccent = 3;
+
+/*@ define:input:diamond
+label: Tier 3
+type: style
+group: Jewelry
+exampleItem: Ring of life
+*/
+
+#define DIAMOND_JEWELRY_T3_STYLE \
+	color = "#ffd8b01a";\
+	backgroundColor = "#ddffffff";\
+	menuTextColor = "#ffffffff"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffd8b01a";
+
+/*@ define:input:diamond
+label: Tier 4
+type: style
+group: Jewelry
+exampleItem: Pheonix necklace
+*/
+
+#define DIAMOND_JEWELRY_T4_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffffffff";\
+	color = "#ffd8b01a";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffd8b01a";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffffffff";
+
+/*@ define:input:diamond
+label: Tier 5
+type: style
+group: Jewelry
+exampleItem: Amulet of power
+*/
+
+#define DIAMOND_JEWELRY_T5_STYLE \
+	backgroundColor = "#ff00000";\
+	menuTextColor = "#ffffffff";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffffffff";
+	
+VALUE_RULESET(["Uncut diamond", "Diamond", "Diamond bolt tips"], DIAMOND_T5_STYLE, DIAMOND_T4_STYLE, DIAMOND_T3_STYLE, DIAMOND_T2_STYLE, DIAMOND_T1_STYLE, DIAMOND_T0_STYLE)
+VALUE_RULESET(["Dragon necklace", "Pheonix necklace*", "Diamond ring", "Ring of life", "Diamond amulet", "Diamond amulet (u)", "Amulet of power*", "Diamond bracelet", "Abyssal bracelet*"], DIAMOND_JEWELRY_T5_STYLE, DIAMOND_JEWELRY_T4_STYLE, DIAMOND_JEWELRY_T3_STYLE, DIAMOND_JEWELRY_T2_STYLE, DIAMOND_JEWELRY_T1_STYLE, DIAMOND_JEWELRY_T0_STYLE)
+
+/*@ define:module:ruby
+name: Ruby
+subtitle: For Birdhouse Runs 
+*/
+
+/*@ define:input:ruby
+label: Tier 0
+type: style
+group: Gems & Bolt Tips
+exampleItem: Ruby bolt tips
+*/
+
+#define RUBY_T0_STYLE \
+    color = "#ffff0000"; \
+	menuTextColor = "#ffff0000"; 
+
+
+/*@ define:input:ruby
+label: Tier 1
+type: style
+group: Gems & Bolt Tips
+exampleItem: Uncut ruby
+*/
+
+#define RUBY_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#44ff0000";\
+	menuTextColor = "#ffff0000";\
+	textAccent = 3;
+
+/*@ define:input:ruby
+label: Tier 2
+type: style
+group: Gems & Bolt Tips
+exampleItem: Ruby
+*/
+
+#define RUBY_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#77ff0000";\
+	menuTextColor = "#ffff0000";\
+	textAccent = 3;
+
+/*@ define:input:ruby
+label: Tier 3
+type: style
+group: Gems & Bolt Tips
+exampleItem: Ruby bolt tips
+*/
+
+#define RUBY_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#bbff0000";\
+	menuTextColor = "#ffff0000"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:ruby
+label: Tier 4
+type: style
+group: Gems & Bolt Tips
+exampleItem: Uncut ruby
+*/
+
+#define RUBY_T4_STYLE \
+	backgroundColor = "#ffff0000";\
+	menuTextColor = "#ffff0000";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffff0000";
+
+/*@ define:input:ruby
+label: Tier 5
+type: style
+group: Gems & Bolt Tips
+exampleItem: Ruby
+*/
+
+#define RUBY_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffff0000";\
+	color = "#ffff0000";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffff0000";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffff0000";
+
+/*@ define:input:ruby
+label: Tier 0
+type: style
+group: Jewelry
+exampleItem: Ruby necklace
+*/
+
+#define RUBY_JEWELRY_T0_STYLE \
+    color = "#ffd8b01a"; \
+	menuTextColor = "#ffff0000"; \
+    textAccent = 2; \
+    textAccentColor = "#ffff0000"; \
+
+
+/*@ define:input:ruby
+label: Tier 1
+type: style
+group: Jewelry
+exampleItem: Ruby amulet
+*/
+
+#define RUBY_JEWELRY_T1_STYLE \
+    color = "#ffd8b01a";\
+    backgroundColor = "#44ff0000";\
+	menuTextColor = "#ffff0000";\
+	textAccent = 3;
+
+/*@ define:input:ruby
+label: Tier 2
+type: style
+group: Jewelry
+exampleItem: Ruby ring
+*/
+
+#define RUBY_JEWELRY_T2_STYLE \
+	color ="#ffd8b01a";\
+    backgroundColor = "#77ff0000";\
+	menuTextColor = "#ffff0000";\
+	textAccent = 3;
+
+/*@ define:input:ruby
+label: Tier 3
+type: style
+group: Jewelry
+exampleItem: Ring of forging
+*/
+
+#define RUBY_JEWELRY_T3_STYLE \
+	color = "#ffd8b01a";\
+	backgroundColor = "#ddff0000";\
+	menuTextColor = "#ffff0000"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffd8b01a";
+
+/*@ define:input:ruby
+label: Tier 4
+type: style
+group: Jewelry
+exampleItem: Digsite pentant
+*/
+
+#define RUBY_JEWELRY_T4_STYLE \
+	backgroundColor = "#ffff0000";\
+	menuTextColor = "#ffff0000";\
+	color = "#ffd8b01a";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffd8b01a";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffff0000";
+
+/*@ define:input:ruby
+label: Tier 5
+type: style
+group: Jewelry
+exampleItem: Amulet of strength
+*/
+
+#define RUBY_JEWELRY_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffff0000";\
+	color = "#ffff0000";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffff0000";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffff0000";
+	
+VALUE_RULESET(["Uncut ruby", "Ruby", "Ruby bolt tips"], RUBY_T5_STYLE, RUBY_T4_STYLE, RUBY_T3_STYLE, RUBY_T2_STYLE, RUBY_T1_STYLE, RUBY_T0_STYLE)
+VALUE_RULESET(["Ruby necklace", "Digsite pendant*", "Ruby ring", "Ring of forging", "Ruby amulet", "Ruby amulet (u)", "Amulet of Strength*", "Ruby bracelet", "Inoculation bracelet"], RUBY_JEWELRY_T5_STYLE, RUBY_JEWELRY_T4_STYLE, RUBY_JEWELRY_T3_STYLE, RUBY_JEWELRY_T2_STYLE, RUBY_JEWELRY_T1_STYLE, RUBY_JEWELRY_T0_STYLE)
+
+/*@ define:module:emerald
+name: Emerald
+subtitle: The Green Gem
+*/
+
+/*@ define:input:emerald
+label: Tier 0
+type: style
+group: Gems & Bolt Tips
+exampleItem: Emerald bolt tips
+*/
+
+#define EMERALD_T0_STYLE \
+    color = "#ff109014"; \
+	menuTextColor = "#ff109014"; 
+
+
+/*@ define:input:emerald
+label: Tier 1
+type: style
+group: Gems & Bolt Tips
+exampleItem: Uncut emerald
+*/
+
+#define EMERALD_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#44109014";\
+	menuTextColor = "#ff109014";\
+	textAccent = 3;
+
+/*@ define:input:emerald
+label: Tier 2
+type: style
+group: Gems & Bolt Tips
+exampleItem: Emerald
+*/
+
+#define EMERALD_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#77109014";\
+	menuTextColor = "#ff109014";\
+	textAccent = 3;
+
+/*@ define:input:emerald
+label: Tier 3
+type: style
+group: Gems & Bolt Tips
+exampleItem: Emerald bolt tips
+*/
+
+#define EMERALD_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#bb109014";\
+	menuTextColor = "#ff109014"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:emerald
+label: Tier 4
+type: style
+group: Gems & Bolt Tips
+exampleItem: Uncut emerald
+*/
+
+#define EMERALD_T4_STYLE \
+	backgroundColor = "#ff109014";\
+	menuTextColor = "#ff109014";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff109014";
+
+/*@ define:input:emerald
+label: Tier 5
+type: style
+group: Gems & Bolt Tips
+exampleItem: Emerald
+*/
+
+#define EMERALD_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff109014";\
+	color = "#ff109014";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff109014";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff109014";
+
+/*@ define:input:emerald
+label: Tier 0
+type: style
+group: Jewelry
+exampleItem: Emerald necklace
+*/
+
+#define EMERALD_JEWELRY_T0_STYLE \
+    color = "#ffd8b01a"; \
+	menuTextColor = "#ff109014"; \
+    textAccent = 2; \
+    textAccentColor = "#ff109014"; \
+
+
+/*@ define:input:emerald
+label: Tier 1
+type: style
+group: Jewelry
+exampleItem: Emerald amulet
+*/
+
+#define EMERALD_JEWELRY_T1_STYLE \
+    color = "#ffd8b01a";\
+    backgroundColor = "#44109014";\
+	menuTextColor = "#ff109014";\
+	textAccent = 3;
+
+/*@ define:input:emerald
+label: Tier 2
+type: style
+group: Jewelry
+exampleItem: Emerald ring
+*/
+
+#define EMERALD_JEWELRY_T2_STYLE \
+	color ="#ffd8b01a";\
+    backgroundColor = "#77109014";\
+	menuTextColor = "#ff109014";\
+	textAccent = 3;
+
+/*@ define:input:emerald
+label: Tier 3
+type: style
+group: Jewelry
+exampleItem: Amulet of defence
+*/
+
+#define EMERALD_JEWELRY_T3_STYLE \
+	color = "#ffd8b01a";\
+	backgroundColor = "#dd109014";\
+	menuTextColor = "#ff109014"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffd8b01a";
+
+/*@ define:input:emerald
+label: Tier 4
+type: style
+group: Jewelry
+exampleItem: Binding necklace
+*/
+
+#define EMERALD_JEWELRY_T4_STYLE \
+	backgroundColor = "#ff109014";\
+	menuTextColor = "#ff109014";\
+	color = "#ffd8b01a";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffd8b01a";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff109014";
+
+/*@ define:input:emerald
+label: Tier 5
+type: style
+group: Jewelry
+exampleItem: Ring of dueling(8)
+*/
+
+#define EMERALD_JEWELRY_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff109014";\
+	color = "#ff109014";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff109014";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff109014";
+	
+VALUE_RULESET(["Uncut emerald", "Emerald", "Emerald bolt tips"], EMERALD_T5_STYLE, EMERALD_T4_STYLE, EMERALD_T3_STYLE, EMERALD_T2_STYLE, EMERALD_T1_STYLE, EMERALD_T0_STYLE)
+VALUE_RULESET(["Emerald necklace", "Binding neclklace", "Emerald ring", "Ring of dueling*", "Emerald amulet", "Emerald amulet (u)", "Amulet of defence", "Emerald bracelet", "Castle wars bracelet"], EMERALD_JEWELRY_T5_STYLE, EMERALD_JEWELRY_T4_STYLE, EMERALD_JEWELRY_T3_STYLE, EMERALD_JEWELRY_T2_STYLE, EMERALD_JEWELRY_T1_STYLE, EMERALD_JEWELRY_T0_STYLE)
+
+/*@ define:module:sapphire
+name: Sapphire
+subtitle: Rings of Recoils and Games Necklaces
+*/
+
+/*@ define:input:sapphire
+label: Tier 0
+type: style
+group: Gems & Bolt Tips
+exampleItem: Sapphire bolt tips
+*/
+
+#define SAPPHIRE_T0_STYLE \
+    color = "#ff0000ff"; \
+	menuTextColor = "#ff0000ff"; 
+
+
+/*@ define:input:sapphire
+label: Tier 1
+type: style
+group: Gems & Bolt Tips
+exampleItem: Uncut sapphire
+*/
+
+#define SAPPHIRE_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#440000ff";\
+	menuTextColor = "#ff0000ff";\
+	textAccent = 3;
+
+/*@ define:input:sapphire
+label: Tier 2
+type: style
+group: Gems & Bolt Tips
+exampleItem: Sapphire
+*/
+
+#define SAPPHIRE_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#770000ff";\
+	menuTextColor = "#ff0000ff";\
+	textAccent = 3;
+
+/*@ define:input:sapphire
+label: Tier 3
+type: style
+group: Gems & Bolt Tips
+exampleItem: Sapphire bolt tips
+*/
+
+#define SAPPHIRE_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#bb0000ff";\
+	menuTextColor = "#ff0000ff"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:sapphire
+label: Tier 4
+type: style
+group: Gems & Bolt Tips
+exampleItem: Uncut sapphire
+*/
+
+#define SAPPHIRE_T4_STYLE \
+	backgroundColor = "#ff0000ff";\
+	menuTextColor = "#ff0000ff";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff0000ff";
+
+/*@ define:input:sapphire
+label: Tier 5
+type: style
+group: Gems & Bolt Tips
+exampleItem: Sapphire
+*/
+
+#define SAPPHIRE_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff0000ff";\
+	color = "#ff0000ff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff0000ff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff0000ff";
+
+/*@ define:input:sapphire
+label: Tier 0
+type: style
+group: Jewelry
+exampleItem: Sapphire necklace
+*/
+
+#define SAPPHIRE_JEWELRY_T0_STYLE \
+    color = "#ffd8b01a"; \
+	menuTextColor = "#ff0000ff"; \
+    textAccent = 2; \
+    textAccentColor = "#ff0000ff"; \
+
+
+/*@ define:input:sapphire
+label: Tier 1
+type: style
+group: Jewelry
+exampleItem: Sapphire amulet
+*/
+
+#define SAPPHIRE_JEWELRY_T1_STYLE \
+    color = "#ffd8b01a";\
+    backgroundColor = "#440000ff";\
+	menuTextColor = "#ff0000ff";\
+	textAccent = 3;
+
+/*@ define:input:sapphire
+label: Tier 2
+type: style
+group: Jewelry
+exampleItem: Sapphire ring
+*/
+
+#define SAPPHIRE_JEWELRY_T2_STYLE \
+	color ="#ffd8b01a";\
+    backgroundColor = "#770000ff";\
+	menuTextColor = "#ff0000ff";\
+	textAccent = 3;
+
+/*@ define:input:sapphire
+label: Tier 3
+type: style
+group: Jewelry
+exampleItem: Amulet of defence
+*/
+
+#define SAPPHIRE_JEWELRY_T3_STYLE \
+	color = "#ffd8b01a";\
+	backgroundColor = "#dd0000ff";\
+	menuTextColor = "#ff0000ff"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffd8b01a";
+
+/*@ define:input:sapphire
+label: Tier 4
+type: style
+group: Jewelry
+exampleItem: Binding necklace
+*/
+
+#define SAPPHIRE_JEWELRY_T4_STYLE \
+	backgroundColor = "#ff0000ff";\
+	menuTextColor = "#ff0000ff";\
+	color = "#ffd8b01a";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffd8b01a";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff0000ff";
+
+/*@ define:input:sapphire
+label: Tier 5
+type: style
+group: Jewelry
+exampleItem: Ring of dueling(8)
+*/
+
+#define SAPPHIRE_JEWELRY_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff0000ff";\
+	color = "#ff0000ff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff0000ff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff0000ff";
+	
+VALUE_RULESET(["Uncut sapphire", "Sapphire", "Sapphire bolt tips"], SAPPHIRE_T5_STYLE, SAPPHIRE_T4_STYLE, SAPPHIRE_T3_STYLE, SAPPHIRE_T2_STYLE, SAPPHIRE_T1_STYLE, SAPPHIRE_T0_STYLE)
+VALUE_RULESET(["Sapphire necklace", "Games neclklace*", "Sapphire ring", "Ring of recoil", "Sapphire amulet", "Sapphire amulet (u)", "Amulet of magic", "Sapphire bracelet", "Bracelet of clay"], SAPPHIRE_JEWELRY_T5_STYLE, SAPPHIRE_JEWELRY_T4_STYLE, SAPPHIRE_JEWELRY_T3_STYLE, SAPPHIRE_JEWELRY_T2_STYLE, SAPPHIRE_JEWELRY_T1_STYLE, SAPPHIRE_JEWELRY_T0_STYLE)
+
+/*@ define:module:red_topaz
+name: Red Topaz
+subtitle: Bracelets of Slaughter
+*/
+
+/*@ define:input:red_topaz
+label: Tier 0
+type: style
+group: Gems & Bolt Tips
+exampleItem: Topaz bolt tips
+*/
+
+#define RED_TOPAZ_T0_STYLE \
+    color = "#ffff00aa"; \
+	menuTextColor = "#ffff00aa"; 
+
+
+/*@ define:input:red_topaz
+label: Tier 1
+type: style
+group: Gems & Bolt Tips
+exampleItem: Uncut red topaz
+*/
+
+#define RED_TOPAZ_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#44ff00aa";\
+	menuTextColor = "#ffff00aa";\
+	textAccent = 3;
+
+/*@ define:input:red_topaz
+label: Tier 2
+type: style
+group: Gems & Bolt Tips
+exampleItem: Red topaz
+*/
+
+#define RED_TOPAZ_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#77ff00aa";\
+	menuTextColor = "#ffff00aa";\
+	textAccent = 3;
+
+/*@ define:input:red_topaz
+label: Tier 3
+type: style
+group: Gems & Bolt Tips
+exampleItem: Topaz bolt tips
+*/
+
+#define RED_TOPAZ_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#bbff00aa";\
+	menuTextColor = "#ffff00aa"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:red_topaz
+label: Tier 4
+type: style
+group: Gems & Bolt Tips
+exampleItem: Uncut red topaz
+*/
+
+#define RED_TOPAZ_T4_STYLE \
+	backgroundColor = "#ffff00aa";\
+	menuTextColor = "#ffff00aa";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffff00aa";
+
+/*@ define:input:red_topaz
+label: Tier 5
+type: style
+group: Gems & Bolt Tips
+exampleItem: Red topaz
+*/
+
+#define RED_TOPAZ_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffff00aa";\
+	color = "#ffff00aa";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffff00aa";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffff00aa";
+
+/*@ define:input:red_topaz
+label: Tier 0
+type: style
+group: Jewelry
+exampleItem: Topaz necklace
+*/
+
+#define RED_TOPAZ_JEWELRY_T0_STYLE \
+    color = "#ffa8a8b4"; \
+	menuTextColor = "#ffff00aa"; \
+    textAccent = 2; \
+    textAccentColor = "#ffff00aa"; \
+
+/*@ define:input:red_topaz
+label: Tier 1
+type: style
+group: Jewelry
+exampleItem: Topaz amulet
+*/
+
+#define RED_TOPAZ_JEWELRY_T1_STYLE \
+    color = "#ffa8a8b4";\
+    backgroundColor = "#44ff00aa";\
+	menuTextColor = "#ffff00aa";\
+	textAccent = 3;
+
+/*@ define:input:red_topaz
+label: Tier 2
+type: style
+group: Jewelry
+exampleItem: Topaz ring
+*/
+
+#define RED_TOPAZ_JEWELRY_T2_STYLE \
+	color ="#ffa8a8b4";\
+    backgroundColor = "#77ff00aa";\
+	menuTextColor = "#ffff00aa";\
+	textAccent = 3;
+
+/*@ define:input:red_topaz
+label: Tier 3
+type: style
+group: Jewelry
+exampleItem: Necklace of faith
+*/
+
+#define RED_TOPAZ_JEWELRY_T3_STYLE \
+	color = "#ffa8a8b4";\
+	backgroundColor = "#ddff00aa";\
+	menuTextColor = "#ffff00aa"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffa8a8b4";
+
+/*@ define:input:red_topaz
+label: Tier 4
+type: style
+group: Jewelry
+exampleItem: Burning amulet(5)
+*/
+
+#define RED_TOPAZ_JEWELRY_T4_STYLE \
+	backgroundColor = "#ffff00aa";\
+	menuTextColor = "#ffff00aa";\
+	color = "#ffa8a8b4";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffa8a8b4";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffff00aa";
+
+/*@ define:input:red_topaz
+label: Tier 5
+type: style
+group: Jewelry
+exampleItem: Bracelet of slaughter
+*/
+
+#define RED_TOPAZ_JEWELRY_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffff00aa";\
+	color = "#ffff00aa";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffff00aa";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffff00aa";
+	
+VALUE_RULESET(["Uncut red topaz", "Red topaz", "Topaz bolt tips"], RED_TOPAZ_T5_STYLE, RED_TOPAZ_T4_STYLE, RED_TOPAZ_T3_STYLE, RED_TOPAZ_T2_STYLE, RED_TOPAZ_T1_STYLE, RED_TOPAZ_T0_STYLE)
+VALUE_RULESET(["Topaz necklace", "Games neclklace*", "Topaz ring", "Efaritay's aid", "Topaz amulet", "Topaz amulet (u)", "Burning amulet*", "Topaz bracelet", "Bracelet of slaughter"], RED_TOPAZ_JEWELRY_T5_STYLE, RED_TOPAZ_JEWELRY_T4_STYLE, RED_TOPAZ_JEWELRY_T3_STYLE, RED_TOPAZ_JEWELRY_T2_STYLE, RED_TOPAZ_JEWELRY_T1_STYLE, RED_TOPAZ_JEWELRY_T0_STYLE)
+
+/*@ define:module:jade
+name: Jade
+subtitle: Amulets of Chemestry
+*/
+
+/*@ define:input:jade
+label: Tier 0
+type: style
+group: Gems & Bolt Tips
+exampleItem: Jade bolt tips
+*/
+
+#define JADE_T0_STYLE \
+    color = "#ff8bd9b3"; \
+	menuTextColor = "#ff8bd9b3"; 
+
+/*@ define:input:jade
+label: Tier 1
+type: style
+group: Gems & Bolt Tips
+exampleItem: Uncut jade
+*/
+
+#define JADE_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#448bd9b3";\
+	menuTextColor = "#ff8bd9b3";\
+	textAccent = 3;
+
+/*@ define:input:jade
+label: Tier 2
+type: style
+group: Gems & Bolt Tips
+exampleItem: Jade
+*/
+
+#define JADE_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#778bd9b3";\
+	menuTextColor = "#ff8bd9b3";\
+	textAccent = 3;
+
+/*@ define:input:jade
+label: Tier 3
+type: style
+group: Gems & Bolt Tips
+exampleItem: Jade bolt tips
+*/
+
+#define JADE_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#bb8bd9b3";\
+	menuTextColor = "#ff8bd9b3"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:jade
+label: Tier 4
+type: style
+group: Gems & Bolt Tips
+exampleItem: Uncut jade
+*/
+
+#define JADE_T4_STYLE \
+	backgroundColor = "#ff8bd9b3";\
+	menuTextColor = "#ff8bd9b3";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff8bd9b3";
+
+/*@ define:input:jade
+label: Tier 5
+type: style
+group: Gems & Bolt Tips
+exampleItem: Jade
+*/
+
+#define JADE_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff8bd9b3";\
+	color = "#ff8bd9b3";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff8bd9b3";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff8bd9b3";
+
+/*@ define:input:jade
+label: Tier 0
+type: style
+group: Jewelry
+exampleItem: Jade necklace
+*/
+
+#define JADE_JEWELRY_T0_STYLE \
+    color = "#ffa8a8b4"; \
+	menuTextColor = "#ff8bd9b3"; \
+    textAccent = 2; \
+    textAccentColor = "#ff8bd9b3"; \
+
+/*@ define:input:jade
+label: Tier 1
+type: style
+group: Jewelry
+exampleItem: Jade amulet
+*/
+
+#define JADE_JEWELRY_T1_STYLE \
+    color = "#ffa8a8b4";\
+    backgroundColor = "#448bd9b3";\
+	menuTextColor = "#ff8bd9b3";\
+	textAccent = 3;
+
+/*@ define:input:jade
+label: Tier 2
+type: style
+group: Jewelry
+exampleItem: Jade ring
+*/
+
+#define JADE_JEWELRY_T2_STYLE \
+	color ="#ffa8a8b4";\
+    backgroundColor = "#778bd9b3";\
+	menuTextColor = "#ff8bd9b3";\
+	textAccent = 3;
+
+/*@ define:input:jade
+label: Tier 3
+type: style
+group: Jewelry
+exampleItem: Necklace of passage(5)
+*/
+
+#define JADE_JEWELRY_T3_STYLE \
+	color = "#ffa8a8b4";\
+	backgroundColor = "#aa8bd9b3";\
+	menuTextColor = "#ff8bd9b3"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffa8a8b4";
+
+/*@ define:input:jade
+label: Tier 4
+type: style
+group: Jewelry
+exampleItem: Flamtaer bracelet
+*/
+
+#define JADE_JEWELRY_T4_STYLE \
+	backgroundColor = "#ff8bd9b3";\
+	menuTextColor = "#ff8bd9b3";\
+	color = "#ffa8a8b4";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffa8a8b4";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff8bd9b3";
+
+/*@ define:input:jade
+label: Tier 5
+type: style
+group: Jewelry
+exampleItem: Amulet of chemistry
+*/
+
+#define JADE_JEWELRY_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff8bd9b3";\
+	color = "#ff8bd9b3";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff8bd9b3";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff8bd9b3";
+	
+VALUE_RULESET(["Uncut jade", "Jade", "Jade bolt tips"], JADE_T5_STYLE, JADE_T4_STYLE, JADE_T3_STYLE, JADE_T2_STYLE, JADE_T1_STYLE, JADE_T0_STYLE)
+VALUE_RULESET(["Jade necklace", "Necklace of passage*", "Jade ring", "Ring of returning*", "Jade amulet", "Jade amulet (u)", "Amulet of chemistry", "Jade bracelet", "Flamtaer bracelet"], JADE_JEWELRY_T5_STYLE, JADE_JEWELRY_T4_STYLE, JADE_JEWELRY_T3_STYLE, JADE_JEWELRY_T2_STYLE, JADE_JEWELRY_T1_STYLE, JADE_JEWELRY_T0_STYLE)
+
+/*@ define:module:opal
+name: Opal
+subtitle: Dodgy Necklaces
+*/
+
+/*@ define:input:opal
+label: Tier 0
+type: style
+group: Gems & Bolt Tips
+exampleItem: Opal bolt tips
+*/
+
+#define OPAL_T0_STYLE \
+    color = "#ffbdd9d7"; \
+	menuTextColor = "#ffbdd9d7"; 
+
+/*@ define:input:opal
+label: Tier 1
+type: style
+group: Gems & Bolt Tips
+exampleItem: Uncut opal
+*/
+
+#define OPAL_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#44bdd9d7";\
+	menuTextColor = "#ffbdd9d7";\
+	textAccent = 3;
+
+/*@ define:input:opal
+label: Tier 2
+type: style
+group: Gems & Bolt Tips
+exampleItem: Opal
+*/
+
+#define OPAL_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#77bdd9d7";\
+	menuTextColor = "#ffbdd9d7";\
+	textAccent = 3;
+
+/*@ define:input:opal
+label: Tier 3
+type: style
+group: Gems & Bolt Tips
+exampleItem: Opal bolt tips
+*/
+
+#define OPAL_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#bbbdd9d7";\
+	menuTextColor = "#ffbdd9d7"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:opal
+label: Tier 4
+type: style
+group: Gems & Bolt Tips
+exampleItem: Uncut opal
+*/
+
+#define OPAL_T4_STYLE \
+	backgroundColor = "#ffbdd9d7";\
+	menuTextColor = "#ffbdd9d7";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffbdd9d7";
+
+/*@ define:input:opal
+label: Tier 5
+type: style
+group: Gems & Bolt Tips
+exampleItem: Opal
+*/
+
+#define OPAL_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffbdd9d7";\
+	color = "#ffbdd9d7";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffbdd9d7";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffbdd9d7";
+
+/*@ define:input:opal
+label: Tier 0
+type: style
+group: Jewelry
+exampleItem: Opal necklace
+*/
+
+#define OPAL_JEWELRY_T0_STYLE \
+    color = "#ffa8a8b4"; \
+	menuTextColor = "#ffbdd9d7"; \
+    textAccent = 2; \
+    textAccentColor = "#ffbdd9d7"; \
+
+/*@ define:input:opal
+label: Tier 1
+type: style
+group: Jewelry
+exampleItem: Opal amulet
+*/
+
+#define OPAL_JEWELRY_T1_STYLE \
+    color = "#ffa8a8b4";\
+    backgroundColor = "#44bdd9d7";\
+	menuTextColor = "#ffbdd9d7";\
+	textAccent = 3;
+
+/*@ define:input:opal
+label: Tier 2
+type: style
+group: Jewelry
+exampleItem: Opal ring
+*/
+
+#define OPAL_JEWELRY_T2_STYLE \
+	color ="#ffa8a8b4";\
+    backgroundColor = "#77bdd9d7";\
+	menuTextColor = "#ffbdd9d7";\
+	textAccent = 3;
+
+/*@ define:input:opal
+label: Tier 3
+type: style
+group: Jewelry
+exampleItem: Necklace of passage(5)
+*/
+
+#define OPAL_JEWELRY_T3_STYLE \
+	color = "#ffa8a8b4";\
+	backgroundColor = "#99bdd9d7";\
+	menuTextColor = "#ffbdd9d7"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffa8a8b4";
+
+/*@ define:input:opal
+label: Tier 4
+type: style
+group: Jewelry
+exampleItem: Flamtaer bracelet
+*/
+
+#define OPAL_JEWELRY_T4_STYLE \
+	backgroundColor = "#ffbdd9d7";\
+	menuTextColor = "#ffbdd9d7";\
+	color = "#ffa8a8b4";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffa8a8b4";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffbdd9d7";
+
+/*@ define:input:opal
+label: Tier 5
+type: style
+group: Jewelry
+exampleItem: Amulet of chemistry
+*/
+
+#define OPAL_JEWELRY_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffbdd9d7";\
+	color = "#ffbdd9d7";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffbdd9d7";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffbdd9d7";
+	
+VALUE_RULESET(["Uncut opal", "Opal", "Opal bolt tips"], OPAL_T5_STYLE, OPAL_T4_STYLE, OPAL_T3_STYLE, OPAL_T2_STYLE, OPAL_T1_STYLE, OPAL_T0_STYLE)
+VALUE_RULESET(["Opal necklace", "Dodgy necklace", "Opal ring", "Ring of pursuit", "Opal amulet", "Opal amulet (u)", "Amulet of bounty", "Opal bracelet", "Expeditious bracelet"], OPAL_JEWELRY_T5_STYLE, OPAL_JEWELRY_T4_STYLE, OPAL_JEWELRY_T3_STYLE, OPAL_JEWELRY_T2_STYLE, OPAL_JEWELRY_T1_STYLE, OPAL_JEWELRY_T0_STYLE)
+
+/*@ define:module:green_dhide
+name: Green Dhide
+subtitle: Ethically Harvested from Green Dragons
+*/
+
+/*@ define:input:green_dhide
+label: Show unnoted
+type: boolean
+group: Green Dhide
+*/
+
+#define GREEN_DHIDE_SHOW_UNNOTED false
+
+/*@ define:input:green_dhide
+label: Reaplce T1 with Noted
+type: boolean
+group: Green Dhide
+*/
+
+#define GREEN_DHIDE_REPLACE_T1 true
+
+/*@ define:input:green_dhide
+label: Minimum Quantity
+type: number
+group: Green Dhide
+*/
+
+#define GREEN_DHIDE_QUANTITY 1
+
+/*@ define:input:green_dhide
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Green dragonhide
+*/
+
+#define GREEN_DHIDE_T0_STYLE \
+    color = "#ff2fc206"; \
+	menuTextColor = "#ff2fc206"; 
+
+
+/*@ define:input:green_dhide
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Green dragon leather
+*/
+
+#define GREEN_DHIDE_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#442fc206";\
+	menuTextColor = "#ff2fc206";\
+	textAccent = 3;
+
+/*@ define:input:green_dhide
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Green dragonhide
+*/
+
+#define GREEN_DHIDE_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#772fc206";\
+	menuTextColor = "#ff2fc206";\
+	textAccent = 3;
+
+/*@ define:input:green_dhide
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Green dragon leather
+*/
+
+#define GREEN_DHIDE_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#aa2fc206";\
+	menuTextColor = "#ff2fc206"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:green_dhide
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Green dragonhide
+*/
+
+#define GREEN_DHIDE_T4_STYLE \
+	backgroundColor = "#ff2fc206";\
+	menuTextColor = "#ff2fc206";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff2fc206";
+
+/*@ define:input:green_dhide
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Green dragon leather
+*/
+
+#define GREEN_DHIDE_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff2fc206";\
+	color = "#ff2fc206";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff2fc206";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff2fc206";
+
+
+rule (name:["Green dragonhide", "Green dragon leather"] && quantity:<GREEN_DHIDE_QUANTITY) {hidden=true;}
+
+rule (!GREEN_DHIDE_SHOW_UNNOTED && name:["Green dragonhide", "Green dragon leather"] && stackable:false) {hidden=true;}
+
+rule (GREEN_DHIDE_REPLACE_T1 && name:["Green dragonhide", "Green dragon leather"] && stackable:true && value:<VALUE_TIER_2) {GREEN_DHIDE_T1_STYLE}
+
+VALUE_RULESET(["Green dragonhide", "Green dragon leather"] && quantity:>=GREEN_DHIDE_QUANTITY, GREEN_DHIDE_T5_STYLE, GREEN_DHIDE_T4_STYLE, GREEN_DHIDE_T3_STYLE, GREEN_DHIDE_T2_STYLE, GREEN_DHIDE_T1_STYLE, GREEN_DHIDE_T0_STYLE)
+
+
+/*@ define:module:blue_dhide
+name: Blue Dhide
+subtitle: The Hides of some Scaley Dragons
+*/
+
+/*@ define:input:blue_dhide
+label: Show unnoted
+type: boolean
+group: Blue Dhide
+*/
+
+#define BLUE_DHIDE_SHOW_UNNOTED false
+
+/*@ define:input:blue_dhide
+label: Reaplce T1 with Noted
+type: boolean
+group: Blue Dhide
+*/
+
+#define BLUE_DHIDE_REPLACE_T1 true
+
+/*@ define:input:blue_dhide
+label: Minimum Quantity
+type: number
+group: Blue Dhide
+*/
+
+#define BLUE_DHIDE_QUANTITY 1
+
+/*@ define:input:blue_dhide
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Blue dragonhide
+*/
+
+#define BLUE_DHIDE_T0_STYLE \
+    color = "#ff0c0c87"; \
+	menuTextColor = "#ff0c0c87"; 
+
+
+/*@ define:input:blue_dhide
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Blue dragon leather
+*/
+
+#define BLUE_DHIDE_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#440c0c87";\
+	menuTextColor = "#ff0c0c87";\
+	textAccent = 3;
+
+/*@ define:input:blue_dhide
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Blue dragonhide
+*/
+
+#define BLUE_DHIDE_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#770c0c87";\
+	menuTextColor = "#ff0c0c87";\
+	textAccent = 3;
+
+/*@ define:input:blue_dhide
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Blue dragon leather
+*/
+
+#define BLUE_DHIDE_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#aa0c0c87";\
+	menuTextColor = "#ff0c0c87"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:blue_dhide
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Blue dragonhide
+*/
+
+#define BLUE_DHIDE_T4_STYLE \
+	backgroundColor = "#ff0c0c87";\
+	menuTextColor = "#ff0c0c87";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff0c0c87";
+
+/*@ define:input:blue_dhide
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Blue dragon leather
+*/
+
+#define BLUE_DHIDE_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff0c0c87";\
+	color = "#ff0c0c87";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff0c0c87";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff0c0c87";
+
+
+rule (name:["Blue dragonhide", "Blue dragon leather"] && quantity:<BLUE_DHIDE_QUANTITY) {hidden=true;}
+
+rule (!BLUE_DHIDE_SHOW_UNNOTED && name:["Blue dragonhide", "Blue dragon leather"] && stackable:false) {hidden=true;}
+
+rule (BLUE_DHIDE_REPLACE_T1 && name:["Blue dragonhide", "Blue dragon leather"] && stackable:true && value:<VALUE_TIER_2) {BLUE_DHIDE_T1_STYLE}
+
+VALUE_RULESET(["Blue dragonhide", "Blue dragon leather"] && quantity:>=BLUE_DHIDE_QUANTITY, BLUE_DHIDE_T5_STYLE, BLUE_DHIDE_T4_STYLE, BLUE_DHIDE_T3_STYLE, BLUE_DHIDE_T2_STYLE, BLUE_DHIDE_T1_STYLE, BLUE_DHIDE_T0_STYLE)
+
+
+/*@ define:module:red_dhide
+name: Red Dhide
+subtitle: Hides from Key dropping Dragons
+*/
+
+/*@ define:input:red_dhide
+label: Show unnoted
+type: boolean
+group: Red Dhide
+*/
+
+#define RED_DHIDE_SHOW_UNNOTED false
+
+/*@ define:input:red_dhide
+label: Reaplce T1 with Noted
+type: boolean
+group: Red Dhide
+*/
+
+#define RED_DHIDE_REPLACE_T1 true
+
+/*@ define:input:red_dhide
+label: Minimum Quantity
+type: number
+group: Red Dhide
+*/
+
+#define RED_DHIDE_QUANTITY 1
+
+/*@ define:input:red_dhide
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Red dragonhide
+*/
+
+#define RED_DHIDE_T0_STYLE \
+    color = "#ff870c12"; \
+	menuTextColor = "#ff870c12"; 
+
+
+/*@ define:input:red_dhide
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Red dragon leather
+*/
+
+#define RED_DHIDE_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#44870c12";\
+	menuTextColor = "#ff870c12";\
+	textAccent = 3;
+
+/*@ define:input:red_dhide
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Red dragonhide
+*/
+
+#define RED_DHIDE_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#77870c12";\
+	menuTextColor = "#ff870c12";\
+	textAccent = 3;
+
+/*@ define:input:red_dhide
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Red dragon leather
+*/
+
+#define RED_DHIDE_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#aa870c12";\
+	menuTextColor = "#ff870c12"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:red_dhide
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Red dragonhide
+*/
+
+#define RED_DHIDE_T4_STYLE \
+	backgroundColor = "#ff870c12";\
+	menuTextColor = "#ff870c12";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff870c12";
+
+/*@ define:input:red_dhide
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Red dragon leather
+*/
+
+#define RED_DHIDE_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff870c12";\
+	color = "#ff870c12";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff870c12";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff870c12";
+
+
+rule (name:["Red dragonhide", "Red dragon leather"] && quantity:<RED_DHIDE_QUANTITY) {hidden=true;}
+
+rule (!RED_DHIDE_SHOW_UNNOTED && name:["Red dragonhide", "Red dragon leather"] && stackable:false) {hidden=true;}
+
+rule (RED_DHIDE_REPLACE_T1 && name:["Red dragonhide", "Red dragon leather"] && stackable:true && value:<VALUE_TIER_2 && value:<VALUE_TIER_2) {RED_DHIDE_T1_STYLE}
+
+VALUE_RULESET(["Red dragonhide", "Red dragon leather"] && quantity:>=RED_DHIDE_QUANTITY, RED_DHIDE_T5_STYLE, RED_DHIDE_T4_STYLE, RED_DHIDE_T3_STYLE, RED_DHIDE_T2_STYLE, RED_DHIDE_T1_STYLE, RED_DHIDE_T0_STYLE)
+
+
+/*@ define:module:black_dhide
+name: Black Dhide
+subtitle: The Hides of Royal Dragons
+*/
+
+/*@ define:input:black_dhide
+label: Show unnoted
+type: boolean
+group: Black Dhide
+*/
+
+#define BLACK_DHIDE_SHOW_UNNOTED false
+
+/*@ define:input:black_dhide
+label: Reaplce T1 with Noted
+type: boolean
+group: Black Dhide
+*/
+
+#define BLACK_DHIDE_REPLACE_T1 true
+
+/*@ define:input:black_dhide
+label: Minimum Quantity
+type: number
+group: Black Dhide
+*/
+
+#define BLACK_DHIDE_QUANTITY 1
+
+/*@ define:input:black_dhide
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Black dragonhide
+*/
+
+#define BLACK_DHIDE_T0_STYLE \
+    color = "#ff000000"; \
+	menuTextColor = "#ff000000"; 
+
+
+/*@ define:input:black_dhide
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Black dragon leather
+*/
+
+#define BLACK_DHIDE_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#44000000";\
+	menuTextColor = "#ff000000";\
+	textAccent = 3;
+
+/*@ define:input:black_dhide
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Black dragonhide
+*/
+
+#define BLACK_DHIDE_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#99000000";\
+	menuTextColor = "#ff000000";\
+	textAccent = 3;
+
+/*@ define:input:black_dhide
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Black dragon leather
+*/
+
+#define BLACK_DHIDE_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#aa000000";\
+	menuTextColor = "#ff000000"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:black_dhide
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Black dragonhide
+*/
+
+#define BLACK_DHIDE_T4_STYLE \
+	backgroundColor = "#ff000000";\
+	menuTextColor = "#ff000000";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff000000";
+
+/*@ define:input:black_dhide
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Black dragon leather
+*/
+
+#define BLACK_DHIDE_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff000000";\
+	color = "#ff000000";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff000000";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff000000";
+
+
+rule (name:["Black dragonhide", "Black dragon leather"] && quantity:<BLACK_DHIDE_QUANTITY) {hidden=true;}
+
+rule (!BLACK_DHIDE_SHOW_UNNOTED && name:["Black dragonhide", "Black dragon leather"] && stackable:false) {hidden=true;}
+
+rule (BLACK_DHIDE_REPLACE_T1 && name:["Black dragonhide", "Black dragon leather"] && stackable:true && value:<VALUE_TIER_2) {BLACK_DHIDE_T1_STYLE}
+
+VALUE_RULESET(["Black dragonhide", "Black dragon leather"] && quantity:>=BLACK_DHIDE_QUANTITY, BLACK_DHIDE_T5_STYLE, BLACK_DHIDE_T4_STYLE, BLACK_DHIDE_T3_STYLE, BLACK_DHIDE_T2_STYLE, BLACK_DHIDE_T1_STYLE, BLACK_DHIDE_T0_STYLE)
+
+/*@ define:module:redwood
+name: Redwood Logs
+subtitle: The most Stylish Wood for Bird Houses
+*/
+
+/*@ define:input:redwood
+label: Show unnoted
+type: boolean
+group: Redwood
+*/
+
+#define REDWOOD_SHOW_UNNOTED false
+
+/*@ define:input:redwood
+label: Reaplce T1 with Noted
+type: boolean
+group: Redwood
+*/
+
+#define REDWOOD_REPLACE_T1 true
+
+/*@ define:input:redwood
+label: Minimum Quantity
+type: number
+group: Redwood
+*/
+
+#define REDWOOD_QUANTITY 1
+
+/*@ define:input:redwood
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Redwood logs
+*/
+
+#define REDWOOD_T0_STYLE \
+    color = "#ffA85B2D"; \
+	menuTextColor = "#ffA85B2D"; 
+
+
+/*@ define:input:redwood
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Redwood logs
+*/
+
+#define REDWOOD_T1_STYLE \
+    color = "#ff5C3005";\
+    backgroundColor = "#44A85B2D";\
+	menuTextColor = "#ffA85B2D";
+
+/*@ define:input:redwood
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Redwood logs
+*/
+
+#define REDWOOD_T2_STYLE \
+	color ="#ff5C3005";\
+    backgroundColor = "#99A85B2D";\
+	menuTextColor = "#ffA85B2D";
+
+/*@ define:input:redwood
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Redwood logs
+*/
+
+#define REDWOOD_T3_STYLE \
+	color = "#ff5C3005";\
+	backgroundColor = "#aaA85B2D";\
+	menuTextColor = "#ffA85B2D"; \
+	fontType = 2;\
+	borderColor = "#ff5C3005";
+
+/*@ define:input:redwood
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Redwood logs
+*/
+
+#define REDWOOD_T4_STYLE \
+	backgroundColor = "#ffA85B2D";\
+	menuTextColor = "#ffA85B2D";\
+	color = "#ff5C3005";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff5C3005";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffA85B2D";
+
+/*@ define:input:redwood
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Redwood logs
+*/
+
+#define REDWOOD_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffA85B2D";\
+	color = "#ffA85B2D";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffA85B2D";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffA85B2D";
+
+rule (name:["Redwood logs"] && quantity:<REDWOOD_QUANTITY) {hidden=true;}
+
+rule (!REDWOOD_SHOW_UNNOTED && name:["Redwood logs"] && stackable:false) {hidden=true;}
+
+rule (REDWOOD_REPLACE_T1 && name:["Redwood logs"] && stackable:true && value:<VALUE_TIER_2) {REDWOOD_T1_STYLE}
+
+VALUE_RULESET(["Redwood logs"] && quantity:>=REDWOOD_QUANTITY, REDWOOD_T5_STYLE, REDWOOD_T4_STYLE, REDWOOD_T3_STYLE, REDWOOD_T2_STYLE, REDWOOD_T1_STYLE, REDWOOD_T0_STYLE)
+
+/*@ define:module:magic
+name: Magic Logs
+subtitle: The Wood of Master Fletchers
+*/
+
+/*@ define:input:magic
+label: Show unnoted
+type: boolean
+group: Magic
+*/
+
+#define MAGIC_SHOW_UNNOTED false
+
+/*@ define:input:magic
+label: Reaplce T1 with Noted
+type: boolean
+group: Magic
+*/
+
+#define MAGIC_REPLACE_T1 true
+
+/*@ define:input:magic
+label: Minimum Quantity
+type: number
+group: Magic
+*/
+
+#define MAGIC_QUANTITY 1
+
+/*@ define:input:magic
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Magic logs
+*/
+
+#define MAGIC_T0_STYLE \
+    color = "#ff4BAFA6"; \
+	menuTextColor = "#ff4BAFA6"; 
+
+
+/*@ define:input:magic
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Magic logs
+*/
+
+#define MAGIC_T1_STYLE \
+    color = "#ff6B623F";\
+    backgroundColor = "#444BAFA6";\
+	menuTextColor = "#ff4BAFA6";
+
+/*@ define:input:magic
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Magic logs
+*/
+
+#define MAGIC_T2_STYLE \
+	color ="#ff6B623F";\
+    backgroundColor = "#994BAFA6";\
+	menuTextColor = "#ff4BAFA6";
+
+/*@ define:input:magic
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Magic logs
+*/
+
+#define MAGIC_T3_STYLE \
+	color = "#ff6B623F";\
+	backgroundColor = "#aa4BAFA6";\
+	menuTextColor = "#ff4BAFA6"; \
+	fontType = 2;\
+	borderColor = "#ff6B623F";
+
+/*@ define:input:magic
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Magic logs
+*/
+
+#define MAGIC_T4_STYLE \
+	backgroundColor = "#ff4BAFA6";\
+	menuTextColor = "#ff4BAFA6";\
+	color = "#ff6B623F";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff6B623F";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff4BAFA6";
+
+/*@ define:input:magic
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Magic logs
+*/
+
+#define MAGIC_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff4BAFA6";\
+	color = "#ff4BAFA6";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff4BAFA6";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff4BAFA6";
+
+rule (name:["Magic logs"] && quantity:<MAGIC_QUANTITY) {hidden=true;}
+
+rule (!MAGIC_SHOW_UNNOTED && name:["Magic logs"] && stackable:false) {hidden=true;}
+
+rule (MAGIC_REPLACE_T1 && name:["Magic logs"] && stackable:true && value:<VALUE_TIER_2) {MAGIC_T1_STYLE}
+
+VALUE_RULESET(["Magic logs"] && quantity:>=MAGIC_QUANTITY, MAGIC_T5_STYLE, MAGIC_T4_STYLE, MAGIC_T3_STYLE, MAGIC_T2_STYLE, MAGIC_T1_STYLE, MAGIC_T0_STYLE)
+
+/*@ define:module:yew
+name: Yew Logs
+subtitle: The Peak Log of F2P
+*/
+
+/*@ define:input:yew
+label: Show unnoted
+type: boolean
+group: Yew
+*/
+
+#define YEW_SHOW_UNNOTED false
+
+/*@ define:input:yew
+label: Reaplce T1 with Noted
+type: boolean
+group: Yew
+*/
+
+#define YEW_REPLACE_T1 true
+
+/*@ define:input:yew
+label: Minimum Quantity
+type: number
+group: Yew
+*/
+
+#define YEW_QUANTITY 1
+
+/*@ define:input:yew
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Yew logs
+*/
+
+#define YEW_T0_STYLE \
+    color = "#ff6E5528"; \
+	menuTextColor = "#ff6E5528"; 
+
+
+/*@ define:input:yew
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Yew logs
+*/
+
+#define YEW_T1_STYLE \
+    color = "#ff432E03";\
+    backgroundColor = "#446E5528";\
+	menuTextColor = "#ff6E5528";
+
+/*@ define:input:yew
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Yew logs
+*/
+
+#define YEW_T2_STYLE \
+	color ="#ff432E03";\
+    backgroundColor = "#996E5528";\
+	menuTextColor = "#ff6E5528";
+
+/*@ define:input:yew
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Yew logs
+*/
+
+#define YEW_T3_STYLE \
+	color = "#ff432E03";\
+	backgroundColor = "#aa6E5528";\
+	menuTextColor = "#ff6E5528"; \
+	fontType = 2;\
+	borderColor = "#ff432E03";
+
+/*@ define:input:yew
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Yew logs
+*/
+
+#define YEW_T4_STYLE \
+	backgroundColor = "#ff6E5528";\
+	menuTextColor = "#ff6E5528";\
+	color = "#ff432E03";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff432E03";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff6E5528";
+
+/*@ define:input:yew
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Yew logs
+*/
+
+#define YEW_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff6E5528";\
+	color = "#ff6E5528";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff6E5528";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff6E5528";
+
+rule (name:["Yew logs"] && quantity:<YEW_QUANTITY) {hidden=true;}
+
+rule (!YEW_SHOW_UNNOTED && name:["Yew logs"] && stackable:false) {hidden=true;}
+
+rule (YEW_REPLACE_T1 && name:["Yew logs"] && stackable:true && value:<VALUE_TIER_2) {YEW_T1_STYLE}
+
+VALUE_RULESET(["Yew logs"] && quantity:>=YEW_QUANTITY, YEW_T5_STYLE, YEW_T4_STYLE, YEW_T3_STYLE, YEW_T2_STYLE, YEW_T1_STYLE, YEW_T0_STYLE)
+
+/*@ define:module:arctic_pine
+name: Arctic Pine Logs
+subtitle: Cold Fremennik Wood
+*/
+
+/*@ define:input:arctic pine
+label: Show unnoted
+type: boolean
+group: Arctic Pine
+*/
+
+#define ARCTIC_PINE_SHOW_UNNOTED false
+
+/*@ define:input:arctic_pine
+label: Reaplce T1 with Noted
+type: boolean
+group: Arctic Pine
+*/
+
+#define ARCTIC_PINE_REPLACE_T1 true
+
+/*@ define:input:arctic_pine
+label: Minimum Quantity
+type: number
+group: Arctic Pine
+*/
+
+#define ARCTIC_PINE_QUANTITY 1
+
+/*@ define:input:arctic_pine
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Arctic pine logs
+*/
+
+#define ARCTIC_PINE_T0_STYLE \
+    color = "#ffCBAC73"; \
+	menuTextColor = "#ffCBAC73"; 
+
+
+/*@ define:input:arctic_pine
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Arctic pine logs
+*/
+
+#define ARCTIC_PINE_T1_STYLE \
+    color = "#ffA6874D";\
+    backgroundColor = "#44CBAC73";\
+	menuTextColor = "#ffCBAC73";
+
+/*@ define:input:arctic_pine
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Arctic pine logs
+*/
+
+#define ARCTIC_PINE_T2_STYLE \
+	color ="#ffA6874D";\
+    backgroundColor = "#99CBAC73";\
+	menuTextColor = "#ffCBAC73";
+
+/*@ define:input:arctic pine
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Arctic pine logs
+*/
+
+#define ARCTIC_PINE_T3_STYLE \
+	color = "#ffA6874D";\
+	backgroundColor = "#aaCBAC73";\
+	menuTextColor = "#ffCBAC73"; \
+	fontType = 2;\
+	borderColor = "#ffA6874D";
+
+/*@ define:input:arctic_pine
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Arctic pine logs
+*/
+
+#define ARCTIC_PINE_T4_STYLE \
+	backgroundColor = "#ffCBAC73";\
+	menuTextColor = "#ffCBAC73";\
+	color = "#ffA6874D";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffA6874D";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffCBAC73";
+
+/*@ define:input:arctic_pine
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Arctic pine logs
+*/
+
+#define ARCTIC_PINE_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffCBAC73";\
+	color = "#ffCBAC73";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffCBAC73";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffCBAC73";
+
+rule (name:["Arctic pine logs"] && quantity:<ARCTIC_PINE_QUANTITY) {hidden=true;}
+
+rule (!ARCTIC_PINE_SHOW_UNNOTED && name:["Arctic pine logs"] && stackable:false) {hidden=true;}
+
+rule (ARCTIC_PINE_REPLACE_T1 && name:["Arctic pine logs"] && stackable:true && value:<VALUE_TIER_2) {ARCTIC_PINE_T1_STYLE}
+
+VALUE_RULESET(["Arctic pine logs"] && quantity:>=ARCTIC_PINE_QUANTITY, ARCTIC_PINE_T5_STYLE, ARCTIC_PINE_T4_STYLE, ARCTIC_PINE_T3_STYLE, ARCTIC_PINE_T2_STYLE, ARCTIC_PINE_T1_STYLE, ARCTIC_PINE_T0_STYLE)
+
+/*@ define:module:mahogany
+name: Mahogany Logs
+subtitle: The Peak Log of F2P
+*/
+
+/*@ define:input:mahogany
+label: Show unnoted
+type: boolean
+group: Mahogany
+*/
+
+#define MAHOGANY_SHOW_UNNOTED false
+
+/*@ define:input:mahogany
+label: Reaplce T1 with Noted
+type: boolean
+group: Mahogany
+*/
+
+#define MAHOGANY_REPLACE_T1 true
+
+/*@ define:input:mahogany
+label: Minimum Quantity
+type: number
+group: Mahogany
+*/
+
+#define MAHOGANY_QUANTITY 1
+
+/*@ define:input:mahogany
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Mahogany logs
+*/
+
+#define MAHOGANY_T0_STYLE \
+    color = "#ff512A02"; \
+	menuTextColor = "#ff512A02"; 
+
+
+/*@ define:input:mahogany
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Mahogany logs
+*/
+
+#define MAHOGANY_T1_STYLE \
+    color = "#ffAC8C53";\
+    backgroundColor = "#44512A02";\
+	menuTextColor = "#ff512A02";
+
+/*@ define:input:mahogany
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Mahogany logs
+*/
+
+#define MAHOGANY_T2_STYLE \
+	color ="#ffAC8C53";\
+    backgroundColor = "#99512A02";\
+	menuTextColor = "#ff512A02";
+
+/*@ define:input:mahogany
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Mahogany logs
+*/
+
+#define MAHOGANY_T3_STYLE \
+	color = "#ffAC8C53";\
+	backgroundColor = "#aa512A02";\
+	menuTextColor = "#ff512A02"; \
+	fontType = 2;\
+	borderColor = "#ffAC8C53";
+
+/*@ define:input:mahogany
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Mahogany logs
+*/
+
+#define MAHOGANY_T4_STYLE \
+	backgroundColor = "#ff512A02";\
+	menuTextColor = "#ff512A02";\
+	color = "#ffAC8C53";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffAC8C53";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff512A02";
+
+/*@ define:input:mahogany
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Mahogany logs
+*/
+
+#define MAHOGANY_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff512A02";\
+	color = "#ff512A02";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff512A02";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff512A02";
+
+rule (name:["Mahogany logs"] && quantity:<MAHOGANY_QUANTITY) {hidden=true;}
+
+rule (!MAHOGANY_SHOW_UNNOTED && name:["Mahogany logs"] && stackable:false) {hidden=true;}
+
+rule (MAHOGANY_REPLACE_T1 && name:["Mahogany logs"] && stackable:true && value:<VALUE_TIER_2) {MAHOGANY_T1_STYLE}
+
+VALUE_RULESET(["Mahogany logs"] && quantity:>=MAHOGANY_QUANTITY, MAHOGANY_T5_STYLE, MAHOGANY_T4_STYLE, MAHOGANY_T3_STYLE, MAHOGANY_T2_STYLE, MAHOGANY_T1_STYLE, MAHOGANY_T0_STYLE)
+
+
+/*@ define:module:maple
+name: Maple Logs
+subtitle: The Wood of Seers
+*/
+
+/*@ define:input:maple
+label: Show unnoted
+type: boolean
+group: Maple
+*/
+
+#define MAPLE_SHOW_UNNOTED false
+
+/*@ define:input:maple
+label: Reaplce T1 with Noted
+type: boolean
+group: Maple
+*/
+
+#define MAPLE_REPLACE_T1 true
+
+/*@ define:input:maple
+label: Minimum Quantity
+type: number
+group: Maple
+*/
+
+#define MAPLE_QUANTITY 1
+
+/*@ define:input:maple
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Maple logs
+*/
+
+#define MAPLE_T0_STYLE \
+    color = "#ff754F1F"; \
+	menuTextColor = "#ff754F1F"; 
+
+
+/*@ define:input:maple
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Maple logs
+*/
+
+#define MAPLE_T1_STYLE \
+    color = "#ff583505";\
+    backgroundColor = "#44754F1F";\
+	menuTextColor = "#ff754F1F";
+
+/*@ define:input:maple
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Maple logs
+*/
+
+#define MAPLE_T2_STYLE \
+	color ="#ff583505";\
+    backgroundColor = "#99754F1F";\
+	menuTextColor = "#ff754F1F";
+
+/*@ define:input:maple
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Maple logs
+*/
+
+#define MAPLE_T3_STYLE \
+	color = "#ff583505";\
+	backgroundColor = "#aa754F1F";\
+	menuTextColor = "#ff754F1F"; \
+	fontType = 2;\
+	borderColor = "#ff583505";
+
+/*@ define:input:maple
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Maple logs
+*/
+
+#define MAPLE_T4_STYLE \
+	backgroundColor = "#ff754F1F";\
+	menuTextColor = "#ff754F1F";\
+	color = "#ff583505";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff583505";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff754F1F";
+
+/*@ define:input:maple
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Maple logs
+*/
+
+#define MAPLE_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff754F1F";\
+	color = "#ff754F1F";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff754F1F";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff754F1F";
+
+rule (name:["Maple logs"] && quantity:<MAPLE_QUANTITY) {hidden=true;}
+
+rule (!MAPLE_SHOW_UNNOTED && name:["Maple logs"] && stackable:false) {hidden=true;}
+
+rule (MAPLE_REPLACE_T1 && name:["Maple logs"] && stackable:true && value:<VALUE_TIER_2) {MAPLE_T1_STYLE}
+
+VALUE_RULESET(["Maple logs"] && quantity:>=MAPLE_QUANTITY, MAPLE_T5_STYLE, MAPLE_T4_STYLE, MAPLE_T3_STYLE, MAPLE_T2_STYLE, MAPLE_T1_STYLE, MAPLE_T0_STYLE)
+
+/*@ define:module:teak
+name: Teak Logs
+subtitle: The Wood of Budget Carpetners
+*/
+
+/*@ define:input:teak
+label: Show unnoted
+type: boolean
+group: Teak
+*/
+
+#define TEAK_SHOW_UNNOTED false
+
+/*@ define:input:teak
+label: Reaplce T1 with Noted
+type: boolean
+group: Teak
+*/
+
+#define TEAK_REPLACE_T1 true
+
+/*@ define:input:teak
+label: Minimum Quantity
+type: number
+group: Teak
+*/
+
+#define TEAK_QUANTITY 1
+
+/*@ define:input:teak
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Teak logs
+*/
+
+#define TEAK_T0_STYLE \
+    color = "#ff835D2F"; \
+	menuTextColor = "#ff835D2F"; 
+
+
+/*@ define:input:teak
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Teak logs
+*/
+
+#define TEAK_T1_STYLE \
+    color = "#ffB18F54";\
+    backgroundColor = "#44835D2F";\
+	menuTextColor = "#ff835D2F";
+
+/*@ define:input:teak
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Teak logs
+*/
+
+#define TEAK_T2_STYLE \
+	color ="#ffB18F54";\
+    backgroundColor = "#99835D2F";\
+	menuTextColor = "#ff835D2F";
+
+/*@ define:input:teak
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Teak logs
+*/
+
+#define TEAK_T3_STYLE \
+	color = "#ffB18F54";\
+	backgroundColor = "#aa835D2F";\
+	menuTextColor = "#ff835D2F"; \
+	fontType = 2;\
+	borderColor = "#ffB18F54";
+
+/*@ define:input:teak
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Teak logs
+*/
+
+#define TEAK_T4_STYLE \
+	backgroundColor = "#ff835D2F";\
+	menuTextColor = "#ff835D2F";\
+	color = "#ffB18F54";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffB18F54";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff835D2F";
+
+/*@ define:input:teak
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Teak logs
+*/
+
+#define TEAK_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff835D2F";\
+	color = "#ff835D2F";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff835D2F";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff835D2F";
+
+rule (name:["Teak logs"] && quantity:<TEAK_QUANTITY) {hidden=true;}
+
+rule (!TEAK_SHOW_UNNOTED && name:["Teak logs"] && stackable:false) {hidden=true;}
+
+rule (TEAK_REPLACE_T1 && name:["Teak logs"] && stackable:true && value:<VALUE_TIER_2) {TEAK_T1_STYLE}
+
+VALUE_RULESET(["Teak logs"] && quantity:>=TEAK_QUANTITY, TEAK_T5_STYLE, TEAK_T4_STYLE, TEAK_T3_STYLE, TEAK_T2_STYLE, TEAK_T1_STYLE, TEAK_T0_STYLE)
+
+/*@ define:module:willow
+name: Willow Logs
+subtitle: Memories of Draynor
+*/
+
+/*@ define:input:willow
+label: Show unnoted
+type: boolean
+group: Willow
+*/
+
+#define WILLOW_SHOW_UNNOTED false
+
+/*@ define:input:willow
+label: Reaplce T1 with Noted
+type: boolean
+group: Willow
+*/
+
+#define WILLOW_REPLACE_T1 true
+
+/*@ define:input:willow
+label: Minimum Quantity
+type: number
+group: Willow
+*/
+
+#define WILLOW_QUANTITY 1
+
+/*@ define:input:willow
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Willow logs
+*/
+
+#define WILLOW_T0_STYLE \
+    color = "#ff594F2A"; \
+	menuTextColor = "#ff3B340F"; 
+
+
+/*@ define:input:willow
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Willow logs
+*/
+
+#define WILLOW_T1_STYLE \
+    color = "#ff3B340F";\
+    backgroundColor = "#44594F2A";\
+	menuTextColor = "#ff3B340F";
+
+/*@ define:input:willow
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Willow logs
+*/
+
+#define WILLOW_T2_STYLE \
+	color ="#ff3B340F";\
+    backgroundColor = "#99594F2A";\
+	menuTextColor = "#ff3B340F";
+
+/*@ define:input:willow
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Willow logs
+*/
+
+#define WILLOW_T3_STYLE \
+	color = "#ff3B340F";\
+	backgroundColor = "#aa594F2A";\
+	menuTextColor = "#ff3B340F"; \
+	fontType = 2;\
+	borderColor = "#ff3B340F";
+
+/*@ define:input:willow
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Willow logs
+*/
+
+#define WILLOW_T4_STYLE \
+	backgroundColor = "#ff594F2A";\
+	menuTextColor = "#ff3B340F";\
+	color = "#ff3B340F";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff3B340F";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff594F2A";
+
+/*@ define:input:willow
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Willow logs
+*/
+
+#define WILLOW_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff3B340F";\
+	color = "#ff594F2A";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff594F2A";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff594F2A";
+
+rule (name:["Willow logs"] && quantity:<WILLOW_QUANTITY) {hidden=true;}
+
+rule (!WILLOW_SHOW_UNNOTED && name:["Willow logs"] && stackable:false) {hidden=true;}
+
+rule (WILLOW_REPLACE_T1 && name:["Willow logs"] && stackable:true && value:<VALUE_TIER_2) {WILLOW_T1_STYLE}
+
+VALUE_RULESET(["Willow logs"] && quantity:>=WILLOW_QUANTITY, WILLOW_T5_STYLE, WILLOW_T4_STYLE, WILLOW_T3_STYLE, WILLOW_T2_STYLE, WILLOW_T1_STYLE, WILLOW_T0_STYLE)
+
+/*@ define:module:oak
+name: Oak Logs
+subtitle: Logs of Broke Carpenters
+*/
+
+/*@ define:input:oak
+label: Show unnoted
+type: boolean
+group: Oak
+*/
+
+#define OAK_SHOW_UNNOTED false
+
+/*@ define:input:oak
+label: Reaplce T1 with Noted
+type: boolean
+group: Oak
+*/
+
+#define OAK_REPLACE_T1 true
+
+/*@ define:input:oak
+label: Minimum Quantity
+type: number
+group: Oak
+*/
+
+#define OAK_QUANTITY 1
+
+/*@ define:input:oak
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Oak logs
+*/
+
+#define OAK_T0_STYLE \
+    color = "#ff967249"; \
+	menuTextColor = "#ff967249"; 
+
+
+/*@ define:input:oak
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Oak logs
+*/
+
+#define OAK_T1_STYLE \
+    color = "#ff77562C";\
+    backgroundColor = "#44967249";\
+	menuTextColor = "#ff967249";
+
+/*@ define:input:oak
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Oak logs
+*/
+
+#define OAK_T2_STYLE \
+	color ="#ff77562C";\
+    backgroundColor = "#99967249";\
+	menuTextColor = "#ff967249";
+
+/*@ define:input:oak
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Oak logs
+*/
+
+#define OAK_T3_STYLE \
+	color = "#ff77562C";\
+	backgroundColor = "#aa967249";\
+	menuTextColor = "#ff967249"; \
+	fontType = 2;\
+	borderColor = "#ff77562C";
+
+/*@ define:input:oak
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Oak logs
+*/
+
+#define OAK_T4_STYLE \
+	backgroundColor = "#ff967249";\
+	menuTextColor = "#ff967249";\
+	color = "#ff77562C";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff77562C";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff967249";
+
+/*@ define:input:oak
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Oak logs
+*/
+
+#define OAK_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff967249";\
+	color = "#ff967249";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff967249";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff967249";
+
+rule (name:["Oak logs"] && quantity:<OAK_QUANTITY) {hidden=true;}
+
+rule (!OAK_SHOW_UNNOTED && name:["Oak logs"] && stackable:false) {hidden=true;}
+
+rule (OAK_REPLACE_T1 && name:["Oak logs"] && stackable:true && value:<VALUE_TIER_2) {OAK_T1_STYLE}
+
+VALUE_RULESET(["Oak logs"] && quantity:>=OAK_QUANTITY, OAK_T5_STYLE, OAK_T4_STYLE, OAK_T3_STYLE, OAK_T2_STYLE, OAK_T1_STYLE, OAK_T0_STYLE)
+
+/*@ define:module:achey_tree
+name: Achey tree Logs
+subtitle: Logs of Ogres
+*/
+
+/*@ define:input:achey_tree
+label: Show unnoted
+type: boolean
+group: Achey Tree
+*/
+
+#define ACHEY_TREE_SHOW_UNNOTED false
+
+/*@ define:input:achey_tree
+label: Reaplce T1 with Noted
+type: boolean
+group: Achey Tree
+*/
+
+#define ACHEY_TREE_REPLACE_T1 true
+
+/*@ define:input:achey_tree
+label: Minimum Quantity
+type: number
+group: Achey Tree
+*/
+
+#define ACHEY_TREE_QUANTITY 1
+
+/*@ define:input:achey_tree
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Achey tree logs
+*/
+
+#define ACHEY_TREE_T0_STYLE \
+    color = "#ff8F8260"; \
+	menuTextColor = "#ff8F8260"; 
+
+
+/*@ define:input:achey_tree
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Achey tree logs
+*/
+
+#define ACHEY_TREE_T1_STYLE \
+    color = "#ff71643F";\
+    backgroundColor = "#448F8260";\
+	menuTextColor = "#ff8F8260";
+
+/*@ define:input:achey_tree
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Achey tree logs
+*/
+
+#define ACHEY_TREE_T2_STYLE \
+	color ="#ff71643F";\
+    backgroundColor = "#998F8260";\
+	menuTextColor = "#ff8F8260";
+
+/*@ define:input:achey_tree
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Achey tree logs
+*/
+
+#define ACHEY_TREE_T3_STYLE \
+	color = "#ff71643F";\
+	backgroundColor = "#aa8F8260";\
+	menuTextColor = "#ff8F8260"; \
+	fontType = 2;\
+	borderColor = "#ff71643F";
+
+/*@ define:input:achey_tree
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Achey tree logs
+*/
+
+#define ACHEY_TREE_T4_STYLE \
+	backgroundColor = "#ff8F8260";\
+	menuTextColor = "#ff8F8260";\
+	color = "#ff71643F";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff71643F";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff8F8260";
+
+/*@ define:input:achey_tree
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Achey tree logs
+*/
+
+#define ACHEY_TREE_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff8F8260";\
+	color = "#ff8F8260";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff8F8260";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff8F8260";
+
+rule (name:["Achey tree logs"] && quantity:<ACHEY_TREE_QUANTITY) {hidden=true;}
+
+rule (!ACHEY_TREE_SHOW_UNNOTED && name:["Achey tree logs"] && stackable:false) {hidden=true;}
+
+rule (ACHEY_TREE_REPLACE_T1 && name:["Achey tree logs"] && stackable:true && value:<VALUE_TIER_2) {ACHEY_TREE_T1_STYLE}
+
+VALUE_RULESET(["Achey tree logs"] && quantity:>=ACHEY_TREE_QUANTITY, ACHEY_TREE_T5_STYLE, ACHEY_TREE_T4_STYLE, ACHEY_TREE_T3_STYLE, ACHEY_TREE_T2_STYLE, ACHEY_TREE_T1_STYLE, ACHEY_TREE_T0_STYLE)
+
+/*@ define:module:logs
+name: Logs Logs
+subtitle: What Kind of Wood Even is This?
+*/
+
+/*@ define:input:logs
+label: Show unnoted
+type: boolean
+group: Logs
+*/
+
+#define LOGS_SHOW_UNNOTED false
+
+/*@ define:input:logs
+label: Reaplce T1 with Noted
+type: boolean
+group: Logs
+*/
+
+#define LOGS_REPLACE_T1 true
+
+/*@ define:input:logs
+label: Minimum Quantity
+type: number
+group: Logs
+*/
+
+#define LOGS_QUANTITY 1
+
+/*@ define:input:logs
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Logs
+*/
+
+#define LOGS_T0_STYLE \
+    color = "#ff9D793A"; \
+	menuTextColor = "#ff9D793A"; 
+
+
+/*@ define:input:logs
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Logs
+*/
+
+#define LOGS_T1_STYLE \
+    color = "#ff674925";\
+    backgroundColor = "#449D793A";\
+	menuTextColor = "#ff9D793A";
+
+/*@ define:input:logs
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Logs
+*/
+
+#define LOGS_T2_STYLE \
+	color ="#ff674925";\
+    backgroundColor = "#999D793A";\
+	menuTextColor = "#ff9D793A";
+
+/*@ define:input:logs
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Logs
+*/
+
+#define LOGS_T3_STYLE \
+	color = "#ff674925";\
+	backgroundColor = "#aa9D793A";\
+	menuTextColor = "#ff9D793A"; \
+	fontType = 2;\
+	borderColor = "#ff674925";
+
+/*@ define:input:logs
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Logs
+*/
+
+#define LOGS_T4_STYLE \
+	backgroundColor = "#ff9D793A";\
+	menuTextColor = "#ff9D793A";\
+	color = "#ff674925";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff674925";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff9D793A";
+
+/*@ define:input:logs
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Logs
+*/
+
+#define LOGS_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff9D793A";\
+	color = "#ff9D793A";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff9D793A";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff9D793A";
+
+rule (name:["Logs"] && quantity:<LOGS_QUANTITY) {hidden=true;}
+
+rule (!LOGS_SHOW_UNNOTED && name:["Logs"] && stackable:false) {hidden=true;}
+
+rule (LOGS_REPLACE_T1 && name:["Logs"] && stackable:true && value:<VALUE_TIER_2) {LOGS_T1_STYLE}
+
+VALUE_RULESET(["Logs"] && quantity:>=LOGS_QUANTITY, LOGS_T5_STYLE, LOGS_T4_STYLE, LOGS_T3_STYLE, LOGS_T2_STYLE, LOGS_T1_STYLE, LOGS_T0_STYLE)
+
+/*@ define:module:ammo
+name: Ammo
+subtitle: finish later
+*/
+
+/*@ define:input:ammo
+label: Tier 0
+type: style
+group: Bolts
+exampleItem: Dragon bolts
+*/
+
+#define ORIKALKUM_T0_STYLE \
+    color = "#ff870c12"; \
+	menuTextColor = "#ff870c12"; 
+
+
+/*@ define:input:ammo
+label: Tier 1
+type: style
+group: Bolts
+exampleItem: Dragon bolts
+*/
+
+#define ORIKALKUM_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#44870c12";\
+	menuTextColor = "#ff870c12";\
+	textAccent = 3;
+
+/*@ define:input:ammo
+label: Tier 2
+type: style
+group: Bolts
+exampleItem: Dragon bolts
+*/
+
+#define ORIKALKUM_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#77870c12";\
+	menuTextColor = "#ff870c12";\
+	textAccent = 3;
+
+/*@ define:input:ammo
+label: Tier 3
+type: style
+group: Bolts
+exampleItem: Dragon bolts
+*/
+
+#define ORIKALKUM_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#bb870c12";\
+	menuTextColor = "#ff870c12"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:ammo
+label: Tier 4
+type: style
+group: Bolts
+exampleItem: Dragon bolts
+*/
+
+#define ORIKALKUM_T4_STYLE \
+	backgroundColor = "#ff870c12";\
+	menuTextColor = "#ff870c12";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff870c12";
+
+/*@ define:input:ammo
+label: Tier 5
+type: style
+group: Bolts
+exampleItem: Dragon bolts
+*/
+
+#define ORIKALKUM_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff870c12";\
+	color = "#ff870c12";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff870c12";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff870c12";
+
+/*@ define:input:ammo
+label: Tier 0
+type: style
+group: Darts, Arrows, and Javelins
+exampleItem: Dragon javelin heads
+*/
+
+#define NOT_ORIKALKUM_T0_STYLE \
+    color = "#ff870c12"; \
+	menuTextColor = "#fff7f6d7"; \
+
+
+/*@ define:input:ammo
+label: Tier 1
+type: style
+group: Darts, Arrows, and Javelins
+exampleItem: Dragon arrowtips
+*/
+
+#define NOT_ORIKALKUM_T1_STYLE \
+    color = "#ff870c12";\
+    backgroundColor = "#44f7f6d7";\
+	menuTextColor = "#fff7f6d7";\
+	textAccent = 3;
+
+/*@ define:input:ammo
+label: Tier 2
+type: style
+group: Darts, Arrows, and Javelins
+exampleItem: Dragon dart tip
+*/
+
+#define NOT_ORIKALKUM_T2_STYLE \
+	color ="#ff870c12";\
+    backgroundColor = "#77f7f6d7";\
+	menuTextColor = "#fff7f6d7";\
+	textAccent = 3;
+
+/*@ define:input:ammo
+label: Tier 3
+type: style
+group: Darts, Arrows, and Javelins
+exampleItem: Dragon javelin
+*/
+
+#define NOT_ORIKALKUM_T3_STYLE \
+	color = "#ff870c12";\
+	backgroundColor = "#ddf7f6d7";\
+	menuTextColor = "#fff7f6d7"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ff870c12";
+
+/*@ define:input:ammo
+label: Tier 4
+type: style
+group: Darts, Arrows, and Javelins
+exampleItem: Dragon arrow
+*/
+
+#define NOT_ORIKALKUM_T4_STYLE \
+	backgroundColor = "#fff7f6d7";\
+	menuTextColor = "#fff7f6d7";\
+	color = "#ff870c12";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff870c12";\
+	showLootbeam = true;\
+	lootbeamColor = "#fff7f6d7";
+
+/*@ define:input:ammo
+label: Tier 5
+type: style
+group: Darts, Arrows, and Javelins
+exampleItem: Dragon dart
+*/
+
+#define NOT_ORIKALKUM_T5_STYLE \
+	backgroundColor = "#ff870c12";\
+	menuTextColor = "#fff7f6d7";\
+	color = "#fff7f6d7";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#fff7f6d7";\
+	showLootbeam = true;\
+	lootbeamColor = "#fff7f6d7";
+	
+VALUE_RULESET(["Dragon bolts", "Dragon bolts (unf)"], ORIKALKUM_T5_STYLE, ORIKALKUM_T4_STYLE, ORIKALKUM_T3_STYLE, ORIKALKUM_T2_STYLE, ORIKALKUM_T1_STYLE, ORIKALKUM_T0_STYLE)
+VALUE_RULESET(["Ammo necklace", "Digsite pendant*", "Ammo ring", "Ring of forging", "Ammo amulet", "Ammo amulet (u)", "Amulet of Strength*", "Ammo bracelet", "Inoculation bracelet"], NOT_ORIKALKUM_T5_STYLE, NOT_ORIKALKUM_T4_STYLE, NOT_ORIKALKUM_T3_STYLE, NOT_ORIKALKUM_T2_STYLE, NOT_ORIKALKUM_T1_STYLE, NOT_ORIKALKUM_T0_STYLE)
+
+/*@ define:module:bones
+name: Bones
+subtitle: Future Gifts to a PKer
+*/
+
+/*@ define:input:bones
+label: Desired Ingrediants
+type: stringlist
+group: Bones
+*/
+
+#define BONES_NAMES ["Babydragon bones", "Dagannoth bones", "Dragon bones", "Drake bones", "Fayrg bones", "Hydra bones", "Lava dragon bones", "Ourg bones", "Raurg bones", "Superior dragon bones", "Wyrm bones", "Wyvern bones"]
+
+/*@ define:input:bones
+label: Show unnoted
+type: boolean
+group: Bones
+*/
+
+#define BONES_SHOW_UNNOTED true
+
+/*@ define:input:bones
+label: Reaplce T1 with Noted
+type: boolean
+group: Bones
+*/
+
+#define BONES_REPLACE_T1 true
+
+/*@ define:input:bones
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Baby dragon bones
+*/
+
+#define BONES_T0_STYLE \
+    color = "#fffff759"; \
+	menuTextColor = "#ffffffff"; 
+
+/*@ define:input:bones
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Wyrm bones
+*/
+
+#define BONES_T1_STYLE \
+    color = "#fffff759";\
+    backgroundColor = "#33ffffff";\
+	menuTextColor = "#ffffffff";\
+	textAccent = 3;
+
+/*@ define:input:bones
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Dragon bones
+*/
+
+#define BONES_T2_STYLE \
+	color ="#fffff759";\
+    backgroundColor = "#99ffffff";\
+	menuTextColor = "#ffffffff";\
+	textAccent = 3;
+
+/*@ define:input:bones
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Dagannoth bones
+*/
+
+#define BONES_T3_STYLE \
+	color = "#fffff759";\
+	backgroundColor = "#dddddddd";\
+	menuTextColor = "#ffffffff"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#fffff759";
+
+/*@ define:input:bones
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Hydra bones
+*/
+
+#define BONES_T4_STYLE \
+	backgroundColor = "#ffbbbbbb";\
+	menuTextColor = "#ffffffff";\
+	color = "#fffff759";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#fffff759";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffffffff";
+
+/*@ define:input:bones
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Superior dragon bones
+*/
+
+#define BONES_T5_STYLE \
+	backgroundColor = "#ffddd759";\
+	menuTextColor = "#ffffffff";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffffffff";
+
+rule (!BONES_SHOW_UNNOTED && name:BONES_NAMES && stackable:false) {hidden=true;}
+
+rule (BONES_REPLACE_T1 && name:BONES_NAMES && stackable:true && value:<VALUE_TIER_2) {BONES_T1_STYLE}
+
+VALUE_RULESET(BONES_NAMES, BONES_T5_STYLE, BONES_T4_STYLE, BONES_T3_STYLE, BONES_T2_STYLE, BONES_T1_STYLE, BONES_T0_STYLE)
+
+/*@ define:module:ashes
+name: Ashes
+subtitle: Scatter them to the Wind
+*/
+
+/*@ define:input:ashes
+label: Desired Ingrediants
+type: stringlist
+group: Ashes
+*/
+
+#define ASHES_NAMES ["Infernal ashes", "Abyssal ashes", "Malicious ashes"]
+
+/*@ define:input:ashes
+label: Show unnoted
+type: boolean
+group: Ashes
+*/
+
+#define ASHES_SHOW_UNNOTED true
+
+/*@ define:input:ashes
+label: Reaplce T1 with Noted
+type: boolean
+group: Ashes
+*/
+
+#define ASHES_REPLACE_T1 true
+
+/*@ define:input:ashes
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Fiendish ashes
+*/
+
+#define ASHES_T0_STYLE \
+    color = "#ffffffff"; \
+	menuTextColor = "#ff6A3430"; 
+
+/*@ define:input:ashes
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Vile ashes
+*/
+
+#define ASHES_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#336A3430";\
+	menuTextColor = "#ff6A3430";\
+	textAccent = 3;
+
+/*@ define:input:ashes
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Malicious ashes
+*/
+
+#define ASHES_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#996A3430";\
+	menuTextColor = "#ff6A3430";\
+	textAccent = 3;
+
+/*@ define:input:ashes
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Abyssal ashes
+*/
+
+#define ASHES_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#dd6A3430";\
+	menuTextColor = "#ff6A3430"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:ashes
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Infernal ashes
+*/
+
+#define ASHES_T4_STYLE \
+	backgroundColor = "#ff6A3430";\
+	menuTextColor = "#ff6A3430";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff6A3430";
+
+/*@ define:input:ashes
+label: Tier 5
+type: style
+group: Styles
+exampleItem: God ashes
+*/
+
+#define ASHES_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff6A3430";\
+	color = "#ff6A3430";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff6A3430";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff6A3430";
+
+rule (!ASHES_SHOW_UNNOTED && name:ASHES_NAMES && stackable:false) {hidden=true;}
+
+rule (ASHES_REPLACE_T1 && name:ASHES_NAMES && stackable:true && value:<VALUE_TIER_2) {ASHES_T1_STYLE}
+
+VALUE_RULESET(ASHES_NAMES, ASHES_T5_STYLE, ASHES_T4_STYLE, ASHES_T3_STYLE, ASHES_T2_STYLE, ASHES_T1_STYLE, ASHES_T0_STYLE)
+
+/*@ define:module:ensouled_heads
+name: Ensouled Heads 
+subtitle: Raw Food and other Ingrediants
+*/
+
+/*@ define:input:ensouled_heads
+label: Desired Ingrediants
+type: stringlist
+group: Ensouled Heads
+*/
+
+#define ENSOULED_HEADS_NAMES ["Ensouled * head"]
+
+/*@ define:input:ensouled_heads
+label: Show unnoted
+type: boolean
+group: Ensouled Heads
+*/
+
+#define ENSOULED_HEADS_SHOW_UNNOTED true
+
+/*@ define:input:ensouled_heads
+label: Reaplce T1 with Noted
+type: boolean
+group: Ensouled Heads
+*/
+
+#define ENSOULED_HEADS_REPLACE_T1 true
+
+/*@ define:input:ensouled_heads
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Ensouled goblin head
+*/
+
+#define ENSOULED_HEADS_T0_STYLE \
+    color = "#ffc33dfc"; \
+	menuTextColor = "#ff701da3"; 
+
+/*@ define:input:ensouled_heads
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Ensouled giant head
+*/
+
+#define ENSOULED_HEADS_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#66701da3";\
+	menuTextColor = "#ff701da3";\
+	textAccent = 3;
+
+/*@ define:input:ensouled_heads
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Ensouled demon head
+*/
+
+#define ENSOULED_HEADS_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#99701da3";\
+	menuTextColor = "#ff701da3";\
+	textAccent = 3;
+
+/*@ define:input:ensouled_heads
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Ensouled hellhound head
+*/
+
+#define ENSOULED_HEADS_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#dd701da3";\
+	menuTextColor = "#ff701da3"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:ensouled_heads
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Ensouled abyssal head
+*/
+
+#define ENSOULED_HEADS_T4_STYLE \
+	backgroundColor = "#ff701da3";\
+	menuTextColor = "#ff701da3";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff701da3";
+
+/*@ define:input:ensouled_heads
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Ensouled dragon head
+*/
+
+#define ENSOULED_HEADS_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff701da3";\
+	color = "#ff701da3";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff701da3";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff701da3";
+
+rule (!ENSOULED_HEADS_SHOW_UNNOTED && name:ENSOULED_HEADS_NAMES && stackable:false) {hidden=true;}
+
+rule (ENSOULED_HEADS_REPLACE_T1 && name:ENSOULED_HEADS_NAMES && stackable:true && value:<VALUE_TIER_2) {ENSOULED_HEADS_T1_STYLE}
+
+VALUE_RULESET(ENSOULED_HEADS_NAMES, ENSOULED_HEADS_T5_STYLE, ENSOULED_HEADS_T4_STYLE, ENSOULED_HEADS_T3_STYLE, ENSOULED_HEADS_T2_STYLE, ENSOULED_HEADS_T1_STYLE, ENSOULED_HEADS_T0_STYLE)
+
+
+/*@ define:module:clues
+name: Clue Scrolls 
+subtitle: Go on a Treasure Hunt
+*/
+
+#define CLUE_REQUIREMENT_ID []
+
+/*@ define:input:clues
+label: Beginner Clue
+type: style
+group: Beginner
+exampleItem: Clue scroll (beginner)
+*/
+
+#define CLUE_BEGINNER_STYLE \
+	color = "#ffbf9bbf"; \
+	backgroundColor = "#99333333"; \
+	borderColor = "#ffbf9bbf";
+
+rule (name:["Clue scroll (beginner)", "Clue bottle (beginner)", "Clue nest (beginner)", "Clue geode (beginner)"]) {CLUE_BEGINNER_STYLE}
+
+/*@ define:input:clues
+label: Easy Clue
+type: style
+group: Easy
+exampleItem: Clue scroll (easy)
+*/
+
+#define CLUE_EASY_STYLE \
+	color = "#ff00a33c"; \
+	backgroundColor = "#99333333"; \
+	borderColor = "#ff00a33c";
+
+/*@ define:input:clues
+label: Medium Clue
+type: style
+group: Medium
+exampleItem: Clue scroll (medium)
+*/
+
+#define CLUE_MEDIUM_STYLE \
+	color = "#ff52c7de"; \
+	backgroundColor = "#99333333"; \
+	borderColor = "#ff52c7de";
+
+/*@ define:input:clues
+label: Hard Clue
+type: style
+group: Hard
+exampleItem: Clue scroll (hard)
+*/
+
+#define CLUE_HARD_STYLE \
+	color = "#ffab43f0"; \
+	backgroundColor = "#99333333"; \
+	borderColor = "#ffab43f0";
+
+/*@ define:input:clues
+label: Elite Clue
+type: style
+group: Elite
+exampleItem: Clue scroll (elite)
+*/
+
+#define CLUE_ELITE_STYLE \
+	color = "#ffe6ad29"; \
+	backgroundColor = "#99333333"; \
+	borderColor = "#ffe6ad29";
+
+/*@ define:input:clues
+label: Master Clue
+type: style
+group: Master
+exampleItem: Clue scroll (master)
+*/
+
+#define CLUE_MASTER_STYLE \
+	color = "#ffc90808"; \
+	backgroundColor = "#99333333"; \
+	borderColor = "#ffc90808";
+
+
+/*@ define:input:clues
+label: Wilderness Clues
+type: style
+group: Wilderness Clues
+exampleItem: Clue scroll (hard)
+*/
+
+#define CLUE_WILDERNESS_STYLE \
+	borderColor = "#ffff0000"; \
+	menuTextColor = "#ffff0000"; \
+
+#define CLUE_REQUIREMENT_STYLE \
+	backgroundColor = "#99ff0000";
+
+#define CLUE_WILDERNESS_HARD_IDS [2723,2725,2727,2729,2731,2733,2735,2737,2739,2741,2743,2745,2747,2786,2788,3525,3556,3558,7239,7260,7262,7264,10244,10234,12546,12564,19888,23168,23169]
+#define CLUE_WILDERNESS_ELITE_IDS [12075,12093,12095,12097,12109,12101,12134,12150,19807,23144,23146]
+
+
+apply (id:CLUE_WILDERNESS_HARD_IDS || id:CLUE_WILDERNESS_ELITE_IDS) {CLUE_WILDERNESS_STYLE}
+apply (id:CLUE_REQUIREMENT_ID) {CLUE_REQUIREMENT_STYLE}
+
+rule (name:["Clue scroll (easy)", "Clue bottle (easy)", "Clue nest (easy)", "Clue geode (easy)"]) {CLUE_EASY_STYLE}
+rule (name:["Clue scroll (medium)", "Clue bottle (medium)", "Clue nest (medium)", "Clue geode (medium)"]) {CLUE_MEDIUM_STYLE}
+rule (name:["Clue scroll (hard)", "Clue bottle (hard)", "Clue nest (hard)", "Clue geode (hard)"]) {CLUE_HARD_STYLE}
+rule (name:["Clue scroll (elite)", "Clue bottle (elite)", "Clue nest (elite)", "Clue geode (elite)"]) {CLUE_ELITE_STYLE}
+rule (name:["Clue scroll (master)", "Clue bottle (master)", "Clue nest (master)", "Clue geode (master)"]) {CLUE_MASTER_STYLE}
+
+/*@ define:input:clues
+label: Beginner Casket
+type: style
+group: Beginner
+exampleItem: Reward casket (beginner)
+*/
+
+#define CASKET_BEGINNER_STYLE \
+	color = "#ffbf9bbf"; \
+	backgroundColor = "#ffffffff"; \
+	borderColor = "#ffbf9bbf";
+
+rule (name:["Reward casket (beginner)"]) {CASKET_BEGINNER_STYLE}
+
+
+/*@ define:input:clues
+label: Easy Casket
+type: style
+group: Easy
+exampleItem: Reward casket (easy)
+*/
+
+#define CASKET_EASY_STYLE \
+	color = "#ff00a33c"; \
+	backgroundColor = "#ffffffff"; \
+	borderColor = "#ff00a33c";
+
+rule (name:["Reward casket (easy)"]) {CASKET_EASY_STYLE}
+
+/*@ define:input:clues
+label: Medium Casket
+type: style
+group: Medium
+exampleItem: Reward casket (medium)
+*/
+
+#define CASKET_MEDIUM_STYLE \
+	color = "#ff52c7de"; \
+	backgroundColor = "#ffffffff"; \
+	borderColor = "#ff52c7de";
+
+rule (name:["Reward casket (medium)"]) {CASKET_MEDIUM_STYLE}
+
+/*@ define:input:clues
+label: Hard Casket
+type: style
+group: Hard
+exampleItem: Reward casket (hard)
+*/
+
+#define CASKET_HARD_STYLE \
+	color = "#ffab43f0"; \
+	backgroundColor = "#ffffffff"; \
+	borderColor = "#ffab43f0";
+
+rule (name:["Reward casket (hard)"]) {CASKET_HARD_STYLE}
+
+/*@ define:input:clues
+label: Elite Casket
+type: style
+group: Elite
+exampleItem: Reward casket (elite)
+*/
+
+#define CASKET_ELITE_STYLE \
+	color = "#ffe6ad29"; \
+	backgroundColor = "#ffffffff"; \
+	borderColor = "#ffe6ad29";
+
+rule (name:["Reward casket (elite)"]) {CASKET_ELITE_STYLE}
+
+
+/*@ define:input:clues
+label: Master Casket
+type: style
+group: Master
+exampleItem: Reward casket (master)
+*/
+
+#define CASKET_MASTER_STYLE \
+	color = "#ffc90808"; \
+	backgroundColor = "#ffffffff"; \
+	borderColor = "#ffc90808";
+
+rule (name:["Reward casket (master)"]) {CASKET_MASTER_STYLE}
