@@ -165,6 +165,17 @@ group: User
 apply (name:HIDE_USER) {hidden=true;}
 
 /*@ define:input:hidden
+label: Hide if Unnoted
+type: stringlist
+group: User
+*/
+
+#define HIDE_USER_UNNOTED []
+
+apply (name:HIDE_USER_UNNOTED && stackable:false)  {hidden=true;}
+
+
+/*@ define:input:hidden
 label: Bronze
 type: stringlist
 group: Equipment
