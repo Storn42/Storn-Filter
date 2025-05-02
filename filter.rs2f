@@ -1919,7 +1919,7 @@ rule (name:FORTIS_COLOSSEUM_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 /*@ define:module:dt2_bosses
 name: DT2 Bosses
-subtitle: Set Unique Tiera
+subtitle: Set Unique Tiers
 */
 
 /*@ define:input:dt2_bosses
@@ -1955,7 +1955,7 @@ rule (name:DT2_BOSSES_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 /*@ define:module:god_wars_bosses
 name: God Wars Bosses
-subtitle: Set Unique Tiera
+subtitle: Set Unique Tiers
 */
 
 /*@ define:input:god_wars_bosses
@@ -1991,7 +1991,7 @@ rule (name:GOD_WARS_BOSSES_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 /*@ define:module:wilderness_bosses
 name: Wilderness Bosses
-subtitle: Set Unique Tiera
+subtitle: Set Unique Tiers
 */
 
 /*@ define:input:wilderness_bosses
