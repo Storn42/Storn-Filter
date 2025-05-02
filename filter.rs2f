@@ -2228,6 +2228,164 @@ group: MVP
 
 apply (area:[1501,3268,0,1538,3298,0] && name:"Big Bones" && ENABLE_HUEYCOATL_MVP) {hidden=false; sound=3018;}
 
+/*@ define:module:inferno
+name: The Inferno
+subtitle: Set Unique Tiers
+*/
+
+/*@ define:input:inferno
+label: Unique T3
+type: enumlist
+enum: ["Infernal cape"]
+*/
+
+#define INFERNO_T3_UNIQUES ["Infernal cape"]
+
+rule (name:INFERNO_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:inferno
+label: Unique T2
+type: enumlist
+enum: ["Infernal cape"]
+*/
+
+#define INFERNO_T2_UNIQUES [] 
+
+rule (name:INFERNO_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:inferno
+label: Unique T1
+type: enumlist
+enum: ["Infernal cape"]
+*/
+
+#define INFERNO_T1_UNIQUES []
+
+rule (name:INFERNO_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:module:kalphite_queen
+name: Kalphite Queen
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:kalphite_queen
+label: Unique T3
+type: enumlist
+enum: ["Kq head*", "Dragon chainbody", "Jar of sand"]
+*/
+
+#define KALPHITE_QUEEN_T3_UNIQUES ["Jar of sand"]
+
+rule (name:KALPHITE_QUEEN_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:kalphite_queen
+label: Unique T2
+type: enumlist
+enum: []
+*/
+
+#define KALPHITE_QUEEN_T2_UNIQUES ["Dragon chainbody"] 
+
+rule (name:KALPHITE_QUEEN_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:kalphite_queen
+label: Unique T1
+type: enumlist
+enum: []
+*/
+
+#define KALPHITE_QUEEN_T1_UNIQUES ["Kq head*"]
+
+rule (name:KALPHITE_QUEEN_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:kalphite_queen
+label: Hide Items
+type: stringlist
+*/
+
+#define KALPHITE_QUEEN_HIDE []
+
+rule (area:[3464,9480,0,3510,9521,0] && name:KALPHITE_QUEEN_HIDE) {hidden = true;}
+
+/*@ define:input:kalphite_queen
+label: Supply Drop
+type: enumlist
+enum: ["Monkfish", "Shark", "Dark crab", "Saradomin brew(*)", "Prayer potion(*)", "Super restore(*)", "Super combat potion(*),"Ranging potion(*)", "Superantipoison(*)"]
+*/
+
+#define KALPHITE_QUEEN_SUPPLY ["Monkfish", "Shark", "Dark crab", "Saradomin brew(*)", "Prayer potion(*)", "Super restore(*)"]
+
+rule (area:[3464,9480,0,3510,9521,0] && name:KALPHITE_QUEEN_SUPPLY) {SUPPLY_DROP_STYLE}
+
+/*@ define:module:king_black_dragon
+name: King Black Dragon
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:king_black_dragon
+label: Unique T3
+type: enumlist
+enum: ["Kbd heads", "Draconic visage"]
+*/
+
+#define KING_BLACK_DRAGON_T3_UNIQUES ["Draconic visage"]
+
+rule (name:KING_BLACK_DRAGON_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:king_black_dragon
+label: Unique T2
+type: enumlist
+enum: ["Kbd heads", "Draconic visage"]
+*/
+
+#define KING_BLACK_DRAGON_T2_UNIQUES [] 
+
+rule (name:KING_BLACK_DRAGON_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:king_black_dragon
+label: Unique T1
+type: enumlist
+enum: ["Kbd heads", "Draconic visage"]
+*/
+
+#define KING_BLACK_DRAGON_T1_UNIQUES ["Kbd heads"]
+
+rule (name:KING_BLACK_DRAGON_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:king_black_dragon
+label: Hide Items
+type: stringlist
+*/
+
+#define KING_BLACK_DRAGON_HIDE []
+
+rule (area:[2253,4676,0,2291,4716,0] && name:KING_BLACK_DRAGON_HIDE) {hidden = true;}
+
+/*@ define:input:king_black_dragon
+label: Supply Drop
+type: enumlist
+enum: ["Shark"]
+*/
+
+#define KING_BLACK_DRAGON_SUPPLY ["Shark"]
+
+rule (area:[2253,4676,0,2291,4716,0] && name:KING_BLACK_DRAGON_SUPPLY) {SUPPLY_DROP_STYLE}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
