@@ -2494,6 +2494,67 @@ group: Bones to Peaches
 
 apply (area:[2820,5295,2,2844,5310,2] && name:["Bones", "Big bones"] && ENABLE_KREEARRA_PEACHES) {hidden=false;}
 
+/*@ define:module:kril_tsutsaraoth
+name: K'ril Tsutsaraoth
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:kril_tsutsaraoth
+label: Unique T3
+type: enumlist
+enum: ["Steam battlestaff", "Zamorakian spear", "Staff of the dead", "Zamorak hilt", "Zamorak godsword", "Zamorakian hasta"]
+*/
+
+#define KRIL_TSUTSAROTH_T3_UNIQUES ["Zamorak hilt", "Zamorak godsword",]
+
+rule (name:KRIL_TSUTSAROTH_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:kril_tsutsaraoth
+label: Unique T2
+type: enumlist
+enum: ["Steam battlestaff", "Zamorakian spear", "Staff of the dead", "Zamorak hilt", "Zamorak godsword", "Zamorakian hasta"]
+*/
+
+#define KRIL_TSUTSAROTH_T2_UNIQUES ["Zamorakian spear", "Staff of the dead", "Zamorakian hasta"] 
+
+rule (name:KRIL_TSUTSAROTH_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:kril_tsutsaraoth
+label: Unique T1
+type: enumlist
+enum: ["Steam battlestaff", "Zamorakian spear", "Staff of the dead", "Zamorak hilt", "Zamorak godsword", "Zamorakian hasta"]
+*/
+
+#define KRIL_TSUTSAROTH_T1_UNIQUES ["Steam battlestaff"]
+
+rule (name:KRIL_TSUTSAROTH_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:kril_tsutsaraoth
+label: Hide Items
+type: stringlist
+*/
+
+#define KRIL_TSUTSAROTH_HIDE ["Malicious ashes"]
+
+rule (area:[2917,5317,2,2942,5333,2] && name:KRIL_TSUTSAROTH_HIDE) {hidden = true;}
+
+/*@ define:input:kril_tsutsaraoth
+label: Supply Drop
+type: enumlist
+enum: ["Super attack(*)", "Super strength(*)", "Super restore(*)", "Zamorak brew(*)", "Shark", "Tuna potato"]
+*/
+
+#define KRIL_TSUTSAROTH_SUPPLY ["Super restore(*)", "Shark", "Tuna potato"]
+
+rule (area:[2917,5317,2,2942,5333,2] && name:KRIL_TSUTSAROTH_SUPPLY) {SUPPLY_DROP_STYLE}
+
+
+
+
+
+
+
 
 
 
