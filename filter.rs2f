@@ -2441,7 +2441,7 @@ enum: ["Armadyl helmet", "Armadyl chestplate", "Armadyl chainskirt", "Armadyl hi
 
 #define KREEARRA_T3_UNIQUES ["Armadyl helmet", "Armadyl chestplate", "Armadyl chainskirt", "Armadyl hilt", "Armadyl Godsword", "Armadylean plate"]
 
-rule (name:KREEARA_T3_UNIQUES) {UNIQUE_T3_STYLE}
+rule (name:KREEARRA_T3_UNIQUES) {UNIQUE_T3_STYLE}
 
 /*@ define:input:kreearra
 label: Unique T2
