@@ -2373,6 +2373,61 @@ enum: ["Shark"]
 
 rule (area:[2253,4676,0,2291,4716,0] && name:KING_BLACK_DRAGON_SUPPLY) {SUPPLY_DROP_STYLE}
 
+/*@ define:module:kraken
+name: Kraken
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:kraken
+label: Unique T3
+type: enumlist
+enum: ["Trident of the seas*", "Kraken tentacle", "Jar of dirt"]
+*/
+
+#define KRAKEN_T3_UNIQUES ["Jar of dirt]
+
+rule (name:KRAKEN_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:kraken
+label: Unique T2
+type: enumlist
+enum: ["Trident of the seas*", "Kraken tentacle", "Jar of dirt"]
+*/
+
+#define KRAKEN_T2_UNIQUES ["Trident of the seas*", "Kraken tentacle"] 
+
+rule (name:KRAKEN_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:kraken
+label: Unique T1
+type: enumlist
+enum: ["Trident of the seas*", "Kraken tentacle", "Jar of dirt"]
+*/
+
+#define KRAKEN_T1_UNIQUES []
+
+rule (name:KRAKEN_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:kraken
+label: Hide Items
+type: stringlist
+*/
+
+#define KRAKEN_HIDE ["Rusty sword", "Harpoon", "Pirate boots", "Seaweed"]
+
+rule (area:[WEST,SOUTH,Z1,EAST,NORTH,Z2] && name:KRAKEN_HIDE) {hidden = true;}
+
+/*@ define:input:kraken
+label: Supply Drop
+type: enumlist
+enum: ["Shark", "Edible seaweed", "Sanfew serum(*)"]
+*/
+
+#define KRAKEN_SUPPLY ["Shark"]
+
+rule (area:[WEST,SOUTH,Z1,EAST,NORTH,Z2] && name:KRAKEN_SUPPLY) {SUPPLY_DROP_STYLE}
+
 
 
 
