@@ -1043,7 +1043,7 @@ rule (area:[2728,9676,0,2748,9702,0] && name:HELLHOUND_WITCHAVEN_HIDE) {hidden =
 
 /*@ define:module:abyssal_sire
 name: Abyssal Sire
-subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+subtitle: Set Unique Tiers, Hide Drops, and Highlight Supplies
 */
 
 /*@ define:input:abyssal_sire
@@ -1098,7 +1098,7 @@ rule (area:[2949,4737,0,3135,4865,0] && name:ABYSSAL_SIRE_SUPPLY) {SUPPLY_DROP_S
 
 /*@ define:module:alchemical_hydra
 name: Alchemical Hydra
-subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+subtitle: Set Unique Tiers, Hide Drops, and Highlight Supplies
 */
 
 /*@ define:input:alchemical_hydra
@@ -1154,7 +1154,7 @@ rule (area:[1355,10254,0,1380,10282,0] && name:ALCHEMICAL_HYDRA_SUPPLY) {SUPPLY_
 
 /*@ define:module:amoxliatl
 name: Amoxliatl
-subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+subtitle: Set Unique Tiers, Hide Drops, and Highlight Supplies
 */
 
 /*@ define:input:amoxliatl
@@ -1209,7 +1209,7 @@ rule (area:[1346,4493,0,1388,4530,0] && name:AMOXLIATL_SUPPLY) {SUPPLY_DROP_STYL
 
 /*@ define:module:araxxor
 name: Araxxor
-subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+subtitle: Set Unique Tiers, Hide Drops, and Highlight Supplies
 */
 
 /*@ define:input:araxxor
@@ -1264,7 +1264,7 @@ rule (area:[3607,9795,0,3651,9837,0] && name:ARAXXOR_SUPPLY) {SUPPLY_DROP_STYLE}
 
 /*@ define:module:barrows
 name: Barrows
-subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+subtitle: Set Unique Tiers, Hide Drops, and Highlight Supplies
 */
 
 /*@ define:input:barrows
@@ -1300,7 +1300,7 @@ rule (name:BARROWS_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 /*@ define:module:bryophyta
 name: Bryophyta
-subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+subtitle: Set Unique Tiers, Hide Drops, and Highlight Supplies
 */
 
 /*@ define:input:bryophyta
@@ -1345,7 +1345,7 @@ rule (area:[3203,9924,0,3233,9947,0] && name:BRYOPHYTA_HIDE) {hidden = true;}
 
 /*@ define:module:callisto_and_artio
 name: Callisto and Artio
-subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+subtitle: Set Unique Tiers, Hide Drops, and Highlight Supplies
 */
 
 /*@ define:input:callisto_and_artio
@@ -1402,7 +1402,7 @@ rule (area:[1739,11522,0,1782,11566,0] && name:CALLISTO_AND_ARTIO_SUPPLY && stac
 
 /*@ define:module:cerberus
 name: Cerberus
-subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+subtitle: Set Unique Tiers, Hide Drops, and Highlight Supplies
 */
 
 /*@ define:input:cerberus
@@ -1482,7 +1482,7 @@ rule (area:[3172,3904,0,3300,3967,0] && name:CHAOS_ELEMENTAL_SUPPLY) {SUPPLY_DRO
 
 /*@ define:module:chaos_fanatic
 name: Chaos Fanatic
-subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+subtitle: Set Unique Tiers, Hide Drops, and Highlight Supplies
 */
 
 /*@ define:input:chaos_fanatic
@@ -1537,7 +1537,7 @@ rule (area:[2961,3830,0,2995,3856,0] && name:CHAOS_FANATIC_SUPPLY) {SUPPLY_DROP_
 
 /*@ define:module:commander_zilyana
 name: Commander Zilyana
-subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+subtitle: Set Unique Tiers, Hide Drops, and Highlight Supplies
 */
 
 /*@ define:input:commander_zilyana
@@ -1603,7 +1603,7 @@ apply (area:[2884,5255,0,2909,5278,0] && name:"Bones" && ENABLE_COMMANDER_ZILYAN
 
 /*@ define:module:corporeal_beast
 name: Corporeal Beast
-subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+subtitle: Set Unique Tiers, Hide Drops, and Highlight Supplies
 */
 
 /*@ define:input:corporeal_beast
@@ -1658,7 +1658,7 @@ rule (area:[2884,5255,0,2909,5278,0] && name:CORPOREAL_BEAST_SUPPLY) {SUPPLY_DRO
 
 /*@ define:module:crazy_archaeologist
 name: Crazy Archaeologist
-subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+subtitle: Set Unique Tiers, Hide Drops, and Highlight Supplies
 */
 
 /*@ define:input:crazy_archaeologist
@@ -1713,7 +1713,7 @@ rule (area:[2950,3675,0,3008,3724,0] && name:CRAZY_ARCHAEOLOGIST_SUPPLY) {SUPPLY
 
 /*@ define:module:dagannoth_kings
 name: Dagannoth Kings
-subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+subtitle: Set Unique Tiers, Hide Drops, and Highlight Supplies
 */
 
 /*@ define:input:dagannoth_kings
@@ -1768,7 +1768,7 @@ rule (area:[2889,4362,0,2937,4473,0] && name:DAGANNOTH_KINGS_SUPPLY) {SUPPLY_DRO
 
 /*@ define:module:duke_sucellus
 name: Duke Sucellus
-subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+subtitle: Set Unique Tiers, Hide Drops, and Highlight Supplies
 */
 
 /*@ define:input:duke_sucellus
@@ -1833,7 +1833,7 @@ rule (area:[3027,6433,0,3052,6459,0] && name:DUKE_SUCELLUS_SUPPLY) {SUPPLY_DROP_
 
 /*@ define:module:fight_caves
 name: Fight Caves
-subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+subtitle: Set Unique Tiers, Hide Drops, and Highlight Supplies
 */
 
 /*@ define:input:fight_caves
@@ -1868,7 +1868,7 @@ rule (name:FIGHT_CAVES_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 /*@ define:module:fortis_colosseum
 name: Fortis Colosseum
-subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+subtitle: Set Unique Tiers, Hide Drops, and Highlight Supplies
 */
 
 /*@ define:input:fortis_colosseum
