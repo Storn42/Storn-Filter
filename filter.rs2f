@@ -2550,6 +2550,71 @@ enum: ["Super attack(*)", "Super strength(*)", "Super restore(*)", "Zamorak brew
 rule (area:[2917,5317,2,2942,5333,2] && name:KRIL_TSUTSAROTH_SUPPLY) {SUPPLY_DROP_STYLE}
 
 
+/*@ define:module:leviathan
+name: The Leviathan
+subtitle: Set Unique Tiers, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:leviathan
+label: Enable Sound
+type: boolean
+group: Perfect Kill
+*/
+
+#define ENABLE_LEVIATHAN_PERFECT true
+
+apply (area:[3027,6433,0,3052,6459,0] && ENABLE_LEVIATHAN_PERFECT && ((name:"Coal" && quantity:==292) || (name:"Gold ore" && quantity:==101) || (name:"Dragon javelin head" && quantity:==81) || (name:"Anglerfish" && quantity:==6) || (name:"Uncut ruby" && quantity:==56) || (name: "Uncut diamond" && quantity:==56) || (name:"Runite ore" && quantity:== 40) || (name:"Dragon bolts (unf)" && quantity:== 225) || (name:"Pure essence" && quantity:== 270) || (name:"Iron ore" && quantity:== 85) || (name:"Silver ore" && quantity:==85) || (name:"Adamantite ore" && quantity:==85) || (name:"Sapphire" && quantity:==38) || (name:"Emerald" && quantity:==38) || (name:"Ruby" && quantity:==38) || (name:"Onyx bolt tips" && quantity:==135) || (name:"Raw manta ray" && quantity:==270) || (name:"Rune arrow" && quantity:==81) || (name:"Smoke rune" && quantity:==450) || (name:"Soul rune" && quantity:==900) || (name:"Bronze arrow" && quantity:==94) || (name:"Mithril arrow" && quantity:==94) || (name:"Adamant arrow" && quantity:==94) || (name:"Body rune" && quantity:==270) || (name:"Earth rune" && quantity:==270))) {sound=3018;}
+
+/*@ define:input:leviathan
+label: Unique T3
+type: enumlist
+enum: ["Venator vestige", "Venator icon", "Venator ring", "Leviathan's lure", "Scarred tablet", "Smoke quartz"]
+*/
+
+#define LEVIATHAN_T3_UNIQUES ["Venator vestige", "Venator icon", "Venator ring", "Leviathan's lure"]
+
+rule (name:LEVIATHAN_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:leviathan
+label: Unique T2
+type: enumlist
+enum: ["Venator vestige", "Venator icon", "Venator ring", "Leviathan's lure", "Scarred tablet", "Smoke quartz"]
+*/
+
+#define LEVIATHAN_T2_UNIQUES ["Scarred tablet"] 
+
+rule (name:LEVIATHAN_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:leviathan
+label: Unique T1
+type: enumlist
+enum: ["Venator vestige", "Venator icon", "Venator ring", "Leviathan's lure", "Scarred tablet", "Smoke quartz"]
+*/
+
+#define LEVIATHAN_T1_UNIQUES ["Smoke quartz"]
+
+rule (name:LEVIATHAN_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:leviathan
+label: Hide Items
+type: stringlist
+*/
+
+#define LEVIATHAN_HIDE []
+
+rule (area:[2069,6361,0,2094,6385,0] && name:LEVIATHAN_HIDE) {hidden = true;}
+
+/*@ define:input:leviathan
+label: Supply Drop
+type: enumlist
+enum: ["Sea turtle", "Prayer potion(*)", "Ranging potion(*)", "Anglerfish"]
+*/
+
+#define LEVIATHAN_SUPPLY ["Sea turtle", "Prayer potion(*)", "Anglerfish"]
+
+rule (area:[2069,6361,0,2094,6385,0] && name:LEVIATHAN_SUPPLY) {SUPPLY_DROP_STYLE}
+
 
 
 
