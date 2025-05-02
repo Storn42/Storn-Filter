@@ -2416,7 +2416,7 @@ type: stringlist
 
 #define KRAKEN_HIDE ["Rusty sword", "Harpoon", "Pirate boots", "Seaweed"]
 
-rule (area:[WEST,SOUTH,Z1,EAST,NORTH,Z2] && name:KRAKEN_HIDE) {hidden = true;}
+rule (area:[2268,10020,0,2292,10049,0] && name:KRAKEN_HIDE) {hidden = true;}
 
 /*@ define:input:kraken
 label: Supply Drop
@@ -2426,7 +2426,7 @@ enum: ["Shark", "Edible seaweed", "Sanfew serum(*)"]
 
 #define KRAKEN_SUPPLY ["Shark"]
 
-rule (area:[WEST,SOUTH,Z1,EAST,NORTH,Z2] && name:KRAKEN_SUPPLY) {SUPPLY_DROP_STYLE}
+rule (area:[2268,10020,0,2292,10049,0] && name:KRAKEN_SUPPLY) {SUPPLY_DROP_STYLE}
 
 
 
