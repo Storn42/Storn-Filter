@@ -2893,7 +2893,7 @@ type: stringlist
 
 #define PHANTOM_MUSPAH_HIDE []
 
-rule (area:[WEST,SOUTH,Z1,EAST,NORTH,Z2] && name:PHANTOM_MUSPAH_HIDE) {hidden = true;}
+rule (area:[2831,4244,0,2861,4275,0] && name:PHANTOM_MUSPAH_HIDE) {hidden = true;}
 
 /*@ define:input:phantom_muspah
 label: Supply Drop
@@ -2903,9 +2903,118 @@ enum: ["Shark","*Summer pie","Ancient brew(*)","Ranging potion(*)","Super restor
 
 #define PHANTOM_MUSPAH_SUPPLY ["Shark","*Summer pie","Super restore(*)","Prayer potion(*)"]
 
-rule (area:[WEST,SOUTH,Z1,EAST,NORTH,Z2] && name:PHANTOM_MUSPAH_SUPPLY) {SUPPLY_DROP_STYLE}
+rule (area:[2831,4244,0,2861,4275,0] && name:PHANTOM_MUSPAH_SUPPLY) {SUPPLY_DROP_STYLE}
+
+/*@ define:module:royal_titans
+name: Royal Titans
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:royal_titans
+label: Unique T3
+type: enumlist
+enum: ["Fire element staff crown","Mystic vigour prayer scroll", "Ice element staff crown","Deadeye prayer scroll","Twinflame staff"]
+*/
+
+#define ROYAL_TITANS_T3_UNIQUES ["Twinflame staff"]
+
+rule (name:ROYAL_TITANS_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:royal_titans
+label: Unique T2
+type: enumlist
+enum: ["Fire element staff crown","Mystic vigour prayer scroll", "Ice element staff crown","Deadeye prayer scroll","Twinflame staff"]
+*/
+
+#define ROYAL_TITANS_T2_UNIQUES ["Fire element staff crown","Mystic vigour prayer scroll", "Ice element staff crown","Deadeye prayer scroll"] 
+
+rule (name:ROYAL_TITANS_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:royal_titans
+label: Unique T1
+type: enumlist
+enum: ["Fire element staff crown","Mystic vigour prayer scroll", "Ice element staff crown","Deadeye prayer scroll","Twinflame staff"]
+*/
+
+#define ROYAL_TITANS_T1_UNIQUES []
+
+rule (name:ROYAL_TITANS_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 
+/*@ define:input:royal_titans
+label: Hide Items
+type: stringlist
+*/
+
+#define ROYAL_TITANS_HIDE []
+
+rule (area:[2894,9556,0,2931,9583,0] && name:ROYAL_TITANS_HIDE) {hidden = true;}
+
+/*@ define:input:royal_titans
+label: Supply Drop
+type: enumlist
+enum: ["Prayer potion(*)"]
+*/
+
+#define ROYAL_TITANS_SUPPLY ["Prayer potion(*)"]
+
+rule (area:[2894,9556,0,2931,9583,0] && name:ROYAL_TITANS_SUPPLY) {SUPPLY_DROP_STYLE}
+
+
+/*@ define:module:sarachnis
+name: Sarachnis
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:sarachnis
+label: Unique T3
+type: enumlist
+enum: ["Sarachnis cudgel","Jar of eyes"]
+*/
+
+#define SARACHNIS_T3_UNIQUES ["Jar of eyes"]
+
+rule (name:SARACHNIS_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:sarachnis
+label: Unique T2
+type: enumlist
+enum: ["Sarachnis cudgel","Jar of eyes"]
+*/
+
+#define SARACHNIS_T2_UNIQUES ["Sarachnis cudgel"] 
+
+rule (name:SARACHNIS_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:sarachnis
+label: Unique T1
+type: enumlist
+enum: ["Sarachnis cudgel","Jar of eyes"]
+*/
+
+#define SARACHNIS_T1_UNIQUES []
+
+rule (name:SARACHNIS_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:sarachnis
+label: Hide Items
+type: stringlist
+*/
+
+#define SARACHNIS_HIDE []
+
+rule (area:[1829,9889,0,1855,9914,0] && name:SARACHNIS_HIDE) {hidden = true;}
+
+/*@ define:input:sarachnis
+label: Supply Drop
+type: enumlist
+enum: []
+*/
+
+#define SARACHNIS_SUPPLY []
+
+rule (area:[1829,9889,0,1855,9914,0] && name:SARACHNIS_SUPPLY) {SUPPLY_DROP_STYLE}
 
 
 
