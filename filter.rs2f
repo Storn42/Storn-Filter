@@ -2615,6 +2615,131 @@ enum: ["Sea turtle", "Prayer potion(*)", "Ranging potion(*)", "Anglerfish"]
 
 rule (area:[2069,6361,0,2094,6385,0] && name:LEVIATHAN_SUPPLY) {SUPPLY_DROP_STYLE}
 
+/*@ define:module:moons_of_peril
+name: Moons of Peril
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:moons_of_peril
+label: Unique T3
+type: enumlist
+enum: ["Eclipse atlatl", "Eclipse moon helm*", "Eclipse moon chestplate*","Eclipse moon tassets*","Dual macuahuitl", "Blood moon helm*","Blood moon chestplate*","Blood moon tassets*","Blue moon spear","Blue moon helm*","Blue moon chestplate*","Blue moon tassets*"]
+*/
+
+#define MOONS_OF_PERIL_T3_UNIQUES []
+
+rule (name:MOONS_OF_PERIL_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:moons_of_peril
+label: Unique T2
+type: enumlist
+enum: ["Eclipse atlatl", "Eclipse moon helm*", "Eclipse moon chestplate*","Eclipse moon tassets*","Dual macuahuitl", "Blood moon helm*","Blood moon chestplate*","Blood moon tassets*","Blue moon spear","Blue moon helm*","Blue moon chestplate*","Blue moon tassets*"]
+*/
+
+#define MOONS_OF_PERIL_T2_UNIQUES ["Eclipse atlatl", "Eclipse moon helm*", "Eclipse moon chestplate*","Eclipse moon tassets*","Dual macuahuitl", "Blood moon helm*","Blood moon chestplate*","Blood moon tassets*","Blue moon spear","Blue moon helm*","Blue moon chestplate*","Blue moon tassets*"] 
+
+rule (name:MOONS_OF_PERIL_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:moons_of_peril
+label: Unique T1
+type: enumlist
+enum: ["Eclipse atlatl", "Eclipse moon helm*", "Eclipse moon chestplate*","Eclipse moon tassets*","Dual macuahuitl", "Blood moon helm*","Blood moon chestplate*","Blood moon tassets*","Blue moon spear","Blue moon helm*","Blue moon chestplate*","Blue moon tassets*"]
+*/
+
+#define MOONS_OF_PERIL_T1_UNIQUES []
+
+rule (name:MOONS_OF_PERIL_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:moons_of_peril
+label: Hide Items
+type: stringlist
+*/
+
+#define MOONS_OF_PERIL_HIDE []
+
+rule (area:[1343,9606,0,1535,9743,1] && name:MOONS_OF_PERIL_HIDE) {hidden = true;} // Main Areas
+rule (area:[1343,9533,0,1398,9606,0] && name:MOONS_OF_PERIL_HIDE) {hidden = true;} // Eclipse Area
+rule (area:[1490,9558,0,1536,9601,0] && name:MOONS_OF_PERIL_HIDE) {hidden = true;} // Treasure Room
+
+/*@ define:input:moons_of_peril
+label: Supply Drop
+type: enumlist
+enum: ["Raw moss lizard", "Cooked moss lizard", "Raw bream", "Cooked bream", "Moonlight potion(*)", "Moonlight grub paste", "Moonlight grub"]
+*/
+
+#define MOONS_OF_PERIL_SUPPLY ["Raw moss lizard", "Cooked moss lizard", "Raw bream", "Cooked bream", "Moonlight potion(*)"]
+
+rule (area:[1343,9606,0,1535,9743,1] && name:MOONS_OF_PERIL_SUPPLY) {SUPPLY_DROP_STYLE} // Main Areas
+rule (area:[1343,9533,0,1398,9606,0] && name:MOONS_OF_PERIL_SUPPLY) {SUPPLY_DROP_STYLE} // Eclipse Area
+rule (area:[1490,9558,0,1536,9601,0] && name:MOONS_OF_PERIL_SUPPLY) {SUPPLY_DROP_STYLE} // Treasure Room
+
+/*@ define:module:nex
+name: Nex
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:nex
+label: Unique T3
+type: enumlist
+enum: ["Zaryte vambraces","Nihil horn","Torva full helm*","Torva platebody*","Torva platelegs*","Ancient hilt*", "Ancient godsword"]
+*/
+
+#define NEX_T3_UNIQUES []
+
+rule (name:NEX_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:nex
+label: Unique T2
+type: enumlist
+enum: []
+*/
+
+#define NEX_T2_UNIQUES [] 
+
+rule (name:NEX_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:nex
+label: Unique T1
+type: enumlist
+enum: []
+*/
+
+#define NEX_T1_UNIQUES []
+
+rule (name:NEX_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:nex
+label: Hide Items
+type: stringlist
+*/
+
+#define NEX_HIDE []
+
+rule (area:[WEST,SOUTH,Z1,EAST,NORTH,Z2] && name:NEX_HIDE) {hidden = true;}
+
+/*@ define:input:nex
+label: Supply Drop
+type: enumlist
+enum: []
+*/
+
+#define NEX_SUPPLY []
+
+rule (area:[WEST,SOUTH,Z1,EAST,NORTH,Z2] && name:NEX_SUPPLY) {SUPPLY_DROP_STYLE}
+
+
+/*@ define:input:nex
+label: Bones to Peaches
+type: boolean
+group: Bones to Peaches
+*/
+
+#define ENABLE_NEX_PEACHES true
+
+apply (area:[WEST,SOUTH,Z1,EAST,NORTH,Z2] && name:"Bones" && ENABLE_NEX_PEACHES) {hidden=false;}
+
 
 
 
@@ -3153,7 +3278,7 @@ type: stringlist
 group: Items
 */
 
-#define CHARGE_NAMES ["Zulrah's scales","Granite dust","Ancient essence","Lava scale*","Sunfire splinters","Araxyte venom sack","Crystal shard","Ancient shard","sapphire ring","ring of recoil","Revenant ether", "Soiled page", "Burnt page", "Soaked page", "Desiccated page"]
+#define CHARGE_NAMES ["Zulrah's scales","Granite dust","Ancient essence","Lava scale*","Sunfire splinters","Araxyte venom sack","Crystal shard","Ancient shard","sapphire ring","ring of recoil","Revenant ether", "Soiled page", "Burnt page", "Soaked page", "Desiccated page", "Nihil shard"]
 
 /*@ define:input:charges
 label: Style 1
@@ -3204,6 +3329,15 @@ group: Minimum Quantity for Style 2
 #define CRYSTAL_SHARD_QUANT 10
 
 rule (name:"Crystal shard" && quantity:<CRYSTAL_SHARD_QUANT) {CHARGE_STYLE_1}
+
+/*@ define:input:charges
+label: Nihil Shard
+type: number
+group: Minimum Quantity for Style 2
+*/
+#define NIHIL_SHARD_QUANT 10
+
+rule (name:"Nihil shard" && quantity:<NIHIL_SHARD_QUANT) {CHARGE_STYLE_1}
 
 /*@ define:input:charges
 label: Sunfire Splinters
