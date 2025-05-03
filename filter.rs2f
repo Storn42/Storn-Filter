@@ -1732,7 +1732,7 @@ subtitle: Set Unique Tiers, Hide Drops, and Highlight Supplies
 /*@ define:input:dagannoth_kings
 label: Unique T3
 type: enumlist
-enum: ["Dragon axe", "Berserker ring", "Warrior ring", "Seers ring", "Mud battlestaff", "Archers ring", "Seercull"]
+enum: ["Dragon axe", "Berserker ring", "Warrior ring", "Seers ring", "Mud battlestaff", "Mystic steam staff", "Archers ring", "Seercull"]
 */
 
 #define DAGANNOTH_KINGS_T3_UNIQUES []
@@ -1742,7 +1742,7 @@ rule (name:DAGANNOTH_KINGS_T3_UNIQUES) {UNIQUE_T3_STYLE}
 /*@ define:input:dagannoth_kings
 label: Unique T2
 type: enumlist
-enum: ["Dragon axe", "Berserker ring", "Warrior ring", "Seers ring", "Mud battlestaff", "Archers ring", "Seercull"]
+enum: ["Dragon axe", "Berserker ring", "Warrior ring", "Seers ring", "Mud battlestaff", "Mystic steam staff", "Archers ring", "Seercull"]
 */
 
 #define DAGANNOTH_KINGS_T2_UNIQUES ["Berserker ring", "Seers ring", "Archers ring"] 
@@ -1752,10 +1752,10 @@ rule (name:DAGANNOTH_KINGS_T2_UNIQUES) {UNIQUE_T2_STYLE}
 /*@ define:input:dagannoth_kings
 label: Unique T1
 type: enumlist
-enum: ["Dragon axe", "Berserker ring", "Warrior ring", "Seers ring", "Mud battlestaff", "Archers ring", "Seercull"]
+enum: ["Dragon axe", "Berserker ring", "Warrior ring", "Seers ring", "Mud battlestaff", "Mystic steam staff", "Archers ring", "Seercull"]
 */
 
-#define DAGANNOTH_KINGS_T1_UNIQUES ["Dragon axe", "Warrior ring", "Mud battlestaff", "Seercull"]
+#define DAGANNOTH_KINGS_T1_UNIQUES ["Dragon axe", "Warrior ring", "Mud battlestaff", "Mystic mud staff", "Seercull"]
 
 rule (name:DAGANNOTH_KINGS_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
@@ -1792,7 +1792,15 @@ group: Perfect Kill
 
 #define ENABLE_DUKE_SUCELLUS_PERFECT true
 
-apply (area:[3027,6433,0,3052,6459,0] && ENABLE_DUKE_SUCELLUS_PERFECT && ((name:"Bronze chainbody" && quantity:==17) || (name:"Mithril chainbody" && quantity:==7) || (name:"Adamant chainbody" && quantity:==7) || (name:"Dragon platelegs" && quantity:==7) || (name:"Coal" && quantity:==325) || (name: "Adamantite ore" && quantity:==112) || (name:"Rune javelin heads" && quantity:== 90) || (name:"Dragon javelin heads" && quantity:== 90) || (name:"Uncut ruby" && quantity:== 62) || (name:"Uncut diamond" && quantity:== 62) || (name:"Runite ore" && quantity:==45) || (name:"Dragon arrowtips" && quantity:==250) || (name:"Pure essence" && quantity:==300) || (name:"Iron ore" && quantity:==95) || (name:"Mithril ore" && quantity:==50) || (name:"Sapphire" && quantity:==42) || (name:"Emerald" && quantity:==42) || (name:"Ruby" && quantity:==42) || (name:"Bronze bar" && quantity:==95) || (name:"Raw sea turtle" && quantity:==300) || (name:"Chaos rune" && quantity:==150) || (name:"Mist rune" && quantity:==150) || (name:"Soul rune" && quantity:==1000) || (name:"Air rune" && quantity:==300))) {sound=3018;}
+/*@ define:input:duke_sucellus
+label: Override Value Drop Sound (T3+)
+type: boolean
+group: Perfect Kill
+*/
+
+# ENABLE_DUKE_SUCELLUS_PERFECT_OVERRIDE false
+
+apply (area:[3027,6433,0,3052,6459,0] && ENABLE_DUKE_SUCELLUS_PERFECT && (ENABLE_DUKE_SUCELLUS_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Bronze chainbody" && quantity:==17) || (name:"Mithril chainbody" && quantity:==7) || (name:"Adamant chainbody" && quantity:==7) || (name:"Dragon platelegs" && quantity:==7) || (name:"Coal" && quantity:==325) || (name: "Adamantite ore" && quantity:==112) || (name:"Rune javelin heads" && quantity:== 90) || (name:"Dragon javelin heads" && quantity:== 90) || (name:"Uncut ruby" && quantity:== 62) || (name:"Uncut diamond" && quantity:== 62) || (name:"Runite ore" && quantity:==45) || (name:"Dragon arrowtips" && quantity:==250) || (name:"Pure essence" && quantity:==300) || (name:"Iron ore" && quantity:==95) || (name:"Mithril ore" && quantity:==50) || (name:"Sapphire" && quantity:==42) || (name:"Emerald" && quantity:==42) || (name:"Ruby" && quantity:==42) || (name:"Bronze bar" && quantity:==95) || (name:"Raw sea turtle" && quantity:==300) || (name:"Chaos rune" && quantity:==150) || (name:"Mist rune" && quantity:==150) || (name:"Soul rune" && quantity:==1000) || (name:"Air rune" && quantity:==300))) {sound=3018;}
 
 /*@ define:input:duke_sucellus
 label: Unique T3
@@ -2503,7 +2511,7 @@ subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
 /*@ define:input:kril_tsutsaraoth
 label: Unique T3
 type: enumlist
-enum: ["Steam battlestaff", "Zamorakian spear", "Staff of the dead", "Zamorak hilt", "Zamorak godsword", "Zamorakian hasta"]
+enum: ["Steam battlestaff", "Mystic steam staff", "Zamorakian spear", "Staff of the dead", "Zamorak hilt", "Zamorak godsword", "Zamorakian hasta"]
 */
 
 #define KRIL_TSUTSAROTH_T3_UNIQUES ["Zamorak hilt", "Zamorak godsword",]
@@ -2513,7 +2521,7 @@ rule (name:KRIL_TSUTSAROTH_T3_UNIQUES) {UNIQUE_T3_STYLE}
 /*@ define:input:kril_tsutsaraoth
 label: Unique T2
 type: enumlist
-enum: ["Steam battlestaff", "Zamorakian spear", "Staff of the dead", "Zamorak hilt", "Zamorak godsword", "Zamorakian hasta"]
+enum: ["Steam battlestaff", "Mystic steam staff", "Zamorakian spear", "Staff of the dead", "Zamorak hilt", "Zamorak godsword", "Zamorakian hasta"]
 */
 
 #define KRIL_TSUTSAROTH_T2_UNIQUES ["Zamorakian spear", "Staff of the dead", "Zamorakian hasta"] 
@@ -2523,10 +2531,10 @@ rule (name:KRIL_TSUTSAROTH_T2_UNIQUES) {UNIQUE_T2_STYLE}
 /*@ define:input:kril_tsutsaraoth
 label: Unique T1
 type: enumlist
-enum: ["Steam battlestaff", "Zamorakian spear", "Staff of the dead", "Zamorak hilt", "Zamorak godsword", "Zamorakian hasta"]
+enum: ["Steam battlestaff", "Mystic steam staff", "Zamorakian spear", "Staff of the dead", "Zamorak hilt", "Zamorak godsword", "Zamorakian hasta"]
 */
 
-#define KRIL_TSUTSAROTH_T1_UNIQUES ["Steam battlestaff"]
+#define KRIL_TSUTSAROTH_T1_UNIQUES ["Steam battlestaff", "Mystic steam staff"]
 
 rule (name:KRIL_TSUTSAROTH_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
@@ -2564,7 +2572,15 @@ group: Perfect Kill
 
 #define ENABLE_LEVIATHAN_PERFECT true
 
-apply (area:[3027,6433,0,3052,6459,0] && ENABLE_LEVIATHAN_PERFECT && ((name:"Coal" && quantity:==292) || (name:"Gold ore" && quantity:==101) || (name:"Dragon javelin head" && quantity:==81) || (name:"Anglerfish" && quantity:==6) || (name:"Uncut ruby" && quantity:==56) || (name: "Uncut diamond" && quantity:==56) || (name:"Runite ore" && quantity:== 40) || (name:"Dragon bolts (unf)" && quantity:== 225) || (name:"Pure essence" && quantity:== 270) || (name:"Iron ore" && quantity:== 85) || (name:"Silver ore" && quantity:==85) || (name:"Adamantite ore" && quantity:==85) || (name:"Sapphire" && quantity:==38) || (name:"Emerald" && quantity:==38) || (name:"Ruby" && quantity:==38) || (name:"Onyx bolt tips" && quantity:==135) || (name:"Raw manta ray" && quantity:==270) || (name:"Rune arrow" && quantity:==81) || (name:"Smoke rune" && quantity:==450) || (name:"Soul rune" && quantity:==900) || (name:"Bronze arrow" && quantity:==94) || (name:"Mithril arrow" && quantity:==94) || (name:"Adamant arrow" && quantity:==94) || (name:"Body rune" && quantity:==270) || (name:"Earth rune" && quantity:==270))) {sound=3018;}
+/*@ define:input:duke_sucellus
+label: Override Value Drop Sound (T3+)
+type: boolean
+group: Perfect Kill
+*/
+
+# ENABLE_LEVIATHAN_PERFECT_OVERRIDE false
+
+apply (area:[3027,6433,0,3052,6459,0] && ENABLE_LEVIATHAN_PERFECT && (ENABLE_LEVIATHAN_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Coal" && quantity:==292) || (name:"Gold ore" && quantity:==101) || (name:"Dragon javelin head" && quantity:==81) || (name:"Anglerfish" && quantity:==6) || (name:"Uncut ruby" && quantity:==56) || (name: "Uncut diamond" && quantity:==56) || (name:"Runite ore" && quantity:== 40) || (name:"Dragon bolts (unf)" && quantity:== 225) || (name:"Pure essence" && quantity:== 270) || (name:"Iron ore" && quantity:== 85) || (name:"Silver ore" && quantity:==85) || (name:"Adamantite ore" && quantity:==85) || (name:"Sapphire" && quantity:==38) || (name:"Emerald" && quantity:==38) || (name:"Ruby" && quantity:==38) || (name:"Onyx bolt tips" && quantity:==135) || (name:"Raw manta ray" && quantity:==270) || (name:"Rune arrow" && quantity:==81) || (name:"Smoke rune" && quantity:==450) || (name:"Soul rune" && quantity:==900) || (name:"Bronze arrow" && quantity:==94) || (name:"Mithril arrow" && quantity:==94) || (name:"Adamant arrow" && quantity:==94) || (name:"Body rune" && quantity:==270) || (name:"Earth rune" && quantity:==270))) {sound=3018;}
 
 /*@ define:input:leviathan
 label: Unique T3
@@ -3179,7 +3195,7 @@ subtitle: Set Unique Teirs, Show/Hide Drops, and Highlight Fish
 /*@ define:input:tempoross
 label: Unique T3
 type: enumlist
-enum: ["Big harpoonfish","Tackle box","Fish barrel","Tome of water*","Dragon harpoon"]
+enum: ["Big harpoonfish","Tackle box","Fish barrel","Tome of water*","Dragon harpoon", "Spirit angler boots", "Spirit angler headband","Spirit angler top","Spirit angler waders"]
 */
 
 #define TEMPOROSS_T3_UNIQUES []
@@ -3189,17 +3205,17 @@ rule (name:TEMPOROSS_T3_UNIQUES) {UNIQUE_T3_STYLE}
 /*@ define:input:tempoross
 label: Unique T2
 type: enumlist
-enum: ["Big harpoonfish","Tackle box","Fish barrel","Tome of water*","Dragon harpoon"]
+enum: ["Big harpoonfish","Tackle box","Fish barrel","Tome of water*","Dragon harpoon","Spirit angler boots", "Spirit angler headband","Spirit angler top","Spirit angler waders"]
 */
 
-#define TEMPOROSS_T2_UNIQUES ["Dragon harpoon","Tome of water*"] 
+#define TEMPOROSS_T2_UNIQUES ["Dragon harpoon","Tome of water*","Spirit angler boots", "Spirit angler headband","Spirit angler top","Spirit angler waders"] 
 
 rule (name:TEMPOROSS_T2_UNIQUES) {UNIQUE_T2_STYLE}
 
 /*@ define:input:tempoross
 label: Unique T1
 type: enumlist
-enum: ["Big harpoonfish","Tackle box","Fish barrel","Tome of water*","Dragon harpoon"]
+enum: ["Big harpoonfish","Tackle box","Fish barrel","Tome of water*","Dragon harpoon"."Spirit angler boots", "Spirit angler headband","Spirit angler top","Spirit angler waders"]
 */
 
 #define TEMPOROSS_T1_UNIQUES ["Big harpoonfish","Tackle box","Fish barrel"]
@@ -3260,6 +3276,147 @@ exampleItem: Cooked harpoonfish
 	backgroundColor = "#FF6F7643"; \
 	fontType = 3;
 
+/*@ define:module:thermonuclear_smoke_devil
+name: Thermonuclear Smoke Devil
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:thermonuclear_smoke_devil
+label: Unique T3
+type: enumlist
+enum: ["Jar of smoke","Occult necklace", "Smoke battlestaff", "Mystic smoke staff"]
+*/
+
+#define THERMONUCLEAR_SMOKE_DEVIL_T3_UNIQUES ["Jar of smoke"]
+
+rule (name:THERMONUCLEAR_SMOKE_DEVIL_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:thermonuclear_smoke_devil
+label: Unique T2
+type: enumlist
+enum: ["Jar of smoke","Occult necklace", "Smoke battlestaff", "Mystic smoke staff"]
+*/
+
+#define THERMONUCLEAR_SMOKE_DEVIL_T2_UNIQUES ["Smoke battlestaff", "Mystic smoke staff"] 
+
+rule (name:THERMONUCLEAR_SMOKE_DEVIL_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:thermonuclear_smoke_devil
+label: Unique T1
+type: enumlist
+enum: ["Jar of smoke","Occult necklace", "Smoke battlestaff", "Mystic smoke staff"]
+*/
+
+#define THERMONUCLEAR_SMOKE_DEVIL_T1_UNIQUES ["Occult necklace"]
+
+rule (name:THERMONUCLEAR_SMOKE_DEVIL_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:thermonuclear_smoke_devil
+label: Hide Items
+type: stringlist
+*/
+
+#define THERMONUCLEAR_SMOKE_DEVIL_HIDE ["Ashes","Tinderbox","Fire talisman","Bullseye lantern"]
+
+rule (area:[2347,9437,0,2378,9463,0] && name:THERMONUCLEAR_SMOKE_DEVIL_HIDE) {hidden = true;}
+
+/*@ define:input:thermonuclear_smoke_devil
+label: Supply Drop
+type: enumlist
+enum: ["Tuna potato", "Sanfew serum(*)","Ugthanki kebab","Prayer potion(*)"]
+*/
+
+#define THERMONUCLEAR_SMOKE_DEVIL_SUPPLY ["Tuna potato","Ugthanki kebab","Prayer potion(*)"]
+
+rule (area:[2347,9437,0,2378,9463,0] && name:THERMONUCLEAR_SMOKE_DEVIL_SUPPLY) {SUPPLY_DROP_STYLE}
+
+/*@ define:module:vardorvis
+name: Vardorvis
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:vardorvis
+label: Unique T3
+type: enumlist
+enum: ["Ultor vestige","Ultor icon", "Ultor ring","Executioner's axe head","Strangled tablet","Blood quartz"]
+*/
+
+#define VARDORVIS_T3_UNIQUES ["Ultor vestige","Ultor icon", "Ultor ring","Executioner's axe head"]
+
+rule (name:VARDORVIS_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:vardorvis
+label: Unique T2
+type: enumlist
+enum: ["Ultor vestige","Ultor icon", "Ultor ring","Executioner's axe head","Strangled tablet","Blood quartz"]
+*/
+
+#define VARDORVIS_T2_UNIQUES ["Strangled tablet"] 
+
+rule (name:VARDORVIS_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:vardorvis
+label: Unique T1
+type: enumlist
+enum: ["Ultor vestige","Ultor icon", "Ultor ring","Executioner's axe head","Strangled tablet","Blood quartz"]
+*/
+
+#define VARDORVIS_T1_UNIQUES ["Blood quartz"]
+
+rule (name:VARDORVIS_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:vardorvis
+label: Hide Items
+type: stringlist
+*/
+
+#define VARDORVIS_HIDE []
+
+rule (area:[1114,3407,0,1142,3434,0] && name:VARDORVIS_HIDE) {hidden = true;}
+
+/*@ define:input:vardorvis
+label: Supply Drop
+type: enumlist
+enum: ["Tuna potato","Prayer potion(*)","Super combat potion(*)"]
+*/
+
+#define VARDORVIS_SUPPLY ["Tuna potato","Prayer potion(*)"]
+
+rule (area:[1114,3407,0,1142,3434,0] && name:VARDORVIS_SUPPLY) {SUPPLY_DROP_STYLE}
+
+
+/*@ define:input:vardorvis
+label: Enable Sound
+type: boolean
+group: Perfect Kill
+*/
+
+#define ENABLE_VARDORVIS_PERFECT true
+
+/*@ define:input:vardorvis
+label: Override Value Drop Sound (T3+)
+type: boolean
+group: Perfect Kill
+*/
+
+# ENABLE_VARDORVIS_PERFECT_OVERRIDE false
+
+apply (area:[1114,3407,0,1142,3434,0] && ENABLE_VARDORVIS_PERFECT && (ENABLE_VARDORVIS_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Coal" && quantity:==195) || (name:"Adamantite ore" && quantity:==67) || (name:"Rune javelin heads" && quantity:==54) || (name:"Dragon javelin heads" && quantity:==54) || (name:"Uncut ruby" && quantity:==37) || (name:"Uncut diamond" && quantity:==37) || (name:"Runite ore" && quantity:==27) || (name:"Dragon dart tip" && quantity:==150) || (name:"Pure essence" && quantity:==180) || (name:"Iron ore" && quantity:==57) || (name:"Silver ore" && quantity:==57) || (name:"Mithril ore" && quantity:==57) || (name:"Sapphire" && quantity:==25) || (name:"Emerald" && quantity:==25) || (name:"Ruby" && quantity:==25) || (name:"Raw shark" && quantity:==300) || (name:"Lava rune" && quantity:==300) || (name:"Blood rune" && quantity:==300) || (name:"Soul rune" && quantity:==600) || (name:"Bronze javelin" && quantity:==63) || (name:"Mithril javelin" && quantity:==63) || (name:"Adamant javelin" && quantity:==63) || (name:"Onyx bolts (e)" && quantity:==90) || (name:"Mind rune" && quantity:==180) || (name:"Fire rune" && quantity:==180))) {sound=3018;}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3291,7 +3448,7 @@ subtitle: Set Unique Tiers
 /*@ define:input:dt2_bosses
 label: Unique T3
 type: enumlist
-enum: ["Virtus mask","Virtus robe top","Virtus robe bottom", "Chromium ingot", "Awakener's orb", "Ancient blood ornament kit", "Soulreaper axe"]
+enum: ["Virtus mask","Virtus robe top","Virtus robe bottom", "Chromium ingot", "Ancient blood ornament kit", "Soulreaper axe"]
 */
 
 #define DT2_BOSSES_T3_UNIQUES ["Virtus mask","Virtus robe top","Virtus robe bottom", "Ancient blood ornament kit", "Soulreaper axe"]
@@ -3301,17 +3458,17 @@ rule (name:DT2_BOSSES_T3_UNIQUES) {UNIQUE_T3_STYLE}
 /*@ define:input:dt2_bosses
 label: Unique T2
 type: enumlist
-enum: ["Virtus mask","Virtus robe top","Virtus robe bottom", "Chromium ingot", "Awakener's orb", "Ancient blood ornament kit", "Soulreaper axe"]
+enum: ["Virtus mask","Virtus robe top","Virtus robe bottom", "Chromium ingot", "Ancient blood ornament kit", "Soulreaper axe"]
 */
 
-#define DT2_BOSSES_T2_UNIQUES ["Awakener's orb"] 
+#define DT2_BOSSES_T2_UNIQUES [] 
 
 rule (name:DT2_BOSSES_T2_UNIQUES) {UNIQUE_T2_STYLE}
 
 /*@ define:input:dt2_bosses
 label: Unique T1
 type: enumlist
-enum: ["Virtus mask","Virtus robe top","Virtus robe bottom", "Chromium ingot","Awakener's orb", "Ancient blood ornament kit", "Soulreaper axe"]
+enum: ["Virtus mask","Virtus robe top","Virtus robe bottom", "Chromium ingot", "Ancient blood ornament kit", "Soulreaper axe"]
 */
 
 #define DT2_BOSSES_T1_UNIQUES ["Chromium ingot"]
@@ -3811,7 +3968,7 @@ type: stringlist
 group: Items
 */
 
-#define CHARGE_NAMES ["Zulrah's scales","Granite dust","Ancient essence","Lava scale*","Sunfire splinters","Araxyte venom sack","Crystal shard","Ancient shard","sapphire ring","ring of recoil","Revenant ether", "Soiled page", "Burnt page", "Soaked page", "Desiccated page", "Nihil shard"]
+#define CHARGE_NAMES ["Zulrah's scales","Granite dust","Ancient essence","Lava scale*","Sunfire splinters","Araxyte venom sack","Crystal shard","Ancient shard","sapphire ring","ring of recoil","Revenant ether", "Soiled page", "Burnt page", "Soaked page", "Desiccated page", "Nihil shard", "Spirit flakes"]
 
 /*@ define:input:charges
 label: Style 1
