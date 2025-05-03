@@ -2218,7 +2218,7 @@ type: stringlist
 rule (area:[1501,3268,0,1538,3298,0] && name:HUEYCOATL_HIDE) {hidden = true;}
 
 
-/*@ define:input:name1
+/*@ define:input:hueycoatle
 label: Show MVP
 type: boolean
 group: MVP
@@ -2658,7 +2658,7 @@ type: stringlist
 
 #define MOONS_OF_PERIL_HIDE []
 
-rule (area:[1343,9606,0,1535,9743,1] && name:MOONS_OF_PERIL_HIDE) {hidden = true;} // Main Areas
+rule (area:[1343,9606,0,1535,9743,1] && name:MOONS_OF_PERIL_HIDE) {hidden = true;} // Main Areas & Bosses
 rule (area:[1343,9533,0,1398,9606,0] && name:MOONS_OF_PERIL_HIDE) {hidden = true;} // Eclipse Area
 rule (area:[1490,9558,0,1536,9601,0] && name:MOONS_OF_PERIL_HIDE) {hidden = true;} // Treasure Room
 
@@ -2670,7 +2670,7 @@ enum: ["Raw moss lizard", "Cooked moss lizard", "Raw bream", "Cooked bream", "Mo
 
 #define MOONS_OF_PERIL_SUPPLY ["Raw moss lizard", "Cooked moss lizard", "Raw bream", "Cooked bream", "Moonlight potion(*)"]
 
-rule (area:[1343,9606,0,1535,9743,1] && name:MOONS_OF_PERIL_SUPPLY) {SUPPLY_DROP_STYLE} // Main Areas
+rule (area:[1343,9606,0,1535,9743,1] && name:MOONS_OF_PERIL_SUPPLY) {SUPPLY_DROP_STYLE} // Main Areas & Bosses
 rule (area:[1343,9533,0,1398,9606,0] && name:MOONS_OF_PERIL_SUPPLY) {SUPPLY_DROP_STYLE} // Eclipse Area
 rule (area:[1490,9558,0,1536,9601,0] && name:MOONS_OF_PERIL_SUPPLY) {SUPPLY_DROP_STYLE} // Treasure Room
 
@@ -2682,17 +2682,17 @@ subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
 /*@ define:input:nex
 label: Unique T3
 type: enumlist
-enum: ["Zaryte vambraces","Nihil horn","Torva full helm*","Torva platebody*","Torva platelegs*","Ancient hilt*", "Ancient godsword"]
+enum: ["Zaryte vambraces",Zaryte crossbow","Nihil horn","*Torva full helm*","*Torva platebody*","*Torva platelegs*","Ancient hilt*", "Ancient godsword"]
 */
 
-#define NEX_T3_UNIQUES []
+#define NEX_T3_UNIQUES ["Zaryte vambraces","Zaryte crossbow","Nihil horn","*Torva full helm*","*Torva platebody*","*Torva platelegs*","Ancient hilt*", "Ancient godsword"]
 
 rule (name:NEX_T3_UNIQUES) {UNIQUE_T3_STYLE}
 
 /*@ define:input:nex
 label: Unique T2
 type: enumlist
-enum: []
+enum: ["Zaryte vambraces",Zaryte crossbow","Nihil horn","*Torva full helm*","*Torva platebody*","*Torva platelegs*","Ancient hilt*", "Ancient godsword"]
 */
 
 #define NEX_T2_UNIQUES [] 
@@ -2702,7 +2702,7 @@ rule (name:NEX_T2_UNIQUES) {UNIQUE_T2_STYLE}
 /*@ define:input:nex
 label: Unique T1
 type: enumlist
-enum: []
+enum: ["Zaryte vambraces",Zaryte crossbow","Nihil horn","*Torva full helm*","*Torva platebody*","*Torva platelegs*","Ancient hilt*", "Ancient godsword"]
 */
 
 #define NEX_T1_UNIQUES []
@@ -2717,30 +2717,92 @@ type: stringlist
 
 #define NEX_HIDE []
 
-rule (area:[WEST,SOUTH,Z1,EAST,NORTH,Z2] && name:NEX_HIDE) {hidden = true;}
+rule (area:[2910,5187,0,2944,5219,0] && name:NEX_HIDE) {hidden = true;}
 
 /*@ define:input:nex
 label: Supply Drop
 type: enumlist
-enum: []
+enum: ["Shark", "Prayer potion(*)", "Saradomin brew(*)", "Super restore(*)"]
 */
 
-#define NEX_SUPPLY []
+#define NEX_SUPPLY ["Shark", "Prayer potion(*)", "Saradomin brew(*)", "Super restore(*)"]]
 
-rule (area:[WEST,SOUTH,Z1,EAST,NORTH,Z2] && name:NEX_SUPPLY) {SUPPLY_DROP_STYLE}
-
+rule (area:[2910,5187,0,2944,5219,0] && name:NEX_SUPPLY) {SUPPLY_DROP_STYLE}
 
 /*@ define:input:nex
-label: Bones to Peaches
+label: Show MVP
 type: boolean
-group: Bones to Peaches
+group: MVP
 */
 
-#define ENABLE_NEX_PEACHES true
+#define ENABLE_NEX_MVP true
 
-apply (area:[WEST,SOUTH,Z1,EAST,NORTH,Z2] && name:"Bones" && ENABLE_NEX_PEACHES) {hidden=false;}
+apply (area:[1501,3268,0,1538,3298,0] && name:"Big Bones" && ENABLE_NEX_MVP) {hidden=false; sound=3018;}
+
+/*@ define:module:nightmare
+name: The Nightmare
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:nightmare
+label: Unique T3
+type: enumlist
+enum: ["Nightmare staff", "Eldritch nightmare staff","Harmonised nightmare staff","Volatile nightmare staff","Inquisitor's great helm","Inquisitor's hauberk","Inquisitor's plateskirt","Inquisitor's mace","Eldritch orb","Harmonised orb","Volatile orb","Jar of dreams","Slepey tablet","Parasitic egg"]
+*/
+
+#define NIGHTMARE_T3_UNIQUES ["Nightmare staff", "Eldritch nightmare staff","Harmonised nightmare staff","Volatile nightmare staff","Inquisitor's great helm","Inquisitor's hauberk","Inquisitor's plateskirt","Inquisitor's mace","Eldritch orb","Harmonised orb","Volatile orb","Jar of dreams"."Parasitic egg"]
+
+rule (name:NIGHTMARE_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:nightmare
+label: Unique T2
+type: enumlist
+enum: ["Nightmare staff", "Eldritch nightmare staff","Harmonised nightmare staff","Volatile nightmare staff","Inquisitor's great helm","Inquisitor's hauberk","Inquisitor's plateskirt","Inquisitor's mace","Eldritch orb","Harmonised orb","Volatile orb","Jar of dreams","Slepey tablet","Parasitic egg"]
+*/
+
+#define NIGHTMARE_T2_UNIQUES ["Slepey tablet"] 
+
+rule (name:NIGHTMARE_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:nightmare
+label: Unique T1
+type: enumlist
+enum: ["Nightmare staff", "Eldritch nightmare staff","Harmonised nightmare staff","Volatile nightmare staff","Inquisitor's great helm","Inquisitor's hauberk","Inquisitor's plateskirt","Inquisitor's mace","Eldritch orb","Harmonised orb","Volatile orb","Jar of dreams","Slepey tablet","Parasitic egg"]
+*/
+
+#define NIGHTMARE_T1_UNIQUES []
+
+rule (name:NIGHTMARE_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 
+/*@ define:input:nightmare
+label: Hide Items
+type: stringlist
+*/
+
+#define NIGHTMARE_HIDE []
+
+rule (area:[3830,9910,3,3914,9988,3] && name:NIGHTMARE_HIDE) {hidden = true;}
+
+/*@ define:input:nightmare
+label: Supply Drop
+type: enumlist
+enum: ["Bass","Shark","Prayer potion(*)","Sanfew serum(*)","Saradomin brew(*)","Zamorak brew(*)"]
+*/
+
+#define NIGHTMARE_SUPPLY []
+
+rule (area:[3830,9910,3,3914,9988,3] && name:NIGHTMARE_SUPPLY) {SUPPLY_DROP_STYLE}
+
+/*@ define:input:nightmare
+label: Show MVP
+type: boolean
+group: MVP
+*/
+
+#define ENABLE_NIGHTMARE_MVP true
+
+apply (area:[3830,9910,3,3914,9988,3] && name:"Big Bones" && ENABLE_NIGHTMARE_MVP) {hidden=false; sound=3018;}
 
 
 
@@ -3137,9 +3199,28 @@ label: Keys
 type: stringlist
 group: Keys
 */
-#define KEY_NAMES ["Dark totem*","Awakener's orb","Giant key","Mossy key","Zombie pirate key","Ogre coffin key","Moon key","Tooth half of key","Loop half of key","Brimstone key","Ecumenical key*","*Crystal key","Frozen key*","Grubby key","Larran's key","Muddy key","Sinister key"]
+#define KEY_NAMES ["Dark totem*","Awakener's orb","Giant key","Mossy key","Zombie pirate key","Ogre coffin key","Moon key","Tooth half of key","Loop half of key","Brimstone key","Ecumenical key","*Crystal key","Frozen key*","Grubby key","Larran's key","Muddy key","Sinister key"]
 
 rule (name:KEY_NAMES) {KEY_STYLE}
+
+/*@ define:input:keys
+label: Style
+type: style
+group: Key Shards
+exampleItem: Ecumenical key shard
+*/
+#define KEY_SHARD_STYLE \
+	color = "#ffea02ff"; \
+	backgroundColor = "#99621075";
+	
+/*@ define:input:keys
+label: Key Shards
+type: stringlist
+group: Key Shards
+*/
+#define KEY_SHARD_NAMES ["Ecumenical key shard"]
+
+rule (name:KEY_SHARD_NAMES) {KEY_SHARD_STYLE}
 
 /*@ define:input:keys
 label: Style
