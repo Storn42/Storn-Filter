@@ -528,7 +528,8 @@ exampleItem: Wild pie
 */
 
 #define SUPPLY_DROP_STYLE \
-    fontType = 2; 
+    fontType = 2; \
+	hidden = false;
 
 /*@ define:module:abyssal_demons
 name: Abyssal Demons
@@ -2790,7 +2791,7 @@ type: enumlist
 enum: ["Bass","Shark","Prayer potion(*)","Sanfew serum(*)","Saradomin brew(*)","Zamorak brew(*)"]
 */
 
-#define NIGHTMARE_SUPPLY []
+#define NIGHTMARE_SUPPLY ["Bass","Shark","Prayer potion(*)","Sanfew serum(*)","Saradomin brew(*)","Zamorak brew(*)"]
 
 rule (area:[3830,9910,3,3914,9988,3] && name:NIGHTMARE_SUPPLY) {SUPPLY_DROP_STYLE}
 
@@ -2803,6 +2804,106 @@ group: MVP
 #define ENABLE_NIGHTMARE_MVP true
 
 apply (area:[3830,9910,3,3914,9988,3] && name:"Big Bones" && ENABLE_NIGHTMARE_MVP) {hidden=false; sound=3018;}
+
+/*@ define:module:obor
+name: Obor
+subtitle: Set Unique Teirs and Hide Drops
+*/
+
+/*@ define:input:obor
+label: Unique T3
+type: enumlist
+enum: ["Hill giant club"]
+*/
+
+#define OBOR_T3_UNIQUES []
+
+rule (name:OBOR_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:obor
+label: Unique T2
+type: enumlist
+enum: ["Hill giant club"]
+*/
+
+#define OBOR_T2_UNIQUES ["Hill giant club"] 
+
+rule (name:OBOR_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:obor
+label: Unique T1
+type: enumlist
+enum: ["Hill giant club"]
+*/
+
+#define OBOR_T1_UNIQUES []
+
+rule (name:OBOR_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:obor
+label: Hide Items
+type: stringlist
+*/
+
+#define OBOR_HIDE []
+
+rule (area:[3078,9791,0,3106,9819,0] && name:OBOR_HIDE) {hidden = true;}
+
+/*@ define:module:phantom_muspah
+name: Phantom Muspah
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:phantom_muspah
+label: Unique T3
+type: enumlist
+enum: ["Venator shard", "Ancient icon", "Frozen cache", "Charged ice"]
+*/
+
+#define PHANTOM_MUSPAH_T3_UNIQUES ["Venator shard"]
+
+rule (name:PHANTOM_MUSPAH_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:phantom_muspah
+label: Unique T2
+type: enumlist
+enum: ["Venator shard", "Ancient icon", "Frozen cache", "Charged ice"]
+*/
+
+#define PHANTOM_MUSPAH_T2_UNIQUES ["Charged ice"] 
+
+rule (name:PHANTOM_MUSPAH_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:phantom_muspah
+label: Unique T1
+type: enumlist
+enum: ["Venator shard", "Ancient icon", "Frozen cache", "Charged ice"]
+*/
+
+#define PHANTOM_MUSPAH_T1_UNIQUES ["Ancient icon","Ancient icon"]
+
+rule (name:PHANTOM_MUSPAH_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:phantom_muspah
+label: Hide Items
+type: stringlist
+*/
+
+#define PHANTOM_MUSPAH_HIDE []
+
+rule (area:[WEST,SOUTH,Z1,EAST,NORTH,Z2] && name:PHANTOM_MUSPAH_HIDE) {hidden = true;}
+
+/*@ define:input:phantom_muspah
+label: Supply Drop
+type: enumlist
+enum: ["Shark","*Summer pie","Ancient brew(*)","Ranging potion(*)","Super restore(*)","Prayer potion(*)"]
+*/
+
+#define PHANTOM_MUSPAH_SUPPLY ["Shark","*Summer pie","Super restore(*)","Prayer potion(*)"]
+
+rule (area:[WEST,SOUTH,Z1,EAST,NORTH,Z2] && name:PHANTOM_MUSPAH_SUPPLY) {SUPPLY_DROP_STYLE}
 
 
 
