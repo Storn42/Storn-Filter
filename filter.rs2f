@@ -3126,6 +3126,145 @@ enum: []
 
 rule (area:[3286,9856,0,3311,9880,0] && name:SCURRIUS_SUPPLY) {SUPPLY_DROP_STYLE}
 
+/*@ define:module:scotizo
+name: Scotizo
+subtitle: Set Unique Teirs and Hide Drops
+*/
+
+/*@ define:input:scotizo
+label: Unique T3
+type: enumlist
+enum: ["Dark claw","Jar of darkness"]
+*/
+
+#define SCOTIZO_T3_UNIQUES ["Jar of darkness"]
+
+rule (name:SCOTIZO_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:scotizo
+label: Unique T2
+type: enumlist
+enum: ["Dark claw","Jar of darkness"]
+*/
+
+#define SCOTIZO_T2_UNIQUES [] 
+
+rule (name:SCOTIZO_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:scotizo
+label: Unique T1
+type: enumlist
+enum: ["Dark claw","Jar of darkness"]
+*/
+
+#define SCOTIZO_T1_UNIQUES ["Dark claw"]
+
+rule (name:SCOTIZO_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:scotizo
+label: Hide Items
+type: stringlist
+*/
+
+#define SCOTIZO_HIDE []
+
+rule (area:[2248,5641,0,2298,5687,0] && name:SCOTIZO_HIDE) {hidden = true;}
+
+/*@ define:module:tempoross
+name: Tempoross
+subtitle: Set Unique Teirs, Show/Hide Drops, and Highlight Fish
+*/
+
+/*@ define:input:tempoross
+label: Unique T3
+type: enumlist
+enum: ["Big harpoonfish","Tackle box","Fish barrel","Tome of water*","Dragon harpoon"]
+*/
+
+#define TEMPOROSS_T3_UNIQUES []
+
+rule (name:TEMPOROSS_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:tempoross
+label: Unique T2
+type: enumlist
+enum: ["Big harpoonfish","Tackle box","Fish barrel","Tome of water*","Dragon harpoon"]
+*/
+
+#define TEMPOROSS_T2_UNIQUES ["Dragon harpoon","Tome of water*"] 
+
+rule (name:TEMPOROSS_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:tempoross
+label: Unique T1
+type: enumlist
+enum: ["Big harpoonfish","Tackle box","Fish barrel","Tome of water*","Dragon harpoon"]
+*/
+
+#define TEMPOROSS_T1_UNIQUES ["Big harpoonfish","Tackle box","Fish barrel"]
+
+rule (name:TEMPOROSS_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:tempoross
+label: Hide Items
+type: stringlist
+*/
+
+#define TEMPOROSS_HIDE []
+
+rule (area:[3005,2942,0,3067,3010,0] && name:TEMPOROSS_HIDE) {hidden = true;}
+
+/*@ define:input:tempoross
+label: Show Items
+type: stringlist
+*/
+
+#define TEMPOROSS_HIDE ["Bucket", "Bucket of water", "Rope", "Hammer"]
+
+rule (area:[3005,2942,0,3067,3010,0] && name:TEMPOROSS_HIDE) {hidden = true;}
+
+/*@ define:input:tempoross
+label: Raw Fish
+type: style
+group: Fish
+exampleItem: Raw harpoonfish
+*/
+
+#define RAW_TEMPOROSS_STYLE \
+	textColor = "#ff9AB97D"; \
+	textAccentColor = "#ff372a2a"; \
+	fontType = 3;
+
+/*@ define:input:tempoross
+label: Crystal Fish
+type: style
+group: Fish
+exampleItem: Crystal harpoonfish
+*/
+
+#define CRYSTAL_TEMPOROSS_STYLE \
+	textColor = "#ffd3f8fa"; \
+	fontType = 3;
+
+/*@ define:input:tempoross
+label: Cooked Fish
+type: style
+group: Fish
+exampleItem: Cooked harpoonfish
+*/
+
+#define COOKED_TEMPOROSS_STYLE \
+	textColor = "#ffffffff"; \
+	backgroundColor = "#FF6F7643"; \
+	fontType = 3;
+
+
+
+
+
+
 
 
 
