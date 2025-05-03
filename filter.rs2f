@@ -3009,19 +3009,122 @@ rule (area:[1829,9889,0,1855,9914,0] && name:SARACHNIS_HIDE) {hidden = true;}
 /*@ define:input:sarachnis
 label: Supply Drop
 type: enumlist
-enum: []
+enum: ["Egg potato"]
 */
 
-#define SARACHNIS_SUPPLY []
+#define SARACHNIS_SUPPLY ["Egg potato"]
 
 rule (area:[1829,9889,0,1855,9914,0] && name:SARACHNIS_SUPPLY) {SUPPLY_DROP_STYLE}
 
+/*@ define:module:scorpia
+name: Scorpia
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:scorpia
+label: Unique T3
+type: enumlist
+enum: ["Odium shard 3","Malediction shard 3"]
+*/
+
+#define SCORPIA_T3_UNIQUES []
+
+rule (name:SCORPIA_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:scorpia
+label: Unique T2
+type: enumlist
+enum: ["Odium shard 3","Malediction shard 3"]
+*/
+
+#define SCORPIA_T2_UNIQUES ["Odium shard 3","Malediction shard 3"] 
+
+rule (name:SCORPIA_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:scorpia
+label: Unique T1
+type: enumlist
+enum: ["Odium shard 3","Malediction shard 3"]
+*/
+
+#define SCORPIA_T1_UNIQUES []
+
+rule (name:SCORPIA_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 
+/*@ define:input:scorpia
+label: Hide Items
+type: stringlist
+*/
+
+#define SCORPIA_HIDE []
+
+rule (area:[3218,10330,0,3249,10354,0] && name:SCORPIA_HIDE) {hidden = true;}
+
+/*@ define:input:scorpia
+label: Supply Drop
+type: enumlist
+enum: ["Blighted anglerfish","Blighted super restore(*)"]
+*/
+
+#define SCORPIA_SUPPLY []
+
+rule (area:[3218,10330,0,3249,10354,0] && name:SCORPIA_SUPPLY) {SUPPLY_DROP_STYLE}
+
+/*@ define:module:scurrius
+name: Scurrius
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:scurrius
+label: Unique T3
+type: enumlist
+enum: ["Scurrius' spine","Bone mace","Bone shortbow","Bone staff"]
+*/
+
+#define SCURRIUS_T3_UNIQUES []
+
+rule (name:SCURRIUS_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:scurrius
+label: Unique T2
+type: enumlist
+enum: ["Scurrius' spine","Bone mace","Bone shortbow","Bone staff"]
+*/
+
+#define SCURRIUS_T2_UNIQUES ["Bone mace","Bone shortbow","Bone staff"] 
+
+rule (name:SCURRIUS_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:scurrius
+label: Unique T1
+type: enumlist
+enum: ["Scurrius' spine","Bone mace","Bone shortbow","Bone staff"]
+*/
+
+#define SCURRIUS_T1_UNIQUES ["Scurrius' spine"]
+
+rule (name:SCURRIUS_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 
+/*@ define:input:scurrius
+label: Hide Items
+type: stringlist
+*/
 
+#define SCURRIUS_HIDE []
 
+rule (area:[3286,9856,0,3311,9880,0] && name:SCURRIUS_HIDE) {hidden = true;}
+
+/*@ define:input:scurrius
+label: Supply Drop
+type: enumlist
+enum: []
+*/
+
+#define SCURRIUS_SUPPLY []
+
+rule (area:[3286,9856,0,3311,9880,0] && name:SCURRIUS_SUPPLY) {SUPPLY_DROP_STYLE}
 
 
 
