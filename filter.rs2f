@@ -2754,7 +2754,7 @@ type: enumlist
 enum: ["Shark", "Prayer potion(*)", "Saradomin brew(*)", "Super restore(*)"]
 */
 
-#define NEX_SUPPLY ["Shark", "Prayer potion(*)", "Saradomin brew(*)", "Super restore(*)"]]
+#define NEX_SUPPLY ["Shark", "Prayer potion(*)", "Saradomin brew(*)", "Super restore(*)"]
 
 rule (area:[2910,5187,0,2944,5219,0] && name:NEX_SUPPLY) {SUPPLY_DROP_STYLE}
 
@@ -3776,7 +3776,7 @@ type: stringlist
 
 #define ZALCANO_HIDE []
 
-rule (area:[3020,6036,Z1,3048,6064,Z2] && name:ZALCANO_HIDE) {hidden = true;}
+rule (area:[3020,6036,0,3048,6064,0] && name:ZALCANO_HIDE) {hidden = true;}
 
 
 /*@ define:input:zalcano
@@ -3787,7 +3787,7 @@ group: MVP
 
 #define ENABLE_ZALCANO_MVP true
 
-apply (area:[3020,6036,Z1,3048,6064,Z2] && name:"Infernal ashes" && ENABLE_ZALCANO_MVP) {hidden=false; sound=3018;}
+apply (area:[3020,6036,0,3048,6064,0] && name:"Infernal ashes" && ENABLE_ZALCANO_MVP) {hidden=false; sound=3018;}
 
 /*@ define:module:zulrah
 name: Zulrah
