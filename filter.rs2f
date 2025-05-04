@@ -11468,7 +11468,7 @@ type: boolean
 group: Teak
 */
 
-#define TEAK_SHOW_UNNOTED false
+#define TEAK_PLANKS_SHOW_UNNOTED false
 
 /*@ define:input:teak_planks
 label: Reaplce T1 with Noted
