@@ -3,6 +3,19 @@ hidden: true
 name: header
 */
 
+// to do:
+// 	- Herblore secondaries
+// 	- Food/Potion drops
+// 	- currencies
+// 	- 
+// 	- 
+
+
+
+
+
+
+
 meta {
     name = "Storn's Filter";
     description = "Storn's Ironman Focused Filter";
@@ -300,7 +313,7 @@ label: Herblore Secondaries
 type: stringlist
 group: Skilling
 */
-#define HIDE_SECONDARIES ["Ashes", "Jangerberries"]
+#define HIDE_SECONDARIES []
 
 apply (name:HIDE_SECONDARIES) {hidden=true;}
 
@@ -6180,6 +6193,125 @@ exampleItem: Grimy huasca
 VALUE_RULESET(HERBS_ALWAYS_SHOW, HERBS_T5_STYLE, HERBS_T4_STYLE, HERBS_T3_STYLE, HERBS_T2_STYLE, HERBS_T1_STYLE, HERBS_T0_STYLE)
 
 VALUE_RULESET(HERBS_IF_STACKABLE && stackable:true, HERBS_T5_STYLE, HERBS_T4_STYLE, HERBS_T3_STYLE, HERBS_T2_STYLE, HERBS_T1_STYLE, HERBS_T0_STYLE)
+
+rule (name:HERBS_IF_STACKABLE && stackable:false) {hidden=true;}
+
+
+/*@ define:module:herblore_secondaries
+name: Tin Ores
+subtitle: Smelt with Copper to get Bronze Metal
+*/
+
+/*@ define:input:herblore_secondaries
+label: Desired Secondaries
+type: stringlist
+group: Secondaries
+*/
+
+#define HERBLORE_SECONDARIES_ALWAYS_SHOW ["Volcanic ash","Giant egg sac","Aldarium","Scaly blue dragonhide","Nail beast nails","Magic roots","Nihil dust","Lily of the sands","Crushed superior dragon bones","Crystal dust"]
+
+/*@ define:input:herblore_secondaries
+label: Show only if Stackable
+type: stringlist
+group: Secondaries
+*/
+
+#define SECONDARIES_SHOW_IF_STACKABLE ["Eye of newt","Unicorn horn","Unicorn horn dust","Limpwurt root","Ashes","Red spiders' eggs","White berries","Toad's legs","Goat horn dust","Desert goat horn","Snape grass","Mort myre fungus","Kebbit teeth dust","Kebbit teeth","Dragon scale dust","Blue dragon scale","White berries","Potato cactus","Wine of zamorak","Jangerberries"]
+
+/*@ define:input:herblore_secondaries
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Eye of newt
+*/
+
+#define HERBLORE_SECONDARIES_T0_STYLE \
+    color = "#ff62a1ff"; \
+	menuTextColor = "#ff62a1ff"; 
+
+
+/*@ define:input:herblore_secondaries
+label: Tier 1
+type: style
+group: Styles
+exampleItem: limpwurt root
+*/
+
+#define HERBLORE_SECONDARIES_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#5562a1ff";\
+	menuTextColor = "#ff62a1ff";\
+	textAccent = 3;
+
+/*@ define:input:herblore_secondaries
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Red spiders' eggs
+*/
+
+#define HERBLORE_SECONDARIES_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#9962a1ff";\
+	menuTextColor = "#ff62a1ff";\
+	textAccent = 3;
+
+/*@ define:input:herblore_secondaries
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Wine of zamorak
+*/
+
+#define HERBLORE_SECONDARIES_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#dd62a1ff";\
+	menuTextColor = "#ff62a1ff"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:herblore_secondaries
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Lava scale shard
+*/
+
+#define HERBLORE_SECONDARIES_T4_STYLE \
+	backgroundColor = "#ff62a1ff";\
+	menuTextColor = "#ff62a1ff";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff62a1ff";
+
+/*@ define:input:herblore_secondaries
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Crushed superior dragon bones
+*/
+
+#define HERBLORE_SECONDARIES_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff62a1ff";\
+	color = "#ff62a1ff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff62a1ff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff62a1ff";
+
+
+VALUE_RULESET(HERBLORE_SECONDARIES_ALWAYS_SHOW, HERBLORE_SECONDARIES_T5_STYLE, HERBLORE_SECONDARIES_T4_STYLE, HERBLORE_SECONDARIES_T3_STYLE, HERBLORE_SECONDARIES_T2_STYLE, HERBLORE_SECONDARIES_T1_STYLE, HERBLORE_SECONDARIES_T0_STYLE)
+
+VALUE_RULESET(HERBLORE_SECONDARIES_IF_STACKABLE && stackable:true, HERBLORE_SECONDARIES_T5_STYLE, HERBLORE_SECONDARIES_T4_STYLE, HERBLORE_SECONDARIES_T3_STYLE, HERBLORE_SECONDARIES_T2_STYLE, HERBLORE_SECONDARIES_T1_STYLE, HERBLORE_SECONDARIES_T0_STYLE)
+
+rule (name:HERBLORE_SECONDARIES_IF_STACKABLE && stackable:false) {hidden=true;}
+
 
 
 
