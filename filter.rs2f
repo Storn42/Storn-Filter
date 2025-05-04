@@ -914,11 +914,6 @@ group: Wilderness Slayer Cave
 
 rule (area:[3423,10113,0,3454,10133,0] && name: DUST_DEVIL_WILDY_SUPPLY) {SUPPLY_DROP_STYLE}
 
-
-
-
-
-
 /*@ define:module:hellhounds
 name: Hellhounds
 subtitle: Hide Drops and Set Rarity for Meme Drops
@@ -3154,50 +3149,50 @@ enum: ["Trout","Tuna","Lobster","Prayer potion(*)","Shark","Ranging potion(*)","
 
 rule (area:[3286,9856,0,3311,9880,0] && name:SCURRIUS_SUPPLY) {SUPPLY_DROP_STYLE}
 
-/*@ define:module:scotizo
-name: Scotizo
+/*@ define:module:skotizo
+name: Skotizo
 subtitle: Set Unique Teirs and Hide Drops
 */
 
-/*@ define:input:scotizo
+/*@ define:input:skotizo
 label: Unique T3
 type: enumlist
 enum: ["Dark claw","Jar of darkness"]
 */
 
-#define SCOTIZO_T3_UNIQUES ["Jar of darkness"]
+#define SKOTIZO_T3_UNIQUES ["Jar of darkness"]
 
-rule (name:SCOTIZO_T3_UNIQUES) {UNIQUE_T3_STYLE}
+rule (name:SKOTIZO_T3_UNIQUES) {UNIQUE_T3_STYLE}
 
-/*@ define:input:scotizo
+/*@ define:input:skotizo
 label: Unique T2
 type: enumlist
 enum: ["Dark claw","Jar of darkness"]
 */
 
-#define SCOTIZO_T2_UNIQUES [] 
+#define SKOTIZO_T2_UNIQUES [] 
 
-rule (name:SCOTIZO_T2_UNIQUES) {UNIQUE_T2_STYLE}
+rule (name:SKOTIZO_T2_UNIQUES) {UNIQUE_T2_STYLE}
 
-/*@ define:input:scotizo
+/*@ define:input:skotizo
 label: Unique T1
 type: enumlist
 enum: ["Dark claw","Jar of darkness"]
 */
 
-#define SCOTIZO_T1_UNIQUES ["Dark claw"]
+#define SKOTIZO_T1_UNIQUES ["Dark claw"]
 
-rule (name:SCOTIZO_T1_UNIQUES) {UNIQUE_T1_STYLE}
+rule (name:SKOTIZO_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 
-/*@ define:input:scotizo
+/*@ define:input:skotizo
 label: Hide Items
 type: stringlist
 */
 
-#define SCOTIZO_HIDE []
+#define SKOTIZO_HIDE []
 
-rule (area:[2248,5641,0,2298,5687,0] && name:SCOTIZO_HIDE) {hidden = true;}
+rule (area:[2248,5641,0,2298,5687,0] && name:SKOTIZO_HIDE) {hidden = true;}
 
 /*@ define:module:tempoross
 name: Tempoross
@@ -3833,28 +3828,6 @@ type: stringlist
 
 rule (area:[2260,3066,0,2277,3081,0] && name:ZULRAH_HIDE) {hidden = true;}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*@ define:module:dt2_bosses
 name: DT2 Bosses
 subtitle: Set Unique Tiers
@@ -3935,17 +3908,17 @@ subtitle: Set Unique Tiers
 /*@ define:input:wilderness_bosses
 label: Unique T3
 type: enumlist
-enum: ["Dragon 2h sword", "Dragon pickaxe", "Odium ward", "Malediction ward"]
+enum: ["Dragon 2h sword", "Dragon pickaxe", "Odium ward", "Malediction ward", "Voidwaker"]
 */
 
-#define WILDERNESS_BOSSES_T3_UNIQUES []
+#define WILDERNESS_BOSSES_T3_UNIQUES ["Voidwaker"]
 
 rule (name:WILDERNESS_BOSSES_T3_UNIQUES) {UNIQUE_T3_STYLE}
 
 /*@ define:input:wilderness_bosses
 label: Unique T2
 type: enumlist
-enum: ["Dragon 2h sword", "Dragon pickaxe"]
+enum: ["Dragon 2h sword", "Dragon pickaxe", "Odium ward", "Malediction ward", "Voidwaker"]
 */
 
 #define WILDERNESS_BOSSES_T2_UNIQUES ["Dragon pickaxe","Odium ward", "Malediction ward"]
@@ -3955,12 +3928,371 @@ rule (name:WILDERNESS_BOSSES_T2_UNIQUES) {UNIQUE_T2_STYLE}
 /*@ define:input:wilderness_bosses
 label: Unique T1
 type: enumlist
-enum: ["Dragon 2h sword", "Dragon pickaxe"]
+enum: ["Dragon 2h sword", "Dragon pickaxe", "Odium ward", "Malediction ward", "Voidwaker"]
 */
 
 #define WILDERNESS_BOSSES_T1_UNIQUES ["Dragon 2h sword"]
 
 rule (name:WILDERNESS_BOSSES_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:module:cox
+name: Chambers of Xeric
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:cox
+label: Unique T3
+type: enumlist
+enum: ["Dexterous prayer scroll","Arcane prayer scroll","Twisted buckler","Dragon hunter crossbow*","Dinh's *bulwark","*Ancestral hat","*Ancestral robe top","*Ancestral robe bottom","Dragon claws*","Elder maul*","Kodai insignia","Kodai wand","Twisted bow","Torn prayer scroll","Metamorphic dust","Twisted ancestral colour kit","Ancient tablet"]
+group: Uniques
+*/
+
+#define COX_T3_UNIQUES ["Dragon hunter crossbow*","*Ancestral hat","*Ancestral robe top","*Ancestral robe bottom","Dragon claws*","Elder maul*","Kodai insignia","Kodai wand","Twisted bow","Metamorphic dust","Twisted ancestral colour kit"]
+
+rule (name:COX_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:cox
+label: Unique T2
+type: enumlist
+enum: ["Dexterous prayer scroll","Arcane prayer scroll","Twisted buckler","Dragon hunter crossbow*","Dinh's *bulwark","*Ancestral hat","*Ancestral robe top","*Ancestral robe bottom","Dragon claws*","Elder maul*","Kodai insignia","Kodai wand","Twisted bow","Torn prayer scroll","Metamorphic dust","Twisted ancestral colour kit","Ancient tablet"]
+group: Uniques
+*/
+
+#define COX_T2_UNIQUES ["Dexterous prayer scroll","Arcane prayer scroll","Twisted buckler","Dinh's *bulwark"] 
+
+rule (name:COX_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:cox
+label: Unique T1
+type: enumlist
+enum: ["Dexterous prayer scroll","Arcane prayer scroll","Twisted buckler","Dragon hunter crossbow*","Dinh's *bulwark","*Ancestral hat","*Ancestral robe top","*Ancestral robe bottom","Dragon claws*","Elder maul*","Kodai insignia","Kodai wand","Twisted bow","Torn prayer scroll","Metamorphic dust","Twisted ancestral colour kit","Ancient tablet"]
+group: Uniques
+*/
+
+#define COX_T1_UNIQUES ["Torn prayer scroll","Ancient tablet"]
+
+rule (name:COX_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:cox
+label: Desired Potions
+type: stringlist
+group: Raid Items
+*/
+
+#define COX_POTIONS ["Overload (+)*", "Xeric's aid (+)*", "Prayer enhance (+)*", "Revitalisation (+)*"]
+
+/*@ define:input:cox
+label: Potion Style
+type: style
+group: Raid Items
+exampleItem: Overload (+)(4)
+*/
+
+#define COX_POTIONS_STYLE \
+	fontType = 3; \
+	showLootbeam = true;
+
+rule (name:COX_POTIONS) {COX_POTIONS_STYLE}
+
+/*@ define:input:cox
+label: Potion Secondaries
+type: style
+group: Raid Items
+exampleItem: Stinkhorn mushroom
+*/
+
+#define COX_SECONDARIES \
+	backgroundColor = "#660a9fba";
+	
+rule (name:["Stinkhorn mushroom", "Cicely", "Endarkened juice"]) {COX_SECONDARIES}
+
+/*@ define:input:cox
+label: Planks
+type: style
+group: Raid Items
+exampleItem: Mallignum root plank
+*/
+
+#define COX_PLANKS \
+	backgroundColor = "#66956216";
+
+rule (name:"Mallignum root plank"){COX_PLANKS}
+
+
+/*@ define:input:cox
+label: Golpar Seeds
+type: style
+group: Raid Items
+exampleItem: Golpar seed
+*/
+
+#define COX_GOLPAR \
+	fontType = 2;\
+	backgroundColor = "#669F99DB";
+	
+rule (name:"Golpar seed"){COX_GOLPAR}
+
+/*@ define:input:cox
+label: Buchu seeds
+type: style
+group: Raid Items
+exampleItem: Buchu seed
+*/
+
+#define COX_BUCHU \
+	fontType = 2;\
+	backgroundColor = "#66A04039";
+	
+rule (name:"Buchu seed"){COX_BUCHU}
+
+/*@ define:input:cox
+label: Noxifer Seeds
+type: style
+group: Raid Items
+exampleItem: Nxifer seed
+*/
+
+#define COX_NOXIFER \
+	fontType = 2;\
+	backgroundColor = "#663D348F";
+
+rule (name:"Noxifer seed"){COX_NOXIFER}
+
+/*@ define:input:cox
+label: Hide Items
+type: stringlist
+*/
+
+#define HIDE_COX []
+
+rule (area:[3210,5120,0,3369,5776,1] && name:HIDE_COX) {hidden = true;}
+
+/*@ define:input:cox
+label: Show Items
+type: stringlist
+group: Raid Items
+*/
+
+#define SHOW_COX ["Hammer", "Bronze pickaxe", "tindebox", "Bronze axe"]
+
+apply (area:[3210,5120,0,3369,5776,1] && name:SHOW_COX){hidden = false;}
+
+/*@ define:module:tob
+name: Theatre of Blood
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:tob
+label: Unique T3
+type: enumlist
+group: Uniques
+enum: ["Avernic defender hilt", "Ghommal's avernic defender*", "*Ghrazi rapier", "*Sanguinesti staff*", "Justiciar chestguard", "Justiciar legguards", "*Scythe of vitur*", "Holy ornament kit", "Sanguine ornament kit", "Sanguine dust"]
+*/
+
+#define TOB_T3_UNIQUES ["*Sanguinesti staff*", "*Scythe of vitur*", "Holy ornament kit", "Sanguine ornament kit", "Sanguine dust"]
+
+rule (name:TOB_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:tob
+label: Unique T2
+type: enumlist
+group: Uniques
+enum: ["Avernic defender hilt", "Ghommal's avernic defender*", "*Ghrazi rapier", "*Sanguinesti staff*", "Justiciar chestguard", "Justiciar legguards", "*Scythe of vitur*", "Holy ornament kit", "Sanguine ornament kit", "Sanguine dust"]
+*/
+
+#define TOB_T2_UNIQUES ["Avernic defender hilt", "Ghommal's avernic defender*", "*Ghrazi rapier", "Justiciar chestguard", "Justiciar legguards"] 
+
+rule (name:TOB_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:tob
+label: Unique T1
+type: enumlist
+group: Uniques
+enum: ["Avernic defender hilt", "Ghommal's avernic defender*", "*Ghrazi rapier", "*Sanguinesti staff*", "Justiciar chestguard", "Justiciar legguards", "*Scythe of vitur*", "Holy ornament kit", "Sanguine ornament kit", "Sanguine dust"]
+*/
+
+#define TOB_T1_UNIQUES []
+
+rule (name:TOB_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:tob
+label: Hide Items
+type: stringlist
+group: Raid Items
+*/
+
+#define TOB_HIDE []
+
+rule (area:[3134,4226,0,3338,4486,1] && name:TOB_HIDE) {hidden = true;}
+
+/*@ define:input:tob
+label: Dawnbringer
+type: style
+group: Raid Items
+exampleItem: Dawnbringer
+*/
+
+#define TOB_DAWNBRINGER \
+	showLootbeam = true;\
+	color = "#ff00ffab"; \
+	fontType = 3; \
+	hidden = false;
+
+rule (name:"Dawnbringer") {TOB_DAWNBRINGER}
+
+
+/*@ define:module:toa
+name: Tombs of Amascut
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:toa
+label: Unique T3
+type: enumlist
+group: Uniques
+enum: ["Osmumten's fang*", "Lightbearer","Elidinis' ward*", "Masori mask*", "Masori body*", "Masori chaps*", "Tumeken's shadow*","Thread of elidinis","Eye of the corruptor","Jewel of the sun","Breach of the scarab", "Cursed phalanx","Masori crafting kit", "Menaphite ornament kit", "Remnant of akkha", "Remnant of ba-ba", "Remnant of kephri", "Remnant of zebak", "Ancient remnant", "Masori assembler*"]
+*/
+
+#define TOA_T3_UNIQUES ["Masori mask*", "Masori body*", "Masori chaps*","Tumeken's shadow*", "Cursed phalanx","Masori crafting kit", "Menaphite ornament kit", "Remnant of akkha", "Remnant of ba-ba", "Remnant of kephri", "Remnant of zebak", "Ancient remnant", "Masori assembler*"]
+
+rule (name:TOA_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:toa
+label: Unique T2
+type: enumlist
+group: Uniques
+enum: ["Osmumten's fang*", "Lightbearer","Elidinis' ward*", "Masori mask*", "Masori body*", "Masori chaps*", "Tumeken's shadow*","Thread of elidinis","Eye of the corruptor","Jewel of the sun","Breach of the scarab", "Cursed phalanx","Masori crafting kit", "Menaphite ornament kit", "Remnant of akkha", "Remnant of ba-ba", "Remnant of kephri", "Remnant of zebak", "Ancient remnant", "Masori assembler*"]
+*/
+
+#define TOA_T2_UNIQUES ["Osmumten's fang*", "Lightbearer","Elidinis' ward*"] 
+
+rule (name:TOA_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:toa
+label: Unique T1
+type: enumlist
+group: Uniques
+enum: ["Osmumten's fang*", "Lightbearer","Elidinis' ward*", "Masori mask*", "Masori body*", "Masori chaps*", "Tumeken's shadow*","Thread of elidinis","Eye of the corruptor","Jewel of the sun","Breach of the scarab", "Cursed phalanx","Masori crafting kit", "Menaphite ornament kit", "Remnant of akkha", "Remnant of ba-ba", "Remnant of kephri", "Remnant of zebak", "Ancient remnant", "Masori assembler*"]
+*/
+
+#define TOA_T1_UNIQUES ["Thread of elidinis","Eye of the corruptor","Jewel of the sun","Breach of the scarab"]
+
+rule (name:TOA_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:input:toa
+label: Hide Items
+type: stringlist
+group: Raid Items
+*/
+
+#define TOA_HIDE []
+
+apply (area:[3509,5107,0,3973,5443,2] && name:TOA_HIDE) {hidden = true;}
+
+/*@ define:input:toa
+label: Main Potions
+type: stringlist
+group: Raid Items
+*/
+
+#define TOA_POTIONS ["Nectar*", "Tears of elidinis*", "Smelling salts*", "Ambrosia*", "Liquid adrenaline*"]
+
+/*@ define:input:toa
+label: Main Potions
+type: style
+group: Raid Items
+exampleItem: Tears of elidinis(4)
+*/
+
+#define TOA_POTIONS_STYLE \
+	fontType = 3; \
+	showLootbeam = true;
+
+rule (name:TOA_POTIONS) {TOA_POTIONS_STYLE}
+
+
+/*@ define:input:toa
+label: Other Supplies
+type: stringlist
+group: Raid Items
+*/
+
+#define TOA_ALT_POTIONS ["Honey locust*", "Blessed crystal scarab*", "Silk dressing*"]
+
+
+/*@ define:input:toa
+label: Main Potions
+type: style
+group: Raid Items
+exampleItem: Silk dressing 2
+*/
+
+#define TOA_ALT_POTIONS_STYLE \
+	fontType = 2; 
+
+rule (name:TOA_ALT_POTIONS) {TOA_ALT_POTIONS_STYLE}\
+
+/*@ define:input:toa
+label: Show Red-X Items at Ba-Ba
+type: boolean
+group: Red-X
+*/
+
+#define ENABLE_TOA_REDX true
+
+/*@ define:input:toa
+label: Red-X Style
+type: style
+group: Red-X
+*/
+
+#define TOA_REDX_STYLE \
+	hidden = false; \
+	textColor = "#00000000"; \
+	textAccent = 3; \
+	highlightTile = true; \
+	tileStrokeColor = "#FFFF0000"; \
+	showLootbeam = true; \
+	lootbeamColor = "#FFFF0000"; \
+	showDespawn = false;
+
+
+rule (area:[3786,5398,0,3828,5419,0] && ownership:2 && ENABLE_TOA_REDX) {TOA_REDX_STYLE}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
