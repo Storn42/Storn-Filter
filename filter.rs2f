@@ -1271,7 +1271,7 @@ rule (area:[3607,9795,0,3651,9837,0] && name:ARAXXOR_SUPPLY) {SUPPLY_DROP_STYLE}
 
 /*@ define:module:barrows
 name: Barrows
-subtitle: Set Unique Tiers, Hide Drops, and Highlight Supplies
+subtitle: Set Unique Tiers and Hide Drops
 */
 
 /*@ define:input:barrows
@@ -1303,6 +1303,15 @@ enum: ["Ahrim's hood*","Ahrim's robetop*","Ahrim's robeskirt*","Ahrim's staff*",
 #define BARROWS_T1_UNIQUES []
 
 rule (name:BARROWS_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:input:barrows
+label: Hide Items
+type: stringlist
+*/
+
+#define BARROWS_HIDE []
+
+rule (area:[3521,9661,0,3583,9729,3] && name:BARROWS_HIDE) {hidden = true;}
 
 
 /*@ define:module:bryophyta
@@ -4774,7 +4783,7 @@ rule (name:FISHING_TRAWLER_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 /*@ define:module:gotr
 name: Guardians of the Rift
-subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+subtitle: Set Unique Teirs and Hide Drops
 */
 
 /*@ define:input:gotr
@@ -4807,24 +4816,183 @@ enum: ["Catalytic talisman","Elemental talisman","Abyssal needle","Abyssal lante
 
 rule (name:GOTR_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
+/*@ define:input:gotr
+label: Hide Items
+type: stringlist
+*/
 
+#define GOTR_HIDE []
 
+rule (area:[2368,5618,0,2497,5753,0] && name:GOTR_HIDE) {hidden = true;}
+rule (area:[3555,9441,0,3667,9536,0] && name:GOTR_HIDE) {hidden = true;}
 
+/*@ define:module:hallowed_sepulchre
+name: Hallowed Sepulchre
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
 
+/*@ define:input:hallowed_sepulchre
+label: Unique T3
+type: enumlist
+enum: ["Ring of endurance*","Strange old lockpick","Mysterious page"]
+*/
 
+#define HALLOWED_SEPULCHRE_T3_UNIQUES ["Ring of endurance*"]
 
+rule (name:HALLOWED_SEPULCHRE_T3_UNIQUES) {UNIQUE_T3_STYLE}
 
+/*@ define:input:hallowed_sepulchre
+label: Unique T2
+type: enumlist
+enum: ["Ring of endurance*","Strange old lockpick","Mysterious page"]
+*/
 
+#define HALLOWED_SEPULCHRE_T2_UNIQUES ["Strange old lockpick"] 
 
+rule (name:HALLOWED_SEPULCHRE_T2_UNIQUES) {UNIQUE_T2_STYLE}
 
+/*@ define:input:hallowed_sepulchre
+label: Unique T1
+type: enumlist
+enum: ["Ring of endurance*","Strange old lockpick","Mysterious page"]
+*/
 
+#define HALLOWED_SEPULCHRE_T1_UNIQUES ["Mysterious page"]
 
+rule (name:HALLOWED_SEPULCHRE_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
+/*@ define:input:hallowed_sepulchre
+label: Hide Items
+type: stringlist
+*/
 
+#define HALLOWED_SEPULCHRE_HIDE ["White lily","Monk's robe top","Monk's robe","Holy symbol"]
 
+rule (area:[2224,5798,0,2582,6049,3] && name:HALLOWED_SEPULCHRE_HIDE) {hidden = true;}
 
+/*@ define:input:hallowed_sepulchre
+label: Supply Drop
+type: enumlist
+enum: ["Prayer potion(*)","Monkfish","Sanfew serum(*)"]
+*/
 
+#define HALLOWED_SEPULCHRE_SUPPLY ["Monkfish"]
 
+rule (area:[2224,5798,0,2582,6049,3] && name:HALLOWED_SEPULCHRE_SUPPLY) {SUPPLY_DROP_STYLE}
+
+/*@ define:module:shades_of_mortton
+name: Shades of Mort'ton
+subtitle: Set Unique Teirs and Hide Drops
+*/
+
+/*@ define:input:shades_of_mortton
+label: Unique T3
+type: enumlist
+enum: ["Amulet of the damned*","Flamtaer bag","Fine cloth","Bronze locks","Steel locks","Black locks","Silver locks","Gold locks","Runescroll of swampbark","Runescroll of bloodbark","Zealot's helm","Zealot's robe top","Zealot's robe bottom","Zealot's boots"]
+*/
+
+#define SHADES_OF_MORTON_T3_UNIQUES []
+
+rule (name:SHADES_OF_MORTON_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:shades_of_mortton
+label: Unique T2
+type: enumlist
+enum: ["Amulet of the damned*","Flamtaer bag","Fine cloth","Bronze locks","Steel locks","Black locks","Silver locks","Gold locks","Runescroll of swampbark","Runescroll of bloodbark","Zealot's helm","Zealot's robe top","Zealot's robe bottom","Zealot's boots"]
+*/
+
+#define SHADES_OF_MORTON_T2_UNIQUES ["Gold locks","Zealot's helm","Zealot's robe top","Zealot's robe bottom","Zealot's boots"] 
+
+rule (name:SHADES_OF_MORTON_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:shades_of_mortton
+label: Unique T1
+type: enumlist
+enum: ["Amulet of the damned*","Flamtaer bag","Fine cloth","Bronze locks","Steel locks","Black locks","Silver locks","Gold locks","Runescroll of swampbark","Runescroll of bloodbark","Zealot's helm","Zealot's robe top","Zealot's robe bottom","Zealot's boots"]
+*/
+
+#define SHADES_OF_MORTON_T1_UNIQUES ["Amulet of the damned*","Flamtaer bag","Fine cloth","Bronze locks","Steel locks","Black locks","Silver locks","Runescroll of swampbark","Runescroll of bloodbark"]
+
+rule (name:SHADES_OF_MORTON_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:input:shades_of_mortton
+label: Hide Items
+type: stringlist
+*/
+
+#define SHADES_OF_MORTON_HIDE []
+
+rule (area:[3456,9662,0,3521,9729,0] && name:SHADES_OF_MORTON_HIDE) {hidden = true;}
+
+/*@ define:module:temple_trekking
+name: Temple Trekking
+subtitle: Set Unique Teirs
+*/
+
+/*@ define:input:temple_trekking
+label: Unique T3
+type: enumlist
+enum: ["Lumberjack hat","Lumberjack top","Lumberjack legs","Lumberjack boots"]
+*/
+
+#define TEMPLE_TREKKING_T3_UNIQUES []
+
+rule (name:TEMPLE_TREKKING_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:temple_trekking
+label: Unique T2
+type: enumlist
+enum: ["Lumberjack hat","Lumberjack top","Lumberjack legs","Lumberjack boots"]
+*/
+
+#define TEMPLE_TREKKING_T2_UNIQUES [] 
+
+rule (name:TEMPLE_TREKKING_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:temple_trekking
+label: Unique T1
+type: enumlist
+enum: ["Lumberjack hat","Lumberjack top","Lumberjack legs","Lumberjack boots"]
+*/
+
+#define TEMPLE_TREKKING_T1_UNIQUES ["Lumberjack hat","Lumberjack top","Lumberjack legs","Lumberjack boots"]
+
+rule (name:TEMPLE_TREKKING_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:module:arial_fishing
+name: Arial Fishing
+subtitle: Set Unique Teirs
+*/
+
+/*@ define:input:arial_fishing
+label: Unique T3
+type: enumlist
+enum: []
+*/
+
+#define ARIAL_FISHING_T3_UNIQUES []
+
+rule (name:ARIaL_FISHING_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:arial_fishing
+label: Unique T2
+type: enumlist
+enum: []
+*/
+
+#define ARIAL_FISHING_T2_UNIQUES [] 
+
+rule (name:ARIAL_FISHING_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:arial_fishing
+label: Unique T1
+type: enumlist
+enum: []
+*/
+
+#define ARIAL_FISHING_T1_UNIQUES []
+
+rule (name:ARIAL_FISHING_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 
 
