@@ -4737,9 +4737,75 @@ enum: ["Sardomin page *","Zamorak page *","Guthix page *","Bandos page *","Armad
 rule (name:SHARED_CLUE_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 
+/*@ define:module:fishing_trawler
+name: Fishing Trawler
+subtitle: Set Unique Teirs
+*/
 
+/*@ define:input:fishing_trawler
+label: Unique T3
+type: enumlist
+enum: ["Angler hat","Angler top","Angler waders","Angler boots"]
+*/
 
+#define FISHING_TRAWLER_T3_UNIQUES []
 
+rule (name:FISHING_TRAWLER_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:fishing_trawler
+label: Unique T2
+type: enumlist
+enum: ["Angler hat","Angler top","Angler waders","Angler boots"]
+*/
+
+#define FISHING_TRAWLER_T2_UNIQUES [] 
+
+rule (name:FISHING_TRAWLER_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:fishing_trawler
+label: Unique T1
+type: enumlist
+enum: ["Angler hat","Angler top","Angler waders","Angler boots"]
+*/
+
+#define FISHING_TRAWLER_T1_UNIQUES ["Angler hat","Angler top","Angler waders","Angler boots"]
+
+rule (name:FISHING_TRAWLER_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:module:gotr
+name: Guardians of the Rift
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:gotr
+label: Unique T3
+type: enumlist
+enum: ["Catalytic talisman","Elemental talisman","Abyssal needle","Abyssal lantern","Abyssal red dye","Abyssal green dye","Abyssal blue dye","Intricate pouch","Tarnished locket","Lost bag"]
+*/
+
+#define GOTR_T3_UNIQUES []
+
+rule (name:GOTR_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:gotr
+label: Unique T2
+type: enumlist
+enum: ["Catalytic talisman","Elemental talisman","Abyssal needle","Abyssal lantern","Abyssal red dye","Abyssal green dye","Abyssal blue dye","Intricate pouch","Tarnished locket","Lost bag"]
+*/
+
+#define GOTR_T2_UNIQUES ["Abyssal needle","Abyssal lantern","Abyssal red dye","Abyssal green dye","Abyssal blue dye"] 
+
+rule (name:GOTR_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:gotr
+label: Unique T1
+type: enumlist
+enum: ["Catalytic talisman","Elemental talisman","Abyssal needle","Abyssal lantern","Abyssal red dye","Abyssal green dye","Abyssal blue dye","Intricate pouch","Tarnished locket","Lost bag"]
+*/
+
+#define GOTR_T1_UNIQUES ["Catalytic talisman","Elemental talisman","Intricate pouch","Tarnished locket","Lost bag"]
+
+rule (name:GOTR_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 
 
