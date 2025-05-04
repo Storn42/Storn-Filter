@@ -4947,7 +4947,7 @@ enum: ["Golden tench"]
 
 #define ARIAL_FISHING_T3_UNIQUES []
 
-rule (name:ARIaL_FISHING_T3_UNIQUES) {UNIQUE_T3_STYLE}
+rule (name:ARIAL_FISHING_T3_UNIQUES) {UNIQUE_T3_STYLE}
 
 /*@ define:input:arial_fishing
 label: Unique T2
