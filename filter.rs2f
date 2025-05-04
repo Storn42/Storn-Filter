@@ -1363,30 +1363,30 @@ subtitle: Set Unique Tiers, Hide Drops, and Highlight Supplies
 /*@ define:input:callisto_and_artio
 label: Unique T3
 type: enumlist
-enum: ["Claws of callisto","Voidwaker hilt","Tyrannical ring"]
+enum: ["Claws of callisto","Voidwaker hilt","Tyrannical ring","Ursine chainmace*"]
 */
 
-#define CALLISTO_AND_ARTIO_T3_UNIQUES ["Claws of callisto","Voidwaker hilt"]
+#define CALLISTO_AND_ARTIO_T3_UNIQUES ["Voidwaker hilt","Ursine chainmace*"]
 
 rule (name:CALLISTO_AND_ARTIO_T3_UNIQUES) {UNIQUE_T3_STYLE}
 
 /*@ define:input:callisto_and_artio
 label: Unique T2
 type: enumlist
-enum: ["Claws of callisto","Voidwaker hilt","Tyrannical ring"]
+enum: ["Claws of callisto","Voidwaker hilt","Tyrannical ring","Ursine chainmace*"]
 */
 
-#define CALLISTO_AND_ARTIO_T2_UNIQUES ["Tyrannical ring"]
+#define CALLISTO_AND_ARTIO_T2_UNIQUES ["Claws of callisto"]
 
 rule (name:CALLISTO_AND_ARTIO_T2_UNIQUES) {UNIQUE_T2_STYLE}
 
 /*@ define:input:callisto_and_artio
 label: Unique T1
 type: enumlist
-enum: ["Claws of callisto","Voidwaker hilt","Tyrannical ring"]
+enum: ["Claws of callisto","Voidwaker hilt","Tyrannical ring","Ursine chainmace*"]
 */
 
-#define CALLISTO_AND_ARTIO_T1_UNIQUES []
+#define CALLISTO_AND_ARTIO_T1_UNIQUES ["Tyrannical ring"]
 
 rule (name:CALLISTO_AND_ARTIO_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
@@ -1411,6 +1411,18 @@ enum: ["Blighted anglerfish","Blighted karambwan","Blighted super restore(*)","R
 
 rule (area:[3336,10306,0,3383,10349,0] && name:CALLISTO_AND_ARTIO_SUPPLY && stackable:false) {SUPPLY_DROP_STYLE}
 rule (area:[1739,11522,0,1782,11566,0] && name:CALLISTO_AND_ARTIO_SUPPLY && stackable:false) {SUPPLY_DROP_STYLE}
+
+/*@ define:input:callisto_and_artio
+label: Show MVP
+type: boolean
+group: MVP
+*/
+
+#define ENABLE_CALLISTO_AND_ARTIO_MVP true
+
+apply (area:[3336,10306,0,3383,10349,0] && name:"Big Bones" && ENABLE_CALLISTO_AND_ARTIO_MVP) {hidden=false; sound=3018;}
+apply (area:[1739,11522,0,1782,11566,0] && name:"Big Bones" && ENABLE_CALLISTO_AND_ARTIO_MVP) {hidden=false; sound=3018;}
+
 
 /*@ define:module:cerberus
 name: Cerberus
@@ -3237,9 +3249,9 @@ label: Show Items
 type: stringlist
 */
 
-#define TEMPOROSS_HIDE ["Bucket", "Bucket of water", "Rope", "Hammer"]
+#define TEMPOROSS_SHOW ["Bucket", "Bucket of water", "Rope", "Hammer"]
 
-rule (area:[3005,2942,0,3067,3010,0] && name:TEMPOROSS_HIDE) {hidden = true;}
+apply (area:[3005,2942,0,3067,3010,0] && name:TEMPOROSS_SHOW) {hidden = false;}
 
 /*@ define:input:tempoross
 label: Raw Fish
@@ -3405,18 +3417,421 @@ group: Perfect Kill
 
 apply (area:[1114,3407,0,1142,3434,0] && ENABLE_VARDORVIS_PERFECT && (ENABLE_VARDORVIS_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Coal" && quantity:==195) || (name:"Adamantite ore" && quantity:==67) || (name:"Rune javelin heads" && quantity:==54) || (name:"Dragon javelin heads" && quantity:==54) || (name:"Uncut ruby" && quantity:==37) || (name:"Uncut diamond" && quantity:==37) || (name:"Runite ore" && quantity:==27) || (name:"Dragon dart tip" && quantity:==150) || (name:"Pure essence" && quantity:==180) || (name:"Iron ore" && quantity:==57) || (name:"Silver ore" && quantity:==57) || (name:"Mithril ore" && quantity:==57) || (name:"Sapphire" && quantity:==25) || (name:"Emerald" && quantity:==25) || (name:"Ruby" && quantity:==25) || (name:"Raw shark" && quantity:==300) || (name:"Lava rune" && quantity:==300) || (name:"Blood rune" && quantity:==300) || (name:"Soul rune" && quantity:==600) || (name:"Bronze javelin" && quantity:==63) || (name:"Mithril javelin" && quantity:==63) || (name:"Adamant javelin" && quantity:==63) || (name:"Onyx bolts (e)" && quantity:==90) || (name:"Mind rune" && quantity:==180) || (name:"Fire rune" && quantity:==180))) {sound=3018;}
 
+/*@ define:module:venenatis_and_spindel
+name: Venenatis and Spindel
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:venenatis_and_spindel
+label: Unique T3
+type: enumlist
+enum: ["Fangs of venenatis","Webweaver bow*","Voidwaker gem","Treasonous ring"]
+*/
+
+#define VENENATIS_AND_SPINDEL_T3_UNIQUES ["Webweaver bow*","Voidwaker gem"]
+
+rule (name:VENENATIS_AND_SPINDEL_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:venenatis_and_spindel
+label: Unique T2
+type: enumlist
+enum: []
+*/
+
+#define VENENATIS_AND_SPINDEL_T2_UNIQUES ["Fangs of venenatis"] 
+
+rule (name:VENENATIS_AND_SPINDEL_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:venenatis_and_spindel
+label: Unique T1
+type: enumlist
+enum: []
+*/
+
+#define VENENATIS_AND_SPINDEL_T1_UNIQUES ["Treasonous ring"]
+
+rule (name:VENENATIS_AND_SPINDEL_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:input:venenatis_and_spindel
+label: Hide Items
+type: stringlist
+*/
+
+#define VENENATIS_AND_SPINDEL_HIDE []
+
+rule (area:[3403,10183,2,3443,10225,2] && name:VENENATIS_AND_SPINDEL_HIDE) {hidden = true;}
+rule (area:[1608,11527,2,1652,11569,2] && name:VENENATIS_AND_SPINDEL_HIDE) {hidden = true;}
+
+/*@ define:input:venenatis_and_spindel
+label: Supply Drop
+type: enumlist
+enum: ["Blighted anglerfish","Blighted karambwan","Blighted super restore(*)","Ranging potion(*)","Super combat potion(*)","Dark crab","Super restore(*)"]
+*/
+
+#define VENENATIS_AND_SPINDEL_SUPPLY ["Blighted anglerfish","Blighted karambwan","Blighted super restore(*)","Dark crab","Super restore(*)"]
+
+rule (area:[3403,10183,2,3443,10225,2] && name:VENENATIS_AND_SPINDEL_SUPPLY) {SUPPLY_DROP_STYLE}
+rule (area:[1608,11527,2,1652,11569,2] && name:VENENATIS_AND_SPINDEL_SUPPLY) {SUPPLY_DROP_STYLE}
+
+/*@ define:input:venenatis_and_spindel
+label: Show MVP
+type: boolean
+group: MVP
+*/
+
+#define ENABLE_VENENATIS_AND_SPINDEL_MVP true
+
+apply (area:[3403,10183,2,3443,10225,2] && name:"Big Bones" && ENABLE_VENENATIS_AND_SPINDEL_MVP) {hidden=false; sound=3018;}
+apply (area:[1608,11527,2,1652,11569,2] && name:"Big Bones" && ENABLE_VENENATIS_AND_SPINDEL_MVP) {hidden=false; sound=3018;}
+
+/*@ define:module:vetion_and_calverion
+name: Vet'ion and Calver'ion
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:vetion_and_calverion
+label: Unique T3
+type: enumlist
+enum: ["Skull of vet'ion","Ring of the gods","Voidwaker blade","Accursed sceptre*"]
+*/
+
+#define VETION_AND_CALVARION_T3_UNIQUES ["Accursed sceptre*","Voidwaker blade"]
+
+rule (name:VETION_AND_CALVARION_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:vetion_and_calverion
+label: Unique T2
+type: enumlist
+enum: ["Skull of vet'ion","Ring of the gods","Voidwaker blade","Accursed sceptre*"]
+*/
+
+#define VETION_AND_CALVARION_T2_UNIQUES ["Skull of vet'ion","Ring of the gods",] 
+
+rule (name:VETION_AND_CALVARION_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:vetion_and_calverion
+label: Unique T1
+type: enumlist
+enum: ["Skull of vet'ion","Ring of the gods","Voidwaker blade","Accursed sceptre*"]
+*/
+
+#define VETION_AND_CALVARION_T1_UNIQUES []
+
+rule (name:VETION_AND_CALVARION_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:input:vetion_and_calverion
+label: Hide Items
+type: stringlist
+*/
+
+#define VETION_AND_CALVARION_HIDE []
+
+rule (area:[3283,10190,1,3307,10216,1] && name:VETION_AND_CALVARION_HIDE) {hidden = true;}
+rule (area:[1877,11533,1,1898,11560,1] && name:VETION_AND_CALVARION_HIDE) {hidden = true;}
+
+/*@ define:input:vetion_and_calverion
+label: Supply Drop
+type: enumlist
+enum: ["Blighted anglerfish","Blighted karambwan","Blighted super restore(*)","Ranging potion(*)","Super combat potion(*)","Dark crab","Super restore(*)"]
+*/
+
+#define VETION_AND_CALVARION_SUPPLY ["Blighted anglerfish","Blighted karambwan","Blighted super restore(*)","Dark crab","Super restore(*)"]
+
+rule (area:[3283,10190,1,3307,10216,1] && name:VETION_AND_CALVARION_SUPPLY && stackable:false) {SUPPLY_DROP_STYLE}
+rule (area:[1877,11533,1,1898,11560,1] && name:VETION_AND_CALVARION_SUPPLY && stackable:false) {SUPPLY_DROP_STYLE}
+
+/*@ define:input:vetion_and_calverion
+label: Show MVP
+type: boolean
+group: MVP
+*/
+
+#define ENABLE_VETION_AND_CALVARION_MVP true
+
+apply (area:[3283,10190,1,3307,10216,1] && name:"Big Bones" && ENABLE_VETION_AND_CALVARION_MVP) {hidden=false; sound=3018;}
+apply (area:[1877,11533,1,1898,11560,1] && name:"Big Bones" && ENABLE_VETION_AND_CALVARION_MVP) {hidden=false; sound=3018;}
+
+/*@ define:module:vorkath
+name: Vorkath
+subtitle: Set Unique Teirs and Hide Drops
+*/
+
+/*@ define:input:vorkath
+label: Unique T3
+type: enumlist
+enum: ["Vorkath's head", "Ava's assembler","Dragonbone necklace", "Jar of decay", "Skeletal visage", "Dragonfire ward"]
+*/
+
+#define VORKATH_T3_UNIQUES ["Jar of decay", "Skeletal visage", "Dragonfire ward"]
+
+rule (name:VORKATH_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:vorkath
+label: Unique T2
+type: enumlist
+enum: ["Vorkath's head", "Ava's assembler","Dragonbone necklace", "Jar of decay", "Skeletal visage", "Dragonfire ward"]
+*/
+
+#define VORKATH_T2_UNIQUES ["Dragonbone necklace"] 
+
+rule (name:VORKATH_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:vorkath
+label: Unique T1
+type: enumlist
+enum: ["Vorkath's head", "Ava's assembler","Dragonbone necklace", "Jar of decay", "Skeletal visage", "Dragonfire ward"]
+*/
+
+#define VORKATH_T1_UNIQUES ["Vorkath's head", "Ava's assembler"]
+
+rule (name:VORKATH_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:input:vorkath
+label: Hide Unnoted Blue Dhide
+type: boolean
+*/
+
+#define VORKATH_HIDE_DHIDE true
+
+rule (area:[2257,4050,0,2288,4081,0] && VORKATH_HIDE_DHIDE && name:"Blue dragonhide" && stackable:false) {hidden=true;}
+
+/*@ define:input:vorkath
+label: Hide Items
+type: stringlist
+*/
+
+#define VORKATH_HIDE ["Wrath talisman"]
+
+rule (area:[2257,4050,0,2288,4081,0] && name:VORKATH_HIDE) {hidden = true;}
+
+/*@ define:module:whisperer
+name: The Whisperer
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:whisperer
+label: Unique T3
+type: enumlist
+enum: ["Bellator vestige","Bellator icon", "Bellator ring","Siren's staff","Sirenic tablet","Shadow quartz"]
+*/
+
+#define WHISPERER_T3_UNIQUES ["Bellator vestige","Bellator icon", "Bellator ring","Siren's staff"]
+
+rule (name:WHISPERER_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:whisperer
+label: Unique T2
+type: enumlist
+enum: ["Bellator vestige","Bellator icon", "Bellator ring","Siren's staff","Sirenic tablet","Shadow quartz"]
+*/
+
+#define WHISPERER_T2_UNIQUES ["Sirenic tablet"] 
+
+rule (name:WHISPERER_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:whisperer
+label: Unique T1
+type: enumlist
+enum: ["Bellator vestige","Bellator icon", "Bellator ring","Siren's staff","Sirenic tablet","Shadow quartz"]
+*/
+
+#define WHISPERER_T1_UNIQUES ["Shadow quartz"]
+
+rule (name:WHISPERER_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:input:whisperer
+label: Hide Items
+type: stringlist
+*/
+
+#define WHISPERER_HIDE []
+
+rule (area:[2370,6338,0,2429,6397,0] && name:WHISPERER_HIDE) {hidden = true;}
+rule (area:[2629,6338,0,2685,6397,0] && name:WHISPERER_HIDE) {hidden = true;}
+
+/*@ define:input:whisperer
+label: Supply Drop
+type: enumlist
+enum: ["Ancient brew(*)","Prayer potion(*)","Manta ray"]
+*/
+
+#define WHISPERER_SUPPLY ["Ancient brew(*)","Prayer potion(*)","Manta ray"]
+
+rule (area:[2370,6338,0,2429,6397,0] && name:WHISPERER_SUPPLY) {SUPPLY_DROP_STYLE}
+rule (area:[2629,6338,0,2685,6397,0] && name:WHISPERER_SUPPLY) {SUPPLY_DROP_STYLE}
+
+/*@ define:input:whisperer
+label: Enable Sound
+type: boolean
+group: Perfect Kill
+*/
+
+#define ENABLE_WHISPERER_PERFECT true
+
+/*@ define:input:whisperer
+label: Override Value Drop Sound (T3+)
+type: boolean
+group: Perfect Kill
+*/
+
+# ENABLE_WHISPERER_PERFECT_OVERRIDE false
+
+apply (area:[2370,6338,0,2429,6397,0] && ENABLE_WHISPERER_PERFECT && (ENABLE_WHISPERER_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Battlestaff" && quantity:==105) || (name:"Bronze longsword" && quantity:==24) || (name:"Mithril longsword" && quantity:==10) || (name:"Adamant longsword" && quantity:==14) || (name:"Dragon plateskirt" && quantity:==10) || (name:"Coal" && quantity:==455) || (name:"Adamantite ore" && quantity:==157) || (name:"Dragon javelin heads" && quantity:==126) || (name:"Runite bolts (unf)" && quantity:==126) || (name:"Uncut ruby" && quantity:==87) || (name:"Uncut diamond" && quantity:==87) || (name:"Runite ore" && quantity:==63) || (name:"Pure essence" && quantity:==420) || (name:"Iron ore" && quantity:==133) || (name:"Gold ore" && quantity:==133) || (name:"Mithril ore" && quantity:==133) || (name:"Sapphire" && quantity:==59) || (name:"Emerald" && quantity:==59) || (name:"Ruby" && quantity:==59) || (name:"Raw monkfish" && quantity:==1050) || (name:"Steam rune" && quantity:==700) || (name:"Death rune" && quantity:==700) || (name:"Soul rune" && quantity:==1400) || (name:"Water rune" && quantity:==420) || (name:"Chaos rune" && quantity:==210))) {sound=3018;}
+apply (area:[2629,6338,0,2685,6397,0] && ENABLE_WHISPERER_PERFECT && (ENABLE_WHISPERER_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Battlestaff" && quantity:==105) || (name:"Bronze longsword" && quantity:==24) || (name:"Mithril longsword" && quantity:==10) || (name:"Adamant longsword" && quantity:==14) || (name:"Dragon plateskirt" && quantity:==10) || (name:"Coal" && quantity:==455) || (name:"Adamantite ore" && quantity:==157) || (name:"Dragon javelin heads" && quantity:==126) || (name:"Runite bolts (unf)" && quantity:==126) || (name:"Uncut ruby" && quantity:==87) || (name:"Uncut diamond" && quantity:==87) || (name:"Runite ore" && quantity:==63) || (name:"Pure essence" && quantity:==420) || (name:"Iron ore" && quantity:==133) || (name:"Gold ore" && quantity:==133) || (name:"Mithril ore" && quantity:==133) || (name:"Sapphire" && quantity:==59) || (name:"Emerald" && quantity:==59) || (name:"Ruby" && quantity:==59) || (name:"Raw monkfish" && quantity:==1050) || (name:"Steam rune" && quantity:==700) || (name:"Death rune" && quantity:==700) || (name:"Soul rune" && quantity:==1400) || (name:"Water rune" && quantity:==420) || (name:"Chaos rune" && quantity:==210))) {sound=3018;}
+
+/*@ define:module:wintertodt
+name: Wintertodt
+subtitle: Set Unique Teirs and Show/Hide Drops
+*/
+
+/*@ define:input:wintertodt
+label: Unique T3
+type: enumlist
+enum: ["Warm gloves","Bruma torch*","Pyromancer hood","Pyromancer garb","Pyromancer robe","Pyromancer boots","Tome of fire*"]
+*/
+
+#define WINTERTODT_T3_UNIQUES []
+
+rule (name:WINTERTODT_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:wintertodt
+label: Unique T2
+type: enumlist
+enum: ["Warm gloves","Bruma torch*","Pyromancer hood","Pyromancer garb","Pyromancer robe","Pyromancer boots","Tome of fire*"]
+*/
+
+#define WINTERTODT_T2_UNIQUES ["Tome of fire*"] 
+
+rule (name:WINTERTODT_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:wintertodt
+label: Unique T1
+type: enumlist
+enum: ["Warm gloves","Bruma torch*","Pyromancer hood","Pyromancer garb","Pyromancer robe","Pyromancer boots","Tome of fire*"]
+*/
+
+#define WINTERTODT_T1_UNIQUES ["Warm gloves","Bruma torch*","Pyromancer hood","Pyromancer garb","Pyromancer robe","Pyromancer boots"]
+
+rule (name:WINTERTODT_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:input:wintertodt
+label: Hide Items
+type: stringlist
+*/
+
+#define WINTERTODT_HIDE []
+
+rule (area:[1607,3967,0,1654,4032,0] && name:WINTERTODT_HIDE) {hidden = true;}
 
 
+/*@ define:input:wintertodt
+label: Show Items
+type: stringlist
+*/
+
+#define WINTERTODT_SHOW []
+
+apply (area:[1607,3967,0,1654,4032,0] && name:WINTERTODT_HIDE) {hidden = false;}
 
 
+/*@ define:module:zalcano
+name: Zalcano
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:zalcano
+label: Unique T3
+type: enumlist
+enum: ["Crystal tool seed","Zalcano shard","Dragon pickaxe (or)","Crystal axe","Crystal felling axe","Crystal harpoon","Crystal pickaxe"]
+*/
+
+#define ZALCANO_T3_UNIQUES ["Crystal tool seed","Dragon pickaxe (or)","Crystal axe","Crystal felling axe","Crystal harpoon","Crystal pickaxe"]
+
+rule (name:ZALCANO_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:zalcano
+label: Unique T2
+type: enumlist
+enum: ["Crystal tool seed","Zalcano shard","Dragon pickaxe (or)","Crystal axe","Crystal felling axe","Crystal harpoon","Crystal pickaxe"]
+*/
+
+#define ZALCANO_T2_UNIQUES [] 
+
+rule (name:ZALCANO_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:zalcano
+label: Unique T1
+type: enumlist
+enum: ["Crystal tool seed","Zalcano shard","Dragon pickaxe (or)","Crystal axe","Crystal felling axe","Crystal harpoon","Crystal pickaxe"]
+*/
+
+#define ZALCANO_T1_UNIQUES ["Zalcano shard"]
+
+rule (name:ZALCANO_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:input:zalcano
+label: Hide Items
+type: stringlist
+*/
+
+#define ZALCANO_HIDE []
+
+rule (area:[3020,6036,Z1,3048,6064,Z2] && name:ZALCANO_HIDE) {hidden = true;}
 
 
+/*@ define:input:zalcano
+label: Show MVP
+type: boolean
+group: MVP
+*/
 
+#define ENABLE_ZALCANO_MVP true
 
+apply (area:[3020,6036,Z1,3048,6064,Z2] && name:"Infernal ashes" && ENABLE_ZALCANO_MVP) {hidden=false; sound=3018;}
 
+/*@ define:module:zulrah
+name: Zulrah
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
 
+/*@ define:input:zulrah
+label: Unique T3
+type: enumlist
+enum: ["Tanzanite fang","Toxic blowpipe*","Magic fang","Toxic staff*","*toxic trident*","Serpentine visage","Serpentine helm*","Tanzanite mutagen","Tanzanite helm*","Magma mutagen","Magma helm*","Jar of swamp"]
+*/
 
+#define ZULRAH_T3_UNIQUES ["Toxic blowpipe*","Toxic staff*","*toxic trident*","Serpentine helm*","Tanzanite mutagen","Tanzanite helm*","Magma mutagen","Magma helm*","Jar of swamp"]
 
+rule (name:ZULRAH_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:zulrah
+label: Unique T2
+type: enumlist
+enum: ["Tanzanite fang","Toxic blowpipe*","Magic fang","Toxic staff*","*toxic trident*","Serpentine visage","Serpentine helm*","Tanzanite mutagen","Tanzanite helm*","Magma mutagen","Magma helm*","Jar of swamp"]
+*/
+
+#define ZULRAH_T2_UNIQUES ["Tanzanite fang","Magic fang","Serpentine visage"] 
+
+rule (name:ZULRAH_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:zulrah
+label: Unique T1
+type: enumlist
+enum: ["Tanzanite fang","Toxic blowpipe*","Magic fang","Toxic staff*","*toxic trident*","Serpentine visage","Serpentine helm*","Tanzanite mutagen","Tanzanite helm*","Magma mutagen","Magma helm*","Jar of swamp"]
+*/
+
+#define ZULRAH_T1_UNIQUES []
+
+rule (name:ZULRAH_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:input:zulrah
+label: Hide Items
+type: stringlist
+*/
+
+#define ZULRAH_HIDE []
+
+rule (area:[2260,3066,0,2277,3081,0] && name:ZULRAH_HIDE) {hidden = true;}
 
 
 
