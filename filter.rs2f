@@ -10490,7 +10490,7 @@ VALUE_RULESET(["Arctic pine logs"] && quantity:>=ARCTIC_PINE_QUANTITY, ARCTIC_PI
 
 /*@ define:module:mahogany
 name: Mahogany Logs
-subtitle: The Peak Log of F2P
+subtitle: The Logs of Expert Carpenters
 */
 
 /*@ define:input:mahogany
@@ -11335,6 +11335,501 @@ rule (!LOGS_SHOW_UNNOTED && name:["Logs"] && stackable:false) {hidden=true;}
 rule (LOGS_REPLACE_T1 && name:["Logs"] && stackable:true && value:<VALUE_TIER_2) {LOGS_T1_STYLE}
 
 VALUE_RULESET(["Logs"] && quantity:>=LOGS_QUANTITY, LOGS_T5_STYLE, LOGS_T4_STYLE, LOGS_T3_STYLE, LOGS_T2_STYLE, LOGS_T1_STYLE, LOGS_T0_STYLE)
+
+/*@ define:module:mahogany_planks
+name: Mahogany Planks
+subtitle: Planks For Expert Carpenters
+*/
+
+/*@ define:input:mahogany_planks
+label: Show unnoted
+type: boolean
+group: Mahogany
+*/
+
+#define MAHOGANY_PLANKS_SHOW_UNNOTED false
+
+/*@ define:input:mahogany_planks
+label: Reaplce T1 with Noted
+type: boolean
+group: Mahogany
+*/
+
+#define MAHOGANY_PLANKS_REPLACE_T1 true
+
+/*@ define:input:mahogany_planks
+label: Minimum Quantity
+type: number
+group: Mahogany
+*/
+
+#define MAHOGANY_PLANKS_QUANTITY 1
+
+/*@ define:input:mahogany_planks
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Mahogany plank
+*/
+
+#define MAHOGANY_PLANKS_T0_STYLE \
+    color = "#ff512A02"; \
+	menuTextColor = "#ff512A02"; 
+
+
+/*@ define:input:mahogany_planks
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Mahogany plank
+*/
+
+#define MAHOGANY_PLANKS_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#44512A02";\
+	menuTextColor = "#ff512A02";
+
+/*@ define:input:mahogany_planks
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Mahogany plank
+*/
+
+#define MAHOGANY_PLANKS_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#99512A02";\
+	menuTextColor = "#ff512A02";
+
+/*@ define:input:mahogany_planks
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Mahogany plank
+*/
+
+#define MAHOGANY_PLANKS_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#aa512A02";\
+	menuTextColor = "#ff512A02"; \
+	fontType = 2;\
+	borderColor = "#ffAC8C53";
+
+/*@ define:input:mahogany_planks
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Mahogany plank
+*/
+
+#define MAHOGANY_PLANKS_T4_STYLE \
+	backgroundColor = "#ff512A02";\
+	menuTextColor = "#ff512A02";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffAC8C53";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff512A02";
+
+/*@ define:input:mahogany_planks
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Mahogany plank
+*/
+
+#define MAHOGANY_PLANKS_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff512A02";\
+	color = "#ff512A02";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff512A02";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff512A02";
+
+rule (name:["Mahogany plank"] && quantity:<MAHOGANY_PLANKS_QUANTITY) {hidden=true;}
+
+rule (!MAHOGANY_PLANKS_SHOW_UNNOTED && name:["Mahogany plank"] && stackable:false) {hidden=true;}
+
+rule (MAHOGANY_PLANKS_REPLACE_T1 && name:["Mahogany plank"] && stackable:true && value:<VALUE_TIER_2) {MAHOGANY_PLANKS_T1_STYLE}
+
+VALUE_RULESET(["Mahogany plank"] && quantity:>=MAHOGANY_PLANKS_QUANTITY, MAHOGANY_PLANKS_T5_STYLE, MAHOGANY_PLANKS_T4_STYLE, MAHOGANY_PLANKS_T3_STYLE, MAHOGANY_PLANKS_T2_STYLE, MAHOGANY_PLANKS_T1_STYLE, MAHOGANY_PLANKS_T0_STYLE)
+
+/*@ define:module:teak
+name: Teak Planks
+subtitle: The Plank of Budget Carpetners
+*/
+
+/*@ define:input:teak
+label: Show unnoted
+type: boolean
+group: Teak
+*/
+
+#define TEAK_SHOW_UNNOTED false
+
+/*@ define:input:teak_planks
+label: Reaplce T1 with Noted
+type: boolean
+group: Teak
+*/
+
+#define TEAK_PLANKS_REPLACE_T1 true
+
+/*@ define:input:teak_planks
+label: Minimum Quantity
+type: number
+group: Teak
+*/
+
+#define TEAK_PLANKS_QUANTITY 1
+
+/*@ define:input:teak_planks
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Teak plank
+*/
+
+#define TEAK_PLANKS_T0_STYLE \
+    color = "#ff835D2F"; \
+	menuTextColor = "#ff835D2F"; 
+
+
+/*@ define:input:teak_planks
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Teak plank
+*/
+
+#define TEAK_PLANKS_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#44835D2F";\
+	menuTextColor = "#ff835D2F";
+
+/*@ define:input:teak_planks
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Teak plank
+*/
+
+#define TEAK_PLANKS_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#99835D2F";\
+	menuTextColor = "#ff835D2F";
+
+/*@ define:input:teak_planks
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Teak plank
+*/
+
+#define TEAK_PLANKS_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#aa835D2F";\
+	menuTextColor = "#ff835D2F"; \
+	fontType = 2;\
+	borderColor = "#ffB18F54";
+
+/*@ define:input:teak_planks
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Teak plank
+*/
+
+#define TEAK_PLANKS_T4_STYLE \
+	backgroundColor = "#ff835D2F";\
+	menuTextColor = "#ff835D2F";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffB18F54";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff835D2F";
+
+/*@ define:input:teak_planks
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Teak plank
+*/
+
+#define TEAK_PLANKS_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff835D2F";\
+	color = "#ff835D2F";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff835D2F";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff835D2F";
+
+rule (name:["Teak plank"] && quantity:<TEAK_PLANKS_QUANTITY) {hidden=true;}
+
+rule (!TEAK_PLANKS_SHOW_UNNOTED && name:["Teak plank"] && stackable:false) {hidden=true;}
+
+rule (TEAK_PLANKS_REPLACE_T1 && name:["Teak plank"] && stackable:true && value:<VALUE_TIER_2) {TEAK_PLANKS_T1_STYLE}
+
+VALUE_RULESET(["Teak plank"] && quantity:>=TEAK_PLANKS_QUANTITY, TEAK_PLANKS_T5_STYLE, TEAK_PLANKS_T4_STYLE, TEAK_PLANKS_T3_STYLE, TEAK_PLANKS_T2_STYLE, TEAK_PLANKS_T1_STYLE, TEAK_PLANKS_T0_STYLE)
+
+/*@ define:module:oak_planks
+name: Oak Planks
+subtitle: Planks of Broke Carpenters
+*/
+
+/*@ define:input:oak_planks
+label: Show unnoted
+type: boolean
+group: Oak
+*/
+
+#define OAK_PLANKS_SHOW_UNNOTED false
+
+/*@ define:input:oak_planks
+label: Reaplce T1 with Noted
+type: boolean
+group: Oak
+*/
+
+#define OAK_PLANKS_REPLACE_T1 true
+
+/*@ define:input:oak_planks
+label: Minimum Quantity
+type: number
+group: Oak
+*/
+
+#define OAK_PLANKS_QUANTITY 1
+
+/*@ define:input:oak_planks
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Oak planks
+*/
+
+#define OAK_PLANKS_T0_STYLE \
+    color = "#ffffffff"; \
+	menuTextColor = "#ff967249"; 
+
+
+/*@ define:input:oak_planks
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Oak planks
+*/
+
+#define OAK_PLANKS_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#44967249";\
+	menuTextColor = "#ff967249";
+
+/*@ define:input:oak_planks
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Oak planks
+*/
+
+#define OAK_PLANKS_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#99967249";\
+	menuTextColor = "#ff967249";
+
+/*@ define:input:oak_planks
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Oak planks
+*/
+
+#define OAK_PLANKS_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#aa967249";\
+	menuTextColor = "#ff967249"; \
+	fontType = 2;\
+	borderColor = "#ff77562C";
+
+/*@ define:input:oak_planks
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Oak planks
+*/
+
+#define OAK_PLANKS_T4_STYLE \
+	backgroundColor = "#ff967249";\
+	menuTextColor = "#ff967249";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff77562C";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff967249";
+
+/*@ define:input:oak_planks
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Oak planks
+*/
+
+#define OAK_PLANKS_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff967249";\
+	color = "#ff967249";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff967249";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff967249";
+
+rule (name:["Oak planks"] && quantity:<OAK_PLANKS_QUANTITY) {hidden=true;}
+
+rule (!OAK_PLANKS_SHOW_UNNOTED && name:["Oak planks"] && stackable:false) {hidden=true;}
+
+rule (OAK_PLANKS_REPLACE_T1 && name:["Oak planks"] && stackable:true && value:<VALUE_TIER_2) {OAK_PLANKS_T1_STYLE}
+
+VALUE_RULESET(["Oak planks"] && quantity:>=OAK_PLANKS_QUANTITY, OAK_PLANKS_T5_STYLE, OAK_PLANKS_T4_STYLE, OAK_PLANKS_T3_STYLE, OAK_PLANKS_T2_STYLE, OAK_PLANKS_T1_STYLE, OAK_PLANKS_T0_STYLE)
+
+/*@ define:module:planks
+name: Log planks
+subtitle: Planks from a Mysterious Wood
+*/
+
+/*@ define:input:planks
+label: Show unnoted
+type: boolean
+group: Planks
+*/
+
+#define PLANKS_SHOW_UNNOTED false
+
+/*@ define:input:planks
+label: Reaplce T1 with Noted
+type: boolean
+group: Planks
+*/
+
+#define PLANKS_REPLACE_T1 true
+
+/*@ define:input:planks
+label: Minimum Quantity
+type: number
+group: Planks
+*/
+
+#define PLANKS_QUANTITY 1
+
+/*@ define:input:planks
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Plank
+*/
+
+#define PLANKS_T0_STYLE \
+    color = "#ff9D793A"; \
+	menuTextColor = "#ff9D793A"; 
+
+
+/*@ define:input:planks
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Plank
+*/
+
+#define PLANKS_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#449D793A";\
+	menuTextColor = "#ff9D793A";
+
+/*@ define:input:planks
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Plank
+*/
+
+#define PLANKS_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#999D793A";\
+	menuTextColor = "#ff9D793A";
+
+/*@ define:input:planks
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Plank
+*/
+
+#define PLANKS_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#aa9D793A";\
+	menuTextColor = "#ff9D793A"; \
+	fontType = 2;\
+	borderColor = "#ff674925";
+
+/*@ define:input:planks
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Plank
+*/
+
+#define PLANKS_T4_STYLE \
+	backgroundColor = "#ff9D793A";\
+	menuTextColor = "#ff9D793A";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff674925";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff9D793A";
+
+/*@ define:input:planks
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Plank
+*/
+
+#define PLANKS_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff9D793A";\
+	color = "#ff9D793A";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff9D793A";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff9D793A";
+
+rule (name:["Plank"] && quantity:<PLANKS_QUANTITY) {hidden=true;}
+
+rule (!PLANKS_SHOW_UNNOTED && name:["Plank"] && stackable:false) {hidden=true;}
+
+rule (PLANKS_REPLACE_T1 && name:["Plank"] && stackable:true && value:<VALUE_TIER_2) {PLANKS_T1_STYLE}
+
+VALUE_RULESET(["Plank"] && quantity:>=PLANKS_QUANTITY, PLANKS_T5_STYLE, PLANKS_T4_STYLE, PLANKS_T3_STYLE, PLANKS_T2_STYLE, PLANKS_T1_STYLE, PLANKS_T0_STYLE)
+
+
+
+
+
+
+
+
+
+
+
 
 /*@ define:module:ammo
 name: Ammo
