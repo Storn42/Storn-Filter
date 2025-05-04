@@ -4967,7 +4967,7 @@ subtitle: Set Unique Teirs
 /*@ define:input:arial_fishing
 label: Unique T3
 type: enumlist
-enum: []
+enum: ["Golden tench"]
 */
 
 #define ARIAL_FISHING_T3_UNIQUES []
@@ -4977,28 +4977,192 @@ rule (name:ARIaL_FISHING_T3_UNIQUES) {UNIQUE_T3_STYLE}
 /*@ define:input:arial_fishing
 label: Unique T2
 type: enumlist
-enum: []
+enum: ["Golden tench"]
 */
 
-#define ARIAL_FISHING_T2_UNIQUES [] 
+#define ARIAL_FISHING_T2_UNIQUES ["Golden tench"] 
 
 rule (name:ARIAL_FISHING_T2_UNIQUES) {UNIQUE_T2_STYLE}
 
 /*@ define:input:arial_fishing
 label: Unique T1
 type: enumlist
-enum: []
+enum: ["Golden tench"]
 */
 
 #define ARIAL_FISHING_T1_UNIQUES []
 
 rule (name:ARIAL_FISHING_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
+/*@ define:module:camdozaal
+name: Camdozaal
+subtitle: Set Unique Teirs
+*/
 
+/*@ define:input:camdozaal
+label: Unique T3
+type: enumlist
+enum: ["Barronite handle","Barronite guard","Barronite head","Barronite mace"]
+*/
 
+#define CAMDOZAAL_T3_UNIQUES []
 
+rule (name:CAMDOZAAL_T3_UNIQUES) {UNIQUE_T3_STYLE}
 
+/*@ define:input:camdozaal
+label: Unique T2
+type: enumlist
+enum: ["Barronite handle","Barronite guard","Barronite head","Barronite mace"]
+*/
 
+#define CAMDOZAAL_T2_UNIQUES ["Barronite mace"] 
+
+rule (name:CAMDOZAAL_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:camdozaal
+label: Unique T1
+type: enumlist
+enum: ["Barronite handle","Barronite guard","Barronite head","Barronite mace"]
+*/
+
+#define CAMDOZAAL_T1_UNIQUES ["Barronite handle","Barronite guard","Barronite head"]
+
+rule (name:CAMDOZAAL_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:module:champions_challenge
+name: Champions' Challenge
+subtitle: Set Unique Teirs
+*/
+
+/*@ define:input:champions_challenge
+label: Unique T3
+type: enumlist
+enum: ["Imp champion scroll","Goblin champion scroll","Skeleton champion scroll","Zombie champion scroll","Giant champion scroll","Hobgoblin champion scroll","Ghoul champion scroll","Earth warrior champion scroll","Jogre champion scroll","Lesser demon champion scroll","Champion's cape"]
+*/
+
+#define CHAMPIONS_CHALLENGE_T3_UNIQUES ["Imp champion scroll","Goblin champion scroll","Skeleton champion scroll","Zombie champion scroll","Giant champion scroll","Hobgoblin champion scroll","Ghoul champion scroll","Earth warrior champion scroll","Jogre champion scroll","Lesser demon champion scroll","Champion's cape"]
+
+rule (name:CHAMPIONS_CHALLENGE_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:champions_challenge
+label: Unique T2
+type: enumlist
+enum: ["Imp champion scroll","Goblin champion scroll","Skeleton champion scroll","Zombie champion scroll","Giant champion scroll","Hobgoblin champion scroll","Ghoul champion scroll","Earth warrior champion scroll","Jogre champion scroll","Lesser demon champion scroll","Champion's cape"]
+*/
+
+#define CHAMPIONS_CHALLENGE_T2_UNIQUES [] 
+
+rule (name:CHAMPIONS_CHALLENGE_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:champions_challenge
+label: Unique T1
+type: enumlist
+enum: ["Imp champion scroll","Goblin champion scroll","Skeleton champion scroll","Zombie champion scroll","Giant champion scroll","Hobgoblin champion scroll","Ghoul champion scroll","Earth warrior champion scroll","Jogre champion scroll","Lesser demon champion scroll","Champion's cape"]
+*/
+
+#define CHAMPIONS_CHALLENGE_T1_UNIQUES []
+
+rule (name:CHAMPIONS_CHALLENGE_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:module:creature_creation
+name: Creature Creation
+subtitle: Set Unique Teirs and Hide Drops
+*/
+
+/*@ define:input:creature_creation
+label: Unique T3
+type: enumlist
+enum: ["Plain satchel","Gold satchel","Black satchel","Red satchel","Green satchel","Rune satchel","Tea flask"]
+*/
+
+#define CREATURE_CREATION_T3_UNIQUES []
+
+apply (name:CREATURE_CREATION_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:creature_creation
+label: Unique T2
+type: enumlist
+enum: "Plain satchel","Gold satchel","Black satchel","Red satchel","Green satchel","Rune satchel","Tea flask"]
+*/
+
+#define CREATURE_CREATION_T2_UNIQUES [] 
+
+apply (name:CREATURE_CREATION_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:creature_creation
+label: Unique T1
+type: enumlist
+enum: ["Plain satchel","Gold satchel","Black satchel","Red satchel","Green satchel","Rune satchel","Tea flask"]
+*/
+
+#define CREATURE_CREATION_T1_UNIQUES ["Plain satchel","Gold satchel","Black satchel","Red satchel","Green satchel","Rune satchel","Tea flask"
+
+apply (name:CREATURE_CREATION_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:input:creature_creation
+label: Hide Items
+type: stringlist
+*/
+
+#define CREATURE_CREATION_HIDE ["Red satchel","Green satchel","Tea flask"]
+
+rule (area:[3007,4351,0,3072,4417,0] && name:CREATURE_CREATION_HIDE) {hidden = true;}
+
+/*@ define:module:cyclopes
+name: Cyclopes
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:cyclopes
+label: Unique T3
+type: enumlist
+enum: ["Bronze defender","Iron defender","Steel defender","Black defender","Mithril defender","Adamant defender","Rune defender","Dragon defender"]
+*/
+
+#define CYCLOPES_T3_UNIQUES []
+
+rule (name:CYCLOPES_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:cyclopes
+label: Unique T2
+type: enumlist
+enum: ["Bronze defender","Iron defender","Steel defender","Black defender","Mithril defender","Adamant defender","Rune defender","Dragon defender"]
+*/
+
+#define CYCLOPES_T2_UNIQUES ["Dragon defender"] 
+
+rule (name:CYCLOPES_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:cyclopes
+label: Unique T1
+type: enumlist
+enum: ["Bronze defender","Iron defender","Steel defender","Black defender","Mithril defender","Adamant defender","Rune defender","Dragon defender"]
+*/
+
+#define CYCLOPES_T1_UNIQUES ["Bronze defender","Iron defender","Steel defender","Black defender","Mithril defender","Adamant defender","Rune defender"]
+
+rule (name:CYCLOPES_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:input:cyclopes
+label: Hide Items
+type: stringlist
+*/
+
+#define CYCLOPES_HIDE []
+
+rule (area:[2837,3533,2,2878,3558,2] && name:CYCLOPES_HIDE) {hidden = true;} // Top Floor
+rule (area:[2904,9956,0,2942,9975,0] && name:CYCLOPES_HIDE) {hidden = true;} // Basement
+
+/*@ define:input:cyclopes
+label: Supply Drop
+type: enumlist
+enum: ["Lobster"]
+*/
+
+#define CYCLOPES_SUPPLY ["Lobster"]
+
+rule (area:[2837,3533,2,2878,3558,2] && name:CYCLOPES_SUPPLY) {SUPPLY_DROP_STYLE} // Top Floor
+rule (area:[2904,9956,0,2942,9975,0] && name:CYCLOPES_SUPPLY) {SUPPLY_DROP_STYLE} // Basement
 
 
 
