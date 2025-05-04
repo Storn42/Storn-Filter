@@ -781,32 +781,6 @@ type: stringlist
 
 rule (area:[3716,9348,0,3839,9472,0] && name:CAVE_HORROR_HIDE) {hidden = true;}
 
-
-/*@ define:module:demonic_gorillas
-name: Demonic Gorillas
-subtitle: Hide Drops and Highlight Supplies
-*/
-
-/*@ define:input:demonic_gorillas
-label: Hide Items
-type: stringlist
-*/
-
-#define DEMONIC_GORILLA_HIDE ["Javelin shaft"]
-
-rule (area:[2066,5637,0,2166,5691,0] && name:DEMONIC_GORILLA_HIDE) {hidden = true;}
-
-/*@ define:input:demonic_gorillas
-label: Supply Drop
-type: enumlist
-enum: ["Shark","Saradomin brew*"]
-*/
-
-#define DEMONIC_GORILLA_SUPPLY ["Shark"]
-
-rule (area:[2066,5637,0,2166,5691,0] && name:DEMONIC_GORILLA_SUPPLY) {SUPPLY_DROP_STYLE}
-
-
 /*@ define:module:dust_devils
 name: Dust Devils
 subtitle: Hide Drops, Highlight Supplies, and Set Rarity for Meme Drops
@@ -1134,7 +1108,7 @@ type: enumlist
 enum: ["Hydra's eye","Hydra's fang","Hydra's heart","Brimstone ring","Hydra tail","Hydra leather","Ferocious gloves","Hydra's claw","Dragon hunter lance","Dragon thrownaxe", "Dragon knife", "Jar of chemicals", "Alchemical hydra heads"]
 */
 
-#define ALCHEMICAL_HYDRA_T1_UNIQUES ["Hydra tail","Dragon knife","Alchemical hydra heads"]
+#define ALCHEMICAL_HYDRA_T1_UNIQUES ["Hydra tail","Dragon knife","Dragon thrownaxe","Alchemical hydra heads"]
 
 rule (name:ALCHEMICAL_HYDRA_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
@@ -3001,8 +2975,9 @@ subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
 /*@ define:input:sarachnis
 label: Unique T3
 type: enumlist
-enum: ["Sarachnis cudgel","Jar of eyes"]
+enum: ["Sarachnis cudgel","Jar of eyes","Orange egg sac","Blue egg sac"]
 */
+
 
 #define SARACHNIS_T3_UNIQUES ["Jar of eyes"]
 
@@ -3014,7 +2989,7 @@ type: enumlist
 enum: ["Sarachnis cudgel","Jar of eyes"]
 */
 
-#define SARACHNIS_T2_UNIQUES ["Sarachnis cudgel"] 
+#define SARACHNIS_T2_UNIQUES ["Sarachnis cudgel","Orange egg sac","Blue egg sac"] 
 
 rule (name:SARACHNIS_T2_UNIQUES) {UNIQUE_T2_STYLE}
 
@@ -5082,7 +5057,7 @@ apply (name:CREATURE_CREATION_T3_UNIQUES) {UNIQUE_T3_STYLE}
 /*@ define:input:creature_creation
 label: Unique T2
 type: enumlist
-enum: "Plain satchel","Gold satchel","Black satchel","Red satchel","Green satchel","Rune satchel","Tea flask"]
+enum: ["Plain satchel","Gold satchel","Black satchel","Red satchel","Green satchel","Rune satchel","Tea flask"]
 */
 
 #define CREATURE_CREATION_T2_UNIQUES [] 
@@ -5095,7 +5070,7 @@ type: enumlist
 enum: ["Plain satchel","Gold satchel","Black satchel","Red satchel","Green satchel","Rune satchel","Tea flask"]
 */
 
-#define CREATURE_CREATION_T1_UNIQUES ["Plain satchel","Gold satchel","Black satchel","Red satchel","Green satchel","Rune satchel","Tea flask"
+#define CREATURE_CREATION_T1_UNIQUES ["Plain satchel","Gold satchel","Black satchel","Red satchel","Green satchel","Rune satchel","Tea flask"]
 
 apply (name:CREATURE_CREATION_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
@@ -5243,23 +5218,353 @@ enum: ["Golden pheasant egg","Fox whistle","Petal garland"]
 
 rule (name:FORESTRY_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
+/*@ define:module:demonic_gorillas
+name: Demonic Gorillas
+subtitle: Set Unique Tiers, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:demonic_gorillas
+label: Unique T3
+type: enumlist
+enum: ["Zenyte shard","Light frame","Heavy frame","Monkey tail","Ballista limbs","Ballista spring"]
+*/
+
+#define DEMONIC_GORILLA_T3_UNIQUES ["Zenyte shard"]
+
+rule (name:DEMONIC_GORILLA_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:demonic_gorillas
+label: Unique T2
+type: enumlist
+enum: ["Zenyte shard","Light frame","Heavy frame","Monkey tail","Ballista limbs","Ballista spring"]
+*/
+
+#define DEMONIC_GORILLA_T2_UNIQUES ["Light frame","Heavy frame","Monkey tail"] 
+
+rule (name:DEMONIC_GORILLA_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:demonic_gorillas
+label: Unique T1
+type: enumlist
+enum: ["Zenyte shard","Light frame","Heavy frame","Monkey tail","Ballista limbs","Ballista spring"]
+*/
+
+#define DEMONIC_GORILLA_T1_UNIQUES ["Ballista limbs","Ballista spring"]
+
+rule (name:DEMONIC_GORILLA_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 
+/*@ define:input:demonic_gorillas
+label: Hide Items
+type: stringlist
+*/
 
+#define DEMONIC_GORILLA_HIDE ["Javelin shaft"]
 
+rule (area:[2066,5637,0,2166,5691,0] && name:DEMONIC_GORILLA_HIDE) {hidden = true;}
 
+/*@ define:input:demonic_gorillas
+label: Supply Drop
+type: enumlist
+enum: ["Shark","Saradomin brew(*)"]
+*/
 
+#define DEMONIC_GORILLA_SUPPLY ["Shark"]
 
+rule (area:[2066,5637,0,2166,5691,0] && name:DEMONIC_GORILLA_SUPPLY) {SUPPLY_DROP_STYLE}
 
+/*@ define:module:hunter_rumours
+name: Hunters' Rumours
+subtitle: Set Unique Teirs
+*/
 
+/*@ define:input:hunter_rumours
+label: Unique T3
+type: enumlist
+enum: ["Enhanced quetzal whistle blueprint","Perfected quetzal whistle blueprint","Huntsman's kit","Guild hunter headwear","Guild hunter top","Guild hunter legs","Guild hunter boots"]
+*/
 
+#define HUNTER_RUMOURS_T3_UNIQUES []
 
+rule (name:HUNTER_RUMOURS_T3_UNIQUES) {UNIQUE_T3_STYLE}
 
+/*@ define:input:hunter_rumours
+label: Unique T2
+type: enumlist
+enum: ["Enhanced quetzal whistle blueprint","Perfected quetzal whistle blueprint","Huntsman's kit","Guild hunter headwear","Guild hunter top","Guild hunter legs","Guild hunter boots"]
+*/
 
+#define HUNTER_RUMOURS_T2_UNIQUES [] 
 
+rule (name:HUNTER_RUMOURS_T2_UNIQUES) {UNIQUE_T2_STYLE}
 
+/*@ define:input:hunter_rumours
+label: Unique T1
+type: enumlist
+enum: ["Enhanced quetzal whistle blueprint","Perfected quetzal whistle blueprint","Huntsman's kit","Guild hunter headwear","Guild hunter top","Guild hunter legs","Guild hunter boots"]
+*/
 
+#define HUNTER_RUMOURS_T1_UNIQUES ["Enhanced quetzal whistle blueprint","Perfected quetzal whistle blueprint","Huntsman's kit","Guild hunter headwear","Guild hunter top","Guild hunter legs","Guild hunter boots"]
 
+rule (name:HUNTER_RUMOURS_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:module:revenants
+name: Revenants
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:revenants
+label: Unique T3
+type: enumlist
+enum: ["Amulet of avarice","Craw's bow*","Thammaron's sceptre*","Viggora's chainmace*","Ancient crystal","Bracelet of ethereum*","Ancient emblem","Ancient totem","Ancient statuette","Ancient medallion","Ancient effigy","Ancient relic"]
+*/
+
+#define REVENANTS_T3_UNIQUES ["Ancient relic","Craw's bow*","Thammaron's sceptre*","Viggora's chainmace*"]
+
+rule (name:REVENANTS_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:revenants
+label: Unique T2
+type: enumlist
+enum: ["Amulet of avarice","Craw's bow*","Thammaron's sceptre*","Viggora's chainmace*","Ancient crystal","Bracelet of ethereum*","Ancient emblem","Ancient totem","Ancient statuette","Ancient medallion","Ancient effigy","Ancient relic"]
+*/
+
+#define REVENANTS_T2_UNIQUES ["Ancient statuette","Ancient medallion","Ancient effigy","Amulet of avarice"] 
+
+rule (name:REVENANTS_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:revenants
+label: Unique T1
+type: enumlist
+enum: ["Amulet of avarice","Craw's bow*","Thammaron's sceptre*","Viggora's chainmace*","Ancient crystal","Bracelet of ethereum*","Ancient emblem","Ancient totem","Ancient statuette","Ancient medallion","Ancient effigy","Ancient relic"]
+*/
+
+#define REVENANTS_T1_UNIQUES ["Ancient emblem","Ancient totem","Ancient crystal","Bracelet of ethereum*"]
+
+rule (name:REVENANTS_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:input:revenants
+label: Hide Items
+type: stringlist
+*/
+
+#define REVENANTS_HIDE []
+
+rule (area:[3143,10050,0,3266,10237,0] && name:REVENANTS_HIDE) {hidden = true;}
+
+/*@ define:input:revenants
+label: Supply Drop
+type: enumlist
+enum: ["Blighted manta ray","Blighted anglerfish","Blighted karambwan","Blighted super restore(*)"]
+*/
+
+#define REVENANTS_SUPPLY ["Blighted manta ray","Blighted anglerfish","Blighted karambwan","Blighted super restore(*)"]
+
+rule (area:[3143,10050,0,3266,10237,0] && name:REVENANTS_SUPPLY) {SUPPLY_DROP_STYLE}
+
+/*@ define:module:shayzien_armour
+name: Shayzien Armour
+subtitle: Set Unique Teirs
+*/
+
+/*@ define:input:shayzien_armour
+label: Unique T3
+type: enumlist
+enum: ["Shayzien helm (1)","Shayzien platebody (1)","Shayzien greaves (1)","Shayzien gloves (1)","Shayzien boots (1)","Shayzien helm (2)","Shayzien platebody (2)","Shayzien greaves (2)","Shayzien gloves (2)","Shayzien boots (2)","Shayzien helm (3)","Shayzien platebody (3)","Shayzien greaves (3)","Shayzien gloves (3)","Shayzien boots (3)","Shayzien helm (4)","Shayzien platebody (4)","Shayzien greaves (4)","Shayzien gloves (4)","Shayzien boots (4)","Shayzien helm (5)","Shayzien platebody (5)","Shayzien greaves (5)","Shayzien gloves (5)","Shayzien boots (5)"]
+
+*/
+
+#define SHAYZIEN_ARMOUR_T3_UNIQUES []
+
+rule (name:SHAYZIEN_ARMOUR_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:shayzien_armour
+label: Unique T2
+type: enumlist
+enum: ["Shayzien helm (1)","Shayzien platebody (1)","Shayzien greaves (1)","Shayzien gloves (1)","Shayzien boots (1)","Shayzien helm (2)","Shayzien platebody (2)","Shayzien greaves (2)","Shayzien gloves (2)","Shayzien boots (2)","Shayzien helm (3)","Shayzien platebody (3)","Shayzien greaves (3)","Shayzien gloves (3)","Shayzien boots (3)","Shayzien helm (4)","Shayzien platebody (4)","Shayzien greaves (4)","Shayzien gloves (4)","Shayzien boots (4)","Shayzien helm (5)","Shayzien platebody (5)","Shayzien greaves (5)","Shayzien gloves (5)","Shayzien boots (5)"]
+*/
+
+#define SHAYZIEN_ARMOUR_T2_UNIQUES ["Shayzien helm (5)","Shayzien platebody (5)","Shayzien greaves (5)","Shayzien gloves (5)","Shayzien boots (5)"] 
+
+rule (name:SHAYZIEN_ARMOUR_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:shayzien_armour
+label: Unique T1
+type: enumlist
+enum: ["Shayzien helm (1)","Shayzien platebody (1)","Shayzien greaves (1)","Shayzien gloves (1)","Shayzien boots (1)","Shayzien helm (2)","Shayzien platebody (2)","Shayzien greaves (2)","Shayzien gloves (2)","Shayzien boots (2)","Shayzien helm (3)","Shayzien platebody (3)","Shayzien greaves (3)","Shayzien gloves (3)","Shayzien boots (3)","Shayzien helm (4)","Shayzien platebody (4)","Shayzien greaves (4)","Shayzien gloves (4)","Shayzien boots (4)","Shayzien helm (5)","Shayzien platebody (5)","Shayzien greaves (5)","Shayzien gloves (5)","Shayzien boots (5)"]
+*/
+
+#define SHAYZIEN_ARMOUR_T1_UNIQUES ["Shayzien helm (1)","Shayzien platebody (1)","Shayzien greaves (1)","Shayzien gloves (1)","Shayzien boots (1)","Shayzien helm (2)","Shayzien platebody (2)","Shayzien greaves (2)","Shayzien gloves (2)","Shayzien boots (2)","Shayzien helm (3)","Shayzien platebody (3)","Shayzien greaves (3)","Shayzien gloves (3)","Shayzien boots (3)","Shayzien helm (4)","Shayzien platebody (4)","Shayzien greaves (4)","Shayzien gloves (4)","Shayzien boots (4)"]
+
+rule (name:SHAYZIEN_ARMOUR_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:module:slayer
+name: Slayer Uniques
+subtitle: Set Unique Teirs
+*/
+
+/*@ define:input:slayer
+label: Unique T3
+type: enumlist
+enum: ["Crawling hand","Cockatrice head","Basilisk head","Kurask head","Imbued heart","Eternal gem","Dust battlestaff","Mist battlestaff","Mudskipper hat","Flippers","Brine sabre","Leaf-bladed sword","Leaf-bladed battleaxe","Black mask","Granite longsword","Granite boots","Wyvern visage","Granite legs","Granite helm","Bronze boots","Iron boots","Steel boots","Black boots","Mithril boots","Adamant boots","Rune boots","Dragon boots","Dark bow","Dragon sword","Broken dragon hasta","Drake's tooth","Drake's claw","Mystic hat (light)","Mystic robe top (light)","Mystic robe bottom (light)","Mystic gloves (light)","Mystic boots (light)","Mystic hat (dark)","Mystic robe top (dark)","Mystic robe bottom (dark)","Mystic gloves (dark)","Mystic boots (dark)","Mystic hat (dusk)","Mystic robe top (dusk)","Mystic robe bottom (dusk)","Mystic gloves (dusk)","Mystic boots (dusk)","Basilisk jaw","Dagon'hai hat","Dagon'hai robe top","Dagon'hai robe bottom","Blood shard","Ancient ceremonial mask","Ancient ceremonial top","Ancient ceremonial legs","Ancient ceremonial gloves","Ancient ceremonial boots","Warped sceptre","Sulphur blades","Teleport anchoring scroll","Aranea boots"]
+*/
+
+#define SLAYER_T3_UNIQUES ["Imbued heart","Eternal gem","Basilisk jaw"]
+
+rule (name:SLAYER_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:slayer
+label: Unique T2
+type: enumlist
+enum: ["Crawling hand","Cockatrice head","Basilisk head","Kurask head","Imbued heart","Eternal gem","Dust battlestaff","Mist battlestaff","Mudskipper hat","Flippers","Brine sabre","Leaf-bladed sword","Leaf-bladed battleaxe","Black mask","Granite longsword","Granite boots","Wyvern visage","Granite legs","Granite helm","Bronze boots","Iron boots","Steel boots","Black boots","Mithril boots","Adamant boots","Rune boots","Dragon boots","Dark bow","Dragon sword","Broken dragon hasta","Drake's tooth","Drake's claw","Mystic hat (light)","Mystic robe top (light)","Mystic robe bottom (light)","Mystic gloves (light)","Mystic boots (light)","Mystic hat (dark)","Mystic robe top (dark)","Mystic robe bottom (dark)","Mystic gloves (dark)","Mystic boots (dark)","Mystic hat (dusk)","Mystic robe top (dusk)","Mystic robe bottom (dusk)","Mystic gloves (dusk)","Mystic boots (dusk)","Basilisk jaw","Dagon'hai hat","Dagon'hai robe top","Dagon'hai robe bottom","Blood shard","Ancient ceremonial mask","Ancient ceremonial top","Ancient ceremonial legs","Ancient ceremonial gloves","Ancient ceremonial boots","Warped sceptre","Sulphur blades","Teleport anchoring scroll","Aranea boots"]
+*/
+
+#define SLAYER_T2_UNIQUES ["Dust battlestaff","Mist battlestaff","Black mask","Dragon boots","Dark bow","Broken dragon hasta","Drake's tooth","Drake's claw","Mystic hat (dusk)","Mystic robe top (dusk)","Mystic robe bottom (dusk)","Mystic gloves (dusk)","Mystic boots (dusk)","Dagon'hai hat","Dagon'hai robe top","Dagon'hai robe bottom","Blood shard","Teleport anchoring scroll","Aranea boots"] 
+
+rule (name:SLAYER_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:slayer
+label: Unique T1
+type: enumlist
+enum: ["Crawling hand","Cockatrice head","Basilisk head","Kurask head","Imbued heart","Eternal gem","Dust battlestaff","Mist battlestaff","Mudskipper hat","Flippers","Brine sabre","Leaf-bladed sword","Leaf-bladed battleaxe","Black mask","Granite longsword","Granite boots","Wyvern visage","Granite legs","Granite helm","Bronze boots","Iron boots","Steel boots","Black boots","Mithril boots","Adamant boots","Rune boots","Dragon boots","Dark bow","Dragon sword","Broken dragon hasta","Drake's tooth","Drake's claw","Mystic hat (light)","Mystic robe top (light)","Mystic robe bottom (light)","Mystic gloves (light)","Mystic boots (light)","Mystic hat (dark)","Mystic robe top (dark)","Mystic robe bottom (dark)","Mystic gloves (dark)","Mystic boots (dark)","Mystic hat (dusk)","Mystic robe top (dusk)","Mystic robe bottom (dusk)","Mystic gloves (dusk)","Mystic boots (dusk)","Basilisk jaw","Dagon'hai hat","Dagon'hai robe top","Dagon'hai robe bottom","Blood shard","Ancient ceremonial mask","Ancient ceremonial top","Ancient ceremonial legs","Ancient ceremonial gloves","Ancient ceremonial boots","Warped sceptre","Sulphur blades","Teleport anchoring scroll","Aranea boots"]
+*/
+
+#define SLAYER_T1_UNIQUES ["Crawling hand","Cockatrice head","Basilisk head","Kurask head","Mudskipper hat","Flippers","Brine sabre","Leaf-bladed sword","Leaf-bladed battleaxe","Granite longsword","Granite boots","Wyvern visage","Granite legs","Granite helm","Bronze boots","Iron boots","Steel boots","Black boots","Mithril boots","Adamant boots","Dragon sword","Mystic hat (light)","Mystic robe top (light)","Mystic robe bottom (light)","Mystic gloves (light)","Mystic boots (light)","Mystic hat (dark)","Mystic robe top (dark)","Mystic robe bottom (dark)","Mystic gloves (dark)","Mystic boots (dark)","Ancient ceremonial mask","Ancient ceremonial top","Ancient ceremonial legs","Ancient ceremonial gloves","Ancient ceremonial boots","Warped sceptre","Sulphur blades"]
+
+rule (name:SLAYER_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:module:tormented_demon
+name: Tormented Demons
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:tormented_demon
+label: Unique T3
+type: enumlist
+enum: ["Tormented synapse","Burning claw","Burning claws"]
+*/
+
+#define TORMENTED_DEMONS_T3_UNIQUES ["Tormented synapse","Burning claw","Burning claws"]
+
+rule (name:TORMENTED_DEMONS_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:tormented_demon
+label: Unique T2
+type: enumlist
+enum: ["Tormented synapse","Burning claw","Burning claws"]
+*/
+
+#define TORMENTED_DEMONS_T2_UNIQUES [] 
+
+rule (name:TORMENTED_DEMONS_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:tormented_demon
+label: Unique T1
+type: enumlist
+enum: ["Tormented synapse","Burning claw","Burning claws"]
+*/
+
+#define TORMENTED_DEMONS_T1_UNIQUES []
+
+rule (name:TORMENTED_DEMONS_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:input:tormented_demon
+label: Hide Items
+type: stringlist
+*/
+
+#define TORMENTED_DEMONS_HIDE ["Magic shortbow (u)","Magic longbow (u)"]
+
+rule (area:[4020,4352,0,4167,4479,0] && name:TORMENTED_DEMONS_HIDE) {hidden = true;}
+
+/*@ define:input:tormented_demon
+label: Supply Drop
+type: enumlist
+enum: ["Manta ray","Smouldering gland","Smouldering pile of flesh","Prayer potion(*)","Smouldering heart"]
+*/
+
+#define TORMENTED_DEMONS_SUPPLY ["Manta ray","Smouldering gland","Smouldering pile of flesh","Prayer potion(*)","Smouldering heart"]
+
+rule (area:[4020,4352,0,4167,4479,0] && name:TORMENTED_DEMONS_SUPPLY) {SUPPLY_DROP_STYLE}
+
+/*@ define:module:tzhaar
+name: TzHaar
+subtitle: Set Unique Teirs and Hide Drops
+*/
+
+/*@ define:input:tzhaar
+label: Unique T3
+type: enumlist
+enum: ["Obsidian cape","Toktz-ket-xil","Tzhaar-ket-om","Toktz-xil-ak","Toktz-xil-ek","Toktz-mej-tal","Toktz-xil-ul","Obsidian helmet","Obsidian platebody","Obsidian platelegs"]
+*/
+
+#define TZHAAR_T3_UNIQUES []
+
+rule (name:TZHAAR_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:tzhaar
+label: Unique T2
+type: enumlist
+enum: ["Obsidian cape","Toktz-ket-xil","Tzhaar-ket-om","Toktz-xil-ak","Toktz-xil-ek","Toktz-mej-tal","Toktz-xil-ul","Obsidian helmet","Obsidian platebody","Obsidian platelegs"]
+*/
+
+#define TZHAAR_T2_UNIQUES ["Obsidian cape","Toktz-ket-xil","Tzhaar-ket-om","Toktz-xil-ak","Toktz-xil-ek","Toktz-mej-tal","Toktz-xil-ul","Obsidian helmet","Obsidian platebody","Obsidian platelegs"] 
+
+rule (name:TZHAAR_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:tzhaar
+label: Unique T1
+type: enumlist
+enum: ["Obsidian cape","Toktz-ket-xil","Tzhaar-ket-om","Toktz-xil-ak","Toktz-xil-ek","Toktz-mej-tal","Toktz-xil-ul","Obsidian helmet","Obsidian platebody","Obsidian platelegs"]
+*/
+
+#define TZHAAR_T1_UNIQUES []
+
+rule (name:TZHAAR_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:input:tzhaar
+label: Hide Items
+type: stringlist
+*/
+
+#define TZHAAR_HIDE []
+
+rule (area:[2368,5055,0,2560,5185,0] && name:TZHAAR_HIDE) {hidden = true;}
+
+/*@ define:module:misc
+name: Miscellaneous Uniques
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
+
+/*@ define:input:misc
+label: Unique T3
+type: enumlist
+enum: ["Dragon warhammer","Big swordfish","Big shark","Big bass","Long bone","Curved bone","Pharaoh's sceptre (*)","Chewed bones","Dragon full helm","Shield left half","Dragon metal slice","Dragon kiteshield","Dragon metal lump","Dragon platebody","Dragon limbs","Dragon crossbow","Dragon spear","Amulet of eternal glory","Shaman mask","Evil chicken head","Evil chicken wings","Evil chicken legs","Evil chicken feet","Mining gloves","Superior mining gloves","Expert mining gloves","Fresh crab claw","Fresh crab shell","Mask of ranul","Elven signet","Crystal grail","Enhanced crystal teleport seed","Dragonstone full helm","Dragonstone platebody","Dragonstone platelegs","Dragonstone gauntlets","Dragonstone boots","Merfolk trident","*zombie axe","*zombie helmet"]
+*/
+
+#define MISC_T3_UNIQUES ["Dragon warhammer","Dragon full helm","Dragon metal slice","Dragon metal lump","Dragon kiteshield","Dragon platebody","Amulet of eternal glory","Evil chicken head","Evil chicken wings","Evil chicken legs","Evil chicken feet","Dragonstone full helm","Dragonstone platebody","Dragonstone platelegs","Dragonstone gauntlets","Dragonstone boots"]
+
+rule (name:MISC_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:misc
+label: Unique T2
+type: enumlist
+enum: ["Dragon warhammer","Big swordfish","Big shark","Big bass","Long bone","Curved bone","Pharaoh's sceptre (*)","Chewed bones","Dragon full helm","Shield left half","Dragon metal slice","Dragon kiteshield","Dragon metal lump","Dragon platebody","Dragon limbs","Dragon crossbow","Dragon spear","Amulet of eternal glory","Shaman mask","Evil chicken head","Evil chicken wings","Evil chicken legs","Evil chicken feet","Mining gloves","Superior mining gloves","Expert mining gloves","Fresh crab claw","Fresh crab shell","Mask of ranul","Elven signet","Crystal grail","Enhanced crystal teleport seed","Dragonstone full helm","Dragonstone platebody","Dragonstone platelegs","Dragonstone gauntlets","Dragonstone boots","Merfolk trident","*zombie axe","*zombie helmet"]
+*/
+
+#define MISC_T2_UNIQUES ["Curved bone","Pharaoh's sceptre (*)","Dragon limbs","Dragon crossbow","Expert mining gloves","Elven signet","Crystal grail","Enhanced crystal teleport seed","*zombie axe","*zombie helmet"] 
+
+rule (name:MISC_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:misc
+label: Unique T1
+type: enumlist
+enum: ["Dragon warhammer","Big swordfish","Big shark","Big bass","Long bone","Curved bone","Pharaoh's sceptre (*)","Chewed bones","Dragon full helm","Shield left half","Dragon metal slice","Dragon kiteshield","Dragon metal lump","Dragon platebody","Dragon limbs","Dragon crossbow","Dragon spear","Amulet of eternal glory","Shaman mask","Evil chicken head","Evil chicken wings","Evil chicken legs","Evil chicken feet","Mining gloves","Superior mining gloves","Expert mining gloves","Fresh crab claw","Fresh crab shell","Mask of ranul","Elven signet","Crystal grail","Enhanced crystal teleport seed","Dragonstone full helm","Dragonstone platebody","Dragonstone platelegs","Dragonstone gauntlets","Dragonstone boots","Merfolk trident","*zombie axe","*zombie helmet"]
+*/
+
+#define MISC_T1_UNIQUES ["Big swordfish","Big shark","Big bass","Long bone","Chewed bones","Shield left half","Dragon spear","Shaman mask","Mining gloves","Superior mining gloves","Fresh crab claw","Fresh crab shell","Mask of ranul","Merfolk trident"]
+
+rule (name:MISC_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 /*@ define:module:alchs
 name: Alchs
