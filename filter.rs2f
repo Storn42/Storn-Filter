@@ -133,11 +133,11 @@ group: Drop Sounds
 */
 #define TIER_5_SOUND "Tier5.wav"
 
-apply (value:>=VALUE_TIER_1 && !ownership:2) {sound = TIER_1_SOUND;}
-apply (value:>=VALUE_TIER_2 && !ownership:2) {sound = TIER_2_SOUND;}
-apply (value:>=VALUE_TIER_3 && !ownership:2) {sound = TIER_3_SOUND;}
-apply (value:>=VALUE_TIER_4 && !ownership:2) {sound = TIER_4_SOUND;}
-apply (value:>=VALUE_TIER_5 && !ownership:2) {sound = TIER_5_SOUND;}
+apply (value:>=VALUE_TIER_1 && (!ownership:2 && SHOW_OTHER_DROPS)) {sound = TIER_1_SOUND;}
+apply (value:>=VALUE_TIER_2 && (!ownership:2 && SHOW_OTHER_DROPS)) {sound = TIER_2_SOUND;}
+apply (value:>=VALUE_TIER_3 && (!ownership:2 && SHOW_OTHER_DROPS)) {sound = TIER_3_SOUND;}
+apply (value:>=VALUE_TIER_4 && (!ownership:2 && SHOW_OTHER_DROPS)) {sound = TIER_4_SOUND;}
+apply (value:>=VALUE_TIER_5 && (!ownership:2 && SHOW_OTHER_DROPS)) {sound = TIER_5_SOUND;}
 
 apply (tradeable: false) {color = WHITE;}
 
@@ -4261,7 +4261,480 @@ group: Red-X
 
 rule (area:[3786,5398,0,3828,5419,0] && ownership:2 && ENABLE_TOA_REDX) {TOA_REDX_STYLE}
 
+/*@ define:module:clues
+name: Clue Scrolls 
+subtitle: Go on a Treasure Hunt
+*/
 
+#define CLUE_REQUIREMENT_ID []
+
+/*@ define:input:clues
+label: Beginner Clue
+type: style
+group: Beginner
+exampleItem: Clue scroll (beginner)
+*/
+
+#define CLUE_BEGINNER_STYLE \
+	color = "#ffbf9bbf"; \
+	backgroundColor = "#99333333"; \
+	borderColor = "#ffbf9bbf";
+
+rule (name:["Clue scroll (beginner)", "Clue bottle (beginner)", "Clue nest (beginner)", "Clue geode (beginner)"]) {CLUE_BEGINNER_STYLE}
+
+/*@ define:input:clues
+label: Easy Clue
+type: style
+group: Easy
+exampleItem: Clue scroll (easy)
+*/
+
+#define CLUE_EASY_STYLE \
+	color = "#ff00a33c"; \
+	backgroundColor = "#99333333"; \
+	borderColor = "#ff00a33c";
+
+/*@ define:input:clues
+label: Medium Clue
+type: style
+group: Medium
+exampleItem: Clue scroll (medium)
+*/
+
+#define CLUE_MEDIUM_STYLE \
+	color = "#ff52c7de"; \
+	backgroundColor = "#99333333"; \
+	borderColor = "#ff52c7de";
+
+/*@ define:input:clues
+label: Hard Clue
+type: style
+group: Hard
+exampleItem: Clue scroll (hard)
+*/
+
+#define CLUE_HARD_STYLE \
+	color = "#ffab43f0"; \
+	backgroundColor = "#99333333"; \
+	borderColor = "#ffab43f0";
+
+/*@ define:input:clues
+label: Elite Clue
+type: style
+group: Elite
+exampleItem: Clue scroll (elite)
+*/
+
+#define CLUE_ELITE_STYLE \
+	color = "#ffe6ad29"; \
+	backgroundColor = "#99333333"; \
+	borderColor = "#ffe6ad29";
+
+/*@ define:input:clues
+label: Master Clue
+type: style
+group: Master
+exampleItem: Clue scroll (master)
+*/
+
+#define CLUE_MASTER_STYLE \
+	color = "#ffc90808"; \
+	backgroundColor = "#99333333"; \
+	borderColor = "#ffc90808";
+
+
+/*@ define:input:clues
+label: Wilderness Clues
+type: style
+group: Wilderness Clues
+exampleItem: Clue scroll (hard)
+*/
+
+#define CLUE_WILDERNESS_STYLE \
+	borderColor = "#ffff0000"; \
+	menuTextColor = "#ffff0000"; \
+
+#define CLUE_REQUIREMENT_STYLE \
+	backgroundColor = "#99ff0000";
+
+#define CLUE_WILDERNESS_HARD_IDS [2723,2725,2727,2729,2731,2733,2735,2737,2739,2741,2743,2745,2747,2786,2788,3525,3556,3558,7239,7260,7262,7264,10244,10234,12546,12564,19888,23168,23169]
+#define CLUE_WILDERNESS_ELITE_IDS [12075,12093,12095,12097,12109,12101,12134,12150,19807,23144,23146]
+
+
+apply (id:CLUE_WILDERNESS_HARD_IDS || id:CLUE_WILDERNESS_ELITE_IDS) {CLUE_WILDERNESS_STYLE}
+apply (id:CLUE_REQUIREMENT_ID) {CLUE_REQUIREMENT_STYLE}
+
+rule (name:["Clue scroll (easy)", "Clue bottle (easy)", "Clue nest (easy)", "Clue geode (easy)"]) {CLUE_EASY_STYLE}
+rule (name:["Clue scroll (medium)", "Clue bottle (medium)", "Clue nest (medium)", "Clue geode (medium)"]) {CLUE_MEDIUM_STYLE}
+rule (name:["Clue scroll (hard)", "Clue bottle (hard)", "Clue nest (hard)", "Clue geode (hard)"]) {CLUE_HARD_STYLE}
+rule (name:["Clue scroll (elite)", "Clue bottle (elite)", "Clue nest (elite)", "Clue geode (elite)"]) {CLUE_ELITE_STYLE}
+rule (name:["Clue scroll (master)", "Clue bottle (master)", "Clue nest (master)", "Clue geode (master)"]) {CLUE_MASTER_STYLE}
+
+/*@ define:input:clues
+label: Beginner Casket
+type: style
+group: Beginner
+exampleItem: Reward casket (beginner)
+*/
+
+#define CASKET_BEGINNER_STYLE \
+	color = "#ffbf9bbf"; \
+	backgroundColor = "#ffffffff"; \
+	borderColor = "#ffbf9bbf";
+
+rule (name:["Reward casket (beginner)"]) {CASKET_BEGINNER_STYLE}
+
+
+/*@ define:input:clues
+label: Easy Casket
+type: style
+group: Easy
+exampleItem: Reward casket (easy)
+*/
+
+#define CASKET_EASY_STYLE \
+	color = "#ff00a33c"; \
+	backgroundColor = "#ffffffff"; \
+	borderColor = "#ff00a33c";
+
+rule (name:["Reward casket (easy)"]) {CASKET_EASY_STYLE}
+
+/*@ define:input:clues
+label: Medium Casket
+type: style
+group: Medium
+exampleItem: Reward casket (medium)
+*/
+
+#define CASKET_MEDIUM_STYLE \
+	color = "#ff52c7de"; \
+	backgroundColor = "#ffffffff"; \
+	borderColor = "#ff52c7de";
+
+rule (name:["Reward casket (medium)"]) {CASKET_MEDIUM_STYLE}
+
+/*@ define:input:clues
+label: Hard Casket
+type: style
+group: Hard
+exampleItem: Reward casket (hard)
+*/
+
+#define CASKET_HARD_STYLE \
+	color = "#ffab43f0"; \
+	backgroundColor = "#ffffffff"; \
+	borderColor = "#ffab43f0";
+
+rule (name:["Reward casket (hard)"]) {CASKET_HARD_STYLE}
+
+/*@ define:input:clues
+label: Elite Casket
+type: style
+group: Elite
+exampleItem: Reward casket (elite)
+*/
+
+#define CASKET_ELITE_STYLE \
+	color = "#ffe6ad29"; \
+	backgroundColor = "#ffffffff"; \
+	borderColor = "#ffe6ad29";
+
+rule (name:["Reward casket (elite)"]) {CASKET_ELITE_STYLE}
+
+
+/*@ define:input:clues
+label: Master Casket
+type: style
+group: Master
+exampleItem: Reward casket (master)
+*/
+
+#define CASKET_MASTER_STYLE \
+	color = "#ffc90808"; \
+	backgroundColor = "#ffffffff"; \
+	borderColor = "#ffc90808";
+
+rule (name:["Reward casket (master)"]) {CASKET_MASTER_STYLE}
+
+/*@ define:module:mega_rares
+name: Clue Mega Rares
+subtitle: Rewards for the Luckiest Treasure Hunters
+*/
+
+/*@ define:input:mega_rares
+label: Unique T3
+type: enumlist
+enum: ["3rd age full helmet","3rd age platebody","3rd age platelegs","3rd age plateskirt","3rd age kiteshield","3rd age range coif","3rd age range top","3rd age range legs","3rd age vambraces","3rd age mage hat","3rd age robe top","3rd age robe","3rd age amulet","3rd age druidic robe top","3rd age druidic robe bottoms","3rd age druidic cloak","3rd age longsword","3rd age bow","3rd age wand","3rd age druidic staff","3rd age cloak',"3rd age pickaxe","3rd age axe","Ring of 3rd age","Gilded scimitar","Gilded boots","Gilded coif","Gilded d'hide vambraces","Gilded d'hide body","Gilded d'hide chaps","Gilded pickaxe","Gilded axe","Gilded spade","Gilded full helm","Gilded platebody","Gilded platelegs","Gilded plateskirt","Gilded kiteshield","Gilded med helm","Gilded chainbody","Gilded sq shield","Gilded 2h sword","Gilded spear","Gilded hasta","Lava dragon mask","Ring of nature","Bucket helm (g)","Ring of coins"]
+*/
+
+#define MEGA_RARES_T3_UNIQUES ["3rd age full helmet","3rd age platebody","3rd age platelegs","3rd age plateskirt","3rd age kiteshield","3rd age range coif","3rd age range top","3rd age range legs","3rd age vambraces","3rd age mage hat","3rd age robe top","3rd age robe","3rd age amulet","3rd age druidic robe top","3rd age druidic robe bottoms","3rd age druidic cloak","3rd age longsword","3rd age bow","3rd age wand","3rd age druidic staff","3rd age cloak',"3rd age pickaxe","3rd age axe","Ring of 3rd age","Gilded scimitar","Gilded boots","Gilded coif","Gilded d'hide vambraces","Gilded d'hide body","Gilded d'hide chaps","Gilded pickaxe","Gilded axe","Gilded spade","Gilded full helm","Gilded platebody","Gilded platelegs","Gilded plateskirt","Gilded kiteshield","Gilded med helm","Gilded chainbody","Gilded sq shield","Gilded 2h sword","Gilded spear","Gilded hasta","Lava dragon mask","Ring of nature","Bucket helm (g)","Ring of coins"]
+
+rule (name:MEGA_RARES_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:mega_rares
+label: Unique T2
+type: enumlist
+enum: ["3rd age full helmet","3rd age platebody","3rd age platelegs","3rd age plateskirt","3rd age kiteshield","3rd age range coif","3rd age range top","3rd age range legs","3rd age vambraces","3rd age mage hat","3rd age robe top","3rd age robe","3rd age amulet","3rd age druidic robe top","3rd age druidic robe bottoms","3rd age druidic cloak","3rd age longsword","3rd age bow","3rd age wand","3rd age druidic staff","3rd age cloak',"3rd age pickaxe","3rd age axe","Ring of 3rd age","Gilded scimitar","Gilded boots","Gilded coif","Gilded d'hide vambraces","Gilded d'hide body","Gilded d'hide chaps","Gilded pickaxe","Gilded axe","Gilded spade","Gilded full helm","Gilded platebody","Gilded platelegs","Gilded plateskirt","Gilded kiteshield","Gilded med helm","Gilded chainbody","Gilded sq shield","Gilded 2h sword","Gilded spear","Gilded hasta","Lava dragon mask","Ring of nature","Bucket helm (g)","Ring of coins"]
+*/
+
+#define MEGA_RARES_T2_UNIQUES [] 
+
+rule (name:MEGA_RARES_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:mega_rares
+label: Unique T1
+type: enumlist
+enum: ["3rd age full helmet","3rd age platebody","3rd age platelegs","3rd age plateskirt","3rd age kiteshield","3rd age range coif","3rd age range top","3rd age range legs","3rd age vambraces","3rd age mage hat","3rd age robe top","3rd age robe","3rd age amulet","3rd age druidic robe top","3rd age druidic robe bottoms","3rd age druidic cloak","3rd age longsword","3rd age bow","3rd age wand","3rd age druidic staff","3rd age cloak',"3rd age pickaxe","3rd age axe","Ring of 3rd age","Gilded scimitar","Gilded boots","Gilded coif","Gilded d'hide vambraces","Gilded d'hide body","Gilded d'hide chaps","Gilded pickaxe","Gilded axe","Gilded spade","Gilded full helm","Gilded platebody","Gilded platelegs","Gilded plateskirt","Gilded kiteshield","Gilded med helm","Gilded chainbody","Gilded sq shield","Gilded 2h sword","Gilded spear","Gilded hasta","Lava dragon mask","Ring of nature","Bucket helm (g)","Ring of coins"]
+*/
+
+#define MEGA_RARES_T1_UNIQUES []
+
+rule (name:MEGA_RARES_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:module:master_clue
+name: Master Clue Uniques
+subtitle: Rewards from a Master Hunt
+*/
+
+/*@ define:input:master_clue
+label: Unique T3
+type: enumlist
+enum: ["Ankou mask","Ankou top","Ankou gloves","Ankou's leggings","Ankou socks","Dragon platebody ornament kit","Dragon kiteshield ornament kit","Bandos godsword ornament kit","Saradomin godsword ornament kit","Armadyl godsword ornament kit","Zamorak godsword ornament kit","Anguish ornament kit","Occult ornament kit","Tormented ornament kit","Torture ornament kit","Mummy's body","Mummy's feet","Mummy's hands","Mummy's head","Mummy's legs",    "Ale of the gods","Arceuus hood","Black demon mask","Boots of darkness","Bowl wig","Dragon defender ornament kit","Fancy tiara","Gloves of darkness","Greater demon mask","Half moon spectacles","Hood of darkness","Hosidius hood","Jungle demon mask","Left eye patch","Lesser demon mask","Lovakengj hood","Obsidian cape (r)","Old demon mask","Piscarilius hood","Robe bottom of darkness","Robe top of darkness","Samurai boots","Samurai gloves","Samurai greaves","Samurai kasa","Samurai shirt","Shayzien hood"]
+*/
+
+#define MASTER_CLUE_T3_UNIQUES ["Ankou mask","Ankou top","Ankou gloves","Ankou's leggings","Dragon platebody ornament kit","Dragon kiteshield ornament kit","Bandos godsword ornament kit","Saradomin godsword ornament kit","Mummy's body","Mummy's feet","Mummy's hands","Mummy's head","Mummy's legs"]
+
+rule (name:MASTER_CLUE_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:master_clue
+label: Unique T2
+type: enumlist
+enum: ["Ankou mask","Ankou top","Ankou gloves","Ankou's leggings","Ankou socks","Dragon platebody ornament kit","Dragon kiteshield ornament kit","Bandos godsword ornament kit","Saradomin godsword ornament kit","Armadyl godsword ornament kit","Zamorak godsword ornament kit","Anguish ornament kit","Occult ornament kit","Tormented ornament kit","Torture ornament kit","Mummy's body","Mummy's feet","Mummy's hands","Mummy's head","Mummy's legs",    "Ale of the gods","Arceuus hood","Black demon mask","Boots of darkness","Bowl wig","Dragon defender ornament kit","Fancy tiara","Gloves of darkness","Greater demon mask","Half moon spectacles","Hood of darkness","Hosidius hood","Jungle demon mask","Left eye patch","Lesser demon mask","Lovakengj hood","Obsidian cape (r)","Old demon mask","Piscarilius hood","Robe bottom of darkness","Robe top of darkness","Samurai boots","Samurai gloves","Samurai greaves","Samurai kasa","Samurai shirt","Shayzien hood"]
+*/
+
+#define MASTER_CLUE_T2_UNIQUES ["Armadyl godsword ornament kit","Zamorak godsword ornament kit","Anguish ornament kit","Occult ornament kit","Tormented ornament kit","Torture ornament kit"] 
+
+rule (name:MASTER_CLUE_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:master_clue
+label: Unique T1
+type: enumlist
+enum: ["Ankou mask","Ankou top","Ankou gloves","Ankou's leggings","Ankou socks","Dragon platebody ornament kit","Dragon kiteshield ornament kit","Bandos godsword ornament kit","Saradomin godsword ornament kit","Armadyl godsword ornament kit","Zamorak godsword ornament kit","Anguish ornament kit","Occult ornament kit","Tormented ornament kit","Torture ornament kit","Mummy's body","Mummy's feet","Mummy's hands","Mummy's head","Mummy's legs",    "Ale of the gods","Arceuus hood","Black demon mask","Boots of darkness","Bowl wig","Dragon defender ornament kit","Fancy tiara","Gloves of darkness","Greater demon mask","Half moon spectacles","Hood of darkness","Hosidius hood","Jungle demon mask","Left eye patch","Lesser demon mask","Lovakengj hood","Obsidian cape (r)","Old demon mask","Piscarilius hood","Robe bottom of darkness","Robe top of darkness","Samurai boots","Samurai gloves","Samurai greaves","Samurai kasa","Samurai shirt","Shayzien hood"]
+*/
+
+#define MASTER_CLUE_T1_UNIQUES ["Ale of the gods","Arceuus hood","Black demon mask","Boots of darkness","Bowl wig","Dragon defender ornament kit","Fancy tiara","Gloves of darkness","Greater demon mask","Half moon spectacles","Hood of darkness","Hosidius hood","Jungle demon mask","Left eye patch","Lesser demon mask","Lovakengj hood","Obsidian cape (r)","Old demon mask","Piscarilius hood","Robe bottom of darkness","Robe top of darkness","Samurai boots","Samurai gloves","Samurai greaves","Samurai kasa","Samurai shirt","Shayzien hood"]
+
+rule (name:MASTER_CLUE_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:module:elite_clue
+name: Elite Clue Uniques
+subtitle: Rewards from an Elite Hunt
+*/
+
+/*@ define:input:elite_clue
+label: Unique T3
+type: enumlist
+enum: ["Fremennik kilt","Rangers' tunic","Light tuxedo*","Light bow tie","Dark tuxedo*","Dark bow tie","Sagacious spectacles","Big pirate hat","Ranger gloves","Holy wraps","Dragon full helm ornament kit","Dragon chainbody ornament kit","Dragon legs/skirt ornament kit","Dragon sq shield ornament kit","Dragon scimitar ornament kit","Fury ornament kit","Light infinity colour kit","Dark infinity colour kit","Royal crown","Royal gown top","Royal gown bottom","Royal sceptre","Musketeer*","Arceuus scarf","Hosidius scarf","Lovakengj scarf","Piscarilius scarf","Shayzien scarf","Katana","Dragon cane","Bucket helm","Blacksmith's helm","Deerstalker","Afro","Top hat","Monocle","Briefcase","Rangers' tights","Uri's hat","Giant boot"]
+*/
+
+#define ELITE_CLUE_T3_UNIQUES ["Fremennik kilt","Rangers' tunic","Light tuxedo*","Light bow tie","Dark tuxedo*","Dark bow tie"]
+
+rule (name:ELITE_CLUE_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:elite_clue
+label: Unique T2
+type: enumlist
+enum: ["Fremennik kilt","Rangers' tunic","Light tuxedo*","Light bow tie","Dark tuxedo*","Dark bow tie","Sagacious spectacles","Big pirate hat","Ranger gloves","Holy wraps","Dragon full helm ornament kit","Dragon chainbody ornament kit","Dragon legs/skirt ornament kit","Dragon sq shield ornament kit","Dragon scimitar ornament kit","Fury ornament kit","Light infinity colour kit","Dark infinity colour kit","Royal crown","Royal gown top","Royal gown bottom","Royal sceptre","Musketeer*","Arceuus scarf","Hosidius scarf","Lovakengj scarf","Piscarilius scarf","Shayzien scarf","Katana","Dragon cane","Bucket helm","Blacksmith's helm","Deerstalker","Afro","Top hat","Monocle","Briefcase","Rangers' tights","Uri's hat","Giant boot"]
+*/
+
+#define ELITE_CLUE_T2_UNIQUES ["Sagacious spectacles","Big pirate hat","Ranger gloves","Holy wraps"] 
+
+rule (name:ELITE_CLUE_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:elite_clue
+label: Unique T1
+type: enumlist
+enum: ["Fremennik kilt","Rangers' tunic","Light tuxedo*","Light bow tie","Dark tuxedo*","Dark bow tie","Sagacious spectacles","Big pirate hat","Ranger gloves","Holy wraps","Dragon full helm ornament kit","Dragon chainbody ornament kit","Dragon legs/skirt ornament kit","Dragon sq shield ornament kit","Dragon scimitar ornament kit","Fury ornament kit","Light infinity colour kit","Dark infinity colour kit","Royal crown","Royal gown top","Royal gown bottom","Royal sceptre","Musketeer*","Arceuus scarf","Hosidius scarf","Lovakengj scarf","Piscarilius scarf","Shayzien scarf","Katana","Dragon cane","Bucket helm","Blacksmith's helm","Deerstalker","Afro","Top hat","Monocle","Briefcase","Rangers' tights","Uri's hat","Giant boot"]
+*/
+
+#define ELITE_CLUE_T1_UNIQUES ["Dragon full helm ornament kit","Dragon chainbody ornament kit","Dragon legs/skirt ornament kit","Dragon sq shield ornament kit","Dragon scimitar ornament kit","Fury ornament kit","Light infinity colour kit","Dark infinity colour kit","Royal crown","Royal gown top","Royal gown bottom","Royal sceptre","Musketeer*","Arceuus scarf","Hosidius scarf","Lovakengj scarf","Piscarilius scarf","Shayzien scarf","Katana","Dragon cane","Bucket helm","Blacksmith's helm","Deerstalker","Afro","Top hat","Monocle","Briefcase","Rangers' tights","Uri's hat","Giant boot"]
+
+rule (name:ELITE_CLUE_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:module:hard_clue
+name: Hard Clue Uniques
+subtitle: Rewards from a Hard Hunt
+*/
+
+/*@ define:input:hard_clue
+label: Unique T3
+type: enumlist
+enum: ["Robin hood hat","Zamorak full helm","Amulet of glory(t*)","Enchanted hat","Enchanted hat","Enchanted robe","Dragon boots ornament kit","Zamorak plate*","Guthix full helm","Guthix plate*","Saradomin full helm","Saradomin plate*","Ancient full helm","Ancient plate*","Armadyl full helm","Armadyl plate*","Bandos full helm","Bandos plate*","Saradomin coif","Saradomin chaps" ,"Saradomin bracers","Saradomin d'hide*","Guthix coif","Guthix chaps","Guthix bracers" ,"Guthix d'hide*" ,"Zamorak coif" ,"Zamorak chaps" ,"Zamorak bracers" ,"Zamorak d'hide*","Bandos coif","Bandos chaps","Bandos bracers","Bandos d'hide*","Armadyl coif" ,"Armadyl chaps" ,"Armadyl bracers","Armadyl d'hide*","Ancient coif" ,"Ancient chaps","Ancient bracers" ,"Ancient d'hide*","Zombie head" ,"Cyclops head","Pirate's hat" ,"* cavalier","Pith helmet","Explorer backpack","* dragon mask","Nunchaku","Rune cane","Dual sai","Thieving bag","Rune defender ornament kit ,"Berserker necklace ornament kit","Tzhaar-ket-om ornament kit","*(h1)","*(h2)","*(h3)","*(h4)","*(h5)","*(t)","*(g)","*comp bow"]
+*/
+
+#define HARD_CLUE_T3_UNIQUES ["Robin hood hat"]
+
+rule (name:HARD_CLUE_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:hard_clue
+label: Unique T2
+type: enumlist
+enum: ["Robin hood hat","Zamorak full helm","Amulet of glory(t*)","Enchanted hat","Enchanted hat","Enchanted robe","Dragon boots ornament kit","Zamorak plate*","Guthix full helm","Guthix plate*","Saradomin full helm","Saradomin plate*","Ancient full helm","Ancient plate*","Armadyl full helm","Armadyl plate*","Bandos full helm","Bandos plate*","Saradomin coif","Saradomin chaps" ,"Saradomin bracers","Saradomin d'hide*","Guthix coif","Guthix chaps","Guthix bracers" ,"Guthix d'hide*" ,"Zamorak coif" ,"Zamorak chaps" ,"Zamorak bracers" ,"Zamorak d'hide*","Bandos coif","Bandos chaps","Bandos bracers","Bandos d'hide*","Armadyl coif" ,"Armadyl chaps" ,"Armadyl bracers","Armadyl d'hide*","Ancient coif" ,"Ancient chaps","Ancient bracers" ,"Ancient d'hide*","Zombie head" ,"Cyclops head","Pirate's hat" ,"* cavalier","Pith helmet","Explorer backpack","* dragon mask","Nunchaku","Rune cane","Dual sai","Thieving bag","Rune defender ornament kit ,"Berserker necklace ornament kit","Tzhaar-ket-om ornament kit","*(h1)","*(h2)","*(h3)","*(h4)","*(h5)","*(t)","*(g)","*comp bow"]
+*/
+
+#define HARD_CLUE_T2_UNIQUES ["Zamorak full helm"] 
+
+rule (name:HARD_CLUE_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:hard_clue
+label: Unique T1
+type: enumlist
+enum: ["Robin hood hat","Zamorak full helm","Amulet of glory(t*)","Enchanted hat","Enchanted hat","Enchanted robe","Dragon boots ornament kit","Zamorak plate*","Guthix full helm","Guthix plate*","Saradomin full helm","Saradomin plate*","Ancient full helm","Ancient plate*","Armadyl full helm","Armadyl plate*","Bandos full helm","Bandos plate*","Saradomin coif","Saradomin chaps" ,"Saradomin bracers","Saradomin d'hide*","Guthix coif","Guthix chaps","Guthix bracers" ,"Guthix d'hide*" ,"Zamorak coif" ,"Zamorak chaps" ,"Zamorak bracers" ,"Zamorak d'hide*","Bandos coif","Bandos chaps","Bandos bracers","Bandos d'hide*","Armadyl coif" ,"Armadyl chaps" ,"Armadyl bracers","Armadyl d'hide*","Ancient coif" ,"Ancient chaps","Ancient bracers" ,"Ancient d'hide*","Zombie head" ,"Cyclops head","Pirate's hat" ,"* cavalier","Pith helmet","Explorer backpack","* dragon mask","Nunchaku","Rune cane","Dual sai","Thieving bag","Rune defender ornament kit ,"Berserker necklace ornament kit","Tzhaar-ket-om ornament kit","*(h1)","*(h2)","*(h3)","*(h4)","*(h5)","*(t)","*(g)","*comp bow"]
+*/
+
+#define HARD_CLUE_T1_UNIQUES ["Amulet of glory(t*)","Enchanted hat","Enchanted hat","Enchanted robe","Dragon boots ornament kit","Zamorak plate*","Guthix full helm","Guthix plate*","Saradomin full helm","Saradomin plate*","Ancient full helm","Ancient plate*","Armadyl full helm","Armadyl plate*","Bandos full helm","Bandos plate*","Saradomin coif","Saradomin chaps" ,"Saradomin bracers","Saradomin d'hide*","Guthix coif","Guthix chaps","Guthix bracers" ,"Guthix d'hide*" ,"Zamorak coif" ,"Zamorak chaps" ,"Zamorak bracers" ,"Zamorak d'hide*","Bandos coif","Bandos chaps","Bandos bracers","Bandos d'hide*","Armadyl coif" ,"Armadyl chaps" ,"Armadyl bracers","Armadyl d'hide*","Ancient coif" ,"Ancient chaps","Ancient bracers" ,"Ancient d'hide*","Zombie head" ,"Cyclops head","Pirate's hat" ,"* cavalier","Pith helmet","Explorer backpack","* dragon mask","Nunchaku","Rune cane","Dual sai","Thieving bag","Rune defender ornament kit ,"Berserker necklace ornament kit","Tzhaar-ket-om ornament kit","*(h1)","*(h2)","*(h3)","*(h4)","*(h5)","*(t)","*(g)","*comp bow"]
+
+rule (name:HARD_CLUE_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:module:medium_clue
+name: Medium Clue Uniques
+subtitle: Rewards from a Medium Hunt
+*/
+
+/*@ define:input:medium_clue
+label: Unique T3
+type: enumlist
+enum: ["Ranger boots","Holy sandles","Spiked manacles,"Wizard boots","* mitre","Ancient cloak","Armadyl cloak","Bandos cloak","Guthix cloak","Saradomin cloak","Zamorak cloak","* stole","* crozier","* boater","* headband","Crier hat","Crier coat","Crier bell","Adamant cane","Arceuus banner","Piscarilius banner","Hosidius banner","Shayzien banner","Lovakengj banner","Cabbage round shield","* unicorn mask","Cat mask","Penguin mask","Leprechaun hat","Black leprechaun hat","Wolf mask","Wolf cloak","Purple elegant*","White elegant","Black elegant","Pink elegant","Gold elegant","*(h1)","*(h2)","*(h3)","*(h4)","*(h5)","*(t)","*(g)","*comp bow"]
+*/
+
+#define MEDIUM_CLUE_T3_UNIQUES ["Ranger boots"]
+
+rule (name:MEDIUM_CLUE_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:medium_clue
+label: Unique T2
+type: enumlist
+enum: ["Ranger boots","Holy sandles","Spiked manacles,"Wizard boots","* mitre","Ancient cloak","Armadyl cloak","Bandos cloak","Guthix cloak","Saradomin cloak","Zamorak cloak","* stole","* crozier","* boater","* headband","Crier hat","Crier coat","Crier bell","Adamant cane","Arceuus banner","Piscarilius banner","Hosidius banner","Shayzien banner","Lovakengj banner","Cabbage round shield","* unicorn mask","Cat mask","Penguin mask","Leprechaun hat","Black leprechaun hat","Wolf mask","Wolf cloak","Purple elegant*","White elegant","Black elegant","Pink elegant","Gold elegant","*(h1)","*(h2)","*(h3)","*(h4)","*(h5)","*(t)","*(g)","*comp bow"]
+*/
+
+#define MEDIUM_CLUE_T2_UNIQUES ["Holy sandles","Spiked manacles"] 
+
+rule (name:MEDIUM_CLUE_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:medium_clue
+label: Unique T1
+type: enumlist
+enum: ["Ranger boots","Holy sandles","Spiked manacles,"Wizard boots","* mitre","Ancient cloak","Armadyl cloak","Bandos cloak","Guthix cloak","Saradomin cloak","Zamorak cloak","* stole","* crozier","* boater","* headband","Crier hat","Crier coat","Crier bell","Adamant cane","Arceuus banner","Piscarilius banner","Hosidius banner","Shayzien banner","Lovakengj banner","Cabbage round shield","* unicorn mask","Cat mask","Penguin mask","Leprechaun hat","Black leprechaun hat","Wolf mask","Wolf cloak","Purple elegant*","White elegant","Black elegant","Pink elegant","Gold elegant","*(h1)","*(h2)","*(h3)","*(h4)","*(h5)","*(t)","*(g)","*comp bow"]
+*/
+
+#define MEDIUM_CLUE_T1_UNIQUES ["Wizard boots","* mitre","Ancient cloak","Armadyl cloak","Bandos cloak","Guthix cloak","Saradomin cloak","Zamorak cloak","* stole","* crozier","* boater","* headband","Crier hat","Crier coat","Crier bell","Adamant cane","Arceuus banner","Piscarilius banner","Hosidius banner","Shayzien banner","Lovakengj banner","Cabbage round shield","* unicorn mask","Cat mask","Penguin mask","Leprechaun hat","Black leprechaun hat","Wolf mask","Wolf cloak","Purple elegant*","White elegant","Black elegant","Pink elegant","Gold elegant","*(h1)","*(h2)","*(h3)","*(h4)","*(h5)","*(t)","*(g)","*comp bow"]
+
+rule (name:MEDIUM_CLUE_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:module:easy_clue
+name: Easy Clue Uniques
+subtitle: Rewards from an Easy Hunt
+*/
+
+/*@ define:input:easy_clue
+label: Unique T3
+type: enumlist
+enum: ["Monk's robe top (g)","Monk's robe (g)","Team cape zero","Team cape i","Team Cape X","Cape of skulls","Flared Trousers","Ham joint","Golden chef's hat","Golden apron","Red elegant*","Green elegant*","Blue elegant*","Saradomin robe*","Guthix robe*","Zamorak robe*","Ancient robe*","Armadyl robe*","Bandos robe*","Bob's * shirt","Highwayman mask","* beret","A powdered wig","Beanie","Imp mask","Goblin mask","Sleeping cap","Pantaloons","Black Cane","Staff of bobthe cat","Rain bow","*(h1)","*(h2)","*(h3)","*(h4)","*(h5)","*(t)","*(g)","*comp bow"]
+*/
+
+#define EASY_CLUE_T3_UNIQUES ["Monk's robe top (g)","Monk's robe (g)","Team cape zero","Team cape i","Team Cape X","Cape of skulls","Flared Trousers"]
+
+rule (name:EASY_CLUE_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:easy_clue
+label: Unique T2
+type: enumlist
+enum: ["Monk's robe top (g)","Monk's robe (g)","Team cape zero","Team cape i","Team Cape X","Cape of skulls","Flared Trousers","Ham joint","Golden chef's hat","Golden apron","Red elegant*","Green elegant*","Blue elegant*","Saradomin robe*","Guthix robe*","Zamorak robe*","Ancient robe*","Armadyl robe*","Bandos robe*","Bob's * shirt","Highwayman mask","* beret","A powdered wig","Beanie","Imp mask","Goblin mask","Sleeping cap","Pantaloons","Black Cane","Staff of bobthe cat","Rain bow","*(h1)","*(h2)","*(h3)","*(h4)","*(h5)","*(t)","*(g)","*comp bow"]
+*/
+
+#define EASY_CLUE_T2_UNIQUES ["Ham joint","Golden chef's hat","Golden apron","Red elegant*","Green elegant*","Blue elegant*"] 
+
+rule (name:EASY_CLUE_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:easy_clue
+label: Unique T1
+type: enumlist
+enum: ["Monk's robe top (g)","Monk's robe (g)","Team cape zero","Team cape i","Team Cape X","Cape of skulls","Flared Trousers","Ham joint","Golden chef's hat","Golden apron","Red elegant*","Green elegant*","Blue elegant*","Saradomin robe*","Guthix robe*","Zamorak robe*","Ancient robe*","Armadyl robe*","Bandos robe*","Bob's * shirt","Highwayman mask","* beret","A powdered wig","Beanie","Imp mask","Goblin mask","Sleeping cap","Pantaloons","Black Cane","Staff of bobthe cat","Rain bow","*(h1)","*(h2)","*(h3)","*(h4)","*(h5)","*(t)","*(g)","*comp bow"]
+*/
+
+#define EASY_CLUE_T1_UNIQUES ["Saradomin robe*","Guthix robe*","Zamorak robe*","Ancient robe*","Armadyl robe*","Bandos robe*","Bob's * shirt","Highwayman mask","* beret","A powdered wig","Beanie","Imp mask","Goblin mask","Sleeping cap","Pantaloons","Black Cane","Staff of bobthe cat","Rain bow","*(h1)","*(h2)","*(h3)","*(h4)","*(h5)","*(t)","*(g)","*comp bow"]
+
+rule (name:EASY_CLUE_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:module:beginner_clue
+name: Beginner Clue Uniques
+subtitle: Rewards from a Beginner Hunt
+*/
+
+/*@ define:input:beginner_clue
+label: Unique T3
+type: enumlist
+enum: ["Mole slippers","Shoulder parrot","Frog Slippers","Bear feet","Demon feet","Jester cape","Sandwhich lady*","Rune scimitar ornament kit*","*(t)"]
+*/
+
+#define BEGINNER_CLUE_T3_UNIQUES []
+
+rule (name:BEGINNER_CLUE_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:beginner_clue
+label: Unique T2
+type: enumlist
+enum: ["Mole slippers","Shoulder parrot","Frog Slippers","Bear feet","Demon feet","Jester cape","Sandwhich lady*","Rune scimitar ornament kit*","*(t)"]
+*/
+
+#define BEGINNER_CLUE_T2_UNIQUES ["Mole slippers","Shoulder parrot"] 
+
+rule (name:BEGINNER_CLUE_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:beginner_clue
+label: Unique T1
+type: enumlist
+enum: ["Mole slippers","Shoulder parrot","Frog Slippers","Bear feet","Demon feet","Jester cape","Sandwhich lady*","Rune scimitar ornament kit*","*(t)"]
+*/
+
+#define BEGINNER_CLUE_T1_UNIQUES ["Frog Slippers","Bear feet","Demon feet","Jester cape","Sandwhich lady*","Rune scimitar ornament kit*","*(t)"]
+
+rule (name:BEGINNER_CLUE_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:module:shared_clue
+name: Shared Clue Uniques
+subtitle: Rewards from All Clue Hunts 
+*/
+
+/*@ define:input:shared_clue
+label: Unique T3
+type: enumlist
+enum: ["Sardomin page *","Zamorak page *","Guthix page *","Bandos page *","Armadyl page *","Ancient page*","* Blessing","* firelighter","Master scroll book*","Purple sweets"]
+*/
+
+#define SHARED_CLUE_T3_UNIQUES []
+
+rule (name:SHARED_CLUE_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:shared_clue
+label: Unique T2
+type: enumlist
+enum: ["Sardomin page *","Zamorak page *","Guthix page *","Bandos page *","Armadyl page *","Ancient page*","* Blessing","* firelighter","Master scroll book*","Purple sweets"]
+*/
+
+#define SHARED_CLUE_T2_UNIQUES ["Master scroll book*","Purple sweets"] 
+
+rule (name:SHARED_CLUE_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:shared_clue
+label: Unique T1
+type: enumlist
+enum: ["Sardomin page *","Zamorak page *","Guthix page *","Bandos page *","Armadyl page *","Ancient page*","* Blessing","* firelighter","Master scroll book*","Purple sweets"]
+*/
+
+#define SHARED_CLUE_T1_UNIQUES ["Sardomin page *","Zamorak page *","Guthix page *","Bandos page *","Armadyl page *","Ancient page*","* Blessing","* firelighter"]
+
+rule (name:SHARED_CLUE_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 
 
@@ -10611,199 +11084,3 @@ rule (!ENSOULED_HEADS_SHOW_UNNOTED && name:ENSOULED_HEADS_NAMES && stackable:fal
 rule (ENSOULED_HEADS_REPLACE_T1 && name:ENSOULED_HEADS_NAMES && stackable:true && value:<VALUE_TIER_2) {ENSOULED_HEADS_T1_STYLE}
 
 VALUE_RULESET(ENSOULED_HEADS_NAMES, ENSOULED_HEADS_T5_STYLE, ENSOULED_HEADS_T4_STYLE, ENSOULED_HEADS_T3_STYLE, ENSOULED_HEADS_T2_STYLE, ENSOULED_HEADS_T1_STYLE, ENSOULED_HEADS_T0_STYLE)
-
-
-/*@ define:module:clues
-name: Clue Scrolls 
-subtitle: Go on a Treasure Hunt
-*/
-
-#define CLUE_REQUIREMENT_ID []
-
-/*@ define:input:clues
-label: Beginner Clue
-type: style
-group: Beginner
-exampleItem: Clue scroll (beginner)
-*/
-
-#define CLUE_BEGINNER_STYLE \
-	color = "#ffbf9bbf"; \
-	backgroundColor = "#99333333"; \
-	borderColor = "#ffbf9bbf";
-
-rule (name:["Clue scroll (beginner)", "Clue bottle (beginner)", "Clue nest (beginner)", "Clue geode (beginner)"]) {CLUE_BEGINNER_STYLE}
-
-/*@ define:input:clues
-label: Easy Clue
-type: style
-group: Easy
-exampleItem: Clue scroll (easy)
-*/
-
-#define CLUE_EASY_STYLE \
-	color = "#ff00a33c"; \
-	backgroundColor = "#99333333"; \
-	borderColor = "#ff00a33c";
-
-/*@ define:input:clues
-label: Medium Clue
-type: style
-group: Medium
-exampleItem: Clue scroll (medium)
-*/
-
-#define CLUE_MEDIUM_STYLE \
-	color = "#ff52c7de"; \
-	backgroundColor = "#99333333"; \
-	borderColor = "#ff52c7de";
-
-/*@ define:input:clues
-label: Hard Clue
-type: style
-group: Hard
-exampleItem: Clue scroll (hard)
-*/
-
-#define CLUE_HARD_STYLE \
-	color = "#ffab43f0"; \
-	backgroundColor = "#99333333"; \
-	borderColor = "#ffab43f0";
-
-/*@ define:input:clues
-label: Elite Clue
-type: style
-group: Elite
-exampleItem: Clue scroll (elite)
-*/
-
-#define CLUE_ELITE_STYLE \
-	color = "#ffe6ad29"; \
-	backgroundColor = "#99333333"; \
-	borderColor = "#ffe6ad29";
-
-/*@ define:input:clues
-label: Master Clue
-type: style
-group: Master
-exampleItem: Clue scroll (master)
-*/
-
-#define CLUE_MASTER_STYLE \
-	color = "#ffc90808"; \
-	backgroundColor = "#99333333"; \
-	borderColor = "#ffc90808";
-
-
-/*@ define:input:clues
-label: Wilderness Clues
-type: style
-group: Wilderness Clues
-exampleItem: Clue scroll (hard)
-*/
-
-#define CLUE_WILDERNESS_STYLE \
-	borderColor = "#ffff0000"; \
-	menuTextColor = "#ffff0000"; \
-
-#define CLUE_REQUIREMENT_STYLE \
-	backgroundColor = "#99ff0000";
-
-#define CLUE_WILDERNESS_HARD_IDS [2723,2725,2727,2729,2731,2733,2735,2737,2739,2741,2743,2745,2747,2786,2788,3525,3556,3558,7239,7260,7262,7264,10244,10234,12546,12564,19888,23168,23169]
-#define CLUE_WILDERNESS_ELITE_IDS [12075,12093,12095,12097,12109,12101,12134,12150,19807,23144,23146]
-
-
-apply (id:CLUE_WILDERNESS_HARD_IDS || id:CLUE_WILDERNESS_ELITE_IDS) {CLUE_WILDERNESS_STYLE}
-apply (id:CLUE_REQUIREMENT_ID) {CLUE_REQUIREMENT_STYLE}
-
-rule (name:["Clue scroll (easy)", "Clue bottle (easy)", "Clue nest (easy)", "Clue geode (easy)"]) {CLUE_EASY_STYLE}
-rule (name:["Clue scroll (medium)", "Clue bottle (medium)", "Clue nest (medium)", "Clue geode (medium)"]) {CLUE_MEDIUM_STYLE}
-rule (name:["Clue scroll (hard)", "Clue bottle (hard)", "Clue nest (hard)", "Clue geode (hard)"]) {CLUE_HARD_STYLE}
-rule (name:["Clue scroll (elite)", "Clue bottle (elite)", "Clue nest (elite)", "Clue geode (elite)"]) {CLUE_ELITE_STYLE}
-rule (name:["Clue scroll (master)", "Clue bottle (master)", "Clue nest (master)", "Clue geode (master)"]) {CLUE_MASTER_STYLE}
-
-/*@ define:input:clues
-label: Beginner Casket
-type: style
-group: Beginner
-exampleItem: Reward casket (beginner)
-*/
-
-#define CASKET_BEGINNER_STYLE \
-	color = "#ffbf9bbf"; \
-	backgroundColor = "#ffffffff"; \
-	borderColor = "#ffbf9bbf";
-
-rule (name:["Reward casket (beginner)"]) {CASKET_BEGINNER_STYLE}
-
-
-/*@ define:input:clues
-label: Easy Casket
-type: style
-group: Easy
-exampleItem: Reward casket (easy)
-*/
-
-#define CASKET_EASY_STYLE \
-	color = "#ff00a33c"; \
-	backgroundColor = "#ffffffff"; \
-	borderColor = "#ff00a33c";
-
-rule (name:["Reward casket (easy)"]) {CASKET_EASY_STYLE}
-
-/*@ define:input:clues
-label: Medium Casket
-type: style
-group: Medium
-exampleItem: Reward casket (medium)
-*/
-
-#define CASKET_MEDIUM_STYLE \
-	color = "#ff52c7de"; \
-	backgroundColor = "#ffffffff"; \
-	borderColor = "#ff52c7de";
-
-rule (name:["Reward casket (medium)"]) {CASKET_MEDIUM_STYLE}
-
-/*@ define:input:clues
-label: Hard Casket
-type: style
-group: Hard
-exampleItem: Reward casket (hard)
-*/
-
-#define CASKET_HARD_STYLE \
-	color = "#ffab43f0"; \
-	backgroundColor = "#ffffffff"; \
-	borderColor = "#ffab43f0";
-
-rule (name:["Reward casket (hard)"]) {CASKET_HARD_STYLE}
-
-/*@ define:input:clues
-label: Elite Casket
-type: style
-group: Elite
-exampleItem: Reward casket (elite)
-*/
-
-#define CASKET_ELITE_STYLE \
-	color = "#ffe6ad29"; \
-	backgroundColor = "#ffffffff"; \
-	borderColor = "#ffe6ad29";
-
-rule (name:["Reward casket (elite)"]) {CASKET_ELITE_STYLE}
-
-
-/*@ define:input:clues
-label: Master Casket
-type: style
-group: Master
-exampleItem: Reward casket (master)
-*/
-
-#define CASKET_MASTER_STYLE \
-	color = "#ffc90808"; \
-	backgroundColor = "#ffffffff"; \
-	borderColor = "#ffc90808";
-
-rule (name:["Reward casket (master)"]) {CASKET_MASTER_STYLE}
