@@ -11615,7 +11615,7 @@ exampleItem: Oak planks
 */
 
 #define OAK_PLANKS_T0_STYLE \
-    color = "#ffffffff"; \
+    color = "#ff967249"; \
 	menuTextColor = "#ff967249"; 
 
 
