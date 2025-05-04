@@ -5164,6 +5164,99 @@ enum: ["Lobster"]
 rule (area:[2837,3533,2,2878,3558,2] && name:CYCLOPES_SUPPLY) {SUPPLY_DROP_STYLE} // Top Floor
 rule (area:[2904,9956,0,2942,9975,0] && name:CYCLOPES_SUPPLY) {SUPPLY_DROP_STYLE} // Basement
 
+/*@ define:module:elder_chaos_druids
+name: Elder Chaos Druids
+subtitle: Set Unique Teirs and Hide Drops
+*/
+
+/*@ define:input:elder_chaos_druids
+label: Unique T3
+type: enumlist
+enum: ["Elder chaos hood","Elder chaos robe","Elder chaos top"]
+*/
+
+#define ELDER_CHAOS_DRUIDS_T3_UNIQUES []
+
+rule (name:ELDER_CHAOS_DRUIDS_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:elder_chaos_druids
+label: Unique T2
+type: enumlist
+enum: ["Elder chaos hood","Elder chaos robe","Elder chaos top"]
+*/
+
+#define ELDER_CHAOS_DRUIDS_T2_UNIQUES ["Elder chaos hood","Elder chaos robe","Elder chaos top"] 
+
+rule (name:ELDER_CHAOS_DRUIDS_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:elder_chaos_druids
+label: Unique T1
+type: enumlist
+enum: ["Elder chaos hood","Elder chaos robe","Elder chaos top"]
+*/
+
+#define ELDER_CHAOS_DRUIDS_T1_UNIQUES []
+
+rule (name:ELDER_CHAOS_DRUIDS_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:input:elder_chaos_druids
+label: Hide Items
+type: stringlist
+*/
+
+#define ELDER_CHAOS_DRUIDS_HIDE ["Snape grass","Unholy mould","Vial of water"]
+
+rule (area:[3219,3592,0,3257,3633,0] && name:ELDER_CHAOS_DRUIDS_HIDE) {hidden = true;}
+
+/*@ define:module:forestry
+name: Forestry
+subtitle: Set Unique Teirs
+*/
+
+/*@ define:input:forestry
+label: Unique T3
+type: enumlist
+enum: ["Golden pheasant egg","Fox whistle","Petal garland"]
+*/
+
+#define FORESTRY_T3_UNIQUES ["Golden pheasant egg","Fox whistle"]
+
+rule (name:FORESTRY_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:forestry
+label: Unique T2
+type: enumlist
+enum: ["Golden pheasant egg","Fox whistle","Petal garland"]
+*/
+
+#define FORESTRY_T2_UNIQUES [] 
+
+rule (name:FORESTRY_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:forestry
+label: Unique T1
+type: enumlist
+enum: ["Golden pheasant egg","Fox whistle","Petal garland"]
+*/
+
+#define FORESTRY_T1_UNIQUES ["Petal garland"]
+
+rule (name:FORESTRY_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -11482,3 +11575,91 @@ rule (!ENSOULED_HEADS_SHOW_UNNOTED && name:ENSOULED_HEADS_NAMES && stackable:fal
 rule (ENSOULED_HEADS_REPLACE_T1 && name:ENSOULED_HEADS_NAMES && stackable:true && value:<VALUE_TIER_2) {ENSOULED_HEADS_T1_STYLE}
 
 VALUE_RULESET(ENSOULED_HEADS_NAMES, ENSOULED_HEADS_T5_STYLE, ENSOULED_HEADS_T4_STYLE, ENSOULED_HEADS_T3_STYLE, ENSOULED_HEADS_T2_STYLE, ENSOULED_HEADS_T1_STYLE, ENSOULED_HEADS_T0_STYLE)
+
+
+
+
+
+
+
+
+
+/*@ define:module:fallback
+name: Fallback Tier Styles
+subtitle: For Ttems that haven't been Changed by Other Catagories
+description: If you find anything 
+*/
+
+
+/*@ define:input:fallback
+label: Tier 0
+type: style
+*/
+#define FALLBACK_T0_STYLE \
+	textColor = "#ffffffff";
+
+/*@ define:input:fallback
+label: Tier 1
+type: style
+*/
+#define FALLBACK_T1_STYLE \
+	textColor = "#ffffffff"; \
+	backgroundColor = "#337bff1f"; \
+	menuTextColor = "#ff7bff1f"; \
+	textAccent = 3;
+
+/*@ define:input:fallback
+label: Tier 2
+type: style
+*/
+#define FALLBACK_T2_STYLE \
+	textColor = "#ffffffff"; \
+	backgroundColor = "#7000c8ff"; \
+	menuTextColor = "#ff00c9ff"; \
+	textAccent = 3;
+
+/*@ define:input:fallback
+label: Tier 3
+type: style
+*/
+#define FALLBACK_T3_STYLE \
+	textColor = "#ffffffff"; \
+	backgroundColor = "#ccffcc00"; \
+	borderColor = "#ffffffff"; \
+	menuTextColor = "#ffffcc00"; \
+	textAccent = 3; \
+	fontType = 2;
+
+/*@ define:input:fallback
+label: Tier 4
+type: style
+*/
+#define FALLBACK_T4_STYLE \
+	textColor = "#ffffffff"; \
+	backgroundColor = "#FFFFBFEA"; \
+	borderColor = "#ffffffff"; \
+	lootbeamColor = "#FFFFBFEA"; \
+	menuTextColor = "#FFFFBFEA"; \
+	textAccent = 3; \
+	fontType = 3; \
+	showLootbeam = true;
+
+/*@ define:input:fallback
+label: Tier 5
+type: style
+*/
+#define FALLBACK_T5_STYLE \
+	textColor = "#ffff0000"; \
+	backgroundColor = "#ffffffff"; \
+	borderColor = "#ffff0000"; \
+	lootbeamColor = "#ffff0000"; \
+	menuTextColor = "#ffff0000"; \
+	textAccent = 3; \
+	fontType = 3; \
+	showLootbeam = true;
+
+	
+VALUE_RULESET("*", FALLBACK_T5_STYLE, FALLBACK_T4_STYLE, FALLBACK_T3_STYLE, FALLBACK_T2_STYLE, FALLBACK_T1_STYLE, FALLBACK_T0_STYLE)
+
+
+
