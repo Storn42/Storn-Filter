@@ -1810,7 +1810,7 @@ type: boolean
 group: Perfect Kill
 */
 
-# ENABLE_DUKE_SUCELLUS_PERFECT_OVERRIDE false
+#define ENABLE_DUKE_SUCELLUS_PERFECT_OVERRIDE false
 
 apply (area:[3027,6433,0,3052,6459,0] && ENABLE_DUKE_SUCELLUS_PERFECT && (ENABLE_DUKE_SUCELLUS_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Bronze chainbody" && quantity:==17) || (name:"Mithril chainbody" && quantity:==7) || (name:"Adamant chainbody" && quantity:==7) || (name:"Dragon platelegs" && quantity:==7) || (name:"Coal" && quantity:==325) || (name: "Adamantite ore" && quantity:==112) || (name:"Rune javelin heads" && quantity:== 90) || (name:"Dragon javelin heads" && quantity:== 90) || (name:"Uncut ruby" && quantity:== 62) || (name:"Uncut diamond" && quantity:== 62) || (name:"Runite ore" && quantity:==45) || (name:"Dragon arrowtips" && quantity:==250) || (name:"Pure essence" && quantity:==300) || (name:"Iron ore" && quantity:==95) || (name:"Mithril ore" && quantity:==50) || (name:"Sapphire" && quantity:==42) || (name:"Emerald" && quantity:==42) || (name:"Ruby" && quantity:==42) || (name:"Bronze bar" && quantity:==95) || (name:"Raw sea turtle" && quantity:==300) || (name:"Chaos rune" && quantity:==150) || (name:"Mist rune" && quantity:==150) || (name:"Soul rune" && quantity:==1000) || (name:"Air rune" && quantity:==300))) {sound=3018;}
 
@@ -2590,7 +2590,7 @@ type: boolean
 group: Perfect Kill
 */
 
-# ENABLE_LEVIATHAN_PERFECT_OVERRIDE false
+#define ENABLE_LEVIATHAN_PERFECT_OVERRIDE false
 
 apply (area:[3027,6433,0,3052,6459,0] && ENABLE_LEVIATHAN_PERFECT && (ENABLE_LEVIATHAN_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Coal" && quantity:==292) || (name:"Gold ore" && quantity:==101) || (name:"Dragon javelin head" && quantity:==81) || (name:"Anglerfish" && quantity:==6) || (name:"Uncut ruby" && quantity:==56) || (name: "Uncut diamond" && quantity:==56) || (name:"Runite ore" && quantity:== 40) || (name:"Dragon bolts (unf)" && quantity:== 225) || (name:"Pure essence" && quantity:== 270) || (name:"Iron ore" && quantity:== 85) || (name:"Silver ore" && quantity:==85) || (name:"Adamantite ore" && quantity:==85) || (name:"Sapphire" && quantity:==38) || (name:"Emerald" && quantity:==38) || (name:"Ruby" && quantity:==38) || (name:"Onyx bolt tips" && quantity:==135) || (name:"Raw manta ray" && quantity:==270) || (name:"Rune arrow" && quantity:==81) || (name:"Smoke rune" && quantity:==450) || (name:"Soul rune" && quantity:==900) || (name:"Bronze arrow" && quantity:==94) || (name:"Mithril arrow" && quantity:==94) || (name:"Adamant arrow" && quantity:==94) || (name:"Body rune" && quantity:==270) || (name:"Earth rune" && quantity:==270))) {sound=3018;}
 
@@ -2779,7 +2779,7 @@ type: enumlist
 enum: ["Nightmare staff", "Eldritch nightmare staff","Harmonised nightmare staff","Volatile nightmare staff","Inquisitor's great helm","Inquisitor's hauberk","Inquisitor's plateskirt","Inquisitor's mace","Eldritch orb","Harmonised orb","Volatile orb","Jar of dreams","Slepey tablet","Parasitic egg"]
 */
 
-#define NIGHTMARE_T3_UNIQUES ["Nightmare staff", "Eldritch nightmare staff","Harmonised nightmare staff","Volatile nightmare staff","Inquisitor's great helm","Inquisitor's hauberk","Inquisitor's plateskirt","Inquisitor's mace","Eldritch orb","Harmonised orb","Volatile orb","Jar of dreams"."Parasitic egg"]
+#define NIGHTMARE_T3_UNIQUES ["Nightmare staff", "Eldritch nightmare staff","Harmonised nightmare staff","Volatile nightmare staff","Inquisitor's great helm","Inquisitor's hauberk","Inquisitor's plateskirt","Inquisitor's mace","Eldritch orb","Harmonised orb","Volatile orb","Jar of dreams","Parasitic egg"]
 
 rule (name:NIGHTMARE_T3_UNIQUES) {UNIQUE_T3_STYLE}
 
@@ -3095,7 +3095,7 @@ type: enumlist
 enum: ["Blighted anglerfish","Blighted super restore(*)"]
 */
 
-#define SCORPIA_SUPPLY []
+#define SCORPIA_SUPPLY ["Blighted anglerfish","Blighted super restore(*)"]
 
 rule (area:[3218,10330,0,3249,10354,0] && name:SCORPIA_SUPPLY) {SUPPLY_DROP_STYLE}
 
@@ -3147,10 +3147,10 @@ rule (area:[3286,9856,0,3311,9880,0] && name:SCURRIUS_HIDE) {hidden = true;}
 /*@ define:input:scurrius
 label: Supply Drop
 type: enumlist
-enum: []
+enum: ["Trout","Tuna","Lobster","Prayer potion(*)","Shark","Ranging potion(*)","Super strength(*)","Cheese"]
 */
 
-#define SCURRIUS_SUPPLY []
+#define SCURRIUS_SUPPLY ["Trout","Tuna","Lobster","Prayer potion(*)","Shark"]
 
 rule (area:[3286,9856,0,3311,9880,0] && name:SCURRIUS_SUPPLY) {SUPPLY_DROP_STYLE}
 
@@ -3227,7 +3227,7 @@ rule (name:TEMPOROSS_T2_UNIQUES) {UNIQUE_T2_STYLE}
 /*@ define:input:tempoross
 label: Unique T1
 type: enumlist
-enum: ["Big harpoonfish","Tackle box","Fish barrel","Tome of water*","Dragon harpoon"."Spirit angler boots", "Spirit angler headband","Spirit angler top","Spirit angler waders"]
+enum: ["Big harpoonfish","Tackle box","Fish barrel","Tome of water*","Dragon harpoon","Spirit angler boots", "Spirit angler headband","Spirit angler top","Spirit angler waders"]
 */
 
 #define TEMPOROSS_T1_UNIQUES ["Big harpoonfish","Tackle box","Fish barrel"]
@@ -3413,7 +3413,7 @@ type: boolean
 group: Perfect Kill
 */
 
-# ENABLE_VARDORVIS_PERFECT_OVERRIDE false
+#define ENABLE_VARDORVIS_PERFECT_OVERRIDE false
 
 apply (area:[1114,3407,0,1142,3434,0] && ENABLE_VARDORVIS_PERFECT && (ENABLE_VARDORVIS_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Coal" && quantity:==195) || (name:"Adamantite ore" && quantity:==67) || (name:"Rune javelin heads" && quantity:==54) || (name:"Dragon javelin heads" && quantity:==54) || (name:"Uncut ruby" && quantity:==37) || (name:"Uncut diamond" && quantity:==37) || (name:"Runite ore" && quantity:==27) || (name:"Dragon dart tip" && quantity:==150) || (name:"Pure essence" && quantity:==180) || (name:"Iron ore" && quantity:==57) || (name:"Silver ore" && quantity:==57) || (name:"Mithril ore" && quantity:==57) || (name:"Sapphire" && quantity:==25) || (name:"Emerald" && quantity:==25) || (name:"Ruby" && quantity:==25) || (name:"Raw shark" && quantity:==300) || (name:"Lava rune" && quantity:==300) || (name:"Blood rune" && quantity:==300) || (name:"Soul rune" && quantity:==600) || (name:"Bronze javelin" && quantity:==63) || (name:"Mithril javelin" && quantity:==63) || (name:"Adamant javelin" && quantity:==63) || (name:"Onyx bolts (e)" && quantity:==90) || (name:"Mind rune" && quantity:==180) || (name:"Fire rune" && quantity:==180))) {sound=3018;}
 
@@ -3435,7 +3435,7 @@ rule (name:VENENATIS_AND_SPINDEL_T3_UNIQUES) {UNIQUE_T3_STYLE}
 /*@ define:input:venenatis_and_spindel
 label: Unique T2
 type: enumlist
-enum: []
+enum: ["Fangs of venenatis","Webweaver bow*","Voidwaker gem","Treasonous ring"]
 */
 
 #define VENENATIS_AND_SPINDEL_T2_UNIQUES ["Fangs of venenatis"] 
@@ -3445,7 +3445,7 @@ rule (name:VENENATIS_AND_SPINDEL_T2_UNIQUES) {UNIQUE_T2_STYLE}
 /*@ define:input:venenatis_and_spindel
 label: Unique T1
 type: enumlist
-enum: []
+enum: ["Fangs of venenatis","Webweaver bow*","Voidwaker gem","Treasonous ring"]
 */
 
 #define VENENATIS_AND_SPINDEL_T1_UNIQUES ["Treasonous ring"]
@@ -3674,7 +3674,7 @@ type: boolean
 group: Perfect Kill
 */
 
-# ENABLE_WHISPERER_PERFECT_OVERRIDE false
+#define ENABLE_WHISPERER_PERFECT_OVERRIDE false
 
 apply (area:[2370,6338,0,2429,6397,0] && ENABLE_WHISPERER_PERFECT && (ENABLE_WHISPERER_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Battlestaff" && quantity:==105) || (name:"Bronze longsword" && quantity:==24) || (name:"Mithril longsword" && quantity:==10) || (name:"Adamant longsword" && quantity:==14) || (name:"Dragon plateskirt" && quantity:==10) || (name:"Coal" && quantity:==455) || (name:"Adamantite ore" && quantity:==157) || (name:"Dragon javelin heads" && quantity:==126) || (name:"Runite bolts (unf)" && quantity:==126) || (name:"Uncut ruby" && quantity:==87) || (name:"Uncut diamond" && quantity:==87) || (name:"Runite ore" && quantity:==63) || (name:"Pure essence" && quantity:==420) || (name:"Iron ore" && quantity:==133) || (name:"Gold ore" && quantity:==133) || (name:"Mithril ore" && quantity:==133) || (name:"Sapphire" && quantity:==59) || (name:"Emerald" && quantity:==59) || (name:"Ruby" && quantity:==59) || (name:"Raw monkfish" && quantity:==1050) || (name:"Steam rune" && quantity:==700) || (name:"Death rune" && quantity:==700) || (name:"Soul rune" && quantity:==1400) || (name:"Water rune" && quantity:==420) || (name:"Chaos rune" && quantity:==210))) {sound=3018;}
 apply (area:[2629,6338,0,2685,6397,0] && ENABLE_WHISPERER_PERFECT && (ENABLE_WHISPERER_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Battlestaff" && quantity:==105) || (name:"Bronze longsword" && quantity:==24) || (name:"Mithril longsword" && quantity:==10) || (name:"Adamant longsword" && quantity:==14) || (name:"Dragon plateskirt" && quantity:==10) || (name:"Coal" && quantity:==455) || (name:"Adamantite ore" && quantity:==157) || (name:"Dragon javelin heads" && quantity:==126) || (name:"Runite bolts (unf)" && quantity:==126) || (name:"Uncut ruby" && quantity:==87) || (name:"Uncut diamond" && quantity:==87) || (name:"Runite ore" && quantity:==63) || (name:"Pure essence" && quantity:==420) || (name:"Iron ore" && quantity:==133) || (name:"Gold ore" && quantity:==133) || (name:"Mithril ore" && quantity:==133) || (name:"Sapphire" && quantity:==59) || (name:"Emerald" && quantity:==59) || (name:"Ruby" && quantity:==59) || (name:"Raw monkfish" && quantity:==1050) || (name:"Steam rune" && quantity:==700) || (name:"Death rune" && quantity:==700) || (name:"Soul rune" && quantity:==1400) || (name:"Water rune" && quantity:==420) || (name:"Chaos rune" && quantity:==210))) {sound=3018;}
