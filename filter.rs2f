@@ -6606,9 +6606,9 @@ subtitle: Food and Drinks for Later Consumption
 */
 
 /*@ define:input:food_and_pots_stockpile
-label: Desired Secondaries
+label: Show Unstackable
 type: stringlist
-group: Secondaries
+group: Food and Pots
 */
 
 #define FOOD_AND_POTS_STOCKPILE_ALWAYS_SHOW ["Sanfew serum(*)"]
@@ -6616,7 +6616,7 @@ group: Secondaries
 /*@ define:input:food_and_pots_stockpile
 label: Show only if Stackable
 type: stringlist
-group: Secondaries
+group: Food and Pots
 */
 
 #define FOOD_AND_POTS_STOCKPILE_SHOW_IF_STACKABLE ["Prayer potion*","*Antifire potion*","Antidote++*","Saradomin brew*","Ancient brew*","Menaphite remedy*","Super combat potion*","Super restore*","Manta ray", "Dark crab", "Anglerfish", "Sea turtle", "Shark", "Cooked karambwan"]
