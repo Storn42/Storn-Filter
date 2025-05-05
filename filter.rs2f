@@ -12134,7 +12134,7 @@ VALUE_RULESET(["Plank"] && quantity:>=PLANKS_QUANTITY, PLANKS_T5_STYLE, PLANKS_T
 
 /*@ define:module:ammo
 name: Dragon Ammo
-subtitle: 
+subtitle: Made from Real Dragons
 */
 
 /*@ define:input:ammo
