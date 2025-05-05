@@ -3,10 +3,6 @@ hidden: true
 name: header
 */
 
-// to do:
-// 	- currencies
-
-
 meta {
     name = "Storn's Filter";
     description = "Storn's Ironman Focused Filter";
@@ -16,7 +12,7 @@ meta {
 name: Greetings
 subtitle: Welcome to Storn's Filter
 description: |
-    This is my personal filter from the perspective of an endgame ironman. Here you'll find Tier based filters for many items, 
+    This is my personal filter from the perspective of an endgame ironman. Here you'll find Tier based filters for many items, Specialy item rarity for Meme Drops, Monster based Hide lists, Supply drops for foods you'd normally hide, and more. We're still missing some things like many monsters and some currencies, but the core of the filter is here.
 */
 
 /*@ define:module:settings
