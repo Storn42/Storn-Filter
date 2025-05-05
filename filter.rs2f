@@ -5539,7 +5539,7 @@ rule (area:[2368,5055,0,2560,5185,0] && name:TZHAAR_HIDE) {hidden = true;}
 
 /*@ define:module:misc
 name: Miscellaneous Uniques
-subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+subtitle: Set Unique Teirs
 */
 
 /*@ define:input:misc
@@ -5695,12 +5695,12 @@ exampleItem: Dragon platelegs
 	lootbeamColor = "#ffbbbb22";\
 	icon = Sprite(41,0);
 
-rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && gevalue:>=VALUE_TIER_5) {ALCHS_T5_STYLE}\
-rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && gevalue:>=VALUE_TIER_4) {ALCHS_T4_STYLE}\
-rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && gevalue:>=VALUE_TIER_3) {ALCHS_T3_STYLE}\
-rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && gevalue:>=VALUE_TIER_2) {ALCHS_T2_STYLE}\
-rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && gevalue:>=VALUE_TIER_1) {ALCHS_T1_STYLE}\
-rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && gevalue:>=ALCHS_VALUE) {ALCHS_T0_STYLE}
+rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && havalue:>=VALUE_TIER_5) {ALCHS_T5_STYLE}\
+rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && havalue:>=VALUE_TIER_4) {ALCHS_T4_STYLE}\
+rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && havalue:>=VALUE_TIER_3) {ALCHS_T3_STYLE}\
+rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && havalue:>=VALUE_TIER_2) {ALCHS_T2_STYLE}\
+rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && havalue:>=VALUE_TIER_1) {ALCHS_T1_STYLE}\
+rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && havalue:>=ALCHS_VALUE) {ALCHS_T0_STYLE}
 
 
 /*@ define:module:coins
