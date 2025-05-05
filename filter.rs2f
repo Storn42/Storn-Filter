@@ -5,8 +5,6 @@ name: header
 
 // to do:
 // 	- currencies
-// 	- 
-// 	- 
 
 
 meta {
@@ -18,7 +16,7 @@ meta {
 name: Greetings
 subtitle: Welcome to Storn's Filter
 description: |
-    This is my personal filter from the perspective of an endgame ironman. Here you'll find 
+    This is my personal filter from the perspective of an endgame ironman. Here you'll find Tier based filters for many items, 
 */
 
 /*@ define:module:settings
@@ -1026,7 +1024,59 @@ group: Witchaven Dungeon
 
 rule (area:[2728,9676,0,2748,9702,0] && name:HELLHOUND_WITCHAVEN_HIDE) {hidden = true;}
 
+/*@ define:module:smoke_devils
+name: Smoke Devils
+subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
+*/
 
+/*@ define:input:smoke_devils
+label: Tier 3 Unique
+type: boolean
+group: Dragon Chainbody Ratity
+*/
+
+#define ENABLE_SMOKE_DCHAIN_T3 true
+
+rule (area:[2378,9415,0,2429,9471,0] && ENABLE_SMOKE_DCHAIN_T3 && name:"Dragon chainbody") {UNIQUE_T3_STYLE}
+
+/*@ define:input:smoke_devils
+label: Tier 2 Unique
+type: boolean
+group: Dragon Chainbody Ratity
+*/
+
+#define ENABLE_SMOKE_DCHAIN_T2 false
+
+rule (area:[2378,9415,0,2429,9471,0] && ENABLE_SMOKE_DCHAIN_T2 && name:"Dragon chainbody") {UNIQUE_T2_STYLE}
+
+/*@ define:input:smoke_devils
+label: Tier 1 Unique
+type: boolean
+group: Dragon Chainbody Ratity
+*/
+
+#define ENABLE_SMOKE_DCHAIN_T1 false
+
+rule (area:[2378,9415,0,2429,9471,0] && ENABLE_SMOKE_DCHAIN_T1 && name:"Dragon chainbody") {UNIQUE_T1_STYLE}
+
+/*@ define:input:smoke_devils
+label: Hide Items
+type: stringlist
+*/
+
+#define SMOKE_DEVILS_HIDE ["Steel bar", "Crossbow string", "ugthanki kebab", "ashes", "shark", "mithril plateskirt"]
+
+rule (area:[2378,9415,0,2429,9471,0] && name:SMOKE_DEVILS_HIDE) {hidden = true;}
+
+/*@ define:input:smoke_devils
+label: Supply Drop
+type: enumlist
+enum: ["Shark"]
+*/
+
+#define SMOKE_DEVILS_SUPPLY []
+
+rule (area:[2378,9415,0,2429,9471,0] && name:SMOKE_DEVILS_SUPPLY) {SUPPLY_DROP_STYLE}
 
 /*@ define:module:abyssal_sire
 name: Abyssal Sire
