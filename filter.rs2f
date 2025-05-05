@@ -6198,8 +6198,8 @@ rule (name:HERBS_IF_STACKABLE && stackable:false) {hidden=true;}
 
 
 /*@ define:module:herblore_secondaries
-name: Tin Ores
-subtitle: Smelt with Copper to get Bronze Metal
+name: Herblore Secondaries
+subtitle: Mix with Herbs for Wonderful Potions
 */
 
 /*@ define:input:herblore_secondaries
