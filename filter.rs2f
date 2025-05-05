@@ -11758,12 +11758,12 @@ rule (MAHOGANY_PLANKS_REPLACE_T1 && name:["Mahogany plank"] && stackable:true &&
 
 VALUE_RULESET(["Mahogany plank"] && quantity:>=MAHOGANY_PLANKS_QUANTITY, MAHOGANY_PLANKS_T5_STYLE, MAHOGANY_PLANKS_T4_STYLE, MAHOGANY_PLANKS_T3_STYLE, MAHOGANY_PLANKS_T2_STYLE, MAHOGANY_PLANKS_T1_STYLE, MAHOGANY_PLANKS_T0_STYLE)
 
-/*@ define:module:teak
+/*@ define:module:teak_planks
 name: Teak Planks
 subtitle: The Plank of Budget Carpetners
 */
 
-/*@ define:input:teak
+/*@ define:input:teak_planks
 label: Show unnoted
 type: boolean
 group: Teak
