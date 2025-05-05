@@ -4,16 +4,9 @@ name: header
 */
 
 // to do:
-// 	- Herblore secondaries
-// 	- Food/Potion drops
 // 	- currencies
 // 	- 
 // 	- 
-
-
-
-
-
 
 
 meta {
@@ -6590,8 +6583,8 @@ exampleItem: Attack potion(4)
 */
 
 #define FOOD_AND_POTS_STOCKPILE_T0_STYLE \
-    color = "#ffff7300"; \
-	menuTextColor = "#ffff7300"; 
+    color = "#ff813f09"; \
+	menuTextColor = "#ff813f09"; 
 
 
 /*@ define:input:food_and_pots_stockpile
@@ -6603,8 +6596,8 @@ exampleItem: "Super combat potion(4)"
 
 #define FOOD_AND_POTS_STOCKPILE_T1_STYLE \
     color = "#ffffffff";\
-    backgroundColor = "#55ff7300";\
-	menuTextColor = "#ffff7300";\
+    backgroundColor = "#55813f09";\
+	menuTextColor = "#ff813f09";\
 	textAccent = 3;
 
 /*@ define:input:food_and_pots_stockpile
@@ -6616,8 +6609,8 @@ exampleItem: "Prayer potion(4)"
 
 #define FOOD_AND_POTS_STOCKPILE_T2_STYLE \
 	color ="#ffffffff";\
-    backgroundColor = "#99ff7300";\
-	menuTextColor = "#ffff7300";\
+    backgroundColor = "#99813f09";\
+	menuTextColor = "#ff813f09";\
 	textAccent = 3;
 
 /*@ define:input:food_and_pots_stockpile
@@ -6629,8 +6622,8 @@ exampleItem: "Saradomin brew(4)"
 
 #define FOOD_AND_POTS_STOCKPILE_T3_STYLE \
 	color = "#ffffffff";\
-	backgroundColor = "#ddff7300";\
-	menuTextColor = "#ffff7300"; \
+	backgroundColor = "#dd813f09";\
+	menuTextColor = "#ff813f09"; \
 	fontType = 2;\
 	textAccent = 3;\
 	borderColor = "#ffffffff";
@@ -6643,14 +6636,14 @@ exampleItem: "Super restore(4)"
 */
 
 #define FOOD_AND_POTS_STOCKPILE_T4_STYLE \
-	backgroundColor = "#ffff7300";\
-	menuTextColor = "#ffff7300";\
+	backgroundColor = "#ff813f09";\
+	menuTextColor = "#ff813f09";\
 	color = "#ffffffff";\
 	fontType = 3;\
 	textAccent = 3;\
 	borderColor = "#ffffffff";\
 	showLootbeam = true;\
-	lootbeamColor = "#ffff7300";
+	lootbeamColor = "#ff813f09";
 
 /*@ define:input:food_and_pots_stockpile
 label: Tier 5
@@ -6661,13 +6654,13 @@ exampleItem: "Sanfew serum(4)"
 
 #define FOOD_AND_POTS_STOCKPILE_T5_STYLE \
 	backgroundColor = "#ffffffff";\
-	menuTextColor = "#ffff7300";\
-	color = "#ffff7300";\
+	menuTextColor = "#ff813f09";\
+	color = "#ff813f09";\
 	fontType = 3;\
 	textAccent = 3;\
-	borderColor = "#ffff7300";\
+	borderColor = "#ff813f09";\
 	showLootbeam = true;\
-	lootbeamColor = "#ffff7300";
+	lootbeamColor = "#ff813f09";
 
 
 VALUE_RULESET(FOOD_AND_POTS_STOCKPILE_ALWAYS_SHOW, FOOD_AND_POTS_STOCKPILE_T5_STYLE, FOOD_AND_POTS_STOCKPILE_T4_STYLE, FOOD_AND_POTS_STOCKPILE_T3_STYLE, FOOD_AND_POTS_STOCKPILE_T2_STYLE, FOOD_AND_POTS_STOCKPILE_T1_STYLE, FOOD_AND_POTS_STOCKPILE_T0_STYLE)
