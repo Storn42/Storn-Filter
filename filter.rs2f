@@ -6216,7 +6216,7 @@ type: stringlist
 group: Secondaries
 */
 
-#define SECONDARIES_SHOW_IF_STACKABLE ["Eye of newt","Unicorn horn","Unicorn horn dust","Limpwurt root","Ashes","Red spiders' eggs","White berries","Toad's legs","Goat horn dust","Desert goat horn","Snape grass","Mort myre fungus","Kebbit teeth dust","Kebbit teeth","Dragon scale dust","Blue dragon scale","White berries","Potato cactus","Wine of zamorak","Jangerberries"]
+#define HERBLORE_SECONDARIES_SHOW_IF_STACKABLE ["Eye of newt","Unicorn horn","Unicorn horn dust","Limpwurt root","Ashes","Red spiders' eggs","White berries","Toad's legs","Goat horn dust","Desert goat horn","Snape grass","Mort myre fungus","Kebbit teeth dust","Kebbit teeth","Dragon scale dust","Blue dragon scale","White berries","Potato cactus","Wine of zamorak","Jangerberries"]
 
 /*@ define:input:herblore_secondaries
 label: Tier 0
@@ -6308,9 +6308,9 @@ exampleItem: Crushed superior dragon bones
 
 VALUE_RULESET(HERBLORE_SECONDARIES_ALWAYS_SHOW, HERBLORE_SECONDARIES_T5_STYLE, HERBLORE_SECONDARIES_T4_STYLE, HERBLORE_SECONDARIES_T3_STYLE, HERBLORE_SECONDARIES_T2_STYLE, HERBLORE_SECONDARIES_T1_STYLE, HERBLORE_SECONDARIES_T0_STYLE)
 
-VALUE_RULESET(HERBLORE_SECONDARIES_IF_STACKABLE && stackable:true, HERBLORE_SECONDARIES_T5_STYLE, HERBLORE_SECONDARIES_T4_STYLE, HERBLORE_SECONDARIES_T3_STYLE, HERBLORE_SECONDARIES_T2_STYLE, HERBLORE_SECONDARIES_T1_STYLE, HERBLORE_SECONDARIES_T0_STYLE)
+VALUE_RULESET(HERBLORE_SECONDARIES_SHOW_IF_STACKABLE && stackable:true, HERBLORE_SECONDARIES_T5_STYLE, HERBLORE_SECONDARIES_T4_STYLE, HERBLORE_SECONDARIES_T3_STYLE, HERBLORE_SECONDARIES_T2_STYLE, HERBLORE_SECONDARIES_T1_STYLE, HERBLORE_SECONDARIES_T0_STYLE)
 
-rule (name:HERBLORE_SECONDARIES_IF_STACKABLE && stackable:false) {hidden=true;}
+rule (name:HERBLORE_SECONDARIES_SHOW_IF_STACKABLE && stackable:false) {hidden=true;}
 
 
 
