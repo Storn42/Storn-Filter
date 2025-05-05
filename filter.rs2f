@@ -12133,8 +12133,8 @@ VALUE_RULESET(["Plank"] && quantity:>=PLANKS_QUANTITY, PLANKS_T5_STYLE, PLANKS_T
 
 
 /*@ define:module:ammo
-name: Ammo
-subtitle: finish later
+name: Dragon Ammo
+subtitle: 
 */
 
 /*@ define:input:ammo
@@ -12311,8 +12311,8 @@ exampleItem: Dragon dart
 	showLootbeam = true;\
 	lootbeamColor = "#fff7f6d7";
 	
-VALUE_RULESET(["Dragon bolts", "Dragon bolts (unf)"], ORIKALKUM_T5_STYLE, ORIKALKUM_T4_STYLE, ORIKALKUM_T3_STYLE, ORIKALKUM_T2_STYLE, ORIKALKUM_T1_STYLE, ORIKALKUM_T0_STYLE)
-VALUE_RULESET(["Ammo necklace", "Digsite pendant*", "Ammo ring", "Ring of forging", "Ammo amulet", "Ammo amulet (u)", "Amulet of Strength*", "Ammo bracelet", "Inoculation bracelet"], NOT_ORIKALKUM_T5_STYLE, NOT_ORIKALKUM_T4_STYLE, NOT_ORIKALKUM_T3_STYLE, NOT_ORIKALKUM_T2_STYLE, NOT_ORIKALKUM_T1_STYLE, NOT_ORIKALKUM_T0_STYLE)
+VALUE_RULESET(["*Dragon bolts*", "Dragon bolts (unf)"], ORIKALKUM_T5_STYLE, ORIKALKUM_T4_STYLE, ORIKALKUM_T3_STYLE, ORIKALKUM_T2_STYLE, ORIKALKUM_T1_STYLE, ORIKALKUM_T0_STYLE)
+VALUE_RULESET(["Dragon arrow","Dragon arrowtips","Dragon javelin heads","Dragon javelin*","Dragon dart tip","Dragon dart*"], NOT_ORIKALKUM_T5_STYLE, NOT_ORIKALKUM_T4_STYLE, NOT_ORIKALKUM_T3_STYLE, NOT_ORIKALKUM_T2_STYLE, NOT_ORIKALKUM_T1_STYLE, NOT_ORIKALKUM_T0_STYLE)
 
 /*@ define:module:bones
 name: Bones
