@@ -2916,17 +2916,17 @@ subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
 /*@ define:input:phantom_muspah
 label: Unique T3
 type: enumlist
-enum: ["Venator shard", "Ancient icon", "Frozen cache", "Charged ice"]
+enum: ["Venator shard", "Ancient icon", "Frozen cache", "Charged ice", "Venator bow"]
 */
 
-#define PHANTOM_MUSPAH_T3_UNIQUES ["Venator shard"]
+#define PHANTOM_MUSPAH_T3_UNIQUES ["Venator shard","Venator bow"]
 
 rule (name:PHANTOM_MUSPAH_T3_UNIQUES) {UNIQUE_T3_STYLE}
 
 /*@ define:input:phantom_muspah
 label: Unique T2
 type: enumlist
-enum: ["Venator shard", "Ancient icon", "Frozen cache", "Charged ice"]
+enum: ["Venator shard", "Ancient icon", "Frozen cache", "Charged ice", "Venator bow"]
 */
 
 #define PHANTOM_MUSPAH_T2_UNIQUES ["Charged ice"] 
@@ -2936,7 +2936,7 @@ rule (name:PHANTOM_MUSPAH_T2_UNIQUES) {UNIQUE_T2_STYLE}
 /*@ define:input:phantom_muspah
 label: Unique T1
 type: enumlist
-enum: ["Venator shard", "Ancient icon", "Frozen cache", "Charged ice"]
+enum: ["Venator shard", "Ancient icon", "Frozen cache", "Charged ice", "Venator bow"]
 */
 
 #define PHANTOM_MUSPAH_T1_UNIQUES ["Ancient icon","Ancient icon"]
