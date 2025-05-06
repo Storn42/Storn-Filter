@@ -12501,8 +12501,8 @@ exampleItem: Onyx bolts (e)
 VALUE_APPLYSET(["Runite bolts*", "Onyx bolts*", "Dragonstone bolts*", "Rune arrowtips", "Rune arrow*", "Rune dart tip", "Rune dart*", "Rune javelin heads","Rune javelin*", "rune knife*", "Rune thrownaxe"], RUNE_AMMO_T5_STYLE, RUNE_AMMO_T4_STYLE, RUNE_AMMO_T3_STYLE, RUNE_AMMO_T2_STYLE, RUNE_AMMO_T1_STYLE, RUNE_AMMO_T0_STYLE)
 
 /*@ define:module:adamant_ammo
-name: adamant Ammo
-subtitle: Bolts, not Lame Magic Spells
+name: Adamant Ammo
+subtitle: The Green Ammo
 */
 
 /*@ define:input:adamant_ammo
@@ -12595,8 +12595,8 @@ exampleItem: Ruby bolts (e)
 VALUE_APPLYSET(["Adamant bolts*", "Diamond bolts*", "Ruby bolts*", "Adamant arrowtips", "Adamant arrow*", "Adamant dart tip", "Adamant dart*", "Adamant javelin heads","Adamant javelin*", "Adamant knife*", "Adamant thrownaxe"], ADAMANT_AMMO_T5_STYLE, ADAMANT_AMMO_T4_STYLE, ADAMANT_AMMO_T3_STYLE, ADAMANT_AMMO_T2_STYLE, ADAMANT_AMMO_T1_STYLE, ADAMANT_AMMO_T0_STYLE)
 
 /*@ define:module:mithril_ammo
-name: mithril Ammo
-subtitle: Bolts, not Lame Magic Spells
+name: Mithril Ammo
+subtitle: How Mythical
 */
 
 /*@ define:input:mithril_ammo
@@ -12690,8 +12690,8 @@ VALUE_APPLYSET(["Mithril bolts*", "Emerald bolts*", "Sapphire bolts*", "Mithril 
 
 
 /*@ define:module:steel_ammo
-name: steel Ammo
-subtitle: Bolts, not Lame Magic Spells
+name: Steel Ammo
+subtitle: Cannonballs not included
 */
 
 /*@ define:input:steel_ammo
@@ -12785,8 +12785,8 @@ VALUE_APPLYSET(["Steel bolts*", "Topaz bolts*", "Steel arrowtips", "Steel arrow*
 
 
 /*@ define:module:iron_ammo
-name: iron Ammo
-subtitle: Bolts, not Lame Magic Spells
+name: Iron Ammo
+subtitle: Good Bugdget Ammo
 */
 
 /*@ define:input:iron_ammo
@@ -12880,8 +12880,8 @@ VALUE_APPLYSET(["Iron bolts*", "Pearl bolts*", "Iron arrowtips", "Iron arrow*", 
 
 
 /*@ define:module:silver_ammo
-name: silver Ammo
-subtitle: Bolts, not Lame Magic Spells
+name: Silver Ammo
+subtitle: Hunt Werewolves
 */
 
 /*@ define:input:silver_ammo
@@ -12975,8 +12975,8 @@ VALUE_APPLYSET(["Silver bolts*"], SILVER_AMMO_T5_STYLE, SILVER_AMMO_T4_STYLE, SI
 
 
 /*@ define:module:bronze_ammo
-name: bronze Ammo
-subtitle: Bolts, not Lame Magic Spells
+name: Bronze Ammo
+subtitle: The Most Basic Ammunition
 */
 
 /*@ define:input:bronze_ammo
