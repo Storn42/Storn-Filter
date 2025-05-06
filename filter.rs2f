@@ -13183,7 +13183,7 @@ exampleItem: Opal bolts (e)
 
 rule (name:"Opal*bolts") {OPAL_BOLT_STYLE}
 rule (name:"Opal*bolts (e)") {OPAL_BOLT_STYLE}
-rule (name:["*bolts", "*bolts(unf)"]) {}
+rule (name:["*bolts*","*arrow*","*Javelin*","*dart*","*Knife*","*thrownaxe"]) {}
 
 /*@ define:module:bones
 name: Bones
