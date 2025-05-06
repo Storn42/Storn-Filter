@@ -149,6 +149,14 @@ rule (name:_name && value:>=VALUE_TIER_2) {_style2}\
 rule (name:_name && value:>=VALUE_TIER_1) {_style1}\
 rule (name:_name) {_style0}
 
+#define VALUE_APPLYSET(_name, _style5, _style4, _style3, _style2, _style1, _style0)\
+apply (name:_name && value:>=VALUE_TIER_5) {_style5}\
+apply (name:_name && value:>=VALUE_TIER_4 && value:<VALUE_TIER_5) {_style4}\
+apply (name:_name && value:>=VALUE_TIER_3 && value:<VALUE_TIER_4) {_style3}\
+apply (name:_name && value:>=VALUE_TIER_2 && value:<VALUE_TIER_3) {_style2}\
+apply (name:_name && value:>=VALUE_TIER_1 && value:<VALUE_TIER_2) {_style1}\
+apply (name:_name && value:<VALUE_TIER_1) {_style0}
+
 /*@ define:module:hidden
 name: Hidden Items
 subtitle: For when you NEVER want to see that item again  
@@ -300,7 +308,7 @@ label: Herblore Secondaries
 type: stringlist
 group: Skilling
 */
-#define HIDE_SECONDARIES []
+#define HIDE_SECONDARIES ["Swamp toad"]
 
 apply (name:HIDE_SECONDARIES) {hidden=true;}
 
@@ -328,7 +336,7 @@ label: Cooking
 type: stringlist
 group: Skilling
 */
-#define HIDE_COOKING ["Cake tin", "Pie dish", "Pot of flour", "Jug of water", "Bucket of water", "Bowl of water", "Bucket of milk", "Pineapple"]
+#define HIDE_COOKING ["Cake tin", "Pie dish", "Pot of flour", "Jug of water", "Bucket of water", "Bowl of water", "Bucket of milk", "Pineapple", "Raw shrimps", "Chopped garlic"]
 
 apply (name:HIDE_COOKING) {hidden=true;}
 
@@ -425,7 +433,7 @@ type: stringlist
 group: Misc
 */
 
-#define HIDE_MISC ["Seaweed", "Waterskin*", "Doogle leaves", "Papyrus", "Broken glass", "Lit candle", "Candle", "King worm", "Tile", "Stone ball", "Silk", "Fingernails", "Rusty sword"]
+#define HIDE_MISC ["Seaweed", "Waterskin*", "Doogle leaves", "Papyrus", "Broken glass", "Lit candle", "Candle", "King worm", "Tile", "Stone ball", "Silk", "Fingernails", "Rusty sword", "Red dye"]
 
 apply (name:HIDE_MISC) {hidden=true;}
 
@@ -9207,7 +9215,7 @@ exampleItem: Sapphire ring
 label: Tier 3
 type: style
 group: Jewelry
-exampleItem: Amulet of defence
+exampleItem: Amulet of magic
 */
 
 #define SAPPHIRE_JEWELRY_T3_STYLE \
@@ -9222,7 +9230,7 @@ exampleItem: Amulet of defence
 label: Tier 4
 type: style
 group: Jewelry
-exampleItem: Binding necklace
+exampleItem: Bracelet of clay
 */
 
 #define SAPPHIRE_JEWELRY_T4_STYLE \
@@ -9239,7 +9247,7 @@ exampleItem: Binding necklace
 label: Tier 5
 type: style
 group: Jewelry
-exampleItem: Ring of dueling(8)
+exampleItem: Games necklace(8)
 */
 
 #define SAPPHIRE_JEWELRY_T5_STYLE \
@@ -12121,18 +12129,7 @@ rule (PLANKS_REPLACE_T1 && name:["Plank"] && stackable:true && value:<VALUE_TIER
 
 VALUE_RULESET(["Plank"] && quantity:>=PLANKS_QUANTITY, PLANKS_T5_STYLE, PLANKS_T4_STYLE, PLANKS_T3_STYLE, PLANKS_T2_STYLE, PLANKS_T1_STYLE, PLANKS_T0_STYLE)
 
-
-
-
-
-
-
-
-
-
-
-
-/*@ define:module:ammo
+/*@ define:module:dragon_ammo
 name: Dragon Ammo
 subtitle: Made from Real Dragons
 */
@@ -12149,7 +12146,7 @@ exampleItem: Dragon bolts
 	menuTextColor = "#ff870c12"; 
 
 
-/*@ define:input:ammo
+/*@ define:input:dragon_ammo
 label: Tier 1
 type: style
 group: Bolts
@@ -12162,7 +12159,7 @@ exampleItem: Dragon bolts
 	menuTextColor = "#ff870c12";\
 	textAccent = 3;
 
-/*@ define:input:ammo
+/*@ define:input:dragon_ammo
 label: Tier 2
 type: style
 group: Bolts
@@ -12175,7 +12172,7 @@ exampleItem: Dragon bolts
 	menuTextColor = "#ff870c12";\
 	textAccent = 3;
 
-/*@ define:input:ammo
+/*@ define:input:dragon_ammo
 label: Tier 3
 type: style
 group: Bolts
@@ -12190,7 +12187,7 @@ exampleItem: Dragon bolts
 	textAccent = 3;\
 	borderColor = "#ffffffff";
 
-/*@ define:input:ammo
+/*@ define:input:dragon_ammo
 label: Tier 4
 type: style
 group: Bolts
@@ -12207,7 +12204,7 @@ exampleItem: Dragon bolts
 	showLootbeam = true;\
 	lootbeamColor = "#ff870c12";
 
-/*@ define:input:ammo
+/*@ define:input:dragon_ammo
 label: Tier 5
 type: style
 group: Bolts
@@ -12224,7 +12221,7 @@ exampleItem: Dragon bolts
 	showLootbeam = true;\
 	lootbeamColor = "#ff870c12";
 
-/*@ define:input:ammo
+/*@ define:input:dragon_ammo
 label: Tier 0
 type: style
 group: Darts, Arrows, and Javelins
@@ -12236,7 +12233,7 @@ exampleItem: Dragon javelin heads
 	menuTextColor = "#fff7f6d7"; \
 
 
-/*@ define:input:ammo
+/*@ define:input:dragon_ammo
 label: Tier 1
 type: style
 group: Darts, Arrows, and Javelins
@@ -12249,7 +12246,7 @@ exampleItem: Dragon arrowtips
 	menuTextColor = "#fff7f6d7";\
 	textAccent = 3;
 
-/*@ define:input:ammo
+/*@ define:input:dragon_ammo
 label: Tier 2
 type: style
 group: Darts, Arrows, and Javelins
@@ -12262,7 +12259,7 @@ exampleItem: Dragon dart tip
 	menuTextColor = "#fff7f6d7";\
 	textAccent = 3;
 
-/*@ define:input:ammo
+/*@ define:input:dragon_ammo
 label: Tier 3
 type: style
 group: Darts, Arrows, and Javelins
@@ -12277,7 +12274,7 @@ exampleItem: Dragon javelin
 	textAccent = 3;\
 	borderColor = "#ff870c12";
 
-/*@ define:input:ammo
+/*@ define:input:dragon_ammo
 label: Tier 4
 type: style
 group: Darts, Arrows, and Javelins
@@ -12294,7 +12291,7 @@ exampleItem: Dragon arrow
 	showLootbeam = true;\
 	lootbeamColor = "#fff7f6d7";
 
-/*@ define:input:ammo
+/*@ define:input:dragon_ammo
 label: Tier 5
 type: style
 group: Darts, Arrows, and Javelins
@@ -12311,8 +12308,882 @@ exampleItem: Dragon dart
 	showLootbeam = true;\
 	lootbeamColor = "#fff7f6d7";
 	
-VALUE_RULESET(["*Dragon bolts*", "Dragon bolts (unf)"], ORIKALKUM_T5_STYLE, ORIKALKUM_T4_STYLE, ORIKALKUM_T3_STYLE, ORIKALKUM_T2_STYLE, ORIKALKUM_T1_STYLE, ORIKALKUM_T0_STYLE)
-VALUE_RULESET(["Dragon arrow","Dragon arrowtips","Dragon javelin heads","Dragon javelin*","Dragon dart tip","Dragon dart*"], NOT_ORIKALKUM_T5_STYLE, NOT_ORIKALKUM_T4_STYLE, NOT_ORIKALKUM_T3_STYLE, NOT_ORIKALKUM_T2_STYLE, NOT_ORIKALKUM_T1_STYLE, NOT_ORIKALKUM_T0_STYLE)
+VALUE_APPLYSET(["*Dragon bolts*", "Dragon bolts (unf)"], ORIKALKUM_T5_STYLE, ORIKALKUM_T4_STYLE, ORIKALKUM_T3_STYLE, ORIKALKUM_T2_STYLE, ORIKALKUM_T1_STYLE, ORIKALKUM_T0_STYLE)
+VALUE_APPLYSET(["Dragon arrow*","Dragon arrowtips","Dragon javelin heads","Dragon javelin*","Dragon dart tip","Dragon dart*"], NOT_ORIKALKUM_T5_STYLE, NOT_ORIKALKUM_T4_STYLE, NOT_ORIKALKUM_T3_STYLE, NOT_ORIKALKUM_T2_STYLE, NOT_ORIKALKUM_T1_STYLE, NOT_ORIKALKUM_T0_STYLE)
+
+
+/*@ define:module:rune_ammo
+name: Rune Ammo
+subtitle: Bolts, not Lame Magic Spells
+*/
+
+/*@ define:input:rune_ammo
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Runite ore
+*/
+
+#define RUNE_AMMO_T0_STYLE \
+    color = "#ff5B8796"; \
+	menuTextColor = "#ff5B8796"; 
+
+
+/*@ define:input:rune_ammo
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Runite bar
+*/
+
+#define RUNE_AMMO_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#555B8796";\
+	menuTextColor = "#ff5B8796";\
+	textAccent = 3;
+
+/*@ define:input:rune_ammo
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Runite ore
+*/
+
+#define RUNE_AMMO_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#995B8796";\
+	menuTextColor = "#ff5B8796";\
+	textAccent = 3;
+
+/*@ define:input:rune_ammo
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Runite bar
+*/
+
+#define RUNE_AMMO_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#dd5B8796";\
+	menuTextColor = "#ff5B8796"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:rune_ammo
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Runite ore
+*/
+
+#define RUNE_AMMO_T4_STYLE \
+	backgroundColor = "#ff5B8796";\
+	menuTextColor = "#ff5B8796";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff5B8796";
+
+/*@ define:input:rune_ammo
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Runite bar
+*/
+
+#define RUNE_AMMO_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff5B8796";\
+	color = "#ff5B8796";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff5B8796";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff5B8796";
+
+VALUE_APPLYSET(["Runite bolts*", "Onyx bolts*", "Dragonstone bolts*", "Rune arrowtips", "Rune arrow*", "Rune dart tip", "Rune dart*", "Rune javelin heads","Rune javelin*", "rune knife*", "Rune thrownaxe"], RUNE_AMMO_T5_STYLE, RUNE_AMMO_T4_STYLE, RUNE_AMMO_T3_STYLE, RUNE_AMMO_T2_STYLE, RUNE_AMMO_T1_STYLE, RUNE_AMMO_T0_STYLE)
+
+/*@ define:module:rune_ammo
+name: Rune Ammo
+subtitle: Bolts, not Lame Magic Spells
+*/
+
+/*@ define:input:rune_ammo
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Rune arrow
+*/
+
+#define RUNE_AMMO_T0_STYLE \
+    color = "#ff5B8796"; \
+	menuTextColor = "#ff5B8796"; 
+
+
+/*@ define:input:rune_ammo
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Rune dart
+*/
+
+#define RUNE_AMMO_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#555B8796";\
+	menuTextColor = "#ff5B8796";\
+	textAccent = 3;
+
+/*@ define:input:rune_ammo
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Rune thrownaxe
+*/
+
+#define RUNE_AMMO_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#995B8796";\
+	menuTextColor = "#ff5B8796";\
+	textAccent = 3;
+
+/*@ define:input:rune_ammo
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Runite bolts
+*/
+
+#define RUNE_AMMO_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#dd5B8796";\
+	menuTextColor = "#ff5B8796"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:rune_ammo
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Dragonstone bolts (e)
+*/
+
+#define RUNE_AMMO_T4_STYLE \
+	backgroundColor = "#ff5B8796";\
+	menuTextColor = "#ff5B8796";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff5B8796";
+
+/*@ define:input:rune_ammo
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Onyx bolts (e)
+*/
+
+#define RUNE_AMMO_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff5B8796";\
+	color = "#ff5B8796";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff5B8796";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff5B8796";
+
+VALUE_APPLYSET(["Runite bolts*", "Onyx bolts*", "Dragonstone bolts*", "Rune arrowtips", "Rune arrow*", "Rune dart tip", "Rune dart*", "Rune javelin heads","Rune javelin*", "rune knife*", "Rune thrownaxe"], RUNE_AMMO_T5_STYLE, RUNE_AMMO_T4_STYLE, RUNE_AMMO_T3_STYLE, RUNE_AMMO_T2_STYLE, RUNE_AMMO_T1_STYLE, RUNE_AMMO_T0_STYLE)
+
+/*@ define:module:adamant_ammo
+name: adamant Ammo
+subtitle: Bolts, not Lame Magic Spells
+*/
+
+/*@ define:input:adamant_ammo
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Adamant arrow
+*/
+
+#define ADAMANT_AMMO_T0_STYLE \
+    color = "#ff506450"; \
+	menuTextColor = "#ff506450"; 
+
+
+/*@ define:input:adamant_ammo
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Adamant dart
+*/
+
+#define ADAMANT_AMMO_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#55506450";\
+	menuTextColor = "#ff506450";\
+	textAccent = 3;
+
+/*@ define:input:adamant_ammo
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Adamant thrownaxe
+*/
+
+#define ADAMANT_AMMO_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#99506450";\
+	menuTextColor = "#ff506450";\
+	textAccent = 3;
+
+/*@ define:input:adamant_ammo
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Adamant bolts
+*/
+
+#define ADAMANT_AMMO_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#dd506450";\
+	menuTextColor = "#ff506450"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:adamant_ammo
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Diamond bolts (e)
+*/
+
+#define ADAMANT_AMMO_T4_STYLE \
+	backgroundColor = "#ff506450";\
+	menuTextColor = "#ff506450";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff506450";
+
+/*@ define:input:adamant_ammo
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Ruby bolts (e)
+*/
+
+#define ADAMANT_AMMO_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff506450";\
+	color = "#ff506450";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff506450";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff506450";
+
+VALUE_APPLYSET(["Adamant bolts*", "Diamond bolts*", "Ruby bolts*", "Adamant arrowtips", "Adamant arrow*", "Adamant dart tip", "Adamant dart*", "Adamant javelin heads","Adamant javelin*", "Adamant knife*", "Adamant thrownaxe"], ADAMANT_AMMO_T5_STYLE, ADAMANT_AMMO_T4_STYLE, ADAMANT_AMMO_T3_STYLE, ADAMANT_AMMO_T2_STYLE, ADAMANT_AMMO_T1_STYLE, ADAMANT_AMMO_T0_STYLE)
+
+/*@ define:module:mithril_ammo
+name: mithril Ammo
+subtitle: Bolts, not Lame Magic Spells
+*/
+
+/*@ define:input:mithril_ammo
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Mithril arrow
+*/
+
+#define MITHRIL_AMMO_T0_STYLE \
+    color = "#ff4c4c70"; \
+	menuTextColor = "#ff4c4c70"; 
+
+
+/*@ define:input:mithril_ammo
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Mithril dart
+*/
+
+#define MITHRIL_AMMO_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#554c4c70";\
+	menuTextColor = "#ff4c4c70";\
+	textAccent = 3;
+
+/*@ define:input:mithril_ammo
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Mithril thrownaxe
+*/
+
+#define MITHRIL_AMMO_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#994c4c70";\
+	menuTextColor = "#ff4c4c70";\
+	textAccent = 3;
+
+/*@ define:input:mithril_ammo
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Mithril bolts
+*/
+
+#define MITHRIL_AMMO_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#dd4c4c70";\
+	menuTextColor = "#ff4c4c70"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:mithril_ammo
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Emerald bolts (e)
+*/
+
+#define MITHRIL_AMMO_T4_STYLE \
+	backgroundColor = "#ff4c4c70";\
+	menuTextColor = "#ff4c4c70";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff4c4c70";
+
+/*@ define:input:mithril_ammo
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Sapphire bolts (e)
+*/
+
+#define MITHRIL_AMMO_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff4c4c70";\
+	color = "#ff4c4c70";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff4c4c70";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff4c4c70";
+
+VALUE_APPLYSET(["Mithril bolts*", "Emerald bolts*", "Sapphire bolts*", "Mithril arrowtips", "Mithril arrow*", "Mithril dart tip", "Mithril dart*", "Mithril javelin heads","Mithril javelin*", "Mithril knife*", "Mithril thrownaxe"], MITHRIL_AMMO_T5_STYLE, MITHRIL_AMMO_T4_STYLE, MITHRIL_AMMO_T3_STYLE, MITHRIL_AMMO_T2_STYLE, MITHRIL_AMMO_T1_STYLE, MITHRIL_AMMO_T0_STYLE)
+
+
+/*@ define:module:steel_ammo
+name: steel Ammo
+subtitle: Bolts, not Lame Magic Spells
+*/
+
+/*@ define:input:steel_ammo
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Steel arrow
+*/
+
+#define STEEL_AMMO_T0_STYLE \
+    color = "#ff908686"; \
+	menuTextColor = "#ff908686"; 
+
+
+/*@ define:input:steel_ammo
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Steel dart
+*/
+
+#define STEEL_AMMO_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#554c4c70";\
+	menuTextColor = "#ff908686";\
+	textAccent = 3;
+
+/*@ define:input:steel_ammo
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Steel knife
+*/
+
+#define STEEL_AMMO_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#994c4c70";\
+	menuTextColor = "#ff908686";\
+	textAccent = 3;
+
+/*@ define:input:steel_ammo
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Steel thrownaxe
+*/
+
+#define STEEL_AMMO_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#dd4c4c70";\
+	menuTextColor = "#ff908686"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:steel_ammo
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Steel bolts
+*/
+
+#define STEEL_AMMO_T4_STYLE \
+	backgroundColor = "#ff908686";\
+	menuTextColor = "#ff908686";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff908686";
+
+/*@ define:input:steel_ammo
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Topaz bolts (e)
+*/
+
+#define STEEL_AMMO_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff908686";\
+	color = "#ff908686";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff908686";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff908686";
+
+VALUE_APPLYSET(["Steel bolts*", "Topaz bolts*", "Steel arrowtips", "Steel arrow*", "Steel dart tip", "Steel dart*", "Steel javelin heads","Steel javelin*", "Steel knife*", "Steel thrownaxe"], STEEL_AMMO_T5_STYLE, STEEL_AMMO_T4_STYLE, STEEL_AMMO_T3_STYLE, STEEL_AMMO_T2_STYLE, STEEL_AMMO_T1_STYLE, STEEL_AMMO_T0_STYLE)
+
+
+/*@ define:module:iron_ammo
+name: iron Ammo
+subtitle: Bolts, not Lame Magic Spells
+*/
+
+/*@ define:input:iron_ammo
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Iron arrow
+*/
+
+#define IRON_AMMO_T0_STYLE \
+    color = "#ff391D14"; \
+	menuTextColor = "#ff391D14"; 
+
+
+/*@ define:input:iron_ammo
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Iron dart
+*/
+
+#define IRON_AMMO_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#55391D14";\
+	menuTextColor = "#ff391D14";\
+	textAccent = 3;
+
+/*@ define:input:iron_ammo
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Iron knife
+*/
+
+#define IRON_AMMO_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#99391D14";\
+	menuTextColor = "#ff391D14";\
+	textAccent = 3;
+
+/*@ define:input:iron_ammo
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Iron thrownaxe
+*/
+
+#define IRON_AMMO_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#dd391D14";\
+	menuTextColor = "#ff391D14"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:iron_ammo
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Iron bolts
+*/
+
+#define IRON_AMMO_T4_STYLE \
+	backgroundColor = "#ff391D14";\
+	menuTextColor = "#ff391D14";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff391D14";
+
+/*@ define:input:iron_ammo
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Pearl bolts (e)
+*/
+
+#define IRON_AMMO_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff391D14";\
+	color = "#ff391D14";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff391D14";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff391D14";
+
+VALUE_APPLYSET(["Iron bolts*", "Pearl bolts*", "Iron arrowtips", "Iron arrow*", "Iron dart tip", "Iron dart*", "Iron javelin heads","Iron javelin*", "Iron knife*", "Iron thrownaxe"], IRON_AMMO_T5_STYLE, IRON_AMMO_T4_STYLE, IRON_AMMO_T3_STYLE, IRON_AMMO_T2_STYLE, IRON_AMMO_T1_STYLE, IRON_AMMO_T0_STYLE)
+
+
+/*@ define:module:silver_ammo
+name: silver Ammo
+subtitle: Bolts, not Lame Magic Spells
+*/
+
+/*@ define:input:silver_ammo
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Silver bolts
+*/
+
+#define SILVER_AMMO_T0_STYLE \
+    color = "#fa8a8b4"; \
+	menuTextColor = "#fa8a8b4"; 
+
+
+/*@ define:input:silver_ammo
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Silver bolts
+*/
+
+#define SILVER_AMMO_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#554c4c70";\
+	menuTextColor = "#ffa8a8b4";\
+	textAccent = 3;
+
+/*@ define:input:silver_ammo
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Silver bolts
+*/
+
+#define SILVER_AMMO_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#994c4c70";\
+	menuTextColor = "#ffa8a8b4";\
+	textAccent = 3;
+
+/*@ define:input:silver_ammo
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Silver bolts
+*/
+
+#define SILVER_AMMO_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#dd4c4c70";\
+	menuTextColor = "#ffa8a8b4"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:silver_ammo
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Silver bolts
+*/
+
+#define SILVER_AMMO_T4_STYLE \
+	backgroundColor = "#ffa8a8b4";\
+	menuTextColor = "#ffa8a8b4";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffa8a8b4";
+
+/*@ define:input:silver_ammo
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Silver bolts
+*/
+
+#define SILVER_AMMO_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffa8a8b4";\
+	color = "#ffa8a8b4";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffa8a8b4";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffa8a8b4";
+
+VALUE_APPLYSET(["Silver bolts*"], SILVER_AMMO_T5_STYLE, SILVER_AMMO_T4_STYLE, SILVER_AMMO_T3_STYLE, SILVER_AMMO_T2_STYLE, SILVER_AMMO_T1_STYLE, SILVER_AMMO_T0_STYLE)
+
+
+/*@ define:module:bronze_ammo
+name: bronze Ammo
+subtitle: Bolts, not Lame Magic Spells
+*/
+
+/*@ define:input:bronze_ammo
+label: Tier 0
+type: style
+group: Styles
+exampleItem: Bronze arrow
+*/
+
+#define BRONZE_AMMO_T0_STYLE \
+    color = "#ff5b462a"; \
+	menuTextColor = "#ff5b462a"; 
+
+
+/*@ define:input:bronze_ammo
+label: Tier 1
+type: style
+group: Styles
+exampleItem: Bronze dart
+*/
+
+#define BRONZE_AMMO_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#555b462a";\
+	menuTextColor = "#ff5b462a";\
+	textAccent = 3;
+
+/*@ define:input:bronze_ammo
+label: Tier 2
+type: style
+group: Styles
+exampleItem: Bronze knife
+*/
+
+#define BRONZE_AMMO_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#995b462a";\
+	menuTextColor = "#ff5b462a";\
+	textAccent = 3;
+
+/*@ define:input:bronze_ammo
+label: Tier 3
+type: style
+group: Styles
+exampleItem: Bronze thrownaxe
+*/
+
+#define BRONZE_AMMO_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#dd5b462a";\
+	menuTextColor = "#ff5b462a"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:bronze_ammo
+label: Tier 4
+type: style
+group: Styles
+exampleItem: Bronze bolts
+*/
+
+#define BRONZE_AMMO_T4_STYLE \
+	backgroundColor = "#ff5b462a";\
+	menuTextColor = "#ff5b462a";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff5b462a";
+
+/*@ define:input:bronze_ammo
+label: Tier 5
+type: style
+group: Styles
+exampleItem: Opal bolts (e)
+*/
+
+#define BRONZE_AMMO_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff5b462a";\
+	color = "#ff5b462a";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff5b462a";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff5b462a";
+
+VALUE_APPLYSET(["Bronze bolts*", "Pearl bolts*", "Bronze arrowtips", "Bronze arrow*", "Bronze dart tip", "Bronze dart*", "Bronze javelin heads","Bronze javelin*", "Bronze knife*", "Bronze thrownaxe"], BRONZE_AMMO_T5_STYLE, BRONZE_AMMO_T4_STYLE, BRONZE_AMMO_T3_STYLE, BRONZE_AMMO_T2_STYLE, BRONZE_AMMO_T1_STYLE, BRONZE_AMMO_T0_STYLE)
+
+
+
+/*@ define:module:bolt_tips
+name: Gem Tipped Bolts
+subtitle: Practical and Stylish
+*/
+
+/*@ define:input:bolt_tips
+label: Onyx
+type: style
+exampleItem: Onyx bolts (e)
+*/
+
+#define ONYX_BOLT_STYLE \
+	borderColor = "#ff000000";
+
+rule (name:"Onyx*bolts") {ONYX_BOLT_STYLE}
+rule (name:"Onyx*bolts (e)") {ONYX_BOLT_STYLE}
+
+/*@ define:input:bolt_tips
+label: Dragonstone
+type: style
+exampleItem: Dragonstone bolts (e)
+*/
+
+#define DRAGONSTONE_BOLT_STYLE \
+	borderColor = "#ffbb00ff";
+
+rule (name:"Dragonstone*bolts") {DRAGONSTONE_BOLT_STYLE}
+rule (name:"Dragonstone*bolts (e)") {DRAGONSTONE_BOLT_STYLE}
+
+/*@ define:input:bolt_tips
+label: Diamond
+type: style
+exampleItem: Diamond bolts (e)
+*/
+
+#define DIAMOND_BOLT_STYLE \
+	borderColor = "#ffffffff";
+
+rule (name:"Diamond*bolts") {DIAMOND_BOLT_STYLE}
+rule (name:"Diamond*bolts (e)") {DIAMOND_BOLT_STYLE}
+
+/*@ define:input:bolt_tips
+label: Ruby
+type: style
+exampleItem: Ruby bolts (e)
+*/
+
+#define RUBY_BOLT_STYLE \
+	borderColor = "#ffff0000";
+
+rule (name:"Ruby*bolts") {RUBY_BOLT_STYLE}
+rule (name:"Ruby*bolts (e)") {RUBY_BOLT_STYLE}
+
+
+/*@ define:input:bolt_tips
+label: Emerald
+type: style
+exampleItem: Emerald bolts (e)
+*/
+
+#define EMERALD_BOLT_STYLE \
+	borderColor = "#ff109014";
+
+rule (name:"Emerald*bolts") {EMERALD_BOLT_STYLE}
+rule (name:"Emerald*bolts (e)") {EMERALD_BOLT_STYLE}
+
+/*@ define:input:bolt_tips
+label: Sapphire
+type: style
+exampleItem: Sapphire bolts (e)
+*/
+
+#define SAPPHIRE_BOLT_STYLE \
+	borderColor = "#ff0000ff";
+
+rule (name:"Sapphire*bolts") {SAPPHIRE_BOLT_STYLE}
+rule (name:"Sapphire*bolts (e)") {SAPPHIRE_BOLT_STYLE}
+
+/*@ define:input:bolt_tips
+label: Topaz
+type: style
+exampleItem: Topaz bolts (e)
+*/
+
+#define TOPAZ_BOLT_STYLE \
+	borderColor = "#ffff00aa";
+
+rule (name:"Topaz*bolts") {TOPAZ_BOLT_STYLE}
+rule (name:"Topaz*bolts (e)") {TOPAZ_BOLT_STYLE}
+
+/*@ define:input:bolt_tips
+label: Jade
+type: style
+exampleItem: Jade bolts (e)
+*/
+
+#define JADE_BOLT_STYLE \
+	borderColor = "#ff8bd9b3";
+
+rule (name:"Jade*bolts") {JADE_BOLT_STYLE}
+rule (name:"Jade*bolts (e)") {JADE_BOLT_STYLE}
+
+/*@ define:input:bolt_tips
+label: Opal
+type: style
+exampleItem: Opal bolts (e)
+*/
+
+#define OPAL_BOLT_STYLE \
+	borderColor = "#ffbdd9d7";
+
+rule (name:"Opal*bolts") {OPAL_BOLT_STYLE}
+rule (name:"Opal*bolts (e)") {OPAL_BOLT_STYLE}
+rule (name:["*bolts", "*bolts(unf)"]) {}
 
 /*@ define:module:bones
 name: Bones
