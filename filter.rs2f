@@ -1164,6 +1164,195 @@ group: Hellhounds
 rule (area:[2728,9676,0,2748,9702,0] && name:HELLHOUND_WITCHAVEN_HIDE) {hidden = true;}
 
 /*@ define:input:slayer_pvm
+label: Hide Unnoted Bars
+type: boolean
+group: Mithril Dragons
+*/
+
+#define MITH_DRAGON_HIDE_BARS true
+
+rule (area:[1617,5322,1,1795,5362,1] && MITH_DRAGON_HIDE_BARS && name:"Mithril bar" && stackable:false) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Hide Items
+type: stringlist
+group: Mithril Dragons
+*/
+
+#define MITH_DRAGON_HIDE ["Superattack mix(2)","Super def. mix(2)","Super str. mix(2)"]
+
+rule (area:[1617,5322,1,1795,5362,1] && name:MITH_DRAGON_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Show Items
+type: stringlist
+group: Mithril Dragons
+*/
+
+#define MITH_DRAGON_SHOW []
+
+rule (area:[1617,5322,1,1795,5362,1] && name:MITH_DRAGON_SHOW) {hidden = false;}
+
+
+/*@ define:input:slayer_pvm
+label: Slayer Tower - Supply Drop
+type: enumlist
+enum: ["Tuna"]
+group: Mithril Dragons
+*/
+
+#define MITH_DRAGON_SUPPLY ["Shark", "Prayer mix(*)"]
+
+rule (area:[1617,5322,1,1795,5362,1] && name:MITH_DRAGON_HIDE) {SUPPLY_DROP_STYLE}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*@ define:input:slayer_pvm
+label: Slayer Tower - Hide Items
+type: stringlist
+group: Nechryaels
+*/
+
+#define NECHRYAEL_SLAYER_TOWER_HIDE ["Malicious ashes"]
+
+rule (area:[3431,3556,2,3556,3580,2] && name:NECHRYAEL_SLAYER_TOWER_HIDE) {hidden = true;}
+rule (area:[3400,9948,3,3434,9976,3] && name:NECHRYAEL_SLAYER_TOWER_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Slayer Tower - Show Items
+type: stringlist
+group: Nechryaels
+*/
+
+#define NECHRYAEL_SLAYER_TOWER_SHOW []
+
+rule (area:[3431,3556,2,3556,3580,2] && name:NECHRYAEL_SLAYER_TOWER_SHOW) {hidden = false;}
+rule (area:[3400,9948,3,3434,9976,3] && name:NECHRYAEL_SLAYER_TOWER_SHOW) {hidden = false;}
+
+/*@ define:input:slayer_pvm
+label: Slayer Tower - Supply Drop
+type: enumlist
+enum: ["Tuna"]
+group: Nechryaels
+*/
+
+#define NECHRYAEL_SLAYER_TOWER_SUPPLY ["Tuna"]
+
+rule (area:[3431,3556,2,3556,3580,2] && name:NECHRYAEL_SLAYER_TOWER_HIDE) {SUPPLY_DROP_STYLE}
+rule (area:[3400,9948,3,3434,9976,3] && name:NECHRYAEL_SLAYER_TOWER_HIDE) {SUPPLY_DROP_STYLE}
+
+/*@ define:input:slayer_pvm
+label: Catacombs of Kourend - Hide Items
+type: stringlist
+group: Greater Nechryaels
+*/
+
+#define NECHRYAEL_CATACOMBS_HIDE ["Adamant battleaxe", "Adamant Kiteshield", "Tuna", "lobster","Malicious ashes"]
+
+rule (area:[1685,10073,0,1714,10089,0] && name:NECHRYAEL_CATACOMBS_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Catacombs of Kourend - Show Items
+type: stringlist
+group: Greater Nechryaels
+*/
+
+#define NECHRYAEL_CATACOMBS_SHOW []
+
+rule (area:[1685,10073,0,1714,10089,0] && name:NECHRYAEL_CATACOMBS_SHOW) {hidden = false;}
+
+/*@ define:input:slayer_pvm
+label: Catacombs of Kourend - Supply Drop
+type: enumlist
+enum: ["Lobster","Tuna"]
+group: Greater Nechryaels
+*/
+
+#define NECHRYAEL_CATACOMBS_SUPPLY []
+
+rule (area:[1685,10073,0,1714,10089,0] && name:NECHRYAEL_CATACOMBS_HIDE) {SUPPLY_DROP_STYLE}
+
+
+/*@ define:input:slayer_pvm
+label: Iorwerth Dungeon - Hide Items
+type: stringlist
+group: Greater Nechryaels
+*/
+
+#define NECHRYAEL_IORWERTH_HIDE ["Malicious ashes"]
+
+rule (area:[3208,12407,0,3233,12432,0] && name:NECHRYAEL_IORWERTH_HIDE) {hidden = true;}
+rule (area:[3214,12448,0,3241,12478,0] && name:NECHRYAEL_IORWERTH_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Iorwerth Dungeon - Show Items
+type: stringlist
+group: Greater Nechryaels
+*/
+
+#define NECHRYAEL_IORWERTH_SHOW []
+
+rule (area:[3208,12407,0,3233,12432,0] && name:NECHRYAEL_IORWERTH_SHOW) {hidden = false;}
+rule (area:[3214,12448,0,3241,12478,0] && name:NECHRYAEL_IORWERTH_SHOW) {hidden = false;}
+
+/*@ define:input:slayer_pvm
+label: Iorwerth Dungeon - Supply Drop
+type: enumlist
+enum: ["Lobster","Tuna"]
+group: Greater Nechryaels
+*/
+
+#define NECHRYAEL_IORWERTH_SUPPLY ["Lobster","Tuna"]
+
+rule (area:[3208,12407,0,3233,12432,0] && name:NECHRYAEL_IORWERTH_HIDE) {SUPPLY_DROP_STYLE}
+rule (area:[3214,12448,0,3241,12478,0] && name:NECHRYAEL_IORWERTH_HIDE) {SUPPLY_DROP_STYLE}
+
+/*@ define:input:slayer_pvm
+label: Wilderness Slayer Cave - Hide Items
+type: stringlist
+group: Greater Nechryaels
+*/
+
+#define NECHRYAEL_WILDERNESS_HIDE ["Adamant battleaxe", "Adamant Kiteshield", "Tuna", "lobster","Malicious ashes"]
+
+rule (area:[3329,10096,0,3344,10120,0] && name:NECHRYAEL_WILDERNESS_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Wilderness Slayer Cave - Show Items
+type: stringlist
+group: Greater Nechryaels
+*/
+
+#define NECHRYAEL_WILDERNESS_SHOW []
+
+rule (area:[3329,10096,0,3344,10120,0] && name:NECHRYAEL_WILDERNESS_SHOW) {hidden = false;}
+
+/*@ define:input:slayer_pvm
+label: Wilderness Slayer Cave - Supply Drop
+type: enumlist
+enum: ["Lobster","Tuna","Blighted anglerfish","Blighted manta ray","Blighted karambwan","Blighted super restore(*)"]
+group: Greater Nechryaels
+*/
+
+#define NECHRYAEL_WILDERNESS_SUPPLY ["Blighted anglerfish","Blighted manta ray","Blighted karambwan","Blighted super restore(*)"]
+
+rule (area:[3329,10096,0,3344,10120,0] && name:NECHRYAEL_WILDERNESS_HIDE) {SUPPLY_DROP_STYLE}
+
+
+
+
+/*@ define:input:slayer_pvm
 label: Dragon Chainbody T3 Unique
 type: boolean
 group: Smoke Devils
@@ -4075,8 +4264,61 @@ group: Wintertodt
 
 #define WINTERTODT_SHOW []
 
-apply (area:[1607,3967,0,1654,4032,0] && name:WINTERTODT_HIDE) {hidden = false;}
+apply (area:[1607,3967,0,1654,4032,0] && name:WINTERTODT_SHOW) {hidden = false;}
 
+/*@ define:input:yama
+label: Unique T3
+type: enumlist
+group: Yama
+enum: ["Oathplate helm","Oathplate chest","Oathplate legs","Oathplate shards","Rite of vile transference","Soulflame horn","Dossier","Forgotten lockbox","contract of*"]
+*/
+
+#define YAMA_T3_UNIQUES ["Oathplate helm","Oathplate chest","Oathplate legs"]
+
+rule (name:YAMA_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:boss_pvm
+label: Unique T2
+type: enumlist
+group: Yama
+enum: ["Oathplate helm","Oathplate chest","Oathplate legs","Oathplate shards","Rite of vile transference","Soulflame horn","Dossier","Forgotten lockbox","contract of*"]
+*/
+
+#define YAMA_T2_UNIQUES ["Soulflame horn","Oathplate shards"] 
+
+rule (name:YAMA_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:boss_pvm
+label: Unique T1
+type: enumlist
+group: Yama
+enum: ["Oathplate helm","Oathplate chest","Oathplate legs","Oathplate shards","Rite of vile transference","Soulflame horn","Dossier","Forgotten lockbox","contract of*"]
+*/
+
+#define YAMA_T1_UNIQUES ["Dossier","Forgotten lockbox","contract of*", "Rite of vile transference"]
+
+rule (name:YAMA_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:input:boss_pvm
+label: Hide Items
+type: stringlist
+group: Yama
+*/
+
+#define YAMA_HIDE []
+
+rule (area:[1475,10053,1,1528,10106,1] && name:YAMA_HIDE) {hidden = true;}
+
+/*@ define:input:yama
+label: Supply Drop
+type: enumlist
+group: Yama
+enum: ["*Pineapple pizza","*Wild pie","Prayer potion(*)","Super combat potion(*)","Zamorak mix(*)","Super restore mix(*)"]
+*/
+
+#define YAMA_SUPPLY ["*Pineapple pizza","*Wild pie","Prayer potion(*)","Super restore mix(*)"]
+
+rule (area:[1475,10053,1,1528,10106,1] && name:YAMA_SUPPLY) {SUPPLY_DROP_STYLE}
 
 /*@ define:input:boss_pvm
 label: Enable Sound on MVP
@@ -6277,7 +6519,7 @@ type: stringlist
 group: Items
 */
 
-#define TELEPORT_NAMES ["*Teleport","Lizardman fang","Frozen tear","Bone fragments","Left skull half","Right skull half","Top of sceptre","Bottom of sceptre","Xeric's talisman (inert)","Giantsoul amulet (uncharged)"]
+#define TELEPORT_NAMES ["*Teleport*","Lizardman fang","Frozen tear","Bone fragments","Left skull half","Right skull half","Top of sceptre","Bottom of sceptre","Xeric's talisman (inert)","Giantsoul amulet (uncharged)"]
 
 /*@ define:input:teleports
 label: Style 1
@@ -6333,7 +6575,7 @@ type: stringlist
 group: Items
 */
 
-#define CHARGE_NAMES ["Zulrah's scales","Granite dust","Ancient essence","Lava scale*","Sunfire splinters","Araxyte venom sack","Crystal shard","Ancient shard","sapphire ring","ring of recoil","Revenant ether", "Soiled page", "Burnt page", "Soaked page", "Desiccated page", "Nihil shard", "Spirit flakes"]
+#define CHARGE_NAMES ["Zulrah's scales","Granite dust","Ancient essence","Lava scale*","Sunfire splinters","Araxyte venom sack","Crystal shard","Ancient shard","sapphire ring","ring of recoil","Revenant ether", "Soiled page", "Burnt page", "Soaked page", "Desiccated page", "Nihil shard", "Spirit flakes", "Aether catalyst"]
 
 /*@ define:input:charges
 label: Style 1
