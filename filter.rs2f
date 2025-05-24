@@ -182,6 +182,24 @@ group: User
 
 apply (name:HIDE_USER_UNNOTED && stackable:false)  {hidden=true;}
 
+/*@ define:input:hidden
+label: Minimum Value
+type: number
+group: User
+*/
+
+#define HIDE_USER_MINIMUM 0
+
+/*@ define:input:hidden
+label: Dont Hide if Under Minimum Value
+type: stringlist
+group: User
+*/
+
+#define HIDE_USER_MINIMUM_IGNORE []
+
+apply (value:<HIDE_USER_MINIMUM && !name:HIDE_USER_MINIMUM_IGNORE) {hidden=true;}
+
 
 /*@ define:input:hidden
 label: Bronze
