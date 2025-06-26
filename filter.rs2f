@@ -127,7 +127,7 @@ group: Drop Sounds
 #define TIER_4_SOUND "Tier4.wav"
 
 /*@ define:input:values
-type: text
+type: string
 label: Tier 5
 group: Drop Sounds
 */
@@ -191,7 +191,7 @@ group: User
 #define HIDE_USER_MINIMUM 0
 
 /*@ define:input:hidden
-label: Dont Hide if Under Minimum Value
+label: Show Under Minimum Value
 type: stringlist
 group: User
 */
@@ -199,6 +199,16 @@ group: User
 #define HIDE_USER_MINIMUM_IGNORE []
 
 apply (value:<HIDE_USER_MINIMUM && !name:HIDE_USER_MINIMUM_IGNORE) {hidden=true;}
+
+/*@ define:input:hidden
+label: Force Show Untradables
+type: boolean
+group: User
+*/
+
+#define FORCE_SHOW_UNTRADABLES true
+
+apply (FORCE_SHOW_UNTRADABLES && tradeable:false) {hidden=false;}
 
 
 /*@ define:input:hidden
