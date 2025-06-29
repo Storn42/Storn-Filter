@@ -208,7 +208,7 @@ group: User
 
 apply (value:<HIDE_USER_MINIMUM && !name:HIDE_USER_MINIMUM_IGNORE && !FORCE_SHOW_UNTRADABLES) {hidden=true;}
 
-apply (value:<HIDE_USER_MINIMUM && !name:HIDE_USER_MINIMUM_IGNORE && FORCE_SHOW_UNTRADABLES && tradeable:false) {hidden=true;}
+apply (value:<HIDE_USER_MINIMUM && !name:HIDE_USER_MINIMUM_IGNORE && FORCE_SHOW_UNTRADABLES && tradeable:true) {hidden=true;}
 
 
 /*@ define:input:hidden
