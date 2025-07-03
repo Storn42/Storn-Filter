@@ -4908,8 +4908,6 @@ exampleItem: Clue scroll (beginner)
 	backgroundColor = "#99333333"; \
 	borderColor = "#ffbf9bbf";
 
-rule (name:["Clue scroll (beginner)", "Clue bottle (beginner)", "Clue nest (beginner)", "Clue geode (beginner)"]) {CLUE_BEGINNER_STYLE}
-
 /*@ define:input:clues
 label: Easy Clue
 type: style
@@ -4992,11 +4990,13 @@ exampleItem: Clue scroll (hard)
 apply (id:CLUE_WILDERNESS_HARD_IDS || id:CLUE_WILDERNESS_ELITE_IDS) {CLUE_WILDERNESS_STYLE}
 apply (id:CLUE_REQUIREMENT_ID) {CLUE_REQUIREMENT_STYLE}
 
-rule (name:["Clue scroll (easy)", "Clue bottle (easy)", "Clue nest (easy)", "Clue geode (easy)"]) {CLUE_EASY_STYLE}
-rule (name:["Clue scroll (medium)", "Clue bottle (medium)", "Clue nest (medium)", "Clue geode (medium)"]) {CLUE_MEDIUM_STYLE}
-rule (name:["Clue scroll (hard)", "Clue bottle (hard)", "Clue nest (hard)", "Clue geode (hard)"]) {CLUE_HARD_STYLE}
-rule (name:["Clue scroll (elite)", "Clue bottle (elite)", "Clue nest (elite)", "Clue geode (elite)"]) {CLUE_ELITE_STYLE}
-rule (name:["Clue scroll (master)", "Clue bottle (master)", "Clue nest (master)", "Clue geode (master)"]) {CLUE_MASTER_STYLE}
+
+rule (name:["Clue scroll (beginner)", "Clue bottle (beginner)", "Clue nest (beginner)", "Clue geode (beginner)", "Scroll box (beginner)"]) {CLUE_BEGINNER_STYLE}
+rule (name:["Clue scroll (easy)", "Clue bottle (easy)", "Clue nest (easy)", "Clue geode (easy)", "Scroll box (easy)"]) {CLUE_EASY_STYLE}
+rule (name:["Clue scroll (medium)", "Clue bottle (medium)", "Clue nest (medium)", "Clue geode (medium)", "Scroll box (medium)"]) {CLUE_MEDIUM_STYLE}
+rule (name:["Clue scroll (hard)", "Clue bottle (hard)", "Clue nest (hard)", "Clue geode (hard)", "Scroll box (hard)"]) {CLUE_HARD_STYLE}
+rule (name:["Clue scroll (elite)", "Clue bottle (elite)", "Clue nest (elite)", "Clue geode (elite)", "Scroll box (elite)"]) {CLUE_ELITE_STYLE}
+rule (name:["Clue scroll (master)", "Clue bottle (master)", "Clue nest (master)", "Clue geode (master)", "Scroll box (master)"]) {CLUE_MASTER_STYLE}
 
 /*@ define:input:clues
 label: Beginner Casket
