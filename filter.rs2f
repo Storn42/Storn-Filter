@@ -5582,7 +5582,40 @@ group: Temple Trekking
 enum: ["Lumberjack hat","Lumberjack top","Lumberjack legs","Lumberjack boots"]
 */
 
-#define TEMPLE_TREKKING_T1_UNIQUES ["Lumberjack hat","Lumberjack top","Lumberjack legs","Lumberjack boots"]
+#define TEMPLE_TREKKING_T1_UNIQUES []
+
+rule (name:TEMPLE_TREKKING_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:input:mini_games
+label: Unique T3
+type: enumlist
+group: Vale Fletching
+enum: ["Fletching knife","Bow string spool", "Ent Branch", "Greenman mask"]
+*/
+
+#define VALE_FLETCHING_T3_UNIQUES []
+
+rule (name:VALE_FLETCHING_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:mini_games
+label: Unique T2
+type: enumlist
+group: Vale Fletching
+enum: ["Fletching knife","Bow string spool", "Ent Branch", "Greenman mask"]
+*/
+
+#define VALE_FLETCHING_T2_UNIQUES [] 
+
+rule (name:VALE_FLETCHING_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:mini_games
+label: Unique T1
+type: enumlist
+group: Vale Fletching
+enum: ["Fletching knife","Bow string spool", "Ent Branch", "Greenman mask"]
+*/
+
+#define TVALE_FLETCHING_T1_UNIQUES ["Fletching knife","Bow string spool", "Ent Branch", "Greenman mask"]
 
 rule (name:TEMPLE_TREKKING_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
