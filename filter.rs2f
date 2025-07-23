@@ -2201,7 +2201,7 @@ rule (area:[2889,4362,0,2937,4473,0] && name:DAGANNOTH_KINGS_SUPPLY) {SUPPLY_DRO
 label: Unique T3
 type: enumlist
 group: Doom of Mokhaiotl
-enum: ["*Avernic treads*", "Eye of ayak*", "Confliction Gauntlets", "Mokhaiotl waystone", "Mokhaiotl cloth", "Demon tear"]
+enum: ["*Avernic treads*", "Eye of ayak*", "Confliction Gauntlets", "Mokhaiotl waystone", "Mokhaiotl cloth"]
 */
 
 #define DOOM_OF_MOKHAIOTL_T3_UNIQUES ["Avernic treads", "Eye of ayak*", "Confliction gauntlets", "Mokhaiotl cloth"]
@@ -2212,7 +2212,7 @@ rule (name:DOOM_OF_MOKHAIOTL_T3_UNIQUES) {UNIQUE_T3_STYLE}
 label: Unique T2
 type: enumlist
 group: Doom of Mokhaiotl
-enum: ["*Avernic treads*", "Eye of ayak*", "Confliction Gauntlets", "Mokhaiotl waystone", "Mokhaiotl cloth", "Demon tear"]
+enum: ["*Avernic treads*", "Eye of ayak*", "Confliction Gauntlets", "Mokhaiotl waystone", "Mokhaiotl cloth"]
 */
 
 #define DOOM_OF_MOKHAIOTL_T2_UNIQUES ["Mokhaiotl waystone"] 
@@ -2223,10 +2223,10 @@ rule (name:DOOM_OF_MOKHAIOTL_T2_UNIQUES) {UNIQUE_T2_STYLE}
 label: Unique T1
 type: enumlist
 group: Doom of Mokhaiotl
-enum: ["*Avernic treads*", "Eye of ayak*", "Confliction Gauntlets", "Mokhaiotl waystone", "Mokhaiotl cloth", "Demon tear"]
+enum: ["*Avernic treads*", "Eye of ayak*", "Confliction Gauntlets", "Mokhaiotl waystone", "Mokhaiotl cloth"]
 */
 
-#define DOOM_OF_MOKHAIOTL_T1_UNIQUES ["Demon tear"]
+#define DOOM_OF_MOKHAIOTL_T1_UNIQUES []
 
 rule (name:DOOM_OF_MOKHAIOTL_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
@@ -6656,7 +6656,7 @@ type: stringlist
 group: Items
 */
 
-#define CHARGE_NAMES ["Zulrah's scales","Granite dust","Ancient essence","Lava scale*","Sunfire splinters","Araxyte venom sack","Crystal shard","Ancient shard","sapphire ring","ring of recoil","Revenant ether", "Soiled page", "Burnt page", "Soaked page", "Desiccated page", "Nihil shard", "Spirit flakes", "Aether catalyst"]
+#define CHARGE_NAMES ["Zulrah's scales","Granite dust","Ancient essence","Lava scale*","Sunfire splinters","Araxyte venom sack","Crystal shard","Ancient shard","sapphire ring","ring of recoil","Revenant ether", "Soiled page", "Burnt page", "Soaked page", "Desiccated page", "Nihil shard", "Spirit flakes", "Aether catalyst", "Demon tear"]
 
 /*@ define:input:charges
 label: Style 1
