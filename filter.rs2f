@@ -1233,19 +1233,6 @@ group: Mithril Dragons
 
 rule (area:[1617,5322,1,1795,5362,1] && name:MITH_DRAGON_HIDE) {SUPPLY_DROP_STYLE}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*@ define:input:slayer_pvm
 label: Slayer Tower - Hide Items
 type: stringlist
@@ -2209,6 +2196,39 @@ enum: ["Bass", "Swordfish", "Shark"]
 #define DAGANNOTH_KINGS_SUPPLY ["Swordfish", "Shark"]
 
 rule (area:[2889,4362,0,2937,4473,0] && name:DAGANNOTH_KINGS_SUPPLY) {SUPPLY_DROP_STYLE}
+
+/*@ define:input:boss_pvm
+label: Unique T3
+type: enumlist
+group: Doom of Mokhaiotl
+enum: ["*Avernic treads*", "eye of ayak", "Confliction Gauntlets"]
+*/
+
+#define DOOM_OF_MOKHAIOTL_T3_UNIQUES ["Avernic treads", "Eye of ayak", "Confliction gauntlets"]
+
+rule (name:DOOM_OF_MOKHAIOTL_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:boss_pvm
+label: Unique T2
+type: enumlist
+group: Doom of Mokhaiotl
+enum: ["*Avernic treads*", "eye of ayak", "Confliction Gauntlets"]
+*/
+
+#define DOOM_OF_MOKHAIOTL_T2_UNIQUES [] 
+
+rule (name:DOOM_OF_MOKHAIOTL_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:boss_pvm
+label: Unique T1
+type: enumlist
+group: Doom of Mokhaiotl
+enum: ["*Avernic treads*", "eye of ayak", "Confliction Gauntlets"]
+*/
+
+#define DOOM_OF_MOKHAIOTL_T1_UNIQUES []
+
+rule (name:DOOM_OF_MOKHAIOTL_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 /*@ define:input:boss_pvm
 label: Enable Sound on Perfect Kill
@@ -6026,7 +6046,7 @@ rule (name:SHAYZIEN_ARMOUR_T1_UNIQUES) {UNIQUE_T1_STYLE}
 label: Unique T3
 type: enumlist
 group: Slayer Uniques
-enum: ["Crawling hand","Cockatrice head","Basilisk head","Kurask head","Imbued heart","Eternal gem","Dust battlestaff","Mist battlestaff","Mudskipper hat","Flippers","Brine sabre","Leaf-bladed sword","Leaf-bladed battleaxe","Black mask","Granite longsword","Granite boots","Wyvern visage","Granite legs","Granite helm","Bronze boots","Iron boots","Steel boots","Black boots","Mithril boots","Adamant boots","Rune boots","Dragon boots","Dark bow","Dragon sword","Broken dragon hasta","Drake's tooth","Drake's claw","Mystic hat (light)","Mystic robe top (light)","Mystic robe bottom (light)","Mystic gloves (light)","Mystic boots (light)","Mystic hat (dark)","Mystic robe top (dark)","Mystic robe bottom (dark)","Mystic gloves (dark)","Mystic boots (dark)","Mystic hat (dusk)","Mystic robe top (dusk)","Mystic robe bottom (dusk)","Mystic gloves (dusk)","Mystic boots (dusk)","Basilisk jaw","Dagon'hai hat","Dagon'hai robe top","Dagon'hai robe bottom","Blood shard","Ancient ceremonial mask","Ancient ceremonial top","Ancient ceremonial legs","Ancient ceremonial gloves","Ancient ceremonial boots","Warped sceptre","Sulphur blades","Teleport anchoring scroll","Aranea boots"]
+enum: ["Crawling hand","Cockatrice head","Basilisk head","Kurask head","Imbued heart","Eternal gem","Dust battlestaff","Mist battlestaff","Mudskipper hat","Flippers","Brine sabre","Leaf-bladed sword","Leaf-bladed battleaxe","Black mask","Granite longsword","Granite boots","Wyvern visage","Granite legs","Granite helm","Bronze boots","Iron boots","Steel boots","Black boots","Mithril boots","Adamant boots","Rune boots","Dragon boots","Dark bow","Dragon sword","Broken dragon hasta","Drake's tooth","Drake's claw","Mystic hat (light)","Mystic robe top (light)","Mystic robe bottom (light)","Mystic gloves (light)","Mystic boots (light)","Mystic hat (dark)","Mystic robe top (dark)","Mystic robe bottom (dark)","Mystic gloves (dark)","Mystic boots (dark)","Mystic hat (dusk)","Mystic robe top (dusk)","Mystic robe bottom (dusk)","Mystic gloves (dusk)","Mystic boots (dusk)","Basilisk jaw","Dagon'hai hat","Dagon'hai robe top","Dagon'hai robe bottom","Blood shard","Ancient ceremonial mask","Ancient ceremonial top","Ancient ceremonial legs","Ancient ceremonial gloves","Ancient ceremonial boots","Warped sceptre","Sulphur blades","Teleport anchoring scroll","Aranea boots", "Earthbound tecpatl","Antler guard"]
 */
 
 #define SLAYER_T3_UNIQUES ["Imbued heart","Eternal gem","Basilisk jaw"]
@@ -6037,7 +6057,7 @@ rule (name:SLAYER_T3_UNIQUES) {UNIQUE_T3_STYLE}
 label: Unique T2
 type: enumlist
 group: Slayer Uniques
-enum: ["Crawling hand","Cockatrice head","Basilisk head","Kurask head","Imbued heart","Eternal gem","Dust battlestaff","Mist battlestaff","Mudskipper hat","Flippers","Brine sabre","Leaf-bladed sword","Leaf-bladed battleaxe","Black mask","Granite longsword","Granite boots","Wyvern visage","Granite legs","Granite helm","Bronze boots","Iron boots","Steel boots","Black boots","Mithril boots","Adamant boots","Rune boots","Dragon boots","Dark bow","Dragon sword","Broken dragon hasta","Drake's tooth","Drake's claw","Mystic hat (light)","Mystic robe top (light)","Mystic robe bottom (light)","Mystic gloves (light)","Mystic boots (light)","Mystic hat (dark)","Mystic robe top (dark)","Mystic robe bottom (dark)","Mystic gloves (dark)","Mystic boots (dark)","Mystic hat (dusk)","Mystic robe top (dusk)","Mystic robe bottom (dusk)","Mystic gloves (dusk)","Mystic boots (dusk)","Basilisk jaw","Dagon'hai hat","Dagon'hai robe top","Dagon'hai robe bottom","Blood shard","Ancient ceremonial mask","Ancient ceremonial top","Ancient ceremonial legs","Ancient ceremonial gloves","Ancient ceremonial boots","Warped sceptre","Sulphur blades","Teleport anchoring scroll","Aranea boots"]
+enum: ["Crawling hand","Cockatrice head","Basilisk head","Kurask head","Imbued heart","Eternal gem","Dust battlestaff","Mist battlestaff","Mudskipper hat","Flippers","Brine sabre","Leaf-bladed sword","Leaf-bladed battleaxe","Black mask","Granite longsword","Granite boots","Wyvern visage","Granite legs","Granite helm","Bronze boots","Iron boots","Steel boots","Black boots","Mithril boots","Adamant boots","Rune boots","Dragon boots","Dark bow","Dragon sword","Broken dragon hasta","Drake's tooth","Drake's claw","Mystic hat (light)","Mystic robe top (light)","Mystic robe bottom (light)","Mystic gloves (light)","Mystic boots (light)","Mystic hat (dark)","Mystic robe top (dark)","Mystic robe bottom (dark)","Mystic gloves (dark)","Mystic boots (dark)","Mystic hat (dusk)","Mystic robe top (dusk)","Mystic robe bottom (dusk)","Mystic gloves (dusk)","Mystic boots (dusk)","Basilisk jaw","Dagon'hai hat","Dagon'hai robe top","Dagon'hai robe bottom","Blood shard","Ancient ceremonial mask","Ancient ceremonial top","Ancient ceremonial legs","Ancient ceremonial gloves","Ancient ceremonial boots","Warped sceptre","Sulphur blades","Teleport anchoring scroll","Aranea boots", "Earthbound tecpatl", "Antler guard"]
 */
 
 #define SLAYER_T2_UNIQUES ["Dust battlestaff","Mist battlestaff","Black mask","Dragon boots","Dark bow","Broken dragon hasta","Drake's tooth","Drake's claw","Mystic hat (dusk)","Mystic robe top (dusk)","Mystic robe bottom (dusk)","Mystic gloves (dusk)","Mystic boots (dusk)","Dagon'hai hat","Dagon'hai robe top","Dagon'hai robe bottom","Blood shard","Teleport anchoring scroll","Aranea boots"] 
@@ -6048,10 +6068,10 @@ rule (name:SLAYER_T2_UNIQUES) {UNIQUE_T2_STYLE}
 label: Unique T1
 type: enumlist
 group: Slayer Uniques
-enum: ["Crawling hand","Cockatrice head","Basilisk head","Kurask head","Imbued heart","Eternal gem","Dust battlestaff","Mist battlestaff","Mudskipper hat","Flippers","Brine sabre","Leaf-bladed sword","Leaf-bladed battleaxe","Black mask","Granite longsword","Granite boots","Wyvern visage","Granite legs","Granite helm","Bronze boots","Iron boots","Steel boots","Black boots","Mithril boots","Adamant boots","Rune boots","Dragon boots","Dark bow","Dragon sword","Broken dragon hasta","Drake's tooth","Drake's claw","Mystic hat (light)","Mystic robe top (light)","Mystic robe bottom (light)","Mystic gloves (light)","Mystic boots (light)","Mystic hat (dark)","Mystic robe top (dark)","Mystic robe bottom (dark)","Mystic gloves (dark)","Mystic boots (dark)","Mystic hat (dusk)","Mystic robe top (dusk)","Mystic robe bottom (dusk)","Mystic gloves (dusk)","Mystic boots (dusk)","Basilisk jaw","Dagon'hai hat","Dagon'hai robe top","Dagon'hai robe bottom","Blood shard","Ancient ceremonial mask","Ancient ceremonial top","Ancient ceremonial legs","Ancient ceremonial gloves","Ancient ceremonial boots","Warped sceptre","Sulphur blades","Teleport anchoring scroll","Aranea boots"]
+enum: ["Crawling hand","Cockatrice head","Basilisk head","Kurask head","Imbued heart","Eternal gem","Dust battlestaff","Mist battlestaff","Mudskipper hat","Flippers","Brine sabre","Leaf-bladed sword","Leaf-bladed battleaxe","Black mask","Granite longsword","Granite boots","Wyvern visage","Granite legs","Granite helm","Bronze boots","Iron boots","Steel boots","Black boots","Mithril boots","Adamant boots","Rune boots","Dragon boots","Dark bow","Dragon sword","Broken dragon hasta","Drake's tooth","Drake's claw","Mystic hat (light)","Mystic robe top (light)","Mystic robe bottom (light)","Mystic gloves (light)","Mystic boots (light)","Mystic hat (dark)","Mystic robe top (dark)","Mystic robe bottom (dark)","Mystic gloves (dark)","Mystic boots (dark)","Mystic hat (dusk)","Mystic robe top (dusk)","Mystic robe bottom (dusk)","Mystic gloves (dusk)","Mystic boots (dusk)","Basilisk jaw","Dagon'hai hat","Dagon'hai robe top","Dagon'hai robe bottom","Blood shard","Ancient ceremonial mask","Ancient ceremonial top","Ancient ceremonial legs","Ancient ceremonial gloves","Ancient ceremonial boots","Warped sceptre","Sulphur blades","Teleport anchoring scroll","Aranea boots","Earthbound tecpatl","Antler guard"]
 */
 
-#define SLAYER_T1_UNIQUES ["Crawling hand","Cockatrice head","Basilisk head","Kurask head","Mudskipper hat","Flippers","Brine sabre","Leaf-bladed sword","Leaf-bladed battleaxe","Granite longsword","Granite boots","Wyvern visage","Granite legs","Granite helm","Bronze boots","Iron boots","Steel boots","Black boots","Mithril boots","Adamant boots","Dragon sword","Mystic hat (light)","Mystic robe top (light)","Mystic robe bottom (light)","Mystic gloves (light)","Mystic boots (light)","Mystic hat (dark)","Mystic robe top (dark)","Mystic robe bottom (dark)","Mystic gloves (dark)","Mystic boots (dark)","Ancient ceremonial mask","Ancient ceremonial top","Ancient ceremonial legs","Ancient ceremonial gloves","Ancient ceremonial boots","Warped sceptre","Sulphur blades"]
+#define SLAYER_T1_UNIQUES ["Crawling hand","Cockatrice head","Basilisk head","Kurask head","Mudskipper hat","Flippers","Brine sabre","Leaf-bladed sword","Leaf-bladed battleaxe","Granite longsword","Granite boots","Wyvern visage","Granite legs","Granite helm","Bronze boots","Iron boots","Steel boots","Black boots","Mithril boots","Adamant boots","Dragon sword","Mystic hat (light)","Mystic robe top (light)","Mystic robe bottom (light)","Mystic gloves (light)","Mystic boots (light)","Mystic hat (dark)","Mystic robe top (dark)","Mystic robe bottom (dark)","Mystic gloves (dark)","Mystic boots (dark)","Ancient ceremonial mask","Ancient ceremonial top","Ancient ceremonial legs","Ancient ceremonial gloves","Ancient ceremonial boots","Warped sceptre","Sulphur blades","Earthbound tecpatl","Antler guard"]
 
 rule (name:SLAYER_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
