@@ -3070,7 +3070,7 @@ enum: ["Super attack(*)", "Super strength(*)", "Super restore(*)", "Zamorak brew
 rule (area:[2917,5317,2,2942,5333,2] && name:KRIL_TSUTSAROTH_SUPPLY) {SUPPLY_DROP_STYLE}
 
 /*@ define:input:boss_pvm
-label: Enable Sound
+label: Enable Sound on Perfect Kill
 type: boolean
 group: The Leviathan
 */
