@@ -2239,6 +2239,44 @@ group: Duke Sucellus
 #define ENABLE_DUKE_SUCELLUS_PERFECT true
 
 /*@ define:input:boss_pvm
+label: Override Value Drop Sound (T3+)
+type: boolean
+group: Duke Sucellus
+*/
+
+#define ENABLE_DUKE_SUCELLUS_PERFECT_OVERRIDE false
+
+/*@ define:input:boss_pvm
+label: Gold Ring T3 Unique
+type: boolean
+group: Duke Sucellus
+*/
+
+#define ENABLE_DUKE_SUCELLUS_GOLDRING_T3 true
+
+rule (area:[3027,6433,0,3052,6459,0] && ENABLE_DUKE_SUCELLUS_GOLDRING_T3 && name:"Gold ring") {UNIQUE_T3_STYLE}
+
+/*@ define:input:boss_pvm
+label: Gold Ring T2 Unique
+type: boolean
+group: Duke Sucellus
+*/
+
+#define ENABLE_DUKE_SUCELLUS_GOLDRING_T2 false
+
+rule (area:[3027,6433,0,3052,6459,0] && ENABLE_DUKE_SUCELLUS_GOLDRING_T3 && name:"Gold ring") {UNIQUE_T2_STYLE}
+
+/*@ define:input:boss_pvm
+label: Gold Ring T1 Unique
+type: boolean
+group: Duke Sucellus
+*/
+
+#define ENABLE_DUKE_SUCELLUS_GOLDRING_T1 false
+
+rule (area:[3027,6433,0,3052,6459,0] && ENABLE_DUKE_SUCELLUS_GOLDRING_T3 && name:"Gold ring") {UNIQUE_T1_STYLE}
+
+/*@ define:input:boss_pvm
 label: Sound ID
 type: number
 group: Duke Sucellus
@@ -2246,13 +2284,6 @@ group: Duke Sucellus
 
 #define DUKE_SUCELLUS_PERFECT_SOUND 3018
 
-/*@ define:input:boss_pvm
-label: Override Value Drop Sound (T3+)
-type: boolean
-group: Duke Sucellus
-*/
-
-#define ENABLE_DUKE_SUCELLUS_PERFECT_OVERRIDE false
 
 apply (area:[3027,6433,0,3052,6459,0] && ENABLE_DUKE_SUCELLUS_PERFECT && (ENABLE_DUKE_SUCELLUS_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Bronze chainbody" && quantity:==17) || (name:"Mithril chainbody" && quantity:==7) || (name:"Adamant chainbody" && quantity:==7) || (name:"Dragon platelegs" && quantity:==7) || (name:"Coal" && quantity:==325) || (name: "Adamantite ore" && quantity:==112) || (name:"Rune javelin heads" && quantity:== 90) || (name:"Dragon javelin heads" && quantity:== 90) || (name:"Uncut ruby" && quantity:== 62) || (name:"Uncut diamond" && quantity:== 62) || (name:"Runite ore" && quantity:==45) || (name:"Dragon arrowtips" && quantity:==250) || (name:"Pure essence" && quantity:==300) || (name:"Iron ore" && quantity:==95) || (name:"Mithril ore" && quantity:==50) || (name:"Sapphire" && quantity:==42) || (name:"Emerald" && quantity:==42) || (name:"Ruby" && quantity:==42) || (name:"Bronze bar" && quantity:==95) || (name:"Raw sea turtle" && quantity:==300) || (name:"Chaos rune" && quantity:==150) || (name:"Mist rune" && quantity:==150) || (name:"Soul rune" && quantity:==1000) || (name:"Air rune" && quantity:==300))) {sound=DUKE_SUCELLUS_PERFECT_SOUND;}
 
@@ -2263,6 +2294,14 @@ group: Duke Sucellus
 */
 
 #define DUKE_SUCELLUS_IGNORE []
+
+/*@ define:input:boss_pvm
+label: Ignore Me
+type: stringlist
+group: Duke Sucellus
+*/
+
+#define DUKE_SUCELLUS_IGNORE2 []
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -3047,6 +3086,37 @@ group: The Leviathan
 #define ENABLE_LEVIATHAN_PERFECT_OVERRIDE false
 
 /*@ define:input:boss_pvm
+label: Gold Ring T3 Unique
+type: boolean
+group: The Leviathan
+*/
+
+#define ENABLE_LEVIATHAN_GOLDRING_T3 true
+
+rule (area:[3027,6433,0,3052,6459,0] && ENABLE_LEVIATHAN_GOLDRING_T3 && name:"Gold ring") {UNIQUE_T3_STYLE}
+
+/*@ define:input:boss_pvm
+label: Gold Ring T2 Unique
+type: boolean
+group: The Leviathan
+*/
+
+#define ENABLE_LEVIATHAN_GOLDRING_T2 false
+
+rule (area:[3027,6433,0,3052,6459,0] && ENABLE_LEVIATHAN_GOLDRING_T3 && name:"Gold ring") {UNIQUE_T2_STYLE}
+
+/*@ define:input:boss_pvm
+label: Gold Ring T1 Unique
+type: boolean
+group: The Leviathan
+*/
+
+#define ENABLE_LEVIATHAN_GOLDRING_T1 false
+
+rule (area:[3027,6433,0,3052,6459,0] && ENABLE_LEVIATHAN_GOLDRING_T3 && name:"Gold ring") {UNIQUE_T1_STYLE}
+
+
+/*@ define:input:boss_pvm
 label: Sound ID
 type: number
 group: The Leviathan
@@ -3064,6 +3134,14 @@ group: The Leviathan
 */
 
 #define LEVIATHAN_IGNORE []
+
+/*@ define:input:boss_pvm
+label: Ignore Me
+type: stringlist
+group: The Leviathan
+*/
+
+#define LEVIATHAN_IGNORE2 []
 
 
 /*@ define:input:boss_pvm
@@ -3880,6 +3958,35 @@ group: Vardorvis
 
 apply (area:[1114,3407,0,1142,3434,0] && ENABLE_VARDORVIS_PERFECT && (ENABLE_VARDORVIS_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Coal" && quantity:==195) || (name:"Adamantite ore" && quantity:==67) || (name:"Rune javelin heads" && quantity:==54) || (name:"Dragon javelin heads" && quantity:==54) || (name:"Uncut ruby" && quantity:==37) || (name:"Uncut diamond" && quantity:==37) || (name:"Runite ore" && quantity:==27) || (name:"Dragon dart tip" && quantity:==150) || (name:"Pure essence" && quantity:==180) || (name:"Iron ore" && quantity:==57) || (name:"Silver ore" && quantity:==57) || (name:"Mithril ore" && quantity:==57) || (name:"Sapphire" && quantity:==25) || (name:"Emerald" && quantity:==25) || (name:"Ruby" && quantity:==25) || (name:"Raw shark" && quantity:==300) || (name:"Lava rune" && quantity:==300) || (name:"Blood rune" && quantity:==300) || (name:"Soul rune" && quantity:==600) || (name:"Bronze javelin" && quantity:==63) || (name:"Mithril javelin" && quantity:==63) || (name:"Adamant javelin" && quantity:==63) || (name:"Onyx bolts (e)" && quantity:==90) || (name:"Mind rune" && quantity:==180) || (name:"Fire rune" && quantity:==180))) {sound=VARDORVIS_PERFECT_SOUND;}
 
+/*@ define:input:boss_pvm
+label: Gold Ring T3 Unique
+type: boolean
+group: Vardorvis
+*/
+
+#define ENABLE_VARDORVIS_GOLDRING_T3 true
+
+rule (area:[1114,3407,0,1142,3434,0] && ENABLE_VARDORVIS_GOLDRING_T3 && name:"Gold ring") {UNIQUE_T3_STYLE}
+
+/*@ define:input:boss_pvm
+label: Gold Ring T2 Unique
+type: boolean
+group: Vardorvis
+*/
+
+#define ENABLE_VARDORVIS_GOLDRING_T2 false
+
+rule (area:[1114,3407,0,1142,3434,0] && ENABLE_VARDORVIS_GOLDRING_T3 && name:"Gold ring") {UNIQUE_T2_STYLE}
+
+/*@ define:input:boss_pvm
+label: Gold Ring T1 Unique
+type: boolean
+group: Vardorvis
+*/
+
+#define ENABLE_VARDORVIS_GOLDRING_T1 false
+
+rule (area:[1114,3407,0,1142,3434,0] && ENABLE_VARDORVIS_GOLDRING_T3 && name:"Gold ring") {UNIQUE_T1_STYLE}
 
 /*@ define:input:boss_pvm
 label: Ignore Me
@@ -3888,6 +3995,14 @@ group: Vardorvis
 */
 
 #define VARDORVIS_IGNORE []
+
+/*@ define:input:boss_pvm
+label: Ignore Me
+type: stringlist
+group: Vardorvis
+*/
+
+#define VARDORVIS_IGNORE2 []
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -3921,7 +4036,6 @@ enum: ["Ultor vestige","Ultor icon", "Ultor ring","Executioner's axe head","Stra
 #define VARDORVIS_T1_UNIQUES ["Blood quartz"]
 
 rule (name:VARDORVIS_T1_UNIQUES) {UNIQUE_T1_STYLE}
-
 
 /*@ define:input:boss_pvm
 label: Hide Items
@@ -4184,6 +4298,36 @@ group: The Whisperer
 
 #define ENABLE_WHISPERER_PERFECT_OVERRIDE false
 
+/*@ define:input:boss_pvm
+label: Gold Ring T3 Unique
+type: boolean
+group: The Whisperer
+*/
+
+#define ENABLE_WHISPERER_GOLDRING_T3 true
+
+rule (area:[2370,6338,0,2429,6397,0] && ENABLE_WHISPERER_GOLDRING_T3 && name:"Gold ring") {UNIQUE_T3_STYLE}
+
+/*@ define:input:boss_pvm
+label: Gold Ring T2 Unique
+type: boolean
+group: The Whisperer
+*/
+
+#define ENABLE_WHISPERER_GOLDRING_T2 false
+
+rule (area:[2370,6338,0,2429,6397,0] && ENABLE_WHISPERER_GOLDRING_T3 && name:"Gold ring") {UNIQUE_T2_STYLE}
+
+/*@ define:input:boss_pvm
+label: Gold Ring T1 Unique
+type: boolean
+group: The Whisperer
+*/
+
+#define ENABLE_WHISPERER_GOLDRING_T1 false
+
+rule (area:[2370,6338,0,2429,6397,0] && ENABLE_WHISPERER_GOLDRING_T3 && name:"Gold ring") {UNIQUE_T1_STYLE}
+
 /*@ define:input:whisperer
 label: Sound ID
 type: number
@@ -4203,6 +4347,14 @@ group: The Whisperer
 */
 
 #define WHISPERER_IGNORE []
+
+/*@ define:input:whisperer
+label: Ignore Me
+type: stringlist
+group: The Whisperer
+*/
+
+#define WHISPERER_IGNORE2 []
 
 /*@ define:input:whisperer
 label: Unique T3
