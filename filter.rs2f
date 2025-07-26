@@ -13994,7 +13994,7 @@ VALUE_RULESET(ENSOULED_HEADS_NAMES, ENSOULED_HEADS_T5_STYLE, ENSOULED_HEADS_T4_S
 
 /*@ define:module:fallback
 name: Fallback Tier Styles
-subtitle: For Ttems that haven't been Changed by Other Catagories
+subtitle: For Items that haven't been Changed by Other Catagories
 description: If you find anything 
 */
 
