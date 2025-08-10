@@ -2512,6 +2512,15 @@ enum: ["Super restore(*)", "Shark", "Chilli potato"]
 
 rule (area:[2863,5350,2,2878,5374,2] && name:GENERAL_GRAARDOR_SUPPLY) {SUPPLY_DROP_STYLE}
 
+/*@ define:input:boss_pvm
+label: Show Hammer
+type: boolean
+group: General Graardor
+*/
+
+#define ENABLE_GENERAL_GRAARDOR_HAMMER true
+
+apply (area:[2848,5316,2,2883,5348,2] && name:["hammer"] && ENABLE_GENERAL_GRAARDOR_HAMMER) {hidden=false;}
 
 /*@ define:input:boss_pvm
 label: Bones to Peaches
