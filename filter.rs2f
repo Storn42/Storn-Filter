@@ -2497,7 +2497,7 @@ type: stringlist
 group: General Graardor
 */
 
-#define GENERAL_GRAARDOR_HIDE []
+#define GENERAL_GRAARDOR_HIDE ["Right eye patch"]
 
 rule (area:[2863,5350,2,2878,5374,2] && name:GENERAL_GRAARDOR_HIDE) {hidden = true;}
 
