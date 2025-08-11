@@ -4582,8 +4582,6 @@ group: Zalcano
 
 #define ZALCANO_IGNORE []
 
-
-
 /*@ define:input:boss_pvm
 label: Unique T3
 type: enumlist
@@ -4989,7 +4987,7 @@ type: boolean
 group: MVP
 */
 
-#define ENBALE_TOA_MVP true
+#define ENABLE_TOA_MVP true
 
 /*@ define:input:toa
 label: Sound ID
