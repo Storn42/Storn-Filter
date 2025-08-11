@@ -11,8 +11,35 @@ meta {
 /*@ define:module:greetings
 name: Greetings
 subtitle: Welcome to Storn's Filter
-description: |
-    This is my personal filter from the perspective of an endgame ironman. Here you'll find Tier based filters for many items, Specialy item rarity for Meme Drops, Monster based Hide lists, Supply drops for foods you'd normally hide, and more. We're still missing some things like many monsters and some currencies, but the core of the filter is here.
+description: 
+    This is my personal filter based on my experience as an End Game Ironman. Here you will find a Tier based Filter system that catagorizes items by type and value. If you run into any issues or missing features you'd like to see added but @ me on discord or post a message in the filter's thread on the FilterScape discord. 
+
+
+    Features Include
+
+    - 5 Value Tiers
+
+    - 3 Unique Item Tiers
+
+    - Food and Potion Highlights
+
+    - Supply Drop Highlits
+
+    - Monster Based Item Hiding
+
+    - Meme Droprate Highlights
+
+    - DT2 Perfect Kill Sound
+
+    - Boss MVP Sound
+
+    - Wilderness Clue Highlights
+
+    - Alch Highlights
+
+    - Ba-Ba red-x Highlight
+
+    - And More! 
 */
 
 /*@ define:module:settings
