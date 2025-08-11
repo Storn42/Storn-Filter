@@ -5038,7 +5038,7 @@ type: stringlist
 group: Raid Items
 */
 
-#define TOA_HIDE ["Apmeken's capture","Crondis' capture","Het's capture","Scabaras' capture","The wardens"]
+#define TOA_HIDE ["Apmeken's capture","Crondis' capture","Het's capture","Scabaras' capture","The wardens", "the jackal's torch"]
 
 apply (area:[3509,5107,0,3973,5443,2] && name:TOA_HIDE) {hidden = true;}
 
