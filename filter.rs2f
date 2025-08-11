@@ -4582,7 +4582,6 @@ group: Zalcano
 
 #define ZALCANO_IGNORE []
 
-apply (area:[3020,6036,0,3048,6064,0] && name:"Infernal ashes" && ENABLE_ZALCANO_MVP) {sound=ZALCANO_MVP_SOUND;}
 
 
 /*@ define:input:boss_pvm
@@ -4985,6 +4984,24 @@ subtitle: Set Unique Teirs, Hide Drops, and Highlight Supplies
 */
 
 /*@ define:input:toa
+label: Enable Sound on MVP
+type: boolean
+group: MVP
+*/
+
+#define ENBALE_TOA_MVP true
+
+/*@ define:input:toa
+label: Sound ID
+type: number
+group: MVP
+*/
+
+#define TOA_MVP_SOUND 3018
+
+apply (area:[3509,5107,0,3973,5443,2] && name:["Big Banana", "Eldritch ashes", "Fang", "Scarab dung"] && ENABLE_TOA_MVP) {sound=TOA_MVP_SOUND;}
+
+/*@ define:input:toa
 label: Unique T3
 type: enumlist
 group: Uniques
@@ -5023,7 +5040,7 @@ type: stringlist
 group: Raid Items
 */
 
-#define TOA_HIDE []
+#define TOA_HIDE ["Apmeken's capture","Crondis' capture","Het's capture","Scabaras' capture","The wardens"]
 
 apply (area:[3509,5107,0,3973,5443,2] && name:TOA_HIDE) {hidden = true;}
 
