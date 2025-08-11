@@ -4997,7 +4997,7 @@ group: MVP
 
 #define TOA_MVP_SOUND 3018
 
-apply (area:[3509,5107,0,3973,5443,2] && name:["Big Banana", "Eldritch ashes", "Fang", "Scarab dung"] && ENABLE_TOA_MVP) {sound=TOA_MVP_SOUND;}
+apply (area:[3509,5107,0,3973,5443,3] && name:["Big Banana", "Eldritch ashes", "Fang", "Scarab dung"] && ENABLE_TOA_MVP) {sound=TOA_MVP_SOUND;}
 
 /*@ define:input:toa
 label: Unique T3
@@ -5040,7 +5040,7 @@ group: Raid Items
 
 #define TOA_HIDE ["Apmeken's capture","Crondis' capture","Het's capture","Scabaras' capture","The wardens", "the jackal's torch"]
 
-apply (area:[3509,5107,0,3973,5443,2] && name:TOA_HIDE) {hidden = true;}
+apply (area:[3509,5107,0,3973,5443,3] && name:TOA_HIDE) {hidden = true;}
 
 /*@ define:input:toa
 label: Main Potions
