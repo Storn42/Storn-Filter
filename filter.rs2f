@@ -83,7 +83,7 @@ group: Show
 
 #define SHOW_ITEM_VALUE true
 
-apply (SHOW_ITEM_VALUE) {showDespawn = true;}
+apply (SHOW_ITEM_VALUE) {showValue = true;}
 
 /*@ define:module:values
 name: Value Customization
