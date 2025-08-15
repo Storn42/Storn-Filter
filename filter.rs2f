@@ -6572,23 +6572,23 @@ rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && havalue:>=VALUE_TIER_1) {ALCH
 rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && havalue:>=ALCHS_VALUE) {ALCHS_T0_STYLE}
 
 
-/*@ define:module:coins
+/*@ define:module:currency
 name: Coins
 subtitle: Used to Trade with other Players
 */
 
-/*@ define:input:coins
+/*@ define:input:currency
 label: Minimum Value
 type: number
 group: Coins
 */
 
-#define COINS_VALUE 100
+#define COINS_MIN_VALUE 100
 
-/*@ define:input:coins
+/*@ define:input:currency
 label: Tier 0
 type: style
-group: Styles
+group: Coins
 exampleItem: Coins
 */
 
@@ -6598,10 +6598,10 @@ exampleItem: Coins
     textAccent = 2;\
     textAccentColor = "#999e9e29";
 	
-/*@ define:input:coins
+/*@ define:input:currency
 label: Tier 1
 type: style
-group: Styles
+group: Coins
 exampleItem: Coins
 */
 
@@ -6611,10 +6611,10 @@ exampleItem: Coins
 	menuTextColor = "#ffffff70";\
 	textAccent = 3;
 
-/*@ define:input:coins
+/*@ define:input:currency
 label: Tier 2
 type: style
-group: Styles
+group: Coins
 exampleItem: Coins
 */
 
@@ -6624,10 +6624,10 @@ exampleItem: Coins
 	menuTextColor = "#ffffff70";\
 	textAccent = 3;
 
-/*@ define:input:coins
+/*@ define:input:currency
 label: Tier 3
 type: style
-group: Styles
+group: Coins
 exampleItem: Coins
 */
 
@@ -6639,10 +6639,10 @@ exampleItem: Coins
 	textAccent = 3;\
 	borderColor = "#ffffff70";
 
-/*@ define:input:coins
+/*@ define:input:currency
 label: Tier 4
 type: style
-group: Styles
+group: Coins
 exampleItem: Coins 
 */
 
@@ -6656,10 +6656,10 @@ exampleItem: Coins
 	showLootbeam = true;\
 	lootbeamColor = "#ffffff70";
 	
-/*@ define:input:coins
+/*@ define:input:currency
 label: Tier 5
 type: style
-group: Styles
+group: Coins
 exampleItem: Coins
 */
 
@@ -6673,9 +6673,164 @@ exampleItem: Coins
 	showLootbeam = true;\
 	lootbeamColor = "#ffbbbb22";
 	
-rule (name:"coins" && value:<COINS_VALUE) {hidden=true;}
+rule (name:"Coins" && value:<COINS_MIN_VALUE) {hidden=true;}
 
-VALUE_RULESET("coins", COINS_T5_STYLE, COINS_T4_STYLE, COINS_T3_STYLE, COINS_T2_STYLE, COINS_T1_STYLE, COINS_T0_STYLE)
+VALUE_RULESET("Coins", COINS_T5_STYLE, COINS_T4_STYLE, COINS_T3_STYLE, COINS_T2_STYLE, COINS_T1_STYLE, COINS_T0_STYLE)
+
+/*@ define:input:currency
+label: Minimum Quantity
+type: number
+group: Tokkul
+*/
+
+#define TOKKUL_MIN_QUANT 0
+
+
+/*@ define:input:currency
+label: T1 Quantity
+type: number
+group: Tokkul
+*/
+
+#define TOKKUL_QUANT_TIER_1 500
+
+
+/*@ define:input:currency
+label: T2 Quantity
+type: number
+group: Tokkul
+*/
+
+#define TOKKUL_QUANT_TIER_2 2000
+
+
+/*@ define:input:currency
+label: T3 Quantity
+type: number
+group: Tokkul
+*/
+
+#define TOKKUL_QUANT_TIER_3 10000
+
+
+/*@ define:input:currency
+label: T4 Quantity
+type: number
+group: Tokkul
+*/
+
+#define TOKKUL_QUANT_TIER_4 100000
+
+
+/*@ define:input:currency
+label: T5 Quantity
+type: number
+group: Tokkul
+*/
+
+#define TOKKUL_QUANT_TIER_5 1000000
+
+
+
+#define TOKKUL_T0_STYLE \
+    color = "#ffffff00"; \
+	menuTextColor = "#ffffff70"; \
+    textAccent = 2;\
+    textAccentColor = "#999e9e29";
+	
+/*@ define:input:currency
+label: Tier 1
+type: style
+group: Tokkul
+exampleItem: Tokkul
+*/
+
+#define TOKKUL_T1_STYLE \
+    color = "#ffffff70";\
+    backgroundColor = "#449e9e29";\
+	menuTextColor = "#ffffff70";\
+	textAccent = 3;
+
+/*@ define:input:currency
+label: Tier 2
+type: style
+group: Tokkul
+exampleItem: Tokkul
+*/
+
+#define TOKKUL_T2_STYLE \
+	color ="#ffffff70";\
+    backgroundColor = "#999e9e29";\
+	menuTextColor = "#ffffff70";\
+	textAccent = 3;
+
+/*@ define:input:currency
+label: Tier 3
+type: style
+group: Tokkul
+exampleItem: Tokkul
+*/
+
+#define TOKKUL_T3_STYLE \
+	color = "#ffffff70";\
+	backgroundColor = "#cc9e9e29";\
+	menuTextColor = "#ffffff70"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffff70";
+
+/*@ define:input:currency
+label: Tier 4
+type: style
+group: Tokkul
+exampleItem: Tokkul 
+*/
+
+#define TOKKUL_T4_STYLE \
+	backgroundColor = "#ff9e9e29";\
+	menuTextColor = "#ffffff70";\
+	color = "#ffffff70";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffff70";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffffff70";
+	
+/*@ define:input:currency
+label: Tier 5
+type: style
+group: Tokkul
+exampleItem: Tokkul
+*/
+
+#define TOKKUL_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffbbbb22";\
+	color = "#ffbbbb22";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffbbbb22";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffbbbb22";
+	
+rule (name:"Tokkul" && quantity:<TOKKUL_MIN_QUANT) {hidden=true;}
+
+apply (name:"Tokkul" && quantity:>=TOKKUL_QUANT_TIER_5) {sound = TIER_5_SOUND;}
+rule (name:"Tokkul" && quantity:>=TOKKUL_QUANT_TIER_5) {TOKKUL_T5_STYLE}
+
+apply (name:"Tokkul" && quantity:>=TOKKUL_QUANT_TIER_4) {sound = TIER_4_SOUND;}
+rule (name:"Tokkul" && quantity:>=TOKKUL_QUANT_TIER_4) {TOKKUL_T4_STYLE}
+
+apply (name:"Tokkul" && quantity:>=TOKKUL_QUANT_TIER_3) {sound = TIER_3_SOUND;}
+rule (name:"Tokkul" && quantity:>=TOKKUL_QUANT_TIER_3) {TOKKUL_T3_STYLE}
+
+apply (name:"Tokkul" && quantity:>=TOKKUL_QUANT_TIER_2) {sound = TIER_2_SOUND;}
+rule (name:"Tokkul" && quantity:>=TOKKUL_QUANT_TIER_2) {TOKKUL_T2_STYLE}
+
+apply (name:"Tokkul" && quantity:>=TOKKUL_QUANT_TIER_1) {sound = TIER_1_SOUND;}
+rule (name:"Tokkul" && quantity:>=TOKKUL_QUANT_TIER_1) {TOKKUL_T1_STYLE}
+
+rule (name:"Tokkul") {TOKKUL_T0_STYLE}
 
 /*@ define:module:keys
 name: Keys
