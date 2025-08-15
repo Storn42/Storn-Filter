@@ -14043,6 +14043,56 @@ rule (ENSOULED_HEADS_REPLACE_T1 && name:ENSOULED_HEADS_NAMES && stackable:true &
 
 VALUE_RULESET(ENSOULED_HEADS_NAMES, ENSOULED_HEADS_T5_STYLE, ENSOULED_HEADS_T4_STYLE, ENSOULED_HEADS_T3_STYLE, ENSOULED_HEADS_T2_STYLE, ENSOULED_HEADS_T1_STYLE, ENSOULED_HEADS_T0_STYLE)
 
+/*@ define:module:misc
+name: Miscellaneous
+subtitle: Things Too Small for their own Catagory  
+*/
+
+/*@ define:input:misc
+label: Red Spice
+type: style
+group: Spicy Stew
+*/
+
+#define RED_SPICE_STYLE \
+	color = "#ffff0000";
+
+rule (name:"Red spice*") {RED_SPICE_STYLE}
+
+/*@ define:input:misc
+label: Brown Spice
+type: style
+group: Spicy Stew
+*/
+
+#define BROWN_SPICE_STYLE \
+	color = "#ff855E3F";
+
+rule (name:"Brown spice*") {BROWN_SPICE_STYLE}
+
+/*@ define:input:misc
+label: Yellow Spice
+type: style
+group: Spicy Stew
+*/
+
+#define YELLOW_SPICE_STYLE \
+	color = "#ffffff00";
+
+rule (name:"Yellow spice*") {YELLOW_SPICE_STYLE}
+
+/*@ define:input:misc
+label: Orange Spice
+type: style
+group: Spicy Stew
+*/
+
+#define ORANGE_SPICE_STYLE \
+	color = "#ffff8000";
+
+rule (name:"Orange spice*") {ORANGE_SPICE_STYLE}
+
+
 /*@ define:module:fallback
 name: Fallback Tier Styles
 subtitle: For Items that haven't been Changed by Other Catagories
