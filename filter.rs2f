@@ -594,6 +594,58 @@ exampleItem: Wild pie
     fontType = 2; \
 	hidden = false;
 
+/*@ define:input:food_and_pots
+label: Extra Food 1
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_1_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 2
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_2_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 3
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_3_NAMES []
+
+
+/*@ define:input:food_and_pots
+label: Extra Food 1
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_1_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 2
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_2_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 3
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_3_STYLE
+
+rule (name:EXTRA_FOOD_1_NAMES && stackable:false) {EXTRA_FOOD_1_STYLE}
+rule (name:EXTRA_FOOD_2_NAMES && stackable:false) {EXTRA_FOOD_2_STYLE}
+rule (name:EXTRA_FOOD_3_NAMES && stackable:false) {EXTRA_FOOD_3_STYLE}
 
 
 /*@ define:module:slayer_pvm
