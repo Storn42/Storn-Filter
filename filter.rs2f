@@ -6733,10 +6733,10 @@ group: Tokkul
 
 
 #define TOKKUL_T0_STYLE \
-    color = "#ffffff00"; \
-	menuTextColor = "#ffffff70"; \
+    color = "#ffB1B1BB"; \
+	menuTextColor = "#ffB1B1BB"; \
     textAccent = 2;\
-    textAccentColor = "#999e9e29";
+    textAccentColor = "#99000000";
 	
 /*@ define:input:currency
 label: Tier 1
@@ -6746,9 +6746,9 @@ exampleItem: Tokkul
 */
 
 #define TOKKUL_T1_STYLE \
-    color = "#ffffff70";\
-    backgroundColor = "#449e9e29";\
-	menuTextColor = "#ffffff70";\
+    color = "#ffB1B1BB";\
+    backgroundColor = "#44000000";\
+	menuTextColor = "#ffB1B1BB";\
 	textAccent = 3;
 
 /*@ define:input:currency
@@ -6759,9 +6759,9 @@ exampleItem: Tokkul
 */
 
 #define TOKKUL_T2_STYLE \
-	color ="#ffffff70";\
-    backgroundColor = "#999e9e29";\
-	menuTextColor = "#ffffff70";\
+	color ="#ffB1B1BB";\
+    backgroundColor = "#99000000";\
+	menuTextColor = "#ffB1B1BB";\
 	textAccent = 3;
 
 /*@ define:input:currency
@@ -6772,12 +6772,12 @@ exampleItem: Tokkul
 */
 
 #define TOKKUL_T3_STYLE \
-	color = "#ffffff70";\
-	backgroundColor = "#cc9e9e29";\
-	menuTextColor = "#ffffff70"; \
+	color = "#ffB1B1BB";\
+	backgroundColor = "#cc000000";\
+	menuTextColor = "#ffB1B1BB"; \
 	fontType = 2;\
 	textAccent = 3;\
-	borderColor = "#ffffff70";
+	borderColor = "#ffB1B1BB";
 
 /*@ define:input:currency
 label: Tier 4
@@ -6787,14 +6787,14 @@ exampleItem: Tokkul
 */
 
 #define TOKKUL_T4_STYLE \
-	backgroundColor = "#ff9e9e29";\
-	menuTextColor = "#ffffff70";\
-	color = "#ffffff70";\
+	backgroundColor = "#ff000000";\
+	menuTextColor = "#ffB1B1BB";\
+	color = "#ffB1B1BB";\
 	fontType = 3;\
 	textAccent = 3;\
-	borderColor = "#ffffff70";\
+	borderColor = "#ffB1B1BB";\
 	showLootbeam = true;\
-	lootbeamColor = "#ffffff70";
+	lootbeamColor = "#ffB1B1BB";
 	
 /*@ define:input:currency
 label: Tier 5
@@ -6805,13 +6805,13 @@ exampleItem: Tokkul
 
 #define TOKKUL_T5_STYLE \
 	backgroundColor = "#ffffffff";\
-	menuTextColor = "#ffbbbb22";\
-	color = "#ffbbbb22";\
+	menuTextColor = "#ffB1B1BB";\
+	color = "#ffB1B1BB";\
 	fontType = 3;\
 	textAccent = 3;\
-	borderColor = "#ffbbbb22";\
+	borderColor = "#ffB1B1BB";\
 	showLootbeam = true;\
-	lootbeamColor = "#ffbbbb22";
+	lootbeamColor = "#ffB1B1BB";
 	
 rule (name:"Tokkul" && quantity:<TOKKUL_MIN_QUANT) {hidden=true;}
 
