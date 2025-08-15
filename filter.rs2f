@@ -14055,7 +14055,8 @@ group: Spicy Stew
 */
 
 #define RED_SPICE_STYLE \
-	color = "#ffff0000";
+	color = "#ffff0000";\
+	menuTextColor = "#ffff0000"
 
 rule (name:"Red spice*") {RED_SPICE_STYLE}
 
@@ -14066,7 +14067,8 @@ group: Spicy Stew
 */
 
 #define BROWN_SPICE_STYLE \
-	color = "#ff855E3F";
+	color = "#ff855E3F";\
+	menuTextColor = "#ff855E3F"
 
 rule (name:"Brown spice*") {BROWN_SPICE_STYLE}
 
@@ -14077,7 +14079,8 @@ group: Spicy Stew
 */
 
 #define YELLOW_SPICE_STYLE \
-	color = "#ffffff00";
+	color = "#ffffff00";\
+	menuTextColor = "#ffffff00"
 
 rule (name:"Yellow spice*") {YELLOW_SPICE_STYLE}
 
@@ -14088,7 +14091,8 @@ group: Spicy Stew
 */
 
 #define ORANGE_SPICE_STYLE \
-	color = "#ffff8000";
+	color = "#ffff8000"; \
+	menuTextColor = "#ffff8000";
 
 rule (name:"Orange spice*") {ORANGE_SPICE_STYLE}
 
