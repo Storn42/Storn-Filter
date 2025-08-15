@@ -6837,6 +6837,109 @@ rule (name:"Tokkul" && quantity:>=TOKKUL_QUANT_TIER_1) {TOKKUL_T1_STYLE}
 
 rule (name:"Tokkul") {TOKKUL_T0_STYLE}
 
+
+/*@ define:input:currency
+label: Minimum Value
+type: number
+group: Numulite
+*/
+
+#define NUMULITE_MIN_VALUE 100
+
+/*@ define:input:currency
+label: Tier 0
+type: style
+group: Numulite
+exampleItem: Numulite
+*/
+
+#define NUMULITE_T0_STYLE \
+    color = "#ffAF9B76"; \
+	menuTextColor = "#ffAF9B76"; \
+    textAccent = 2;\
+    textAccentColor = "#998C7150";
+	
+/*@ define:input:currency
+label: Tier 1
+type: style
+group: Numulite
+exampleItem: Numulite
+*/
+
+#define NUMULITE_T1_STYLE \
+    color = "#ffAF9B76";\
+    backgroundColor = "#448C7150";\
+	menuTextColor = "#ffAF9B76";\
+	textAccent = 3;
+
+/*@ define:input:currency
+label: Tier 2
+type: style
+group: Numulite
+exampleItem: Numulite
+*/
+
+#define NUMULITE_T2_STYLE \
+	color ="#ffAF9B76";\
+    backgroundColor = "#998C7150";\
+	menuTextColor = "#ffAF9B76";\
+	textAccent = 3;
+
+/*@ define:input:currency
+label: Tier 3
+type: style
+group: Numulite
+exampleItem: Numulite
+*/
+
+#define NUMULITE_T3_STYLE \
+	color = "#ffAF9B76";\
+	backgroundColor = "#cc8C7150";\
+	menuTextColor = "#ffAF9B76"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffAF9B76";
+
+/*@ define:input:currency
+label: Tier 4
+type: style
+group: Numulite
+exampleItem: Numulite 
+*/
+
+#define NUMULITE_T4_STYLE \
+	backgroundColor = "#ff8C7150";\
+	menuTextColor = "#ffAF9B76";\
+	color = "#ffAF9B76";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffAF9B76";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffAF9B76";
+	
+/*@ define:input:currency
+label: Tier 5
+type: style
+group: Numulite
+exampleItem: Numulite
+*/
+
+#define NUMULITE_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffAF9B76";\
+	color = "#ffAF9B76";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffAF9B76";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffAF9B76";
+	
+rule (name:"Numulite" && value:<NUMULITE_MIN_VALUE) {hidden=true;}
+
+VALUE_RULESET("Numulite", NUMULITE_T5_STYLE, NUMULITE_T4_STYLE, NUMULITE_T3_STYLE, NUMULITE_T2_STYLE, NUMULITE_T1_STYLE, NUMULITE_T0_STYLE)
+
+
+
 /*@ define:module:keys
 name: Keys
 subtitle: Keys for Chests and Bosses
