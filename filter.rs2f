@@ -6573,8 +6573,8 @@ rule (name:ALCHS_NAMES && !name:ALCHS_BAD_NAMES && havalue:>=ALCHS_VALUE) {ALCHS
 
 
 /*@ define:module:currency
-name: Coins
-subtitle: Used to Trade with other Players
+name: Currency
+subtitle: Used to Trade with other Players and Vendors
 */
 
 /*@ define:input:currency
@@ -6730,7 +6730,12 @@ group: Tokkul
 
 #define TOKKUL_QUANT_TIER_5 1000000
 
-
+/*@ define:input:currency
+label: Tier 0
+type: style
+group: Tokkul
+exampleItem: Tokkul
+*/
 
 #define TOKKUL_T0_STYLE \
     color = "#ffB1B1BB"; \
