@@ -7385,7 +7385,7 @@ type: stringlist
 group: Secondaries
 */
 
-#define HERBLORE_SECONDARIES_ALWAYS_SHOW ["Volcanic ash","Giant egg sac","Aldarium","Scaly blue dragonhide","Nail beast nails","Magic roots","Nihil dust","Lily of the sands","Crushed superior dragon bones","Crystal dust"]
+#define HERBLORE_SECONDARIES_ALWAYS_SHOW ["Volcanic ash","Giant egg sac","Aldarium","Scaly blue dragonhide","Nail beast nails","Magic roots","Nihil dust","Lily of the sands","Crushed superior dragon bones","Crystal dust", "Swamp tar"]
 
 /*@ define:input:herblore_secondaries
 label: Show only if Stackable
