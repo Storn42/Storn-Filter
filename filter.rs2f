@@ -783,7 +783,7 @@ group: Abyssal Demons
 #define ABBYDEMONS_SLAYER_TOWER_SUPPLY []
 
 SUPPLY_DROP_RULESET([3405,3555,2,3580,10064,2], ABBYDEMONS_SLAYER_TOWER_SUPPLY) // Slayer Tower
-SUPPLY_DROP_RULESET([3423,9953,3,3448,9953,3, ABBYDEMONS_SLAYER_TOWER_SUPPLY) // Slayer Tower - Basement
+SUPPLY_DROP_RULESET([3423,9953,3,3448,9953,3], ABBYDEMONS_SLAYER_TOWER_SUPPLY) // Slayer Tower - Basement
 
 /*@ define:input:slayer_pvm
 label: Wilderness Slayer Cave - Hide Items
@@ -892,7 +892,7 @@ group: Ankou
 */
 #define ANKOU_STRONGHOLD_SHOW []
 
-FORCE_SHOW_RULESET([2466,9792,0,2488,9814,0], [2466,9792,0,2488,9814,0])
+FORCE_SHOW_RULESET([2466,9792,0,2488,9814,0], ANKOU_STRONGHOLD_SHOW)
 
 /*@ define:input:slayer_pvm
 label: Stronghold Slayer Cave - Supply Drop
