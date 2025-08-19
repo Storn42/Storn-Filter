@@ -748,8 +748,8 @@ group: Abyssal Demons
 
 #define ABBYDEMONS_CATACOMBS_SUPPLY []
 
-SUPLY_DROP_RULESET([1666,10083,0,1682,10103,0], ABBYDEMONS_CATACOMBS_SUPPLY) // Catacombs of Kourend - Main
-SUPLY_DROP_RULESET([1667,10050,0,1684,10064,0], ABBYDEMONS_CATACOMBS_SUPPLY) // Catacombs of Kourend - Center
+SUPPLY_DROP_RULESET([1666,10083,0,1682,10103,0], ABBYDEMONS_CATACOMBS_SUPPLY) // Catacombs of Kourend - Main
+SUPPLY_DROP_RULESET([1667,10050,0,1684,10064,0], ABBYDEMONS_CATACOMBS_SUPPLY) // Catacombs of Kourend - Center
 
 /*@ define:input:slayer_pvm
 label: Slayer Tower - Hide Items
@@ -782,8 +782,8 @@ group: Abyssal Demons
 
 #define ABBYDEMONS_SLAYER_TOWER_SUPPLY []
 
-SUPLY_DROP_RULESET([3405,3555,2,3580,10064,2], ABBYDEMONS_SLAYER_TOWER_SUPPLY) // Slayer Tower
-SUPLY_DROP_RULESET([3423,9953,3,3448,9953,3, ABBYDEMONS_SLAYER_TOWER_SUPPLY) // Slayer Tower - Basement
+SUPPLY_DROP_RULESET([3405,3555,2,3580,10064,2], ABBYDEMONS_SLAYER_TOWER_SUPPLY) // Slayer Tower
+SUPPLY_DROP_RULESET([3423,9953,3,3448,9953,3, ABBYDEMONS_SLAYER_TOWER_SUPPLY) // Slayer Tower - Basement
 
 /*@ define:input:slayer_pvm
 label: Wilderness Slayer Cave - Hide Items
@@ -814,7 +814,7 @@ group: Abyssal Demons
 
 #define ABBYDEMONS_WILDERNESS_SUPPLY ["Blighted anglerfish","Blighted manta ray","Blighted karambwan","Blighted super restore(*)"]
 
-SUPLY_DROP_RULESET([3331,10152,0,3352,10174,0], ABBYDEMONS_WILDERNESS_SUPPLY)
+SUPPLY_DROP_RULESET([3331,10152,0,3352,10174,0], ABBYDEMONS_WILDERNESS_SUPPLY)
 
 /*@ define:input:slayer_pvm
 label: Catacombs of Kourend - Hide Items
@@ -845,7 +845,7 @@ group: Ankou
 
 #define ANKOU_CATACOMBS_SUPPLY []
 
-SUPLY_DROP_RULESET([1633,9986,0,1653,10003,0], ANKOU_CATACOMBS_SUPPLY)
+SUPPLY_DROP_RULESET([1633,9986,0,1653,10003,0], ANKOU_CATACOMBS_SUPPLY)
 
 /*@ define:input:slayer_pvm
 label: Stronghold of Security - Hide Items
@@ -874,7 +874,7 @@ group: Ankou
 
 #define ANKOU_SECURITY_SUPPLY []
 
-SUPLY_DROP_RULESET ([2303,5183,0,2369,5249,0], ANKOU_SECURITY_SUPPLY)
+SUPPLY_DROP_RULESET ([2303,5183,0,2369,5249,0], ANKOU_SECURITY_SUPPLY)
 
 /*@ define:input:slayer_pvm
 label: Stronghold Slayer Cave - Hide Items
@@ -904,7 +904,7 @@ group: Ankou
 #define ANKOU_STRONGHOLD_SUPPLY []
 
 
-SUPLY_DROP_RULESET ([2466,9792,0,2488,9814,0], ANKOU_STRONGHOLD_SUPPLY)
+SUPPLY_DROP_RULESET ([2466,9792,0,2488,9814,0], ANKOU_STRONGHOLD_SUPPLY)
 
 /*@ define:input:slayer_pvm
 label: Wilderness - Hide Items
@@ -933,7 +933,7 @@ group: Ankou
 
 #define ANKOU_WILDERNESS_SUPPLY []
 
-SUPLY_DROP_RULESET([2950,3724,0,3004,3780,0], ANKOU_WILDERNESS_SUPPLY)
+SUPPLY_DROP_RULESET([2950,3724,0,3004,3780,0], ANKOU_WILDERNESS_SUPPLY)
 
 /*@ define:input:slayer_pvm
 label: Wilderness Slayer Cave - Hide Items
@@ -962,7 +962,7 @@ group: Ankou
 
 #define ANKOU_WILDERNESS_CAVE_SUPPLY ["Blighted anglerfish","Blighted manta ray","Blighted karambwan","Blighted super restore(*)"]
 
-SUPLY_DROP_RULESET([2950,3724,0,3004,3780,0], ANKOU_WILDERNESS_CAVE_SUPPLY)
+SUPPLY_DROP_RULESET([2950,3724,0,3004,3780,0], ANKOU_WILDERNESS_CAVE_SUPPLY)
 
 /*@ define:input:slayer_pvm
 label: Hide Items
@@ -1075,7 +1075,7 @@ group: Dust Devils
 
 #define DUST_DEVIL_CATACOMBS_SUPPLY []
 
-SUPLY_DROP_RULESET([1699,10009,0,1721,10039,0], DUST_DEVIL_CATACOMBS_SUPPLY)
+SUPPLY_DROP_RULESET([1699,10009,0,1721,10039,0], DUST_DEVIL_CATACOMBS_SUPPLY)
 
 /*@ define:input:slayer_pvm
 label: Smoke Dungeon - Hide Items
@@ -1106,7 +1106,7 @@ group: Dust Devils
 
 #define DUST_DEVIL_SMOKE_SUPPLY []
 
-SUPLY_DROP_RULESET([3167,9345,0,3328,9407,0], DUST_DEVIL_SMOKE_SUPPLY)
+SUPPLY_DROP_RULESET([3167,9345,0,3328,9407,0], DUST_DEVIL_SMOKE_SUPPLY)
 
 /*@ define:input:slayer_pvm
 label: Wilderness Slayer Cave - Hide Items
@@ -1137,7 +1137,7 @@ group: Dust Devils
 
 #define DUST_DEVIL_WILDY_SUPPLY ["Blighted anglerfish","Blighted manta ray","Blighted karambwan","Blighted super restore(*)"]
 
-SUPLY_DROP_RULESET([3423,10113,0,3454,10133,0], DUST_DEVIL_WILDY_SUPPLY)
+SUPPLY_DROP_RULESET([3423,10113,0,3454,10133,0], DUST_DEVIL_WILDY_SUPPLY)
 
 /*@ define:input:slayer_pvm
 label: Smouldering Stone T3 Unique
@@ -1312,7 +1312,7 @@ group: Mithril Dragons
 
 #define MITH_DRAGON_SUPPLY ["Shark", "Prayer mix(*)"]
 
-SUPLY_DROP_RULESET([1617,5322,1,1795,5362,1], MITH_DRAGON_SUPPLY)
+SUPPLY_DROP_RULESET([1617,5322,1,1795,5362,1], MITH_DRAGON_SUPPLY)
 
 /*@ define:input:slayer_pvm
 label: Slayer Tower - Hide Items
@@ -1345,8 +1345,8 @@ group: Nechryaels
 
 #define NECHRYAEL_SLAYER_TOWER_SUPPLY ["Tuna"]
 
-SUPLY_DROP_RULESET([3431,3556,2,3556,3580,2], NECHRYAEL_SLAYER_TOWER_SUPPLY)
-SUPLY_DROP_RULESET([3400,9948,3,3434,9976,3], NECHRYAEL_SLAYER_TOWER_SUPPLY)
+SUPPLY_DROP_RULESET([3431,3556,2,3556,3580,2], NECHRYAEL_SLAYER_TOWER_SUPPLY)
+SUPPLY_DROP_RULESET([3400,9948,3,3434,9976,3], NECHRYAEL_SLAYER_TOWER_SUPPLY)
 
 /*@ define:input:slayer_pvm
 label: Catacombs of Kourend - Hide Items
@@ -1379,7 +1379,7 @@ group: Greater Nechryaels
 
 #define NECHRYAEL_CATACOMBS_SUPPLY []
 
-SUPLY_DROP_RULESET([1685,10073,0,1714,10089,0], NECHRYAEL_CATACOMBS_SUPPLY)
+SUPPLY_DROP_RULESET([1685,10073,0,1714,10089,0], NECHRYAEL_CATACOMBS_SUPPLY)
 
 
 /*@ define:input:slayer_pvm
@@ -1413,8 +1413,8 @@ group: Greater Nechryaels
 
 #define NECHRYAEL_IORWERTH_SUPPLY ["Lobster","Tuna"]
 
-SUPLY_DROP_RULESET([3208,12407,0,3233,12432,0], NECHRYAEL_IORWERTH_SUPPLY)
-SUPLY_DROP_RULESET([3214,12448,0,3241,12478,0], NECHRYAEL_IORWERTH_SUPPLY)
+SUPPLY_DROP_RULESET([3208,12407,0,3233,12432,0], NECHRYAEL_IORWERTH_SUPPLY)
+SUPPLY_DROP_RULESET([3214,12448,0,3241,12478,0], NECHRYAEL_IORWERTH_SUPPLY)
 
 /*@ define:input:slayer_pvm
 label: Wilderness Slayer Cave - Hide Items
@@ -1445,7 +1445,7 @@ group: Greater Nechryaels
 
 #define NECHRYAEL_WILDERNESS_SUPPLY ["Blighted anglerfish","Blighted manta ray","Blighted karambwan","Blighted super restore(*)"]
 
-SUPLY_DROP_RULESET([3329,10096,0,3344,10120,0], NECHRYAEL_WILDERNESS_SUPPLY)
+SUPPLY_DROP_RULESET([3329,10096,0,3344,10120,0], NECHRYAEL_WILDERNESS_SUPPLY)
 
 
 
@@ -1517,7 +1517,7 @@ group: Smoke Devils
 
 #define SMOKE_DEVILS_SUPPLY []
 
-SUPLY_DROP_RULESET([2378,9415,0,2429,9471,0], SMOKE_DEVILS_SUPPLY)
+SUPPLY_DROP_RULESET([2378,9415,0,2429,9471,0], SMOKE_DEVILS_SUPPLY)
 
 /*@ define:module:boss_pvm
 name: Bosses
