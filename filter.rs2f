@@ -5259,9 +5259,6 @@ exampleItem: Clue scroll (hard)
 	borderColor = "#ffff0000"; \
 	menuTextColor = "#ffff0000"; \
 
-#define CLUE_REQUIREMENT_STYLE \
-	backgroundColor = "#99ff0000";
-
 #define CLUE_WILDERNESS_HARD_IDS [2723,2725,2727,2729,2731,2733,2735,2737,2739,2741,2743,2745,2747,2786,2788,3525,3556,3558,7239,7260,7262,7264,10244,10234,12546,12564,19888,23168,23169]
 #define CLUE_WILDERNESS_ELITE_IDS [12075,12093,12095,12097,12109,12101,12134,12150,19807,23144,23146]
 
@@ -5271,6 +5268,13 @@ apply (name:["Clue scroll (medium)", "Clue bottle (medium)", "Clue nest (medium)
 apply (name:["Clue scroll (hard)", "Clue bottle (hard)", "Clue nest (hard)", "Clue geode (hard)", "Scroll box (hard)"]) {CLUE_HARD_STYLE}
 apply (name:["Clue scroll (elite)", "Clue bottle (elite)", "Clue nest (elite)", "Clue geode (elite)", "Scroll box (elite)"]) {CLUE_ELITE_STYLE}
 apply (name:["Clue scroll (master)", "Clue bottle (master)", "Clue nest (master)", "Clue geode (master)", "Scroll box (master)"]) {CLUE_MASTER_STYLE}
+
+#define CLUE_REQUIREMENT_STYLE \
+	backgroundColor = "#99ff0000";
+	
+#define REQUIREMENT_CLUE_IDS [28910]
+
+apply (YOU_ARE_STORN && id:REQUIREMENT_CLUE_IDS) {CLUE_REQUIREMENT_STYLE}
 
 rule (id:CLUE_WILDERNESS_HARD_IDS || id:CLUE_WILDERNESS_ELITE_IDS) {CLUE_WILDERNESS_STYLE}
 rule (id:CLUE_REQUIREMENT_ID) {CLUE_REQUIREMENT_STYLE}
