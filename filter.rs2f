@@ -5173,8 +5173,6 @@ name: Clue Scrolls
 subtitle: Go on a Treasure Hunt
 */
 
-#define CLUE_REQUIREMENT_ID []
-
 /*@ define:input:clues
 label: Beginner Clue
 type: style
@@ -5269,15 +5267,7 @@ apply (name:["Clue scroll (hard)", "Clue bottle (hard)", "Clue nest (hard)", "Cl
 apply (name:["Clue scroll (elite)", "Clue bottle (elite)", "Clue nest (elite)", "Clue geode (elite)", "Scroll box (elite)"]) {CLUE_ELITE_STYLE}
 apply (name:["Clue scroll (master)", "Clue bottle (master)", "Clue nest (master)", "Clue geode (master)", "Scroll box (master)"]) {CLUE_MASTER_STYLE}
 
-#define CLUE_REQUIREMENT_STYLE \
-	backgroundColor = "#99ff0000";
-	
-#define REQUIREMENT_CLUE_IDS [28910]
-
-apply (id:REQUIREMENT_CLUE_IDS && YOU_ARE_STORN) {CLUE_REQUIREMENT_STYLE}
-
 rule (id:CLUE_WILDERNESS_HARD_IDS || id:CLUE_WILDERNESS_ELITE_IDS) {CLUE_WILDERNESS_STYLE}
-rule (id:CLUE_REQUIREMENT_ID) {CLUE_REQUIREMENT_STYLE}
 rule (name:["Clue scroll*", "Clue bottle*", "Clue nest*", "Clue geode *", "Scroll box*"]) {}
 
 
