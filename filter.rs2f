@@ -5174,6 +5174,13 @@ subtitle: Go on a Treasure Hunt
 */
 
 /*@ define:input:clues
+label: Wilderness Highlights
+type: boolean
+*/
+
+#define ENABLE_WILDERNESS_CLUES true
+
+/*@ define:input:clues
 label: Beginner Clue
 type: style
 group: Beginner
@@ -5267,7 +5274,7 @@ apply (name:["Clue scroll (hard)", "Clue bottle (hard)", "Clue nest (hard)", "Cl
 apply (name:["Clue scroll (elite)", "Clue bottle (elite)", "Clue nest (elite)", "Clue geode (elite)", "Scroll box (elite)"]) {CLUE_ELITE_STYLE}
 apply (name:["Clue scroll (master)", "Clue bottle (master)", "Clue nest (master)", "Clue geode (master)", "Scroll box (master)"]) {CLUE_MASTER_STYLE}
 
-rule (id:CLUE_WILDERNESS_HARD_IDS || id:CLUE_WILDERNESS_ELITE_IDS) {CLUE_WILDERNESS_STYLE}
+rule (ENABLE_WILDERNESS_CLUES && (id:CLUE_WILDERNESS_HARD_IDS || id:CLUE_WILDERNESS_ELITE_IDS)) {CLUE_WILDERNESS_STYLE}
 rule (name:["Clue scroll*", "Clue bottle*", "Clue nest*", "Clue geode *", "Scroll box*"]) {}
 
 
