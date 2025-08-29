@@ -7769,7 +7769,7 @@ group: Food and Pots
 /*@ define:input:food_and_pots_stockpile
 label: Tier 0
 type: style
-group: Styles
+group: Food and Pots
 exampleItem: Attack potion(4)
 */
 
@@ -7781,7 +7781,7 @@ exampleItem: Attack potion(4)
 /*@ define:input:food_and_pots_stockpile
 label: Tier 1
 type: style
-group: Styles
+group: Food and Pots
 exampleItem: "Super combat potion(4)"
 */
 
@@ -7794,7 +7794,7 @@ exampleItem: "Super combat potion(4)"
 /*@ define:input:food_and_pots_stockpile
 label: Tier 2
 type: style
-group: Styles
+group: Food and Pots
 exampleItem: "Prayer potion(4)"
 */
 
@@ -7807,7 +7807,7 @@ exampleItem: "Prayer potion(4)"
 /*@ define:input:food_and_pots_stockpile
 label: Tier 3
 type: style
-group: Styles
+group: Food and Pots
 exampleItem: "Saradomin brew(4)"
 */
 
@@ -7822,7 +7822,7 @@ exampleItem: "Saradomin brew(4)"
 /*@ define:input:food_and_pots_stockpile
 label: Tier 4
 type: style
-group: Styles
+group: Food and Pots
 exampleItem: "Super restore(4)"
 */
 
@@ -7839,7 +7839,7 @@ exampleItem: "Super restore(4)"
 /*@ define:input:food_and_pots_stockpile
 label: Tier 5
 type: style
-group: Styles
+group: Food and Pots
 exampleItem: "Sanfew serum(4)"
 */
 
@@ -7858,7 +7858,115 @@ VALUE_RULESET(FOOD_AND_POTS_STOCKPILE_ALWAYS_SHOW, FOOD_AND_POTS_STOCKPILE_T5_ST
 
 VALUE_RULESET(FOOD_AND_POTS_STOCKPILE_SHOW_IF_STACKABLE && stackable:true, FOOD_AND_POTS_STOCKPILE_T5_STYLE, FOOD_AND_POTS_STOCKPILE_T4_STYLE, FOOD_AND_POTS_STOCKPILE_T3_STYLE, FOOD_AND_POTS_STOCKPILE_T2_STYLE, FOOD_AND_POTS_STOCKPILE_T1_STYLE, FOOD_AND_POTS_STOCKPILE_T0_STYLE)
 
-rule (name:FOOD_AND_POTS_STOCKPILE_SHOW_IF_STACKABLE && stackable:false) {hidden=true;}
+/*@ define:input:food_and_pots_stockpile
+label: Show Unstackable
+type: stringlist
+group: Blighted Food and Pots
+*/
+
+#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_ALWAYS_SHOW []
+
+/*@ define:input:food_and_pots_stockpile
+label: Show only if Stackable
+type: stringlist
+group: Blighted Food and Pots
+*/
+
+#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_SHOW_IF_STACKABLE ["Blighted karambwan", "Blighted manta ray", "Blighted anglerfish", "Blighted super restore(*)"]
+
+/*@ define:input:food_and_pots_stockpile
+label: Tier 0
+type: style
+group: Blighted Food and Pots
+exampleItem: Attack potion(4)
+*/
+
+#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_T0_STYLE \
+    color = "#ff683307"; \
+	menuTextColor = "#ff683307"; 
+
+
+/*@ define:input:food_and_pots_stockpile
+label: Tier 1
+type: style
+group: Blighted Food and Pots
+exampleItem: "Super combat potion(4)"
+*/
+
+#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#55683307";\
+	menuTextColor = "#ff683307";\
+	textAccent = 3;
+
+/*@ define:input:food_and_pots_stockpile
+label: Tier 2
+type: style
+group: Blighted Food and Pots
+exampleItem: "Prayer potion(4)"
+*/
+
+#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#99683307";\
+	menuTextColor = "#ff683307";\
+	textAccent = 3;
+
+/*@ define:input:food_and_pots_stockpile
+label: Tier 3
+type: style
+group: Blighted Food and Pots
+exampleItem: "Saradomin brew(4)"
+*/
+
+#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#dd683307";\
+	menuTextColor = "#ff683307"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:food_and_pots_stockpile
+label: Tier 4
+type: style
+group: Blighted Food and Pots
+exampleItem: "Super restore(4)"
+*/
+
+#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_T4_STYLE \
+	backgroundColor = "#ff683307";\
+	menuTextColor = "#ff683307";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff683307";
+
+/*@ define:input:food_and_pots_stockpile
+label: Tier 5
+type: style
+group: Blighted Food and Pots
+exampleItem: "Sanfew serum(4)"
+*/
+
+#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff683307";\
+	color = "#ff683307";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff683307";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff683307";
+
+
+VALUE_RULESET(BLIGHTED_FOOD_AND_POTS_STOCKPILE_ALWAYS_SHOW, BLIGHTED_FOOD_AND_POTS_STOCKPILE_T5_STYLE, BLIGHTED_FOOD_AND_POTS_STOCKPILE_T4_STYLE, BLIGHTED_FOOD_AND_POTS_STOCKPILE_T3_STYLE, BLIGHTED_FOOD_AND_POTS_STOCKPILE_T2_STYLE, BLIGHTED_FOOD_AND_POTS_STOCKPILE_T1_STYLE, BLIGHTED_FOOD_AND_POTS_STOCKPILE_T0_STYLE)
+
+VALUE_RULESET(BLIGHTED_FOOD_AND_POTS_STOCKPILE_SHOW_IF_STACKABLE && stackable:true, BLIGHTED_FOOD_AND_POTS_STOCKPILE_T5_STYLE, BLIGHTED_FOOD_AND_POTS_STOCKPILE_T4_STYLE, BLIGHTED_FOOD_AND_POTS_STOCKPILE_T3_STYLE, BLIGHTED_FOOD_AND_POTS_STOCKPILE_T2_STYLE, BLIGHTED_FOOD_AND_POTS_STOCKPILE_T1_STYLE, BLIGHTED_FOOD_AND_POTS_STOCKPILE_T0_STYLE)
+
+rule ((name:FOOD_AND_POTS_STOCKPILE_SHOW_IF_STACKABLE || name:BLIGHTED_FOOD_AND_POTS_STOCKPILE_SHOW_IF_STACKABLE) && stackable:false) {hidden=true;}
 
 /*@ define:module:runes
 name: Runes
