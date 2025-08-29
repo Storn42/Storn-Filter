@@ -7878,7 +7878,7 @@ group: Blighted Food and Pots
 label: Tier 0
 type: style
 group: Blighted Food and Pots
-exampleItem: Attack potion(4)
+exampleItem: Blighted karambwan
 */
 
 #define BLIGHTED_FOOD_AND_POTS_STOCKPILE_T0_STYLE \
@@ -7890,7 +7890,7 @@ exampleItem: Attack potion(4)
 label: Tier 1
 type: style
 group: Blighted Food and Pots
-exampleItem: "Super combat potion(4)"
+exampleItem: Blighted anglerfish
 */
 
 #define BLIGHTED_FOOD_AND_POTS_STOCKPILE_T1_STYLE \
@@ -7903,7 +7903,7 @@ exampleItem: "Super combat potion(4)"
 label: Tier 2
 type: style
 group: Blighted Food and Pots
-exampleItem: "Prayer potion(4)"
+exampleItem: Blighted manta ray
 */
 
 #define BLIGHTED_FOOD_AND_POTS_STOCKPILE_T2_STYLE \
@@ -7916,7 +7916,7 @@ exampleItem: "Prayer potion(4)"
 label: Tier 3
 type: style
 group: Blighted Food and Pots
-exampleItem: "Saradomin brew(4)"
+exampleItem: Blighted super restore(4)
 */
 
 #define BLIGHTED_FOOD_AND_POTS_STOCKPILE_T3_STYLE \
@@ -7931,7 +7931,7 @@ exampleItem: "Saradomin brew(4)"
 label: Tier 4
 type: style
 group: Blighted Food and Pots
-exampleItem: "Super restore(4)"
+exampleItem: Blighted anglerfish
 */
 
 #define BLIGHTED_FOOD_AND_POTS_STOCKPILE_T4_STYLE \
@@ -7948,7 +7948,7 @@ exampleItem: "Super restore(4)"
 label: Tier 5
 type: style
 group: Blighted Food and Pots
-exampleItem: "Sanfew serum(4)"
+exampleItem: Blighted manta ray
 */
 
 #define BLIGHTED_FOOD_AND_POTS_STOCKPILE_T5_STYLE \
