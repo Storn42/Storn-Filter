@@ -7894,7 +7894,7 @@ exampleItem: Blighted anglerfish
 */
 
 #define BLIGHTED_FOOD_AND_POTS_STOCKPILE_T1_STYLE \
-    color = "#ffffffff";\
+    color = "#ff000000";\
     backgroundColor = "#55683307";\
 	menuTextColor = "#ff683307";\
 	textAccent = 3;
@@ -7907,7 +7907,7 @@ exampleItem: Blighted manta ray
 */
 
 #define BLIGHTED_FOOD_AND_POTS_STOCKPILE_T2_STYLE \
-	color ="#ffffffff";\
+	color ="#ff000000";\
     backgroundColor = "#99683307";\
 	menuTextColor = "#ff683307";\
 	textAccent = 3;
@@ -7920,12 +7920,12 @@ exampleItem: Blighted super restore(4)
 */
 
 #define BLIGHTED_FOOD_AND_POTS_STOCKPILE_T3_STYLE \
-	color = "#ffffffff";\
+	color = "#ff000000";\
 	backgroundColor = "#dd683307";\
 	menuTextColor = "#ff683307"; \
 	fontType = 2;\
 	textAccent = 3;\
-	borderColor = "#ffffffff";
+	borderColor = "#ff000000";
 
 /*@ define:input:food_and_pots_stockpile
 label: Tier 4
@@ -7937,10 +7937,10 @@ exampleItem: Blighted anglerfish
 #define BLIGHTED_FOOD_AND_POTS_STOCKPILE_T4_STYLE \
 	backgroundColor = "#ff683307";\
 	menuTextColor = "#ff683307";\
-	color = "#ffffffff";\
+	color = "#ff000000";\
 	fontType = 3;\
 	textAccent = 3;\
-	borderColor = "#ffffffff";\
+	borderColor = "#ff000000";\
 	showLootbeam = true;\
 	lootbeamColor = "#ff683307";
 
