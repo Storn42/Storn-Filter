@@ -1337,6 +1337,39 @@ SUPPLY_DROP_RULESET([2691,10018,0,2718,10038,0], JELLIES_WILDERNESS_SUPPLY)
 /*@ define:input:slayer_pvm
 label: Hide Items
 type: stringlist
+group: Chilled Jellies
+*/
+
+#define CHILLED_JELLIES_HIDE []
+
+rule (area:[1643,9644,0,1664,9664,0] && name:CHILLED_JELLIES_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Show Items
+type: stringlist
+group: Chilled Jellies
+*/
+
+#define CHILLED_JELLIES_SHOW []
+
+FORCE_SHOW_RULESET([1643,9644,0,1664,9664,0], CHILLED_JELLIES_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Supply Drop
+type: enumlist
+enum: ["lobster"]
+group: Chilled Jellies
+*/
+
+#define CHILLED_JELLIES_SUPPLY []
+
+SUPPLY_DROP_RULESET([1643,9644,0,1664,9664,0], CHILLED_JELLIES_SUPPLY)
+
+
+
+/*@ define:input:slayer_pvm
+label: Hide Items
+type: stringlist
 group: Warped Jellies
 */
 
