@@ -1357,11 +1357,11 @@ FORCE_SHOW_RULESET([1643,9644,0,1664,9664,0], CHILLED_JELLIES_SHOW)
 /*@ define:input:slayer_pvm
 label: Supply Drop
 type: enumlist
-enum: ["lobster"]
+enum: ["Lobster"]
 group: Chilled Jellies
 */
 
-#define CHILLED_JELLIES_SUPPLY []
+#define CHILLED_JELLIES_SUPPLY ["Lobster"]
 
 SUPPLY_DROP_RULESET([1643,9644,0,1664,9664,0], CHILLED_JELLIES_SUPPLY)
 
@@ -1392,7 +1392,7 @@ FORCE_SHOW_RULESET([1681,9990,0,1696,10008,0], WARPED_JELLIES_SHOW) // Catacombs
 /*@ define:input:slayer_pvm
 label: Supply Drop
 type: enumlist
-enum: ["lobster"]
+enum: ["Lobster"]
 group: Warped Jellies
 */
 
