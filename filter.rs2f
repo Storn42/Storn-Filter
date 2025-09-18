@@ -8110,7 +8110,7 @@ group: Runes
 /*@ define:input:runes
 label: Tier 0
 type: style
-group: Styles
+group: Runes
 exampleItem: Air rune
 */
 
@@ -8124,7 +8124,7 @@ exampleItem: Air rune
 /*@ define:input:runes
 label: Tier 1
 type: style
-group: Styles
+group: Runes
 exampleItem: Mind rune
 */
 
@@ -8137,7 +8137,7 @@ exampleItem: Mind rune
 /*@ define:input:runes
 label: Tier 2
 type: style
-group: Styles
+group: Runes
 exampleItem: Chaos rune
 */
 
@@ -8150,7 +8150,7 @@ exampleItem: Chaos rune
 /*@ define:input:runes
 label: Tier 3
 type: style
-group: Styles
+group: Runes
 exampleItem: Death rune
 */
 
@@ -8165,7 +8165,7 @@ exampleItem: Death rune
 /*@ define:input:runes
 label: Tier 4
 type: style
-group: Styles
+group: Runes
 exampleItem: Blood rune
 */
 
@@ -8182,7 +8182,7 @@ exampleItem: Blood rune
 /*@ define:input:runes
 label: Tier 5
 type: style
-group: Styles
+group: Runes
 exampleItem: Wrath rune
 */
 
@@ -8199,6 +8199,107 @@ exampleItem: Wrath rune
 rule (name:"*rune" && value:<RUNES_VALUE) {hidden=true;}
 
 VALUE_RULESET("*rune" && value:>=RUNES_VALUE, RUNES_T5_STYLE, RUNES_T4_STYLE, RUNES_T3_STYLE, RUNES_T2_STYLE, RUNES_T1_STYLE, RUNES_T0_STYLE)
+
+/*@ define:input:runes
+label: Minimum Value
+type: number
+group: Spell Sacks
+*/
+
+#define SPELL_SACKS_VALUE 100
+
+/*@ define:input:runes
+label: Tier 0
+type: style
+group: Spell Sacks
+exampleItem: Blighted teleport spell sack
+*/
+
+#define SPELL_SACKS_T0_STYLE \
+    color = "#ffffffff"; \
+	menuTextColor = "#ff6a9190"; \
+    textAccent = 2;\
+    textAccentColor = "#ff6a9190";
+
+
+/*@ define:input:runes
+label: Tier 1
+type: style
+group: Spell Sacks
+exampleItem: Blighted entangle sack
+*/
+
+#define SPELL_SACKS_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#446a9190";\
+	menuTextColor = "#ff6a9190";\
+	textAccent = 3;
+
+/*@ define:input:runes
+label: Tier 2
+type: style
+group: Spell Sacks
+exampleItem: Blighted vengeance sack
+*/
+
+#define SPELL_SACKS_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#996a9190";\
+	menuTextColor = "#ff6a9190";\
+	textAccent = 3;
+
+/*@ define:input:runes
+label: Tier 3
+type: style
+group: Spell Sacks
+exampleItem: Blighted ancient ice sack
+*/
+
+#define SPELL_SACKS_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#cc6a9190";\
+	menuTextColor = "#ff6a9190"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:runes
+label: Tier 4
+type: style
+group: Spell Sacks
+exampleItem: Blighted vengeance sack
+*/
+
+#define SPELL_SACKS_T4_STYLE \
+	backgroundColor = "#ff6a9190";\
+	menuTextColor = "#ff6a9190";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff6a9190";
+
+/*@ define:input:runes
+label: Tier 5
+type: style
+group: Spell Sacks
+exampleItem: Blighted ancient ice sack
+*/
+
+#define SPELL_SACKS_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff6a9190";\
+	color = "#ff6a9190";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff6a9190";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff6a9190";
+
+rule (name:["Blighted entangle sack", "Blighted teleport spell sack", "Blighted ancient ice sack", "Blighted vengeance sack"] && value:<SPELL_SACKS_VALUE) {hidden=true;}
+
+VALUE_RULESET(["Blighted entangle sack", "Blighted teleport spell sack", "Blighted ancient ice sack", "Blighted vengeance sack"] && value:>=SPELL_SACKS_VALUE, SPELL_SACKS_T5_STYLE, SPELL_SACKS_T4_STYLE, SPELL_SACKS_T3_STYLE, SPELL_SACKS_T2_STYLE, SPELL_SACKS_T1_STYLE, SPELL_SACKS_T0_STYLE)
 
 /*@ define:module:ores_bars
 name: Ores & Bars
