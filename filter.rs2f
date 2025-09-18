@@ -911,7 +911,7 @@ label: Wilderness - Hide Items
 type: stringlist
 group: Ankou
 */
-#define ANKOU_WILDERNESS_HIDE ["Weapon poison", "Black knife", "Black robe", "Fried mushrooms", "Bass"]
+#define ANKOU_WILDERNESS_HIDE ["Weapon poison", "Black knife", "Black robe", "Fried mushrooms", "Bass", "Grimy guam leaf", "Grimy marrentill", "Grimy tarromin", "Grimy harralander", "Limpwurt seed", "Strawberry seed", "Marrentill seed", "Jangerberry seed", "Tarromin seed", "Wildblood seed", "Watermelon seed", "Harralander seed", "Whiteberry seed", "Mushroom spore", "Belladonna seed", "Poison ivy seed", "Cactus seed", "Potato cactus seed", "Uncut sapphire", "Uncut emerald", "Uncut ruby"]
 
 rule (area:[2950,3724,0,3004,3780,0] && name:ANKOU_WILDERNESS_HIDE) {hidden = true;}
 
@@ -940,7 +940,7 @@ label: Wilderness Slayer Cave - Hide Items
 type: stringlist
 group: Ankou
 */
-#define ANKOU_WILDERNESS_CAVE_HIDE ["Grimy guam leaf","Grimy marrentill","Grimy tarromin","Grimy harralander"]
+#define ANKOU_WILDERNESS_CAVE_HIDE ["Grimy guam leaf", "Grimy marrentill", "Grimy tarromin", "Grimy harralander", "Limpwurt seed", "Strawberry seed", "Marrentill seed", "Jangerberry seed", "Tarromin seed", "Wildblood seed", "Watermelon seed", "Harralander seed", "Whiteberry seed", "Mushroom spore", "Belladonna seed", "Poison ivy seed", "Cactus seed", "Potato cactus seed", "Uncut sapphire", "Uncut emerald", "Uncut ruby"]
 
 rule (area:[2950,3724,0,3004,3780,0] && name:ANKOU_WILDERNESS_CAVE_HIDE) {hidden = true;}
 
