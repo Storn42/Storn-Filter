@@ -1274,6 +1274,102 @@ group: Hellhounds
 rule (area:[2728,9676,0,2748,9702,0] && name:HELLHOUND_WITCHAVEN_HIDE) {hidden = true;}
 
 /*@ define:input:slayer_pvm
+label: Fremennik Slayer Dungeon - Hide Items
+type: stringlist
+group: Jellies
+*/
+
+#define JELLIES_SLAYER_CAVE_HIDE []
+
+rule (area:[2691,10018,0,2718,10038,0] && name:JELLIES_SLAYER_CAVE_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Fremennik Slayer Dungeon - Show Items
+type: stringlist
+group: Jellies
+*/
+
+#define JELLIES_SLAYER_CAVE_SHOW []
+
+FORCE_SHOW_RULESET([2691,10018,0,2718,10038,0], JELLIES_SLAYER_CAVE_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Fremennik Slayer Dungeon - Supply Drop
+type: stringlist
+group: Jellies
+*/
+
+#define JELLIES_SLAYER_CAVE_SUPPLY []
+
+SUPPLY_DROP_RULESET([2691,10018,0,2718,10038,0], JELLIES_SLAYER_CAVE_SUPPLY)
+
+/*@ define:input:slayer_pvm
+label: Wilderness Slayer Cave - Hide Items
+type: stringlist
+group: Jellies
+*/
+
+#define JELLIES_WILDERNESS_HIDE ["Adamant battleaxe", "Adamant 2h sword"]
+
+rule (area:[2691,10018,0,2718,10038,0] && name:JELLIES_WILDERNESS_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Wilderness Slayer Cave - Show Items
+type: stringlist
+group: Jellies
+*/
+
+#define JELLIES_WILDERNESS_SHOW []
+
+FORCE_SHOW_RULESET([2691,10018,0,2718,10038,0], JELLIES_WILDERNESS_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Wilderness Slayer Cave - Supply Drop
+type: enumlist
+enum: ["Blighted anglerfish", "Blighted manta ray", "Blighted karambwan", "Blighted super restore(*)"]
+group: Jellies
+*/
+
+#define JELLIES_WILDERNESS_SUPPLY []
+
+SUPPLY_DROP_RULESET([2691,10018,0,2718,10038,0], JELLIES_WILDERNESS_SUPPLY)
+
+/*@ define:input:slayer_pvm
+label: Hide Items
+type: stringlist
+group: Warped Jellies
+*/
+
+#define WARPED_JELLIES_HIDE ["Adamant battleaxe", "Adamant 2h sword"]
+
+rule (area:[1709,10039,0,1731,10061,0] && name:WARPED_JELLIES_HIDE) {hidden = true;} // Catacombs of Kourend - North
+rule (area:[1681,9990,0,1696,10008,0] && name:WARPED_JELLIES_HIDE) {hidden = true;} // Catacombs of Kourend - South
+
+/*@ define:input:slayer_pvm
+label: Show Items
+type: stringlist
+group: Warped Jellies
+*/
+
+#define WARPED_JELLIES_SHOW []
+
+FORCE_SHOW_RULESET([1709,10039,0,1731,10061,0], WARPED_JELLIES_SHOW) // Catacombs of Kourend - North
+FORCE_SHOW_RULESET([1681,9990,0,1696,10008,0], WARPED_JELLIES_SHOW) // Catacombs of Kourend - South
+
+/*@ define:input:slayer_pvm
+label: Supply Drop
+type: enumlist
+enum: ["lobster"]
+group: Warped Jellies
+*/
+
+#define WARPED_JELLIES_SUPPLY []
+
+SUPPLY_DROP_RULESET([1709,10039,0,1731,10061,0], WARPED_JELLIES_SUPPLY) // Catacombs of Kourend - North
+SUPPLY_DROP_RULESET([1681,9990,0,1696,10008,0], WARPED_JELLIES_SUPPLY) // Catacombs of Kourend - South
+
+
+/*@ define:input:slayer_pvm
 label: Hide Unnoted Bars
 type: boolean
 group: Mithril Dragons
@@ -1446,9 +1542,6 @@ group: Greater Nechryaels
 #define NECHRYAEL_WILDERNESS_SUPPLY ["Blighted anglerfish","Blighted manta ray","Blighted karambwan","Blighted super restore(*)"]
 
 SUPPLY_DROP_RULESET([3329,10096,0,3344,10120,0], NECHRYAEL_WILDERNESS_SUPPLY)
-
-
-
 
 /*@ define:input:slayer_pvm
 label: Dragon Chainbody T3 Unique
@@ -2122,9 +2215,9 @@ group: Corporeal Beast
 enum: ["Spectral sigil", "Spectral spirit shield", "Arcane sigil", "Arcane spirit shield", "Elysian sigil", "Elysian spirit shield", "Spirit shield", "Holy elixir", "Blessed spirit shield", "Jar of spirits"]
 */
 
-#define CORPOREAL_BEAST_T3_UNIQUES ["Spectral sigil", "Spectral spirit shield", "Arcane sigil", "Arcane spirit shield", "Elysian sigil", "Elysian spirit shield", "Jar of spirits"]
+#define CORPOREAL_B1731_T3_UNIQUES ["Spectral sigil", "Spectral spirit shield", "Arcane sigil", "Arcane spirit shield", "Elysian sigil", "Elysian spirit shield", "Jar of spirits"]
 
-rule (name:CORPOREAL_BEAST_T3_UNIQUES) {UNIQUE_T3_STYLE}
+rule (name:CORPOREAL_B1731_T3_UNIQUES) {UNIQUE_T3_STYLE}
 
 /*@ define:input:boss_pvm
 label: Unique T2
@@ -2133,9 +2226,9 @@ group: Corporeal Beast
 enum: ["Spectral sigil", "Spectral spirit shield", "Arcane sigil", "Arcane spirit shield", "Elysian sigil", "Elysian spirit shield", "Spirit shield", "Holy elixir", "Blessed spirit shield", "Jar of spirits"]
 */
 
-#define CORPOREAL_BEAST_T2_UNIQUES ["Spirit shield", "Holy elixir", "Blessed spirit shield"] 
+#define CORPOREAL_B1731_T2_UNIQUES ["Spirit shield", "Holy elixir", "Blessed spirit shield"] 
 
-rule (name:CORPOREAL_BEAST_T2_UNIQUES) {UNIQUE_T2_STYLE}
+rule (name:CORPOREAL_B1731_T2_UNIQUES) {UNIQUE_T2_STYLE}
 
 /*@ define:input:boss_pvm
 label: Unique T1
@@ -2144,9 +2237,9 @@ group: Corporeal Beast
 enum: ["Spectral sigil", "Spectral spirit shield", "Arcane sigil", "Arcane spirit shield", "Elysian sigil", "Elysian spirit shield", "Spirit shield", "Holy elixir", "Blessed spirit shield", "Jar of spirits"]
 */
 
-#define CORPOREAL_BEAST_T1_UNIQUES []
+#define CORPOREAL_B1731_T1_UNIQUES []
 
-rule (name:CORPOREAL_BEAST_T1_UNIQUES) {UNIQUE_T1_STYLE}
+rule (name:CORPOREAL_B1731_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 
 /*@ define:input:boss_pvm
@@ -2155,9 +2248,9 @@ type: stringlist
 group: Corporeal Beast
 */
 
-#define CORPOREAL_BEAST_HIDE []
+#define CORPOREAL_B1731_HIDE []
 
-rule (area:[2884,5255,0,2909,5278,0] && name:CORPOREAL_BEAST_HIDE) {hidden = true;}
+rule (area:[2884,5255,0,2909,5278,0] && name:CORPOREAL_B1731_HIDE) {hidden = true;}
 
 /*@ define:input:boss_pvm
 label: Supply Drop
@@ -2166,9 +2259,9 @@ group: Corporeal Beast
 enum: ["Tuna potato"]
 */
 
-#define CORPOREAL_BEAST_SUPPLY ["Tuna potato"]
+#define CORPOREAL_B1731_SUPPLY ["Tuna potato"]
 
-rule (area:[2884,5255,0,2909,5278,0] && name:CORPOREAL_BEAST_SUPPLY) {SUPPLY_DROP_STYLE}
+rule (area:[2884,5255,0,2909,5278,0] && name:CORPOREAL_B1731_SUPPLY) {SUPPLY_DROP_STYLE}
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -14472,6 +14565,7 @@ rule (ENSOULED_HEADS_REPLACE_T1 && name:ENSOULED_HEADS_NAMES && stackable:true &
 VALUE_RULESET(ENSOULED_HEADS_NAMES, ENSOULED_HEADS_T5_STYLE, ENSOULED_HEADS_T4_STYLE, ENSOULED_HEADS_T3_STYLE, ENSOULED_HEADS_T2_STYLE, ENSOULED_HEADS_T1_STYLE, ENSOULED_HEADS_T0_STYLE)
 
 rule (name: "Ensouled * head" && !name: ENSOULED_HEADS_NAMES) {hidden=true;}
+
 /*@ define:module:misc
 name: Miscellaneous
 subtitle: Things Too Small for their own Catagory  
