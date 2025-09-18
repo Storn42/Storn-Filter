@@ -7249,7 +7249,7 @@ type: stringlist
 group: Items
 */
 
-#define TELEPORT_NAMES ["*Teleport*","Lizardman fang","Frozen tear","Bone fragments","Left skull half","Right skull half","Top of sceptre","Bottom of sceptre","Xeric's talisman (inert)","Giantsoul amulet (uncharged)", "Mokhaiotl waystone"] && !name:"Blighted teleport spell sack"
+#define TELEPORT_NAMES ["*Teleport*","Lizardman fang","Frozen tear","Bone fragments","Left skull half","Right skull half","Top of sceptre","Bottom of sceptre","Xeric's talisman (inert)","Giantsoul amulet (uncharged)", "Mokhaiotl waystone"]
 
 /*@ define:input:teleports
 label: Style 1
@@ -7292,7 +7292,7 @@ group: Minimum Quantity for Style 2
 
 rule (name:"Frozen tear" && quantity:<FROZEN_TEAR_QUANT) {TELEPORT_STYLE_1}
 
-rule (name:TELEPORT_NAMES) {TELEPORT_STYLE_2}
+rule (name:TELEPORT_NAMES && !name:"Blighted teleport spell sack") {TELEPORT_STYLE_2}
 
 /*@ define:module:charges
 name: Item Charges
