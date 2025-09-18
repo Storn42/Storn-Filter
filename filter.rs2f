@@ -1309,9 +1309,9 @@ type: stringlist
 group: Jellies
 */
 
-#define JELLIES_WILDERNESS_HIDE ["Adamant battleaxe", "Adamant 2h sword"]
+#define JELLIES_WILDERNESS_HIDE ["Adamant battleaxe", "Adamant 2h sword", "Uncut sapphire", "Uncut emerald", "Uncut ruby"]
 
-rule (area:[2691,10018,0,2718,10038,0] && name:JELLIES_WILDERNESS_HIDE) {hidden = true;}
+rule (area:[3415,10094,0,3444,10113,0] && name:JELLIES_WILDERNESS_HIDE) {hidden = true;}
 
 /*@ define:input:slayer_pvm
 label: Wilderness Slayer Cave - Show Items
@@ -1321,7 +1321,7 @@ group: Jellies
 
 #define JELLIES_WILDERNESS_SHOW []
 
-FORCE_SHOW_RULESET([2691,10018,0,2718,10038,0], JELLIES_WILDERNESS_SHOW)
+FORCE_SHOW_RULESET([3415,10094,0,3444,10113,0], JELLIES_WILDERNESS_SHOW)
 
 /*@ define:input:slayer_pvm
 label: Wilderness Slayer Cave - Supply Drop
@@ -1332,7 +1332,7 @@ group: Jellies
 
 #define JELLIES_WILDERNESS_SUPPLY []
 
-SUPPLY_DROP_RULESET([2691,10018,0,2718,10038,0], JELLIES_WILDERNESS_SUPPLY)
+SUPPLY_DROP_RULESET([3415,10094,0,3444,10113,0], JELLIES_WILDERNESS_SUPPLY)
 
 /*@ define:input:slayer_pvm
 label: Hide Items
@@ -7249,7 +7249,7 @@ type: stringlist
 group: Items
 */
 
-#define TELEPORT_NAMES ["*Teleport*","Lizardman fang","Frozen tear","Bone fragments","Left skull half","Right skull half","Top of sceptre","Bottom of sceptre","Xeric's talisman (inert)","Giantsoul amulet (uncharged)", "Mokhaiotl waystone"]
+#define TELEPORT_NAMES ["*Teleport*","Lizardman fang","Frozen tear","Bone fragments","Left skull half","Right skull half","Top of sceptre","Bottom of sceptre","Xeric's talisman (inert)","Giantsoul amulet (uncharged)", "Mokhaiotl waystone"] && !name:"Blighted teleport spell sack"
 
 /*@ define:input:teleports
 label: Style 1
@@ -7990,7 +7990,7 @@ type: stringlist
 group: Blighted Food and Pots
 */
 
-#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_ALWAYS_SHOW []
+#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_ALWAYS_SHOW ["Blighted super restore(*)"]
 
 /*@ define:input:food_and_pots_stockpile
 label: Show only if Stackable
@@ -7998,7 +7998,7 @@ type: stringlist
 group: Blighted Food and Pots
 */
 
-#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_SHOW_IF_STACKABLE ["Blighted karambwan", "Blighted manta ray", "Blighted anglerfish", "Blighted super restore(*)"]
+#define BLIGHTED_FOOD_AND_POTS_STOCKPILE_SHOW_IF_STACKABLE ["Blighted karambwan", "Blighted manta ray", "Blighted anglerfish"]
 
 /*@ define:input:food_and_pots_stockpile
 label: Tier 0
