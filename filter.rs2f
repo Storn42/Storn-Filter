@@ -812,7 +812,7 @@ enum: ["Lobster","Blighted anglerfish","Blighted manta ray","Blighted karambwan"
 group: Abyssal Demons
 */
 
-#define ABBYDEMONS_WILDERNESS_SUPPLY ["Blighted anglerfish","Blighted manta ray","Blighted karambwan","Blighted super restore(*)"]
+#define ABBYDEMONS_WILDERNESS_SUPPLY ["Blighted super restore(*)"]
 
 SUPPLY_DROP_RULESET([3331,10152,0,3352,10174,0], ABBYDEMONS_WILDERNESS_SUPPLY)
 
@@ -960,7 +960,7 @@ enum: ["Blighted anglerfish","Blighted manta ray","Blighted karambwan","Blighted
 group: Ankou
 */
 
-#define ANKOU_WILDERNESS_CAVE_SUPPLY ["Blighted anglerfish","Blighted manta ray","Blighted karambwan","Blighted super restore(*)"]
+#define ANKOU_WILDERNESS_CAVE_SUPPLY ["Blighted super restore(*)"]
 
 SUPPLY_DROP_RULESET([3339,10060,0,3377,10093,0], ANKOU_WILDERNESS_CAVE_SUPPLY)
 
@@ -1135,9 +1135,39 @@ enum: ["Blighted anglerfish","Blighted manta ray","Blighted karambwan","Blighted
 group: Dust Devils
 */
 
-#define DUST_DEVIL_WILDY_SUPPLY ["Blighted anglerfish","Blighted manta ray","Blighted karambwan","Blighted super restore(*)"]
+#define DUST_DEVIL_WILDY_SUPPLY ["Blighted super restore(*)"]
 
 SUPPLY_DROP_RULESET([3423,10113,0,3454,10133,0], DUST_DEVIL_WILDY_SUPPLY)
+
+/*@ define:input:slayer_pvm
+label: Catacombs of Kourend - Hide Items
+type: stringlist
+group: Elder Chaos Druids/Zombie Pirates
+*/
+
+#define CHAOS_PIRATES_HIDE ["Dark fishing bait"]
+
+rule (area:[3216,3587,0,3261,3634,0] && name:CHAOS_PIRATES_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Catacombs of Kourend - Show Items
+type: stringlist
+group: Elder Chaos Druids/Zombie Pirates
+*/
+
+#define CHAOS_PIRATES_SHOW []
+
+FORCE_SHOW_RULESET([3216,3587,0,3261,3634,0], CHAOS_PIRATES_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Catacombs of Kourend - Supply Drop
+type: stringlist
+group: Elder Chaos Druids/Zombie Pirates
+*/
+
+#define CHAOS_PIRATES_SUPPLY []
+
+SUPPLY_DROP_RULESET([3216,3587,0,3261,3634,0], CHAOS_PIRATES_SUPPLY)
 
 /*@ define:input:slayer_pvm
 label: Smouldering Stone T3 Unique
@@ -1330,7 +1360,7 @@ enum: ["Blighted anglerfish", "Blighted manta ray", "Blighted karambwan", "Bligh
 group: Jellies
 */
 
-#define JELLIES_WILDERNESS_SUPPLY ["Blighted anglerfish","Blighted manta ray","Blighted karambwan","Blighted super restore(*)"]
+#define JELLIES_WILDERNESS_SUPPLY ["Blighted super restore(*)"]
 
 SUPPLY_DROP_RULESET([3415,10094,0,3444,10113,0], JELLIES_WILDERNESS_SUPPLY)
 
