@@ -1140,7 +1140,7 @@ group: Dust Devils
 SUPPLY_DROP_RULESET([3423,10113,0,3454,10133,0], DUST_DEVIL_WILDY_SUPPLY)
 
 /*@ define:input:slayer_pvm
-label: Catacombs of Kourend - Hide Items
+label: Hide Items
 type: stringlist
 group: Elder Chaos Druids/Zombie Pirates
 */
@@ -1150,7 +1150,7 @@ group: Elder Chaos Druids/Zombie Pirates
 rule (area:[3216,3587,0,3261,3634,0] && name:CHAOS_PIRATES_HIDE) {hidden = true;}
 
 /*@ define:input:slayer_pvm
-label: Catacombs of Kourend - Show Items
+label: Show Items
 type: stringlist
 group: Elder Chaos Druids/Zombie Pirates
 */
@@ -1160,7 +1160,7 @@ group: Elder Chaos Druids/Zombie Pirates
 FORCE_SHOW_RULESET([3216,3587,0,3261,3634,0], CHAOS_PIRATES_SHOW)
 
 /*@ define:input:slayer_pvm
-label: Catacombs of Kourend - Supply Drop
+label: Supply Drop
 type: stringlist
 group: Elder Chaos Druids/Zombie Pirates
 */
@@ -1302,6 +1302,170 @@ group: Hellhounds
 #define HELLHOUND_WITCHAVEN_HIDE ["vile ashes"]
 
 rule (area:[2728,9676,0,2748,9702,0] && name:HELLHOUND_WITCHAVEN_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Asgarnian Ice Dungeon West - Hide Items
+type: stringlist
+group: Ice Giants/Ice Warriors
+*/
+
+#define ICE_GIANTS_ASGARNIA_HIDE ["Jug of wine" , "Banana"]
+
+rule (area:[2949,9548,0,2983,9597,0] && name:ICE_GIANTS_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Asgarnian Ice Dungeon West - Show Items
+type: stringlist
+group: Ice Giants/Ice Warriors
+*/
+
+#define ICE_GIANTS_ASGARNIA_SHOW []
+
+FORCE_SHOW_RULESET([2949,9548,0,2983,9597,0], ICE_GIANTS_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Asgarnian Ice Dungeon - Supply Drop
+type: enumlist
+enum: ["Jug of wine" , "Banana"]
+group: Ice Giants/Ice Warriors
+*/
+
+#define ICE_GIANTS_ASGARNIA_SUPPLY []
+
+SUPPLY_DROP_RULESET([2949,9548,0,2983,9597,0], ICE_GIANTS_SUPPLY)
+
+/*@ define:input:slayer_pvm
+label: Ruins of Tapoyauik - Hide Items
+type: stringlist
+group: Ice Giants
+*/
+
+#define ICE_GIANTS_TAPOYAUIK_HIDE ["Jug of wine" , "Banana"]
+
+rule (area:[1577,9639,0,1622,9663,0] && name:ICE_GIANTS_TAPOYAUIK_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Ruins of Tapoyauik - Show Items
+type: stringlist
+group: Ice Giants
+*/
+
+#define ICE_GIANTS_TAPOYAUIK_SHOW []
+
+FORCE_SHOW_RULESET([1577,9639,0,1622,9663,0], ICE_GIANTS_TAPOYAUIK_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Ruins of Tapoyauik - Supply Drop
+type: enumlist
+enum: ["Jug of wine", "Banana"]
+group: Ice Giants
+*/
+
+#define ICE_GIANTS_TAPOYAUIK_SUPPLY []
+
+SUPPLY_DROP_RULESET([1577,9639,0,1622,9663,0], ICE_GIANTS_TAPOYAUIK_SUPPLY)
+
+/*@ define:input:slayer_pvm
+label: Wilderness Slayer Cave - Hide Items
+type: stringlist
+group: Ice Giants
+*/
+
+#define ICE_GIANTS_WILDERNESS_CAVE_HIDE ["Jug of wine", "Banana","Limpwurt seed", "Strawberry seed", "Marrentill seed", "Jangerberry seed", "Tarromin seed", "Wildblood seed", "Watermelon seed", "Harralander seed", "Whiteberry seed", "Mushroom spore", "Belladonna seed", "Poison ivy seed", "Cactus seed", "Potato cactus seed"]
+
+rule (area:[3329,10049,0,3356,10064,0] && name:ICE_GIANTS_WILDERNESS_CAVE_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Wilderness Slayer Cave - Show Items
+type: stringlist
+group: Ice Giants
+*/
+
+#define ICE_GIANTS_WILDERNESS_CAVE_SHOW []
+
+FORCE_SHOW_RULESET([3329,10049,0,3356,10064,0], ICE_GIANTS_WILDERNESS_CAVE_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Wilderness Slayer Cave - Supply Drop
+type: enumlist
+enum: ["Blighted anglerfish", "Blighted manta ray", "Blighted karambwan", "Blighted super restore(*)"]
+group: Ice Giants
+*/
+
+#define ICE_GIANTS_WILDERNESS_CAVE_SUPPLY []
+
+SUPPLY_DROP_RULESET([3329,10049,0,3356,10064,0], ICE_GIANTS_WILDERNESS_CAVE_SUPPLY)
+
+/*@ define:input:slayer_pvm
+label: Asgarnian Ice Dungeon East- Hide Items
+type: stringlist
+group: Ice Giants/Ice Warriors
+*/
+
+#define ICE_GIANTS_WARRIORS_ASGARNIA_HIDE ["Jug of wine" , "Banana"]
+
+rule (area:[3030,9562,0,3069,9599,0] && name:ICE_GIANTS_WARRIORS_ASGARNIA_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Asgarnian Ice Dungeon East - Show Items
+type: stringlist
+group: Ice Giants/Ice Warriors
+*/
+
+#define ICE_GIANTS_WARRIORS_ASGARNIA_SHOW []
+
+FORCE_SHOW_RULESET([3030,9562,0,3069,9599,0], ICE_GIANTS_WARRIORS_ASGARNIA_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Asgarnian Ice Dungeon East - Supply Drop
+type: enumlist
+enum: ["Jug of wine", "Banana"]
+group: Ice Giants/Ice Warriors
+*/
+
+#define ICE_GIANTS_WARRIORS_ASGARNIA_SUPPLY []
+
+SUPPLY_DROP_RULESET([3030,9562,0,3069,9599,0], ICE_GIANTS_WARRIORS_ASGARNIA_SUPPLY)
+
+
+
+/*@ define:input:slayer_pvm
+label: Frozen Waste Plateau - Hide Items
+type: stringlist
+group: Ice Giants/Ice Warriors
+*/
+
+#define ICE_GIANTS_WARRIORS_WILDERNESS_HIDE ["Jug of wine", "Banana", "Grimy guam leaf","Grimy marrentill","Grimy tarromin","Grimy harralander", "Limpwurt seed", "Strawberry seed", "Marrentill seed", "Jangerberry seed", "Tarromin seed", "Wildblood seed", "Watermelon seed", "Harralander seed", "Whiteberry seed", "Mushroom spore", "Belladonna seed", "Poison ivy seed", "Cactus seed", "Potato cactus seed", "Uncut sapphire", "Uncut emerald", "Uncut ruby"]
+
+rule (area:[2944,3853,0,2988,3943,0] && name:ICE_GIANTS_WARRIORS_WILDERNESS_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Frozen Waste Plateau - Show Items
+type: stringlist
+group: Ice Giants/Ice Warriors
+*/
+
+#define ICE_GIANTS_WARRIORS_WILDERNESS_SHOW []
+
+FORCE_SHOW_RULESET([2944,3853,0,2988,3943,0], ICE_GIANTS_WARRIORS_WILDERNESS_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Frozen Waste Plateau - Supply Drop
+type: enumlist
+enum: ["Blighted anglerfish", "Blighted manta ray", "Blighted karambwan", "Blighted super restore(*)"]
+group: Ice Giants/Ice Warriors
+*/
+
+#define ICE_GIANTS_WARRIORS_WILDERNESS_SUPPLY []
+
+SUPPLY_DROP_RULESET([2944,3853,0,2988,3943,0], ICE_GIANTS_WARRIORS_WILDERNESS_SUPPLY)
+
+
+
+
+
+
+
 
 /*@ define:input:slayer_pvm
 label: Fremennik Slayer Dungeon - Hide Items
