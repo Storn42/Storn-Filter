@@ -790,7 +790,7 @@ label: Wilderness Slayer Cave - Hide Items
 type: stringlist
 group: Abyssal Demons
 */
-#define ABBYDEMONS_WILDERNESS_HIDE ["Black sword", "Steel battleaxe", "Black axe", "Mithril kiteshield", "Lobster", "Cosmic talisman", "Chaos talisman", "Defence potion(3)", "Grimy guam leaf", "Grimy marrentill", "Grimy tarromin", "Grimy harralander"]
+#define ABBYDEMONS_WILDERNESS_HIDE ["Black sword", "Steel battleaxe", "Black axe", "Mithril kiteshield", "Lobster", "Cosmic talisman", "Chaos talisman", "Defence potion(3)", "Grimy guam leaf", "Grimy marrentill", "Grimy tarromin", "Grimy harralander", "Uncut sapphire", "Uncut emerald", "Uncut ruby"]
 
 rule (area:[3331,10152,0,3352,10174,0] && name:ABBYDEMONS_WILDERNESS_HIDE) {hidden = true;}
 
