@@ -163,11 +163,11 @@ group: Drop Sounds
 */
 #define TIER_5_SOUND "Tier5.wav"
 
-apply (value:>=VALUE_TIER_1 && (!ownership:2 || SHOW_OTHER_DROPS)) {sound = TIER_1_SOUND;}
-apply (value:>=VALUE_TIER_2 && (!ownership:2 || SHOW_OTHER_DROPS)) {sound = TIER_2_SOUND;}
-apply (value:>=VALUE_TIER_3 && (!ownership:2 || SHOW_OTHER_DROPS)) {sound = TIER_3_SOUND;}
-apply (value:>=VALUE_TIER_4 && (!ownership:2 || SHOW_OTHER_DROPS)) {sound = TIER_4_SOUND;}
-apply (value:>=VALUE_TIER_5 && (!ownership:2 || SHOW_OTHER_DROPS)) {sound = TIER_5_SOUND;}
+apply (value:>=VALUE_TIER_1 && (!ownership:2 || SHOW_OTHER_DROPS)) {sound = TIER_1_SOUND; menuSort = 10000;}
+apply (value:>=VALUE_TIER_2 && (!ownership:2 || SHOW_OTHER_DROPS)) {sound = TIER_2_SOUND; menuSort = 20000;}
+apply (value:>=VALUE_TIER_3 && (!ownership:2 || SHOW_OTHER_DROPS)) {sound = TIER_3_SOUND; menuSort = 30000;}
+apply (value:>=VALUE_TIER_4 && (!ownership:2 || SHOW_OTHER_DROPS)) {sound = TIER_4_SOUND; menuSort = 40000;}
+apply (value:>=VALUE_TIER_5 && (!ownership:2 || SHOW_OTHER_DROPS)) {sound = TIER_5_SOUND; menuSort = 50000;}
 
 apply (tradeable: false) {color = WHITE;}
 
