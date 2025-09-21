@@ -1311,7 +1311,7 @@ group: Ice Giants/Ice Warriors
 
 #define ICE_GIANTS_ASGARNIA_HIDE ["Jug of wine" , "Banana"]
 
-rule (area:[2949,9548,0,2983,9597,0] && name:ICE_GIANTS_HIDE) {hidden = true;}
+rule (area:[2949,9548,0,2983,9597,0] && name:ICE_GIANTS_ASGARNIA_HIDE) {hidden = true;}
 
 /*@ define:input:slayer_pvm
 label: Asgarnian Ice Dungeon West - Show Items
@@ -1321,7 +1321,7 @@ group: Ice Giants/Ice Warriors
 
 #define ICE_GIANTS_ASGARNIA_SHOW []
 
-FORCE_SHOW_RULESET([2949,9548,0,2983,9597,0], ICE_GIANTS_SHOW)
+FORCE_SHOW_RULESET([2949,9548,0,2983,9597,0], ICE_GIANTS_ASGARNIA_SHOW)
 
 /*@ define:input:slayer_pvm
 label: Asgarnian Ice Dungeon - Supply Drop
@@ -1332,7 +1332,7 @@ group: Ice Giants/Ice Warriors
 
 #define ICE_GIANTS_ASGARNIA_SUPPLY []
 
-SUPPLY_DROP_RULESET([2949,9548,0,2983,9597,0], ICE_GIANTS_SUPPLY)
+SUPPLY_DROP_RULESET([2949,9548,0,2983,9597,0], ICE_GIANTS_ASGARNIA_SUPPLY)
 
 /*@ define:input:slayer_pvm
 label: Ruins of Tapoyauik - Hide Items
@@ -1595,6 +1595,36 @@ group: Warped Jellies
 SUPPLY_DROP_RULESET([1709,10039,0,1731,10061,0], WARPED_JELLIES_SUPPLY) // Catacombs of Kourend - North
 SUPPLY_DROP_RULESET([1681,9990,0,1696,10008,0], WARPED_JELLIES_SUPPLY) // Catacombs of Kourend - South
 
+/*@ define:input:slayer_pvm
+label: Hide Items
+type: stringlist
+group: Lava Dragons
+*/
+
+#define LAVA_DRAGON_HIDE ["Grimy guam leaf","Grimy marrentill","Grimy tarromin","Grimy harralander","Uncut sapphire", "Uncut emerald", "Uncut ruby", "Adamant 2h sword"]
+
+rule (area:[3174,3800,0,3234,3856,0] && name:LAVA_DRAGON_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Show Items
+type: stringlist
+group: Lava Dragons
+*/
+
+#define LAVA_DRAGON_SHOW []
+
+FORCE_SHOW_RULESET([3174,3800,0,3234,3856,0], LAVA_DRAGON_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Supply Drop
+type: enumlist
+enum: ["Chocolate cake"]
+group: Lava Dragons
+*/
+
+#define LAVA_DRAGON_SUPPLY []
+
+SUPPLY_DROP_RULESET([3174,3800,0,3234,3856,0], LAVA_DRAGON_SUPPLY)
 
 /*@ define:input:slayer_pvm
 label: Hide Unnoted Bars
