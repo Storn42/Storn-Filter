@@ -10157,7 +10157,7 @@ exampleItem: Amulet of glory(4)
 	lootbeamColor = "#ffbb00ff";
 	
 VALUE_RULESET(["Uncut dragonstone", "Dragonstone", "Dragonstone bolt tips"], DRAGONSTONE_T5_STYLE, DRAGONSTONE_T4_STYLE, DRAGONSTONE_T3_STYLE, DRAGONSTONE_T2_STYLE, DRAGONSTONE_T1_STYLE, DRAGONSTONE_T0_STYLE)
-VALUE_RULESET(["Dragon necklace", "Skills necklace*", "Dragonstone ring", "Ring of wealth*", "Dragonstone amulet", "Dragonstone amulet (u)", "Amulet of Glory*", "Dragonstone bracelet", "Combat bracelet*"], DRAGONSTONE_JEWELRY_T5_STYLE, DRAGONSTONE_JEWELRY_T4_STYLE, DRAGONSTONE_JEWELRY_T3_STYLE, DRAGONSTONE_JEWELRY_T2_STYLE, DRAGONSTONE_JEWELRY_T1_STYLE, DRAGONSTONE_JEWELRY_T0_STYLE)
+VALUE_RULESET(["Dragon necklace", "Skills necklace*", "Dragonstone ring", "Ring of wealth (*", "Dragonstone amulet", "Dragonstone amulet (u)", "Amulet of Glory*", "Dragonstone bracelet", "Combat bracelet*"], DRAGONSTONE_JEWELRY_T5_STYLE, DRAGONSTONE_JEWELRY_T4_STYLE, DRAGONSTONE_JEWELRY_T3_STYLE, DRAGONSTONE_JEWELRY_T2_STYLE, DRAGONSTONE_JEWELRY_T1_STYLE, DRAGONSTONE_JEWELRY_T0_STYLE)
 
 
 /*@ define:input:gems_and_jewelry
