@@ -1822,7 +1822,7 @@ type: stringlist
 group: Lesser Demons
 */
 
-#define LESSER_DEMON_WILDERNESS_CAVE_HIDE ["Adamant chainbody","Grimy guam leaf","Grimy marrentill","Grimy tarromin","Grimy harralander","Uncut sapphire", "Uncut emerald", "Uncut ruby"]
+#define LESSER_DEMON_WILDERNESS_CAVE_HIDE ["Adamant chainbody","Grimy guam leaf","Grimy marrentill","Grimy tarromin","Grimy harralander","Uncut sapphire", "Uncut emerald", "Uncut ruby", "Vile ashes", "Jug of wine"]
 
 rule (area:[3329,10121,0,3347,10150,0] && name:LESSER_DEMON_WILDERNESS_CAVE_HIDE) {hidden = true;}
 
