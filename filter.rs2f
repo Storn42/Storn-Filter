@@ -7702,7 +7702,7 @@ type: stringlist
 group: Items
 */
 
-#define TELEPORT_NAMES_T1 ["Left skull half","Right skull half","Top of sceptre","Bottom of sceptre", "Revenant cave teleport"]
+#define TELEPORT_NAMES_T1 ["Left skull half","Right skull half","Top of sceptre","Bottom of sceptre", "Revenant cave teleport", "Guthixian temple teleport", "Teleport Crystal*"]
 
 /*@ define:input:teleports
 label: Force Tier 2
@@ -7710,7 +7710,7 @@ type: stringlist
 group: Items
 */
 
-#define TELEPORT_NAMES_T2 ["Xeric's talisman (inert)","Giantsoul amulet (uncharged)", "Dorgesh-kaan sphere", "Goblin village sphere", "Plain of mud sphere"]
+#define TELEPORT_NAMES_T2 ["Xeric's talisman (inert)","Giantsoul amulet (uncharged)"]
 
 /*@ define:input:teleports
 label: Force Tier 3
@@ -7718,7 +7718,7 @@ type: stringlist
 group: Items
 */
 
-#define TELEPORT_NAMES_T3 []
+#define TELEPORT_NAMES_T3 ["Dorgesh-kaan sphere", "Goblin village sphere", "Plain of mud sphere"]
 
 /*@ define:input:teleports
 label: Force Tier 4
@@ -7726,7 +7726,7 @@ type: stringlist
 group: Items
 */
 
-#define TELEPORT_NAMES_T4 []
+#define TELEPORT_NAMES_T4 ["Eternal teleport crystal"]
 
 /*@ define:input:teleports
 label: Force Tier 5
