@@ -1601,7 +1601,7 @@ type: stringlist
 group: Lava Dragons
 */
 
-#define LAVA_DRAGON_HIDE ["Grimy guam leaf","Grimy marrentill","Grimy tarromin","Grimy harralander","Uncut sapphire", "Uncut emerald", "Uncut ruby", "Adamant 2h sword"]
+#define LAVA_DRAGON_HIDE ["Grimy guam leaf","Grimy marrentill","Grimy tarromin","Grimy harralander","Uncut sapphire", "Uncut emerald", "Uncut ruby", "Adamant 2h sword", "Chocolate cake", ]
 
 rule (area:[3174,3800,0,3234,3856,0] && name:LAVA_DRAGON_HIDE) {hidden = true;}
 
