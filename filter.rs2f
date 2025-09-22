@@ -7875,7 +7875,7 @@ group: Minimum Quantity for Style 2
 */
 #define ANCIENT_ESSENCE_QUANT 600
 
-rule (name:"Ancient essence" && quantity:<LIZARDMAN_FANG_QUANT) {CHARGE_STYLE_1}
+rule (name:"Ancient essence" && quantity:<ANCIENT_ESSENCE_QUANT) {CHARGE_STYLE_1}
 
 /*@ define:input:charges
 label: Crystal Shard
