@@ -1601,7 +1601,7 @@ type: stringlist
 group: Lava Dragons
 */
 
-#define LAVA_DRAGON_HIDE ["Grimy guam leaf","Grimy marrentill","Grimy tarromin","Grimy harralander","Uncut sapphire", "Uncut emerald", "Uncut ruby", "Adamant 2h sword", "Chocolate cake", ]
+#define LAVA_DRAGON_HIDE ["Grimy guam leaf","Grimy marrentill","Grimy tarromin","Grimy harralander","Uncut sapphire", "Uncut emerald", "Uncut ruby", "Adamant 2h sword", "Chocolate cake"]
 
 rule (area:[3174,3800,0,3234,3856,0] && name:LAVA_DRAGON_HIDE) {hidden = true;}
 
@@ -7529,7 +7529,7 @@ type: stringlist
 group: Items
 */
 
-#define CHARGE_NAMES ["Zulrah's scales","Granite dust","Ancient essence","Lava scale*","Sunfire splinters","Araxyte venom sack","Crystal shard","Ancient shard","sapphire ring","ring of recoil","Revenant ether", "Soiled page", "Burnt page", "Soaked page", "Desiccated page", "Nihil shard", "Spirit flakes", "Aether catalyst", "Demon tear"]
+#define CHARGE_NAMES ["Zulrah's scales","Granite dust","Ancient essence","Sunfire splinters","Araxyte venom sack","Crystal shard","Ancient shard","sapphire ring","ring of recoil","Revenant ether", "Soiled page", "Burnt page", "Soaked page", "Desiccated page", "Nihil shard", "Spirit flakes", "Aether catalyst", "Demon tear"]
 
 /*@ define:input:charges
 label: Style 1
@@ -7740,7 +7740,7 @@ type: stringlist
 group: Secondaries
 */
 
-#define HERBLORE_SECONDARIES_ALWAYS_SHOW ["Volcanic ash","Giant egg sac","Aldarium","Scaly blue dragonhide","Nail beast nails","Magic roots","Nihil dust","Lily of the sands","Crushed superior dragon bones","Crystal dust", "Swamp tar"]
+#define HERBLORE_SECONDARIES_ALWAYS_SHOW ["Volcanic ash","Giant egg sac","Aldarium","Scaly blue dragonhide","Nail beast nails","Magic roots","Nihil dust","Lily of the sands","Crushed superior dragon bones","Crystal dust", "Swamp tar","Lava scale*"]
 
 /*@ define:input:herblore_secondaries
 label: Show only if Stackable
