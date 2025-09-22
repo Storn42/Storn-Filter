@@ -1627,6 +1627,227 @@ group: Lava Dragons
 SUPPLY_DROP_RULESET([3174,3800,0,3234,3856,0], LAVA_DRAGON_SUPPLY)
 
 /*@ define:input:slayer_pvm
+label: Catacombs of Kourend - Hide Items
+type: stringlist
+group: Lesser Demons
+*/
+
+#define LESSER_DEMON_CATACOMBS_HIDE []
+
+rule (area:[1702,10060,0,1727,10076,0] && name:LESSER_DEMON_CATACOMBS_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Catacombs of Kourend - Show Items
+type: stringlist
+group: Lesser Demons
+*/
+
+#define LESSER_DEMON_CATACOMBS_SHOW []
+
+FORCE_SHOW_RULESET([1702,10060,0,1727,10076,0], LESSER_DEMON_CATACOMBS_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Catacombs of Kourend - Supply Drop
+type: enumlist
+enum: ["Jug of wine"]
+group: Lesser Demons
+*/
+
+#define LESSER_DEMON_CATACOMBS_SUPPLY []
+
+SUPPLY_DROP_RULESET([1702,10060,0,1727,10076,0], LESSER_DEMON_CATACOMBS_SUPPLY)
+
+/*@ define:input:slayer_pvm
+label: Chasm of Fire - Hide Items
+type: stringlist
+group: Lesser Demons
+*/
+
+#define LESSER_DEMON_CHASM_OF_FIRE_HIDE []
+
+rule (area:[1409,10050,2,1471,10112,2] && name:LESSER_DEMON_CHASM_OF_FIRE_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Chasm of Fire - Show Items
+type: stringlist
+group: Lesser Demons
+*/
+
+#define LESSER_DEMON_CHASM_OF_FIRE_SHOW []
+
+FORCE_SHOW_RULESET([1409,10050,2,1471,10112,2], LESSER_DEMON_CHASM_OF_FIRE_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Chasm of Fire - Supply Drop
+type: enumlist
+enum: ["Jug of wine"]
+group: Lesser Demons
+*/
+
+#define LESSER_DEMON_CHASM_OF_FIRE_SUPPLY []
+
+SUPPLY_DROP_RULESET([1409,10050,2,1471,10112,2], LESSER_DEMON_CHASM_OF_FIRE_SUPPLY)
+
+/*@ define:input:slayer_pvm
+label: Crandor and Karamja Dungeon - Hide Items
+type: stringlist
+group: Lesser Demons
+*/
+
+#define LESSER_DEMON_KARAMJA_HIDE []
+
+rule (area:[2828,9600,0,2849,9633,0] && name:LESSER_DEMON_KARAMJA_HIDE) {hidden = true;} // North
+rule (area:[2828,9549,0,2850,9575,0] && name:LESSER_DEMON_KARAMJA_HIDE) {hidden = true;} // South
+
+/*@ define:input:slayer_pvm
+label: Crandor and Karamja Dungeon - Show Items
+type: stringlist
+group: Lesser Demons
+*/
+
+#define LESSER_DEMON_KARAMJA_SHOW []
+
+FORCE_SHOW_RULESET([2828,9600,0,2849,9633,0], LESSER_DEMON_KARAMJA_SHOW) // North
+FORCE_SHOW_RULESET([2828,9549,0,2850,9575,0], LESSER_DEMON_KARAMJA_SHOW) // South
+
+/*@ define:input:slayer_pvm
+label: Crandor and Karamja Dungeon - Supply Drop
+type: enumlist
+enum: ["Jug of wine"]
+group: Lesser Demons
+*/
+
+#define LESSER_DEMON_KARAMJA_SUPPLY []
+
+SUPPLY_DROP_RULESET([2828,9600,0,2849,9633,0], LESSER_DEMON_KARAMJA_SUPPLY) // North
+SUPPLY_DROP_RULESET([2828,9549,0,2850,9575,0], LESSER_DEMON_KARAMJA_SUPPLY) // South
+
+/*@ define:input:slayer_pvm
+label: Isle of Souls Dungeon - Hide Items
+type: stringlist
+group: Lesser Demons
+*/
+
+#define LESSER_DEMON_ISLE_OF_SOULS_HIDE []
+
+rule (area:[2145,9328,0,2160,9344,0] && name:LESSER_DEMON_ISLE_OF_SOULS_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Isle of Souls Dungeon - Show Items
+type: stringlist
+group: Lesser Demons
+*/
+
+#define LESSER_DEMON_ISLE_OF_SOULS_SHOW []
+
+FORCE_SHOW_RULESET([2145,9328,0,2160,9344,0], LESSER_DEMON_ISLE_OF_SOULS_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Isle of Souls Dungeon - Supply Drop
+type: enumlist
+enum: ["Jug of wine"]
+group: Lesser Demons
+*/
+
+#define LESSER_DEMON_ISLE_OF_SOULS_SUPPLY []
+
+SUPPLY_DROP_RULESET([2145,9328,0,2160,9344,0], LESSER_DEMON_ISLE_OF_SOULS_SUPPLY)
+
+/*@ define:input:slayer_pvm
+label: Sisterhood Sanctuary - Hide Items
+type: stringlist
+group: Lesser Demons
+*/
+
+#define LESSER_DEMON_SISTERHOOD_SANCTUARY_HIDE []
+
+rule (area:[3842,9722,1,3858,9796,1] && name:LESSER_DEMON_SISTERHOOD_SANCTUARY_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Sisterhood Sanctuary - Show Items
+type: stringlist
+group: Lesser Demons
+*/
+
+#define LESSER_DEMON_SISTERHOOD_SANCTUARY_SHOW []
+
+FORCE_SHOW_RULESET([3842,9722,1,3858,9796,1], LESSER_DEMON_SISTERHOOD_SANCTUARY_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Sisterhood Sanctuary - Supply Drop
+type: enumlist
+enum: ["Jug of wine"]
+group: Lesser Demons
+*/
+
+#define LESSER_DEMON_SISTERHOOD_SANCTUARY_SUPPLY []
+
+SUPPLY_DROP_RULESET([3842,9722,1,3858,9796,1], LESSER_DEMON_SISTERHOOD_SANCTUARY_SUPPLY)
+
+/*@ define:input:slayer_pvm
+label: Taverley Dungeon - Hide Items
+type: stringlist
+group: Lesser Demons
+*/
+
+#define LESSER_DEMON_TAVERLY_HIDE []
+
+rule (area:[2924,9783,0,2942,9813,0] && name:LESSER_DEMON_TAVERLY_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Taverley Dungeon - Show Items
+type: stringlist
+group: Lesser Demons
+*/
+
+#define LESSER_DEMON_TAVERLY_SHOW []
+
+FORCE_SHOW_RULESET([2924,9783,0,2942,9813,0], LESSER_DEMON_TAVERLY_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Taverley Dungeon - Supply Drop
+type: enumlist
+enum: ["Jug of wine"]
+group: Lesser Demons
+*/
+
+#define LESSER_DEMON_TAVERLY_SUPPLY []
+
+SUPPLY_DROP_RULESET([2924,9783,0,2942,9813,0], LESSER_DEMON_TAVERLY_SUPPLY)
+
+
+/*@ define:input:slayer_pvm
+label: Wilderness Slayer Cave - Hide Items
+type: stringlist
+group: Lesser Demons
+*/
+
+#define LESSER_DEMON_WILDERNESS_CAVE_HIDE ["Adamant chainbody","Grimy guam leaf","Grimy marrentill","Grimy tarromin","Grimy harralander","Uncut sapphire", "Uncut emerald", "Uncut ruby"]
+
+rule (area:[3329,10121,0,3347,10150,0] && name:LESSER_DEMON_WILDERNESS_CAVE_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Wilderness Slayer Cave - Show Items
+type: stringlist
+group: Lesser Demons
+*/
+
+#define LESSER_DEMON_WILDERNESS_CAVE_SHOW []
+
+FORCE_SHOW_RULESET([3329,10121,0,3347,10150,0], LESSER_DEMON_WILDERNESS_CAVE_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Wilderness Slayer Cave - Supply Drop
+type: enumlist
+enum: ["Blighted anglerfish", "Blighted manta ray", "Blighted karambwan", "Blighted super restore(*)"]
+group: Lesser Demons
+*/
+
+#define LESSER_DEMON_WILDERNESS_CAVE_SUPPLY ["Blighted super restore(*)"]
+
+SUPPLY_DROP_RULESET([3329,10121,0,3347,10150,0], LESSER_DEMON_WILDERNESS_CAVE_SUPPLY)
+
+/*@ define:input:slayer_pvm
 label: Hide Unnoted Bars
 type: boolean
 group: Mithril Dragons
