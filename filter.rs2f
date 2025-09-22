@@ -7703,7 +7703,7 @@ type: stringlist
 group: Items
 */
 
-#define TELEPORT_NAMES_T1 []
+#define TELEPORT_NAMES_T1 ["Left skull half","Right skull half","Top of sceptre","Bottom of sceptre"]
 
 /*@ define:input:teleports
 label: Force Tier 2
@@ -7711,7 +7711,7 @@ type: stringlist
 group: Items
 */
 
-#define TELEPORT_NAMES_T2 []
+#define TELEPORT_NAMES_T2 ["Xeric's talisman (inert)","Giantsoul amulet (uncharged)"]
 
 /*@ define:input:teleports
 label: Force Tier 3
