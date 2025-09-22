@@ -7771,7 +7771,7 @@ exampleItem: Malicious ashes
 #define TELEPORT_T2_STYLE \
 	color ="#ffffffff";\
     backgroundColor = "#99999999";\
-	menuTextColor = "#ff999999;\
+	menuTextColor = "#ff999999";\
 	textAccent = 3;
 
 /*@ define:input:teleports
