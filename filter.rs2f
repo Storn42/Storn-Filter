@@ -7683,7 +7683,6 @@ exampleItem: Gold key purple
 	
 rule (name:"Gold key *") {KEY_SHADES_GOLD}
 
-y
 /*@ define:module:teleports
 name: Teleports
 subtitle: Teleport Items and Teleport Charges
