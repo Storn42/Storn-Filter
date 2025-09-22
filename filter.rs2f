@@ -2869,7 +2869,7 @@ group: Doom of Mokhaiotl
 enum: ["*Avernic treads*", "Eye of ayak*", "Confliction Gauntlets",  "Mokhaiotl cloth"]
 */
 
-#define DOOM_OF_MOKHAIOTL_T2_UNIQUES ["Mokhaiotl waystone"] 
+#define DOOM_OF_MOKHAIOTL_T2_UNIQUES [] 
 
 rule (name:DOOM_OF_MOKHAIOTL_T2_UNIQUES) {UNIQUE_T2_STYLE}
 
@@ -7683,7 +7683,7 @@ exampleItem: Gold key purple
 	
 rule (name:"Gold key *") {KEY_SHADES_GOLD}
 
-
+y
 /*@ define:module:teleports
 name: Teleports
 subtitle: Teleport Items and Teleport Charges
@@ -7703,7 +7703,7 @@ type: stringlist
 group: Items
 */
 
-#define TELEPORT_NAMES_T1 ["Left skull half","Right skull half","Top of sceptre","Bottom of sceptre"]
+#define TELEPORT_NAMES_T1 ["Left skull half","Right skull half","Top of sceptre","Bottom of sceptre", "Revenant cave teleport"]
 
 /*@ define:input:teleports
 label: Force Tier 2
