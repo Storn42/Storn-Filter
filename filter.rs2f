@@ -7711,7 +7711,7 @@ type: stringlist
 group: Items
 */
 
-#define TELEPORT_NAMES_T2 ["Xeric's talisman (inert)","Giantsoul amulet (uncharged)"]
+#define TELEPORT_NAMES_T2 ["Xeric's talisman (inert)","Giantsoul amulet (uncharged)", "Dorgesh-kaan sphere", "Goblin village sphere", "Plain of mud sphere"]
 
 /*@ define:input:teleports
 label: Force Tier 3
