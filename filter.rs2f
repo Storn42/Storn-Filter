@@ -7529,7 +7529,7 @@ type: stringlist
 group: Items
 */
 
-#define CHARGE_NAMES ["Zulrah's scales","Granite dust","Ancient essence","Sunfire splinters","Araxyte venom sack","Crystal shard","Ancient shard","sapphire ring","ring of recoil","Revenant ether", "Soiled page", "Burnt page", "Soaked page", "Desiccated page", "Nihil shard", "Spirit flakes", "Aether catalyst", "Demon tear"]
+#define CHARGE_NAMES ["Zulrah's scales","Granite dust","Ancient essence","Sunfire splinters","Crystal shard","Ancient shard","sapphire ring","ring of recoil","Revenant ether", "Soiled page", "Burnt page", "Soaked page", "Desiccated page", "Nihil shard", "Spirit flakes", "Aether catalyst", "Demon tear"]
 
 /*@ define:input:charges
 label: Style 1
@@ -7562,15 +7562,6 @@ group: Minimum Quantity for Style 2
 #define ANCIENT_ESSENCE_QUANT 600
 
 rule (name:"Ancient essence" && quantity:<LIZARDMAN_FANG_QUANT) {CHARGE_STYLE_1}
-
-/*@ define:input:charges
-label: Araxyte Venom Sack
-type: number
-group: Minimum Quantity for Style 2
-*/
-#define ARAXYTE_VENOM_SACK_QUANT 2
-
-rule (name:"Araxyte venom sack" && quantity:<ARAXYTE_VENOM_SACK_QUANT) {CHARGE_STYLE_1}
 
 /*@ define:input:charges
 label: Crystal Shard
@@ -7740,7 +7731,7 @@ type: stringlist
 group: Secondaries
 */
 
-#define HERBLORE_SECONDARIES_ALWAYS_SHOW ["Volcanic ash","Giant egg sac","Aldarium","Scaly blue dragonhide","Nail beast nails","Magic roots","Nihil dust","Lily of the sands","Crushed superior dragon bones","Crystal dust", "Swamp tar","Lava scale*"]
+#define HERBLORE_SECONDARIES_ALWAYS_SHOW ["Volcanic ash","Giant egg sac","Aldarium","Scaly blue dragonhide","Nail beast nails","Magic roots","Nihil dust","Lily of the sands","Crushed superior dragon bones","Crystal dust", "Swamp tar","Lava scale*","Araxyte venom sack"]
 
 /*@ define:input:herblore_secondaries
 label: Show only if Stackable
