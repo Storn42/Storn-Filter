@@ -7683,6 +7683,7 @@ exampleItem: Gold key purple
 	
 rule (name:"Gold key *") {KEY_SHADES_GOLD}
 
+
 /*@ define:module:teleports
 name: Teleports
 subtitle: Teleport Items and Teleport Charges
@@ -7697,47 +7698,139 @@ group: Items
 #define TELEPORT_NAMES ["*Teleport*","Lizardman fang","Frozen tear","Bone fragments","Left skull half","Right skull half","Top of sceptre","Bottom of sceptre","Xeric's talisman (inert)","Giantsoul amulet (uncharged)", "Mokhaiotl waystone"]
 
 /*@ define:input:teleports
-label: Style 1
+label: Force Tier 1
+type: stringlist
+group: Items
+*/
+
+#define TELEPORT_NAMES_T1 []
+
+/*@ define:input:teleports
+label: Force Tier 2
+type: stringlist
+group: Items
+*/
+
+#define TELEPORT_NAMES_T2 []
+
+/*@ define:input:teleports
+label: Force Tier 3
+type: stringlist
+group: Items
+*/
+
+#define TELEPORT_NAMES_T3 []
+
+/*@ define:input:teleports
+label: Force Tier 4
+type: stringlist
+group: Items
+*/
+
+#define TELEPORT_NAMES_T4 []
+
+/*@ define:input:teleports
+label: Force Tier 5
+type: stringlist
+group: Items
+*/
+
+#define TELEPORT_NAMES_T5 []
+
+/*@ define:input:teleports
+label: Tier 0
 type: style
 group: Style
 exampleItem: Lizardman fang
 */
 
-#define TELEPORT_STYLE_1 \
-    color = "#ffffffff"; \
-	backgroundColor = "#99999999"; 
+#define TELEPORT_T0_STYLE \
+    color = "#ff999999"; \
+	menuTextColor = "#ff999999"; 
 
 /*@ define:input:teleports
-label: Style 2
+label: Tier 1
 type: style
 group: Style
-exampleItem: Xeric's talisman (inert)
+exampleItem: Vile ashes
 */
 
-#define TELEPORT_STYLE_2 \
-    color = "#ffffffff"; \
-    borderColor = "#ffffffff"; \
-    backgroundColor = "#ff999999";
+#define TELEPORT_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#33999999";\
+	menuTextColor = "#ff999999";\
+	textAccent = 3;
 
 /*@ define:input:teleports
-label: Lizardman Fang
-type: number
-group: Minimum Quantity for Style 2
+label: Tier 2
+type: style
+group: Style
+exampleItem: Malicious ashes
 */
-#define LIZARDMAN_FANG_QUANT 2
 
-rule (name:"lizardman fang" && quantity:<LIZARDMAN_FANG_QUANT) {TELEPORT_STYLE_1}
+#define TELEPORT_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#99999999";\
+	menuTextColor = "#ff999999;\
+	textAccent = 3;
 
 /*@ define:input:teleports
-label: Frozen Tear
-type: number
-group: Minimum Quantity for Style 2
+label: Tier 3
+type: style
+group: Style
+exampleItem: Abyssal ashes
 */
-#define FROZEN_TEAR_QUANT 5
 
-rule (name:"Frozen tear" && quantity:<FROZEN_TEAR_QUANT) {TELEPORT_STYLE_1}
+#define TELEPORT_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#dd999999";\
+	menuTextColor = "#ff999999"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
 
-rule (name:TELEPORT_NAMES && !name:"Blighted teleport spell sack") {TELEPORT_STYLE_2}
+/*@ define:input:teleports
+label: Tier 4
+type: style
+group: Style
+exampleItem: Infernal ashes
+*/
+
+#define TELEPORT_T4_STYLE \
+	backgroundColor = "#ff999999";\
+	menuTextColor = "#ff999999";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff999999";
+
+/*@ define:input:teleports
+label: Tier 5
+type: style
+group: Style
+exampleItem: God ashes
+*/
+
+#define TELEPORT_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff999999";\
+	color = "#ff999999";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff999999";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff999999";
+
+rule (name:TELEPORT_NAMES_T1 && value:<VALUE_TIER_2) {TELEPORT_T1_STYLE}
+rule (name:TELEPORT_NAMES_T2 && value:<VALUE_TIER_3) {TELEPORT_T1_STYLE}
+rule (name:TELEPORT_NAMES_T3 && value:<VALUE_TIER_4) {TELEPORT_T1_STYLE}
+rule (name:TELEPORT_NAMES_T4 && value:<VALUE_TIER_5) {TELEPORT_T1_STYLE}
+rule (name:TELEPORT_NAMES_T5) {TELEPORT_T1_STYLE}
+
+VALUE_RULESET(TELEPORT_NAMES, TELEPORT_T5_STYLE, TELEPORT_T4_STYLE, TELEPORT_T3_STYLE, TELEPORT_T2_STYLE, TELEPORT_T1_STYLE, TELEPORT_T0_STYLE)
+
 
 /*@ define:module:charges
 name: Item Charges
