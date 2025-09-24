@@ -6836,7 +6836,7 @@ group: Revenants
 enum: ["Amulet of avarice","Craw's bow*","Thammaron's sceptre*","Viggora's chainmace*","Ancient crystal","Bracelet of ethereum*","Ancient emblem","Ancient totem","Ancient statuette","Ancient medallion","Ancient effigy","Ancient relic"]
 */
 
-#define REVENANTS_T2_UNIQUES ["Ancient statuette","Ancient medallion","Ancient effigy","Amulet of avarice"] 
+#define REVENANTS_T2_UNIQUES ["Ancient statuette","Ancient medallion","Ancient effigy","Ancient totem","Amulet of avarice"] 
 
 rule (name:REVENANTS_T2_UNIQUES) {UNIQUE_T2_STYLE}
 
@@ -6847,7 +6847,7 @@ group: Revenants
 enum: ["Amulet of avarice","Craw's bow*","Thammaron's sceptre*","Viggora's chainmace*","Ancient crystal","Bracelet of ethereum*","Ancient emblem","Ancient totem","Ancient statuette","Ancient medallion","Ancient effigy","Ancient relic"]
 */
 
-#define REVENANTS_T1_UNIQUES ["Ancient emblem","Ancient totem","Ancient crystal","Bracelet of ethereum*"]
+#define REVENANTS_T1_UNIQUES ["Ancient emblem","Ancient crystal","Bracelet of ethereum*"]
 
 rule (name:REVENANTS_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
