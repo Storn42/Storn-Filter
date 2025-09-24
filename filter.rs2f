@@ -1114,7 +1114,7 @@ type: stringlist
 group: Dust Devils
 */
 
-#define DUST_DEVIL_WILDY_HIDE ["Adamant axe","Ugthanki kebab","Grimy guam leaf","Grimy marrentill","Grimy tarromin","Grimy harralander", "Red d'hide vambraces", "Black d'hide vambraces", "Rune dagger"]
+#define DUST_DEVIL_WILDY_HIDE ["Adamant axe","Ugthanki kebab","Grimy guam leaf","Grimy marrentill","Grimy tarromin","Grimy harralander", "Red d'hide vambraces", "Black d'hide vambraces", "Rune dagger","Uncut sapphire", "Uncut emerald", "Uncut ruby"]
 
 rule (area:[3423,10113,0,3454,10133,0] && name: DUST_DEVIL_WILDY_HIDE) {hidden = true;}
 
