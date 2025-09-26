@@ -7633,7 +7633,7 @@ group: Moon Key Half
 /*@ define:input:keys
 label: Force Tier 2
 type: boolean
-group: Items
+group: Moon Key Half
 */
 
 #define MOON_KEY_T2 false
@@ -7641,7 +7641,7 @@ group: Items
 /*@ define:input:keys
 label: Force Tier 3
 type: boolean
-group: Items
+group: Moon Key Half
 */
 
 #define MOON_KEY_T3 true
@@ -7649,7 +7649,7 @@ group: Items
 /*@ define:input:keys
 label: Force Tier 4
 type: boolean
-group: Items
+group: Moon Key Half
 */
 
 #define MOON_KEY_T4 false
@@ -7657,7 +7657,7 @@ group: Items
 /*@ define:input:keys
 label: Force Tier 5
 type: boolean
-group: Items
+group: Moon Key Half
 */
 
 #define MOON_KEY_T5 false
@@ -7847,7 +7847,7 @@ type: style
 group: Shades of Mort'ton
 exampleItem: Bronze key red
 */
-#define KEY_SHADES_BROWN \
+#define KEY_SHADES_RED\
 	color = "#ff78180D"; \
 	borderColor = "#ff78180D";
 
@@ -8040,11 +8040,11 @@ exampleItem: Eternal teleport crystal
 	showLootbeam = true;\
 	lootbeamColor = "#ff999999";
 
-rule (name:TELEPORT_NAMES_T1 && value:<VALUE_TIER_2) {TELEPORT_T1_STYLE}
-rule (name:TELEPORT_NAMES_T2 && value:<VALUE_TIER_3) {TELEPORT_T2_STYLE}
-rule (name:TELEPORT_NAMES_T3 && value:<VALUE_TIER_4) {TELEPORT_T3_STYLE}
-rule (name:TELEPORT_NAMES_T4 && value:<VALUE_TIER_5) {TELEPORT_T4_STYLE}
-rule (name:TELEPORT_NAMES_T5) {TELEPORT_T5_STYLE}
+rule (name:TELEPORT_NAMES_T1 && value:<VALUE_TIER_2) {TELEPORT_T1_STYLE KEYS_T1_STYLE sound=TIER_1_SOUND;}
+rule (name:TELEPORT_NAMES_T2 && value:<VALUE_TIER_3) {TELEPORT_T2_STYLE KEYS_T1_STYLE sound=TIER_2_SOUND;}
+rule (name:TELEPORT_NAMES_T3 && value:<VALUE_TIER_4) {TELEPORT_T3_STYLE KEYS_T1_STYLE sound=TIER_3_SOUND;}
+rule (name:TELEPORT_NAMES_T4 && value:<VALUE_TIER_5) {TELEPORT_T4_STYLE KEYS_T1_STYLE sound=TIER_4_SOUND;}
+rule (name:TELEPORT_NAMES_T5) {TELEPORT_T5_STYLE KEYS_T5_STYLE sound=TIER_1_SOUND;}
 
 VALUE_RULESET(TELEPORT_NAMES, TELEPORT_T5_STYLE, TELEPORT_T4_STYLE, TELEPORT_T3_STYLE, TELEPORT_T2_STYLE, TELEPORT_T1_STYLE, TELEPORT_T0_STYLE)
 
@@ -8187,11 +8187,11 @@ exampleItem: Nihil shard
 	showLootbeam = true;\
 	lootbeamColor = "#ff00ffee";
 
-rule (name:CHARGE_NAMES_T1 && value:<VALUE_TIER_2) {CHARGE_T1_STYLE}
-rule (name:CHARGE_NAMES_T2 && value:<VALUE_TIER_3) {CHARGE_T2_STYLE}
-rule (name:CHARGE_NAMES_T3 && value:<VALUE_TIER_4) {CHARGE_T3_STYLE}
-rule (name:CHARGE_NAMES_T4 && value:<VALUE_TIER_5) {CHARGE_T4_STYLE}
-rule (name:CHARGE_NAMES_T5) {CHARGE_T5_STYLE}
+rule (name:CHARGE_NAMES_T1 && value:<VALUE_TIER_2) {CHARGE_T1_STYLE KEYS_T1_STYLE sound=TIER_1_SOUND;}
+rule (name:CHARGE_NAMES_T2 && value:<VALUE_TIER_3) {CHARGE_T2_STYLE KEYS_T1_STYLE sound=TIER_2_SOUND;}
+rule (name:CHARGE_NAMES_T3 && value:<VALUE_TIER_4) {CHARGE_T3_STYLE KEYS_T1_STYLE sound=TIER_3_SOUND;}
+rule (name:CHARGE_NAMES_T4 && value:<VALUE_TIER_5) {CHARGE_T4_STYLE KEYS_T1_STYLE sound=TIER_4_SOUND;}
+rule (name:CHARGE_NAMES_T5) {CHARGE_T5_STYLE KEYS_T1_STYLE sound=TIER_5_SOUND;}
 
 VALUE_RULESET(CHARGE_NAMES, CHARGE_T5_STYLE, CHARGE_T4_STYLE, CHARGE_T3_STYLE, CHARGE_T2_STYLE, CHARGE_T1_STYLE, CHARGE_T0_STYLE)
 
