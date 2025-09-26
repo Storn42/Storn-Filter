@@ -7595,7 +7595,7 @@ type: stringlist
 group: Items
 */
 
-#define KEYS_NAMES_T2 []
+#define KEYS_NAMES_T2 ["Dark totem base", "Dark totem middle", "Dark totem top"]
 
 /*@ define:input:keys
 label: Force Tier 3
@@ -7603,7 +7603,7 @@ type: stringlist
 group: Items
 */
 
-#define KEYS_NAMES_T3 []
+#define KEYS_NAMES_T3 ["Dark totem"]
 
 /*@ define:input:keys
 label: Force Tier 4
@@ -7781,6 +7781,7 @@ exampleItem: Bronze key red
 	color = "#ffcd7f32"; \
 	borderColor = "#ffcd7f32"; \
 	backgroundColor = "#ff703818"; \
+	lootbeamColor = "#ffcd7f32"; \
 	showLootbeam = true; 
 
 apply (name:"Bronze key *") {KEY_SHADES_BRONZE}
@@ -7795,6 +7796,7 @@ exampleItem: Steel key brown
 	color = "#ffb5c0c9"; \
 	borderColor = "#ffb5c0c9"; \
 	backgroundColor = "#ff636363"; \
+	lootbeamColor = "#ffb5c0c9"; \
 	showLootbeam = true;
 	
 apply (name:"Steel key *") {KEY_SHADES_STEEL}
@@ -7809,6 +7811,7 @@ exampleItem: Black key crimson
 	color = "#ff000000"; \
 	borderColor = "#ff000000"; \
 	backgroundColor = "#ff3b3b3b"; \
+	lootbeamColor = "#ff000000"; \
 	showLootbeam = true; 
 	
 apply (name:"Black key *") {KEY_SHADES_BLACK}
@@ -7823,6 +7826,7 @@ exampleItem: Silver key black
 	color = "#ffffffff"; \
 	borderColor = "#ffffffff"; \
 	backgroundColor = "#ffbcbcbc"; \
+	lootbeamColor = "#ffbcbcbc"; \
 	showLootbeam = true; 
 	
 apply (name:"Silver key *") {KEY_SHADES_SILVER}
@@ -7837,6 +7841,7 @@ exampleItem: Gold key purple
 	color = "#ffffd700"; \
 	borderColor = "#ffffd700"; \
 	backgroundColor = "#ff8c8600"; \
+	lootbeamColor = "#ffffd700"; \
 	showLootbeam = true; 
 	
 apply (name:"Gold key *") {KEY_SHADES_GOLD}
@@ -7900,6 +7905,7 @@ exampleItem: Gold key purple
 	borderColor = "#ff4C095B";
 
 rule (name:"* key purple" && ENABLE_SHADES_COLORS) {KEY_SHADES_PURPLE}
+rule (name:["Bronze key *", "Steel key *", "Black key *", "Silver key *", "Gold key *"]) {}
 
 /*@ define:module:teleports
 name: Teleports
