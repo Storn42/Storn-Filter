@@ -7854,7 +7854,8 @@ exampleItem: Bronze key red
 */
 #define KEY_SHADES_RED\
 	color = "#ff78180D"; \
-	borderColor = "#ff78180D";
+	borderColor = "#ff78180D"; \
+	textAccent = 3
 
 rule (name:"* key red" && ENABLE_SHADES_COLORS) {KEY_SHADES_RED}
 
@@ -7866,7 +7867,8 @@ exampleItem: Steel key brown
 */
 #define KEY_SHADES_BROWN \
 	color = "#ff6D510D"; \
-	borderColor = "#ff6D510D";
+	borderColor = "#ff6D510D"; \
+	textAccent = 3
 
 rule (name:"* key brown" && ENABLE_SHADES_COLORS) {KEY_SHADES_BROWN}
 
@@ -7878,7 +7880,8 @@ exampleItem: Black key brown
 */
 #define KEY_SHADES_CRIMSON \
 	color = "#ffff0000"; \
-	borderColor = "#ffff0000";
+	borderColor = "#ffff0000"; \
+	textAccent = 3
 
 rule (name:"* key crimson" && ENABLE_SHADES_COLORS) {KEY_SHADES_CRIMSON}
 
@@ -7890,7 +7893,8 @@ exampleItem: Silver key black
 */
 #define KEY_SHADES_BLACK2 \
 	color = "#ff000000"; \
-	borderColor = "#ff000000";
+	borderColor = "#ff000000"; \
+	textAccent = 3
 
 rule (name:"* key black" && ENABLE_SHADES_COLORS) {KEY_SHADES_BLACK2}
 
@@ -7902,7 +7906,8 @@ exampleItem: Gold key purple
 */
 #define KEY_SHADES_PURPLE \
 	color = "#ff4C095B"; \
-	borderColor = "#ff4C095B";
+	borderColor = "#ff4C095B"; \
+	textAccent = 3
 
 rule (name:"* key purple" && ENABLE_SHADES_COLORS) {KEY_SHADES_PURPLE}
 rule (name:["Bronze key *", "Steel key *", "Black key *", "Silver key *", "Gold key *"]) {}
