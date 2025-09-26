@@ -7750,10 +7750,10 @@ exampleItem: Nihil shard
 	lootbeamColor = "#ffea02ff";
 
 rule (id:[30107,30105] && MOON_KEY_T1 && value:<VALUE_TIER_2) {KEYS_T1_STYLE sound=TIER_1_SOUND;}
-rule (id:[30107,30105] && MOON_KEY_T1 && value:<VALUE_TIER_3) {KEYS_T2_STYLE sound=TIER_2_SOUND;}
-rule (id:[30107,30105] && MOON_KEY_T1 && value:<VALUE_TIER_4) {KEYS_T3_STYLE sound=TIER_3_SOUND;}
-rule (id:[30107,30105] && MOON_KEY_T1 && value:<VALUE_TIER_5) {KEYS_T4_STYLE sound=TIER_4_SOUND;}
-rule (id:[30107,30105] && MOON_KEY_T1) {KEYS_T5_STYLE sound=TIER_5_SOUND;}
+rule (id:[30107,30105] && MOON_KEY_T2 && value:<VALUE_TIER_3) {KEYS_T2_STYLE sound=TIER_2_SOUND;}
+rule (id:[30107,30105] && MOON_KEY_T3 && value:<VALUE_TIER_4) {KEYS_T3_STYLE sound=TIER_3_SOUND;}
+rule (id:[30107,30105] && MOON_KEY_T4 && value:<VALUE_TIER_5) {KEYS_T4_STYLE sound=TIER_4_SOUND;}
+rule (id:[30107,30105] && MOON_KEY_T5) {KEYS_T5_STYLE sound=TIER_5_SOUND;}
 
 rule (name:KEYS_NAMES_T1 && value:<VALUE_TIER_2) {KEYS_T1_STYLE sound=TIER_1_SOUND;}
 rule (name:KEYS_NAMES_T2 && value:<VALUE_TIER_3) {KEYS_T2_STYLE sound=TIER_2_SOUND;}
