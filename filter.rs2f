@@ -2017,7 +2017,7 @@ enum: ["Lobster","Tuna","Blighted anglerfish","Blighted manta ray","Blighted kar
 group: Greater Nechryaels
 */
 
-#define NECHRYAEL_WILDERNESS_SUPPLY ["Blighted anglerfish","Blighted manta ray","Blighted karambwan","Blighted super restore(*)"]
+#define NECHRYAEL_WILDERNESS_SUPPLY ["Blighted super restore(*)"]
 
 SUPPLY_DROP_RULESET([3329,10096,0,3344,10120,0], NECHRYAEL_WILDERNESS_SUPPLY)
 
