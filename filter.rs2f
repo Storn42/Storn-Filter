@@ -7667,7 +7667,7 @@ group: Moon Key Half
 label: Tier 0
 type: style
 group: Style
-exampleItem: Spirit flakes
+exampleItem: Ecumenical key shards
 */
 
 #define KEYS_T0_STYLE \
@@ -7678,7 +7678,7 @@ exampleItem: Spirit flakes
 label: Tier 1
 type: style
 group: Style
-exampleItem: Granite dust
+exampleItem: Loop half of key
 */
 
 #define KEYS_T1_STYLE \
@@ -7691,7 +7691,7 @@ exampleItem: Granite dust
 label: Tier 2
 type: style
 group: Style
-exampleItem: Zulrah's scales
+exampleItem: Crystal key
 */
 
 #define KEYS_T2_STYLE \
@@ -7704,7 +7704,7 @@ exampleItem: Zulrah's scales
 label: Tier 3
 type: style
 group: Style
-exampleItem: ring of recoil
+exampleItem: Brimstone key
 */
 
 #define KEYS_T3_STYLE \
@@ -7719,7 +7719,7 @@ exampleItem: ring of recoil
 label: Tier 4
 type: style
 group: Style
-exampleItem: Sunfire splinters
+exampleItem: Larran's key
 */
 
 #define KEYS_T4_STYLE \
@@ -7736,7 +7736,7 @@ exampleItem: Sunfire splinters
 label: Tier 5
 type: style
 group: Style
-exampleItem: Nihil shard
+exampleItem: Awakener's orb
 */
 
 #define KEYS_T5_STYLE \
