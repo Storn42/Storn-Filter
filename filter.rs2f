@@ -1371,7 +1371,7 @@ type: stringlist
 group: Ice Giants
 */
 
-#define ICE_GIANTS_WILDERNESS_CAVE_HIDE ["Jug of wine", "Banana","Limpwurt seed", "Strawberry seed", "Marrentill seed", "Jangerberry seed", "Tarromin seed", "Wildblood seed", "Watermelon seed", "Harralander seed", "Whiteberry seed", "Mushroom spore", "Belladonna seed", "Poison ivy seed", "Cactus seed", "Potato cactus seed", "Adamant kite shield", "Adamant sq shield"]
+#define ICE_GIANTS_WILDERNESS_CAVE_HIDE ["Jug of wine", "Banana","Limpwurt seed", "Strawberry seed", "Marrentill seed", "Jangerberry seed", "Tarromin seed", "Wildblood seed", "Watermelon seed", "Harralander seed", "Whiteberry seed", "Mushroom spore", "Belladonna seed", "Poison ivy seed", "Cactus seed", "Potato cactus seed", "Adamant kiteshield", "Adamant sq shield", "Rune dagger"]
 
 rule (area:[3329,10049,0,3356,10064,0] && name:ICE_GIANTS_WILDERNESS_CAVE_HIDE) {hidden = true;}
 
@@ -1379,7 +1379,7 @@ rule (area:[3329,10049,0,3356,10064,0] && name:ICE_GIANTS_WILDERNESS_CAVE_HIDE) 
 label: Wilderness Slayer Cave - Show Items
 type: stringlist
 group: Ice Giants
-*/
+*/ 
 
 #define ICE_GIANTS_WILDERNESS_CAVE_SHOW []
 
