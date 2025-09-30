@@ -88,6 +88,16 @@ group: Show
 
 apply (SHOW_ITEM_VALUE) {showValue = true;}
 
+/*@ define:input:settings
+label: Item Icon
+type: boolean
+group: Show
+*/
+
+#define SHOW_ITEM_ICON false
+
+apply (SHOW_ITEM_VALUE) {icon = CurrentItem();}
+
 /*@ define:module:values
 name: Value Customization
 subtitle: Set the Values you'll be using for the Filter's Tiering System. 
