@@ -1179,6 +1179,201 @@ group: Elder Chaos Druids/Zombie Pirates
 
 SUPPLY_DROP_RULESET([3216,3587,0,3261,3634,0], CHAOS_PIRATES_SUPPLY)
 
+
+/*@ define:input:slayer_pvm
+label: Myths' Guild Basement - Hide Items
+type: stringlist
+group: Green Dragons
+*/
+
+#define GREEN_DRAGON_MYTHS_HIDE ["Mithril kiteshield", "Adamant full helm"]
+
+rule (area:[1702,10060,0,1727,10076,0] && name:GREEN_DRAGON_MYTHS_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Myths' Guild Basement - Show Items
+type: stringlist
+group: Green Dragons
+*/
+
+#define GREEN_DRAGON_MYTHS_SHOW []
+
+FORCE_SHOW_RULESET([1702,10060,0,1727,10076,0], GREEN_DRAGON_MYTHS_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Myths' Guild Basement - Supply Drop
+type: enumlist
+enum: ["Bass"]
+group: Green Dragons
+*/
+
+#define GREEN_DRAGON_MYTHS_SUPPLY []
+
+SUPPLY_DROP_RULESET([1702,10060,0,1727,10076,0], GREEN_DRAGON_MYTHS_SUPPLY)
+
+
+/*@ define:input:slayer_pvm
+label: East of the Boneyard Hunter Area - Hide Items
+type: stringlist
+group: Green Dragons
+*/
+
+#define GREEN_DRAGON_BONEYARD_HIDE ["Mithril kiteshield", "Adamant full helm", "Grimy guam leaf","Grimy marrentill","Grimy tarromin","Grimy harralander","Uncut sapphire", "Uncut emerald", "Uncut ruby"]
+
+rule (area:[3325,3668,0,3365,3729,0] && name:GREEN_DRAGON_BONEYARD_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: East of the Boneyard Hunter Area - Show Items
+type: stringlist
+group: Green Dragons
+*/
+
+#define GREEN_DRAGON_BONEYARD_SHOW []
+
+FORCE_SHOW_RULESET([3325,3668,0,3365,3729,0], GREEN_DRAGON_BONEYARD_SHOW)
+
+/*@ define:input:slayer_pvm
+label: East of the Boneyard Hunter Area - Supply Drop
+type: enumlist
+enum: ["Bass"]
+group: Green Dragons
+*/
+
+#define GREEN_DRAGON_BONEYARD_SUPPLY []
+
+SUPPLY_DROP_RULESET([3325,3668,0,3365,3729,0], GREEN_DRAGON_BONEYARD_SUPPLY)
+
+
+/*@ define:input:slayer_pvm
+label: West of the Dark Warriors' Fortress - Hide Items
+type: stringlist
+group: Green Dragons
+*/
+
+#define GREEN_DRAGON_FORTRESS_HIDE ["Mithril kiteshield", "Adamant full helm", "Grimy guam leaf","Grimy marrentill","Grimy tarromin","Grimy harralander","Uncut sapphire", "Uncut emerald", "Uncut ruby"]
+
+rule (area:[2962,3598,0,2996,3633,0] && name:GREEN_DRAGON_FORTRESS_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: West of the Dark Warriors' Fortress - Show Items
+type: stringlist
+group: Green Dragons
+*/
+
+#define GREEN_DRAGON_FORTRESS_SHOW []
+
+FORCE_SHOW_RULESET([2962,3598,0,2996,3633,0], GREEN_DRAGON_FORTRESS_SHOW)
+
+/*@ define:input:slayer_pvm
+label: West of the Dark Warriors' Fortress - Supply Drop
+type: enumlist
+enum: ["Bass"]
+group: Green Dragons
+*/
+
+#define GREEN_DRAGON_FORTRESS_SUPPLY []
+
+SUPPLY_DROP_RULESET([2962,3598,0,2996,3633,0], GREEN_DRAGON_FORTRESS_SUPPLY)
+
+
+/*@ define:input:slayer_pvm
+label: North of the Graveyard of Shadows - Hide Items
+type: stringlist
+group: Green Dragons
+*/
+
+#define GREEN_DRAGON_GRAVEYARD_HIDE ["Mithril kiteshield", "Adamant full helm", "Grimy guam leaf","Grimy marrentill","Grimy tarromin","Grimy harralander","Uncut sapphire", "Uncut emerald", "Uncut ruby"]
+
+rule (area:[3134,3691,0,3169,3722,0] && name:GREEN_DRAGON_GRAVEYARD_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: North of the Graveyard of Shadows - Show Items
+type: stringlist
+group: Green Dragons
+*/
+
+#define GREEN_DRAGON_GRAVEYARD_SHOW []
+
+FORCE_SHOW_RULESET([3134,3691,0,3169,3722,0], GREEN_DRAGON_GRAVEYARD_SHOW)
+
+/*@ define:input:slayer_pvm
+label: North of the Graveyard of Shadows - Supply Drop
+type: enumlist
+enum: ["Bass"]
+group: Green Dragons
+*/
+
+#define GREEN_DRAGON_GRAVEYARD_SUPPLY []
+
+SUPPLY_DROP_RULESET([3134,3691,0,3169,3722,0], GREEN_DRAGON_GRAVEYARD_SUPPLY)
+
+
+/*@ define:input:slayer_pvm
+label: South of the Lava Maze - Hide Items
+type: stringlist
+group: Green Dragons
+*/
+
+#define GREEN_DRAGON_LAVA_MAZE_HIDE ["Mithril kiteshield", "Adamant full helm", "Grimy guam leaf","Grimy marrentill","Grimy tarromin","Grimy harralander","Uncut sapphire", "Uncut emerald", "Uncut ruby"]
+
+rule (area:[3067,3805,0,3122,3832,0] && name:GREEN_DRAGON_LAVA_MAZE_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: South of the Lava Maze - Show Items
+type: stringlist
+group: Green Dragons
+*/
+
+#define GREEN_DRAGON_LAVA_MAZE_SHOW []
+
+FORCE_SHOW_RULESET([3067,3805,0,3122,3832,0], GREEN_DRAGON_LAVA_MAZE_SHOW)
+
+/*@ define:input:slayer_pvm
+label: South of the Lava Maze - Supply Drop
+type: enumlist
+enum: ["Bass"]
+group: Green Dragons
+*/
+
+#define GREEN_DRAGON_LAVA_MAZE_SUPPLY []
+
+SUPPLY_DROP_RULESET([3067,3805,0,3122,3832,0], GREEN_DRAGON_LAVA_MAZE_SUPPLY)
+
+
+/*@ define:input:slayer_pvm
+label: Wilderness Slayer Cave - Hide Items
+type: stringlist
+group: Green Dragons
+*/
+
+#define GREEN_DRAGON_SLAYER_CAVE_HIDE ["Adamant kiteshield", "Adamant full helm", "Grimy guam leaf","Grimy marrentill","Grimy tarromin","Grimy harralander","Uncut sapphire", "Uncut emerald", "Uncut ruby","Monkfish"]
+
+rule (area:[3392,10115,0,3410,10133,0] && name:GREEN_DRAGON_SLAYER_CAVE_HIDE) {hidden = true;} // North
+rule (area:[3407,10056,0,3424,10075,0] && name:GREEN_DRAGON_SLAYER_CAVE_HIDE) {hidden = true;} // South
+
+/*@ define:input:slayer_pvm
+label: Wilderness Slayer Cave - Show Items
+type: stringlist
+group: Green Dragons
+*/
+
+#define GREEN_DRAGON_SLAYER_CAVE_SHOW []
+
+FORCE_SHOW_RULESET([3392,10115,0,3410,10133,0], GREEN_DRAGON_SLAYER_CAVE_SHOW) // North
+FORCE_SHOW_RULESET([3407,10056,0,3424,10075,0], GREEN_DRAGON_SLAYER_CAVE_SHOW) // South
+
+/*@ define:input:slayer_pvm
+label: Wilderness Slayer Cave - Supply Drop
+type: enumlist
+enum: ["Monkfish"]
+group: Green Dragons
+*/
+
+#define GREEN_DRAGON_SLAYER_CAVE_SUPPLY []
+
+SUPPLY_DROP_RULESET([3392,10115,0,3410,10133,0], GREEN_DRAGON_SLAYER_CAVE_SUPPLY) // North
+SUPPLY_DROP_RULESET([3407,10056,0,3424,10075,0], GREEN_DRAGON_SLAYER_CAVE_SUPPLY) // South
+
 /*@ define:input:slayer_pvm
 label: Smouldering Stone T3 Unique
 type: boolean
