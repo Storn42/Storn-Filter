@@ -48,7 +48,7 @@ subtitle: Basic Global Settings
 */
 
 /*@ define:input:settings
-label: Global Drops
+label: World Spawns
 type: boolean
 group: Show
 */
@@ -14070,7 +14070,7 @@ exampleItem: Oak planks
 /*@ define:input:planks
 label: Tier 3
 type: style
-group: Styles
+group: Oak
 exampleItem: Oak planks
 */
 
