@@ -2201,7 +2201,7 @@ type: stringlist
 group: Greater Nechryaels
 */
 
-#define NECHRYAEL_WILDERNESS_HIDE ["Adamant battleaxe", "Adamant Kiteshield", "Tuna", "lobster","Malicious ashes", "Grimy guam leaf","Grimy marrentill","Grimy tarromin","Grimy harralander", "Limpwurt seed", "Strawberry seed", "Marrentill seed", "Jangerberry seed", "Tarromin seed", "Wildblood seed", "Watermelon seed", "Harralander seed", "Whiteberry seed", "Mushroom spore", "Belladonna seed", "Poison ivy seed", "Cactus seed", "Potato cactus seed"]
+#define NECHRYAEL_WILDERNESS_HIDE ["Adamant battleaxe", "Adamant Kiteshield", "Tuna", "lobster","Malicious ashes", "Grimy guam leaf","Grimy marrentill","Grimy tarromin","Grimy harralander", "Limpwurt seed", "Strawberry seed", "Marrentill seed", "Jangerberry seed", "Tarromin seed", "Wildblood seed", "Watermelon seed", "Harralander seed", "Whiteberry seed", "Mushroom spore", "Belladonna seed", "Poison ivy seed", "Cactus seed", "Potato cactus seed","Uncut sapphire", "Uncut emerald", "Uncut ruby"]
 
 rule (area:[3329,10096,0,3344,10120,0] && name:NECHRYAEL_WILDERNESS_HIDE) {hidden = true;}
 
