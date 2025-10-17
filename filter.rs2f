@@ -3316,6 +3316,158 @@ enum: ["Crystal weapon seed", "Crystal armour seed", "Enhanced crystal weapon se
 
 rule (name:GUANTLET_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
+
+/*@ define:input:boss_pvm
+label: Attack Styles
+type: enumlist
+group: Gauntlet
+enum: [
+  {
+    "value": "* orb",
+    "label": "Magic"
+  },
+  {
+    "value": "* bowstring",
+    "label": "Range"
+  },
+  {
+    "value": "* spike",
+    "label": "Melee"
+  }
+]
+*/
+
+#define GAUNTLET_ATTACK_STYLE_NAMES ["* orb","* bowstring","* spike"]
+
+/*@ define:input:boss_pvm
+label: Perfected Weapon Upgrades
+type: style
+group: Gauntlet
+exampleItem: Crystalline bowstring
+*/
+
+#define GAUNTLET_WEAPON_UPGRADE_STYLE \
+	fontType = 3; \
+    showLootbeam = true;
+
+rule (name:GAUNTLET_ATTACK_STYLE_NAMES && area:[1856,5632,0,1984,5696,3]) {GAUNTLET_WEAPON_UPGRADE_STYLE}
+
+
+/*@ define:input:boss_pvm
+label: Weapon frame
+type: style
+group: Gauntlet
+exampleItem: Weapon frame
+*/
+
+#define GAUNTLET_WEAPON_FRAME_STYLE \
+	fontType = 2;
+
+rule (name:"Weapon frame" && area:[1856,5632,0,1984,5696,3]) {GAUNTLET_WEAPON_FRAME_STYLE}
+
+
+/*@ define:input:boss_pvm
+label: Crystal Tools
+type: style
+group: Gauntlet
+exampleItem: Crystal sceptre
+*/
+
+#define GAUNTLET_TOOL_STYLE \
+	fontType = 2; \
+
+rule (name:["Crystal sceptre","Crystal axe","Crystal pickaxe","Crystal harpoon","Corrupted sceptre","Corrupted axe","Corrupted pickaxe","Corrupted harpoon"] && area:[1856,5632,0,1984,5696,3]) {GAUNTLET_TOOL_STYLE}
+
+/*@ define:input:boss_pvm
+label: Raw Paddlefish
+type: style
+group: Gauntlet
+exampleItem: Raw paddlefish
+*/
+
+#define GAUNTLET_RAW_FISH_STYLE \
+	fontType = 1; \
+    textAccent = 2; \
+    textAccentColor = "#FF28A85D"; \
+    color = "#FF28A85D";
+
+rule (name:["Raw paddlefish"] && area:[1856,5632,0,1984,5696,3]) {GAUNTLET_RAW_FISH_STYLE}
+
+/*@ define:input:boss_pvm
+label: Cooked Paddlefish
+type: style
+group: Gauntlet
+exampleItem: Paddlefish
+*/
+
+#define GAUNTLET_COOKED_FISH_STYLE \
+	fontType = 3; \
+    textAccentColor = "#FF95A58C"; \
+    color = "#FF95A58C";
+
+rule (name:["Paddlefish", "Crystal paddlefish","Corrupted paddlefish"] && area:[1856,5632,0,1984,5696,3]) {GAUNTLET_COOKED_FISH_STYLE}
+
+/*@ define:input:boss_pvm
+label: Grym leaf
+type: style
+group: Gauntlet
+exampleItem: Grym leaf
+*/
+
+#define GAUNTLET_HERB_STYLE \
+	fontType = 1; \
+    textAccent = 2; \
+    textAccentColor = "#FF0E7206"; \
+    color = "#FF0E7206"; \
+
+rule (name:["Grym leaf"] && area:[1856,5632,0,1984,5696,3]) {GAUNTLET_HERB_STYLE}
+
+/*@ define:input:boss_pvm
+label: Linum tirinum
+type: style
+group: Gauntlet
+exampleItem: Linum tirinum
+*/
+
+#define GAUNTLET_LINUM_STYLE \
+	fontType = 1; \
+    textAccent = 2; \
+    textAccentColor = "#FFCCCCCC"; \
+    color = "#FFCCCCCC"; \
+
+rule (name:["Linum tirinum"] && area:[1856,5632,0,1984,5696,3]) {GAUNTLET_LINUM_STYLE}
+
+/*@ define:input:boss_pvm
+label: Ore
+type: style
+group: Gauntlet
+exampleItem: Crystal ore
+*/
+
+#define GAUNTLET_ORE_STYLE \
+	fontType = 1; \
+    textAccent = 2; \
+    textAccentColor = "#FF999999"; \
+    color = "#FF999999"; \
+
+rule (name:["Corrupted ore","Crystal ore"] && area:[1856,5632,0,1984,5696,3]) {GAUNTLET_ORE_STYLE}
+
+/*@ define:input:boss_pvm
+label: Bark
+type: style
+group: Gauntlet
+exampleItem: Phren bark
+*/
+
+#define GAUNTLET_BARK_STYLE \
+	fontType = 1; \
+    textAccent = 2; \
+    textAccentColor = "#FFBC5E00"; \
+    color = "#FFBC5E00"; \
+
+rule (name:["Phren bark"] && area:[1856,5632,0,1984,5696,3]) {GAUNTLET_BARK_STYLE}
+
+
 /*@ define:input:boss_pvm
 label: Unique T3
 type: enumlist
@@ -4720,6 +4872,8 @@ exampleItem: Raw harpoonfish
 	textAccentColor = "#ff372a2a"; \
 	fontType = 3;
 
+ rule (name:"Raw harpoonfish") {RAW_TEMPOROSS_STYLE}
+ 
 /*@ define:input:boss_pvm
 label: Crystal Fish
 type: style
@@ -4730,6 +4884,8 @@ exampleItem: Crystal harpoonfish
 #define CRYSTAL_TEMPOROSS_STYLE \
 	textColor = "#ffd3f8fa"; \
 	fontType = 3;
+
+rule (name:"Crystal harpoonfish") {CRYSTAL_TEMPOROSS_STYLE}
 
 /*@ define:input:boss_pvm
 label: Cooked Fish
@@ -4742,6 +4898,8 @@ exampleItem: Cooked harpoonfish
 	textColor = "#ffffffff"; \
 	backgroundColor = "#FF6F7643"; \
 	fontType = 3;
+
+rule (name:"Cooked harpoonfish") {COOKED_TEMPOROSS_STYLE}
 
 /*@ define:input:thermonuclear_smoke_devil
 label: Unique T3
