@@ -6091,8 +6091,7 @@ group: Red-X
 
 #define TOA_REDX_STYLE \
 	hidden = false; \
-	textColor = "#00000000"; \
-	textAccent = 3; \
+	hideOverlay = true; \
 	highlightTile = true; \
 	tileStrokeColor = "#FFFF0000"; \
 	showLootbeam = true; \
