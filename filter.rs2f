@@ -14783,6 +14783,94 @@ exampleItem: Dragon dart
 VALUE_APPLYSET(["*Dragon bolts*", "Dragon bolts (unf)"], ORIKALKUM_T5_STYLE, ORIKALKUM_T4_STYLE, ORIKALKUM_T3_STYLE, ORIKALKUM_T2_STYLE, ORIKALKUM_T1_STYLE, ORIKALKUM_T0_STYLE)
 VALUE_APPLYSET(["Dragon arrow*","Dragon arrowtips","Dragon javelin heads","Dragon javelin*","Dragon dart tip","Dragon dart*"], NOT_ORIKALKUM_T5_STYLE, NOT_ORIKALKUM_T4_STYLE, NOT_ORIKALKUM_T3_STYLE, NOT_ORIKALKUM_T2_STYLE, NOT_ORIKALKUM_T1_STYLE, NOT_ORIKALKUM_T0_STYLE)
 
+/*@ define:input:ammo
+label: Tier 0
+type: style
+group: Rune
+exampleItem: Amethyst arrow
+*/
+
+#define AMETHYST_AMMO_T0_STYLE \
+    color = "#ffA67092"; \
+	menuTextColor = "#ffA67092"; 
+
+
+/*@ define:input:ammo
+label: Tier 1
+type: style
+group: Amethyst
+exampleItem: Amethyst dart
+*/
+
+#define AMETHYST_AMMO_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#55A67092";\
+	menuTextColor = "#ffA67092";\
+	textAccent = 3;
+
+/*@ define:input:ammo
+label: Tier 2
+type: style
+group: Amethyst
+exampleItem: Amethyst broad bolts
+*/
+
+#define AMETHYST_AMMO_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#99A67092";\
+	menuTextColor = "#ffA67092";\
+	textAccent = 3;
+
+/*@ define:input:ammo
+label: Tier 3
+type: style
+group: Amethyst
+exampleItem: Amethyst Javelin
+*/
+
+#define AMETHYST_AMMO_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#ddA67092";\
+	menuTextColor = "#ffA67092"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:ammo
+label: Tier 4
+type: style
+group: Amethyst
+exampleItem: Amethyst arrow
+*/
+
+#define AMETHYST_AMMO_T4_STYLE \
+	backgroundColor = "#ffA67092";\
+	menuTextColor = "#ffA67092";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffA67092";
+
+/*@ define:input:ammo
+label: Tier 5
+type: style
+group: Amethyst
+exampleItem: Amethyst dart
+*/
+
+#define AMETHYST_AMMO_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffA67092";\
+	color = "#ffA67092";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffA67092";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffA67092";
+
+VALUE_APPLYSET(["Amethyst arrow","Amethyst arrowtips","Amethyst bolt tips","Amethyst broad bolts","Amethyst dart tip","Amethyst dart","Amethyst javelin heads","Amethyst javelin"], AMETHYST_AMMO_T5_STYLE, AMETHYST_AMMO_T4_STYLE, AMETHYST_AMMO_T3_STYLE, AMETHYST_AMMO_T2_STYLE, AMETHYST_AMMO_T1_STYLE, AMETHYST_AMMO_T0_STYLE)
 
 /*@ define:input:ammo
 label: Tier 0
