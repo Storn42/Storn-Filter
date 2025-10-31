@@ -15621,7 +15621,7 @@ subtitle: Future Gifts to a PKer
 */
 
 /*@ define:input:prayer
-label: Desired Ingrediants
+label: Desired Bones
 type: stringlist
 group: Bones
 */
@@ -15737,7 +15737,7 @@ rule (BONES_REPLACE_T1 && name:BONES_NAMES && stackable:true && value:<VALUE_TIE
 VALUE_RULESET(BONES_NAMES, BONES_T5_STYLE, BONES_T4_STYLE, BONES_T3_STYLE, BONES_T2_STYLE, BONES_T1_STYLE, BONES_T0_STYLE)
 
 /*@ define:input:prayer
-label: Desired Ingrediants
+label: Desired Ashes
 type: stringlist
 group: Ashes
 */
@@ -15853,7 +15853,7 @@ rule (ASHES_REPLACE_T1 && name:ASHES_NAMES && stackable:true && value:<VALUE_TIE
 VALUE_RULESET(ASHES_NAMES, ASHES_T5_STYLE, ASHES_T4_STYLE, ASHES_T3_STYLE, ASHES_T2_STYLE, ASHES_T1_STYLE, ASHES_T0_STYLE)
 
 /*@ define:input:prayer
-label: Desired Ingrediants
+label: Desired Heads
 type: stringlist
 group: Ensouled Heads
 */
