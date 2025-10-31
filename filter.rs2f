@@ -15326,8 +15326,8 @@ exampleItem: Silver bolts
 */
 
 #define SILVER_AMMO_T0_STYLE \
-    color = "#fa8a8b4"; \
-	menuTextColor = "#fa8a8b4"; 
+    color = "#ffa8a8b4"; \
+	menuTextColor = "#ffa8a8b4"; 
 
 
 /*@ define:input:ammo
