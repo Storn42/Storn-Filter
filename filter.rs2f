@@ -14786,7 +14786,7 @@ VALUE_APPLYSET(["Dragon arrow*","Dragon arrowtips","Dragon javelin heads","Drago
 /*@ define:input:ammo
 label: Tier 0
 type: style
-group: Rune
+group: Amethyst
 exampleItem: Amethyst arrow
 */
 
