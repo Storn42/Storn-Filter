@@ -4810,7 +4810,7 @@ rule (area:[0,0,0,0,0,0] && name:SHELLBANE_GRYPHON_HIDE) {hidden = true;}
 label: Supply Drop - Not Working Yet
 type: enumlist
 group: Shellbane Gryphon
-enum: []
+enum: ["Does Not Work"]
 */
 
 #define SHELLBANE_GRYPHON_SUPPLY []
