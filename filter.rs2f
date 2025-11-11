@@ -15007,7 +15007,7 @@ exampleItem: Dragon dart
 	showLootbeam = true;\
 	lootbeamColor = "#fff7f6d7";
 	
-VALUE_APPLYSET(["*Dragon bolts*", "Dragon bolts (unf)"], ORIKALKUM_T5_STYLE, ORIKALKUM_T4_STYLE, ORIKALKUM_T3_STYLE, ORIKALKUM_T2_STYLE, ORIKALKUM_T1_STYLE, ORIKALKUM_T0_STYLE)
+VALUE_APPLYSET(["*Dragon bolts*", "Dragon bolts (unf)", "Dragon*cannonball"], ORIKALKUM_T5_STYLE, ORIKALKUM_T4_STYLE, ORIKALKUM_T3_STYLE, ORIKALKUM_T2_STYLE, ORIKALKUM_T1_STYLE, ORIKALKUM_T0_STYLE)
 VALUE_APPLYSET(["Dragon arrow*","Dragon arrowtips","Dragon javelin heads","Dragon javelin*","Dragon dart tip","Dragon dart*"], NOT_ORIKALKUM_T5_STYLE, NOT_ORIKALKUM_T4_STYLE, NOT_ORIKALKUM_T3_STYLE, NOT_ORIKALKUM_T2_STYLE, NOT_ORIKALKUM_T1_STYLE, NOT_ORIKALKUM_T0_STYLE)
 
 /*@ define:input:ammo
@@ -15186,7 +15186,7 @@ exampleItem: Onyx bolts (e)
 	showLootbeam = true;\
 	lootbeamColor = "#ff5B8796";
 
-VALUE_APPLYSET(["Runite bolts*", "Onyx bolts*", "Dragonstone bolts*", "Rune arrowtips", "Rune arrow*", "Rune dart tip", "Rune dart*", "Rune javelin heads","Rune javelin*", "rune knife*", "Rune thrownaxe"], RUNE_AMMO_T5_STYLE, RUNE_AMMO_T4_STYLE, RUNE_AMMO_T3_STYLE, RUNE_AMMO_T2_STYLE, RUNE_AMMO_T1_STYLE, RUNE_AMMO_T0_STYLE)
+VALUE_APPLYSET(["Runite bolts*", "Onyx bolts*", "Dragonstone bolts*", "Rune arrowtips", "Rune arrow*", "Rune dart tip", "Rune dart*", "Rune javelin heads","Rune javelin*", "rune knife*", "Rune thrownaxe", "Rune*cannonball"], RUNE_AMMO_T5_STYLE, RUNE_AMMO_T4_STYLE, RUNE_AMMO_T3_STYLE, RUNE_AMMO_T2_STYLE, RUNE_AMMO_T1_STYLE, RUNE_AMMO_T0_STYLE)
 
 /*@ define:input:ammo
 label: Tier 0
@@ -15275,7 +15275,7 @@ exampleItem: Ruby bolts (e)
 	showLootbeam = true;\
 	lootbeamColor = "#ff506450";
 
-VALUE_APPLYSET(["Adamant bolts*", "Diamond bolts*", "Ruby bolts*", "Adamant arrowtips", "Adamant arrow*", "Adamant dart tip", "Adamant dart*", "Adamant javelin heads","Adamant javelin*", "Adamant knife*", "Adamant thrownaxe"], ADAMANT_AMMO_T5_STYLE, ADAMANT_AMMO_T4_STYLE, ADAMANT_AMMO_T3_STYLE, ADAMANT_AMMO_T2_STYLE, ADAMANT_AMMO_T1_STYLE, ADAMANT_AMMO_T0_STYLE)
+VALUE_APPLYSET(["Adamant bolts*", "Diamond bolts*", "Ruby bolts*", "Adamant arrowtips", "Adamant arrow*", "Adamant dart tip", "Adamant dart*", "Adamant javelin heads","Adamant javelin*", "Adamant knife*", "Adamant thrownaxe","Adamant*cannonball"], ADAMANT_AMMO_T5_STYLE, ADAMANT_AMMO_T4_STYLE, ADAMANT_AMMO_T3_STYLE, ADAMANT_AMMO_T2_STYLE, ADAMANT_AMMO_T1_STYLE, ADAMANT_AMMO_T0_STYLE)
 
 /*@ define:input:ammo
 label: Tier 0
@@ -15364,7 +15364,7 @@ exampleItem: Sapphire bolts (e)
 	showLootbeam = true;\
 	lootbeamColor = "#ff4c4c70";
 
-VALUE_APPLYSET(["Mithril bolts*", "Emerald bolts*", "Sapphire bolts*", "Mithril arrowtips", "Mithril arrow*", "Mithril dart tip", "Mithril dart*", "Mithril javelin heads","Mithril javelin*", "Mithril knife*", "Mithril thrownaxe"], MITHRIL_AMMO_T5_STYLE, MITHRIL_AMMO_T4_STYLE, MITHRIL_AMMO_T3_STYLE, MITHRIL_AMMO_T2_STYLE, MITHRIL_AMMO_T1_STYLE, MITHRIL_AMMO_T0_STYLE)
+VALUE_APPLYSET(["Mithril bolts*", "Emerald bolts*", "Sapphire bolts*", "Mithril arrowtips", "Mithril arrow*", "Mithril dart tip", "Mithril dart*", "Mithril javelin heads","Mithril javelin*", "Mithril knife*", "Mithril thrownaxe","Mithril*cannonball"], MITHRIL_AMMO_T5_STYLE, MITHRIL_AMMO_T4_STYLE, MITHRIL_AMMO_T3_STYLE, MITHRIL_AMMO_T2_STYLE, MITHRIL_AMMO_T1_STYLE, MITHRIL_AMMO_T0_STYLE)
 
 /*@ define:input:ammo
 label: Tier 0
@@ -15453,7 +15453,7 @@ exampleItem: Topaz bolts (e)
 	showLootbeam = true;\
 	lootbeamColor = "#ff908686";
 
-VALUE_APPLYSET(["Steel bolts*", "Topaz bolts*", "Steel arrowtips", "Steel arrow*", "Steel dart tip", "Steel dart*", "Steel javelin heads","Steel javelin*", "Steel knife*", "Steel thrownaxe"], STEEL_AMMO_T5_STYLE, STEEL_AMMO_T4_STYLE, STEEL_AMMO_T3_STYLE, STEEL_AMMO_T2_STYLE, STEEL_AMMO_T1_STYLE, STEEL_AMMO_T0_STYLE)
+VALUE_APPLYSET(["Steel bolts*", "Topaz bolts*", "Steel arrowtips", "Steel arrow*", "Steel dart tip", "Steel dart*", "Steel javelin heads","Steel javelin*", "Steel knife*", "Steel thrownaxe", "Steel*cannonball"], STEEL_AMMO_T5_STYLE, STEEL_AMMO_T4_STYLE, STEEL_AMMO_T3_STYLE, STEEL_AMMO_T2_STYLE, STEEL_AMMO_T1_STYLE, STEEL_AMMO_T0_STYLE)
 
 /*@ define:input:ammo
 label: Tier 0
@@ -15542,7 +15542,7 @@ exampleItem: Pearl bolts (e)
 	showLootbeam = true;\
 	lootbeamColor = "#ff391D14";
 
-VALUE_APPLYSET(["Iron bolts*", "Pearl bolts*", "Iron arrowtips", "Iron arrow*", "Iron dart tip", "Iron dart*", "Iron javelin heads","Iron javelin*", "Iron knife*", "Iron thrownaxe"], IRON_AMMO_T5_STYLE, IRON_AMMO_T4_STYLE, IRON_AMMO_T3_STYLE, IRON_AMMO_T2_STYLE, IRON_AMMO_T1_STYLE, IRON_AMMO_T0_STYLE)
+VALUE_APPLYSET(["Iron bolts*", "Pearl bolts*", "Iron arrowtips", "Iron arrow*", "Iron dart tip", "Iron dart*", "Iron javelin heads","Iron javelin*", "Iron knife*", "Iron thrownaxe", "Iron*cannonball"], IRON_AMMO_T5_STYLE, IRON_AMMO_T4_STYLE, IRON_AMMO_T3_STYLE, IRON_AMMO_T2_STYLE, IRON_AMMO_T1_STYLE, IRON_AMMO_T0_STYLE)
 
 
 /*@ define:input:ammo
@@ -15721,7 +15721,7 @@ exampleItem: Opal bolts (e)
 	showLootbeam = true;\
 	lootbeamColor = "#ff5b462a";
 
-VALUE_APPLYSET(["Bronze bolts*", "Pearl bolts*", "Bronze arrowtips", "Bronze arrow*", "Bronze dart tip", "Bronze dart*", "Bronze javelin heads","Bronze javelin*", "Bronze knife*", "Bronze thrownaxe"], BRONZE_AMMO_T5_STYLE, BRONZE_AMMO_T4_STYLE, BRONZE_AMMO_T3_STYLE, BRONZE_AMMO_T2_STYLE, BRONZE_AMMO_T1_STYLE, BRONZE_AMMO_T0_STYLE)
+VALUE_APPLYSET(["Bronze bolts*", "Pearl bolts*", "Bronze arrowtips", "Bronze arrow*", "Bronze dart tip", "Bronze dart*", "Bronze javelin heads","Bronze javelin*", "Bronze knife*", "Bronze thrownaxe", "Bronze*cannonball"], BRONZE_AMMO_T5_STYLE, BRONZE_AMMO_T4_STYLE, BRONZE_AMMO_T3_STYLE, BRONZE_AMMO_T2_STYLE, BRONZE_AMMO_T1_STYLE, BRONZE_AMMO_T0_STYLE)
 
 /*@ define:input:bolt_tips
 label: Onyx
@@ -15840,7 +15840,7 @@ exampleItem: Opal bolts (e)
 
 rule (name:"Opal*bolts") {OPAL_BOLT_STYLE}
 rule (name:"Opal*bolts (e)") {OPAL_BOLT_STYLE}
-rule (name:["*bolts*","*arrow*","*Javelin*","*dart*","*Knife*","*thrownaxe"]) {}
+rule (name:["*bolts*","*arrow*","*Javelin*","*dart*","*Knife*","*thrownaxe","*cannonball"]) {}
 
 /*@ define:module:prayer
 name: Prayer
