@@ -6237,7 +6237,7 @@ group: Raid Items
 
 
 /*@ define:input:toa
-label: Main Potions
+label: Other Supplies
 type: style
 group: Raid Items
 exampleItem: Silk dressing 2
