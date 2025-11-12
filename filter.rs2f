@@ -6022,7 +6022,7 @@ rule (name:"Buchu seed"){COX_BUCHU}
 label: Noxifer Seeds
 type: style
 group: Raid Items
-exampleItem: Nxifer seed
+exampleItem: Noxifer seed
 */
 
 #define COX_NOXIFER \
