@@ -5863,7 +5863,7 @@ group: Raid Items
 apply (area:[3264,5120,0,3360,5760,3] && !name:COX_POTIONS && name:["Overload*", "Xeric's aid*", "Prayer enhance*", "Revitalisation*"]) {hidden=true;}
 
 /*@ define:input:cox
-label: Potion Style
+label: Elder Potion Style
 type: style
 group: Raid Items
 exampleItem: Elder (+)(4)
@@ -5876,7 +5876,7 @@ exampleItem: Elder (+)(4)
 rule (area:[3264,5120,0,3360,5760,3] && name:["Elder (-)*", "Elder potion*", "Elder (+)*"]) {COX_ELDER_STYLE}
 
 /*@ define:input:cox
-label: Potion Style
+label: Twisted Potion Style
 type: style
 group: Raid Items
 exampleItem: Twisted (+)(4)
@@ -5889,7 +5889,7 @@ exampleItem: Twisted (+)(4)
 rule (area:[3264,5120,0,3360,5760,3] && name:["Twisted (-)*", "Twisted potion*", "Twisted (+)*"]) {COX_TWISTED_STYLE}
 
 /*@ define:input:cox
-label: Potion Style
+label: Kodai Potion Style
 type: style
 group: Raid Items
 exampleItem: Kodai (+)(4)
@@ -5903,7 +5903,7 @@ rule (area:[3264,5120,0,3360,5760,3] && name:["Kodai (-)*", "Kodai potion*", "Ko
 
 
 /*@ define:input:cox
-label: Potion Style
+label: Overload Potion Style
 type: style
 group: Raid Items
 exampleItem: Overload (+)(4)
@@ -5916,7 +5916,7 @@ exampleItem: Overload (+)(4)
 rule (area:[3264,5120,0,3360,5760,3] && name:"Overload*") {COX_OVERLOAD_STYLE}
 
 /*@ define:input:cox
-label: Potion Style
+label: Revitalisation Potion Style
 type: style
 group: Raid Items
 exampleItem: Revitalisation (+)(4)
@@ -5929,7 +5929,7 @@ exampleItem: Revitalisation (+)(4)
 rule (area:[3264,5120,0,3360,5760,3] && name:"Revitalisation*") {COX_REVITALISATION_STYLE}
 
 /*@ define:input:cox
-label: Potion Style
+label: Prayer enhance Potion Style
 type: style
 group: Raid Items
 exampleItem: Prayer enhance (+)(4)
@@ -5942,7 +5942,7 @@ exampleItem: Prayer enhance (+)(4)
 rule (area:[3264,5120,0,3360,5760,3] && name:"Prayer enhance*") {COX_PRAYER_ENHANCE_STYLE}
 
 /*@ define:input:cox
-label: Potion Style
+label: Xeric's aid Potion Style
 type: style
 group: Raid Items
 exampleItem: Xeric's aid (+)(4)
@@ -5955,7 +5955,7 @@ exampleItem: Xeric's aid (+)(4)
 rule (area:[3264,5120,0,3360,5760,3] && name:"Xeric's aid*") {COX_OVERLOAD_STYLE}
 
 /*@ define:input:cox
-label: Potion Style
+label: Antipoison Potion Style
 type: style
 group: Raid Items
 exampleItem: Antipoison (+)(4)
@@ -5968,16 +5968,40 @@ exampleItem: Antipoison (+)(4)
 rule (area:[3264,5120,0,3360,5760,3] && id:[25754,25755,25756,25757,25758,25759,25760,25761,25762,25763,25764,25765]) {COX_ANTIPOISON_STYLE}
 
 /*@ define:input:cox
-label: Potion Secondaries
+label: Stinkhorn mushroom
 type: style
 group: Raid Items
 exampleItem: Stinkhorn mushroom
 */
 
-#define COX_SECONDARIES \
+#define COX_STINKHORN_MUSHROOM_STYLE \
 	backgroundColor = "#660a9fba";
 	
-rule (name:["Stinkhorn mushroom", "Cicely", "Endarkened juice"]) {COX_SECONDARIES}
+rule (name:["Stinkhorn mushroom"]) {COX_STINKHORN_MUSHROOM_STYLE}
+
+/*@ define:input:cox
+label: Cicely
+type: style
+group: Raid Items
+exampleItem: Cicely
+*/
+
+#define COX_CICELY_STYLE \
+	backgroundColor = "#660a9fba";
+	
+rule (name:["Cicely"]) {COX_CICELY_STYLE}
+
+/*@ define:input:cox
+label: Endarkened juice
+type: style
+group: Raid Items
+exampleItem: Endarkened juice
+*/
+
+#define COX_ENDARKENED_JUICE_STYLE \
+	backgroundColor = "#660a9fba";
+	
+rule (name:["Endarkened juice") {COX_ENDARKENED_JUICE_STYLE}
 
 /*@ define:input:cox
 label: Planks
