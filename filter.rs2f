@@ -5977,7 +5977,7 @@ exampleItem: Stinkhorn mushroom
 #define COX_STINKHORN_MUSHROOM_STYLE \
 	backgroundColor = "#660a9fba";
 	
-rule (name:["Stinkhorn mushroom"]) {COX_STINKHORN_MUSHROOM_STYLE}
+rule (name:"Stinkhorn mushroom") {COX_STINKHORN_MUSHROOM_STYLE}
 
 /*@ define:input:cox
 label: Cicely
@@ -5989,7 +5989,7 @@ exampleItem: Cicely
 #define COX_CICELY_STYLE \
 	backgroundColor = "#660a9fba";
 	
-rule (name:["Cicely"]) {COX_CICELY_STYLE}
+rule (name:"Cicely") {COX_CICELY_STYLE}
 
 /*@ define:input:cox
 label: Endarkened juice
@@ -6001,7 +6001,7 @@ exampleItem: Endarkened juice
 #define COX_ENDARKENED_JUICE_STYLE \
 	backgroundColor = "#660a9fba";
 	
-rule (name:["Endarkened juice") {COX_ENDARKENED_JUICE_STYLE}
+rule (name:"Endarkened juice") {COX_ENDARKENED_JUICE_STYLE}
 
 /*@ define:input:cox
 label: Planks
