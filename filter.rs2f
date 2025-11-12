@@ -5860,6 +5860,48 @@ group: Raid Items
 
 #define COX_POTIONS ["Overload (+)*", "Xeric's aid (+)*", "Prayer enhance (+)*", "Revitalisation (+)*"]
 
+apply (area:[3264,5120,0,3360,5760,3] && !name:COX_POTIONS && name:["Overload*", "Xeric's aid*", "Prayer enhance*", "Revitalisation*"]) {hidden=true;}
+
+/*@ define:input:cox
+label: Potion Style
+type: style
+group: Raid Items
+exampleItem: Elder (+)(4)
+*/
+
+#define COX_ELDER_STYLE \
+	fontType = 3; \
+	showLootbeam = true;
+
+rule (area:[3264,5120,0,3360,5760,3] && name:["Elder (-)*", "Elder potion*", "Elder (+)*"]) {COX_ELDER_STYLE}
+
+/*@ define:input:cox
+label: Potion Style
+type: style
+group: Raid Items
+exampleItem: Twisted (+)(4)
+*/
+
+#define COX_TWISTED_STYLE \
+	fontType = 3; \
+	showLootbeam = true;
+
+rule (area:[3264,5120,0,3360,5760,3] && name:["Twisted (-)*", "Twisted potion*", "Twisted (+)*"]) {COX_TWISTED_STYLE}
+
+/*@ define:input:cox
+label: Potion Style
+type: style
+group: Raid Items
+exampleItem: Kodai (+)(4)
+*/
+
+#define COX_KODAI_STYLE \
+	fontType = 3; \
+	showLootbeam = true;
+
+rule (area:[3264,5120,0,3360,5760,3] && name:["Kodai (-)*", "Kodai potion*", "Kodai (+)*"]) {COX_KODAI_STYLE}
+
+
 /*@ define:input:cox
 label: Potion Style
 type: style
@@ -5867,11 +5909,63 @@ group: Raid Items
 exampleItem: Overload (+)(4)
 */
 
-#define COX_POTIONS_STYLE \
+#define COX_OVERLOAD_STYLE \
 	fontType = 3; \
 	showLootbeam = true;
 
-rule (name:COX_POTIONS) {COX_POTIONS_STYLE}
+rule (area:[3264,5120,0,3360,5760,3] && name:"Overload*") {COX_OVERLOAD_STYLE}
+
+/*@ define:input:cox
+label: Potion Style
+type: style
+group: Raid Items
+exampleItem: Revitalisation (+)(4)
+*/
+
+#define COX_REVITALISATION_STYLE \
+	fontType = 3; \
+	showLootbeam = true;
+
+rule (area:[3264,5120,0,3360,5760,3] && name:"Revitalisation*") {COX_REVITALISATION_STYLE}
+
+/*@ define:input:cox
+label: Potion Style
+type: style
+group: Raid Items
+exampleItem: Prayer enhance (+)(4)
+*/
+
+#define COX_PRAYER_ENHANCE_STYLE \
+	fontType = 3; \
+	showLootbeam = true;
+
+rule (area:[3264,5120,0,3360,5760,3] && name:"Prayer enhance*") {COX_PRAYER_ENHANCE_STYLE}
+
+/*@ define:input:cox
+label: Potion Style
+type: style
+group: Raid Items
+exampleItem: Xeric's aid (+)(4)
+*/
+
+#define COX_XERICS_AID_STYLE \
+	fontType = 3; \
+	showLootbeam = true;
+
+rule (area:[3264,5120,0,3360,5760,3] && name:"Xeric's aid*") {COX_OVERLOAD_STYLE}
+
+/*@ define:input:cox
+label: Potion Style
+type: style
+group: Raid Items
+exampleItem: Antipoison (+)(4)
+*/
+
+#define COX_ANTIPOISON_STYLE \
+	fontType = 3; \
+	showLootbeam = true;
+
+rule (area:[3264,5120,0,3360,5760,3] && id:[25754,25755,25756,25757,25758,25759,25760,25761,25762,25763,25764,25765]) {COX_ANTIPOISON_STYLE}
 
 /*@ define:input:cox
 label: Potion Secondaries
