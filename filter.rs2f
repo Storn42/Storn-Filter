@@ -10435,6 +10435,127 @@ VALUE_RULESET(["Steel bar"] && quantity:>=STEEL_QUANTITY, STEEL_T5_STYLE, STEEL_
 /*@ define:input:ores_bars
 label: Show unnoted
 type: boolean
+group: Lead
+*/
+
+#define LEAD_SHOW_UNNOTED false
+
+/*@ define:input:ores_bars
+label: Reaplce T1 with Noted
+type: boolean
+group: Lead
+*/
+
+#define LEAD_REPLACE_T1 true
+
+/*@ define:input:ores_bars
+label: Minimum Quantity
+type: number
+group: Lead
+*/
+
+#define LEAD_QUANTITY 5
+
+/*@ define:input:ores_bars
+label: Tier 0
+type: style
+group: Lead
+exampleItem: Lead bar
+*/
+
+#define LEAD_T0_STYLE \
+    color = "#ff4C555E"; \
+	menuTextColor = "#ff4C555E"; 
+
+
+/*@ define:input:ores_bars
+label: Tier 1
+type: style
+group: Lead
+exampleItem: Lead bar
+*/
+
+#define LEAD_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#554C555E";\
+	menuTextColor = "#ff4C555E";\
+	textAccent = 3;
+
+/*@ define:input:ores_bars
+label: Tier 2
+type: style
+group: Lead
+exampleItem: Lead bar
+*/
+
+#define LEAD_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#994C555E";\
+	menuTextColor = "#ff4C555E";\
+	textAccent = 3;
+
+/*@ define:input:ores_bars
+label: Tier 3
+type: style
+group: Lead
+exampleItem: Lead bar
+*/
+
+#define LEAD_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#dd4C555E";\
+	menuTextColor = "#ff4C555E"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:ores_bars
+label: Tier 4
+type: style
+group: Lead
+exampleItem: Lead bar
+*/
+
+#define LEAD_T4_STYLE \
+	backgroundColor = "#ff4C555E";\
+	menuTextColor = "#ff4C555E";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff4C555E";
+
+/*@ define:input:ores_bars
+label: Tier 5
+type: style
+group: Lead
+exampleItem: Lead bar
+*/
+
+#define LEAD_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff4C555E";\
+	color = "#ff4C555E";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff4C555E";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff4C555E";
+
+
+rule (name:["Lead bar", "Lead ore"] && quantity:<LEAD_QUANTITY) {hidden=true;}
+
+rule (!LEAD_SHOW_UNNOTED && name:["Lead bar", "Lead ore"] && stackable:false) {hidden=true;}
+
+rule (LEAD_REPLACE_T1 && name:["Lead bar", "Lead ore"] && stackable:true && value:<VALUE_TIER_2) {LEAD_T1_STYLE}
+
+VALUE_RULESET(["Lead bar", "Lead ore"] && quantity:>=LEAD_QUANTITY, LEAD_T5_STYLE, LEAD_T4_STYLE, LEAD_T3_STYLE, LEAD_T2_STYLE, LEAD_T1_STYLE, LEAD_T0_STYLE)
+
+
+/*@ define:input:ores_bars
+label: Show unnoted
+type: boolean
 group: Iron
 */
 
