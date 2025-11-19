@@ -4903,7 +4903,7 @@ group: Tempoross
 
 #define TEMPOROSS_HIDE []
 
-rule (area:[3005,2942,0,3067,3010,0] && name:TEMPOROSS_HIDE) {hidden = true;}
+rule (area:[3008,2818,0,3067,2883,0] && name:TEMPOROSS_HIDE) {hidden = true;}
 
 /*@ define:input:boss_pvm
 label: Show Items
@@ -4913,7 +4913,7 @@ group: Tempoross
 
 #define TEMPOROSS_SHOW ["Bucket", "Bucket of water", "Rope", "Hammer"]
 
-apply (area:[3005,2942,0,3067,3010,0] && name:TEMPOROSS_SHOW) {hidden = false;}
+apply (area:[3008,2818,0,3067,2883,0] && name:TEMPOROSS_SHOW && ((!SHOW_OTHER_DROPS && ownership:2) || SHOW_OTHER_DROPS))) {hidden = false;}
 
 /*@ define:input:boss_pvm
 label: Raw Fish
