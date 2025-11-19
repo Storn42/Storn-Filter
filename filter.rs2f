@@ -5952,7 +5952,7 @@ exampleItem: Xeric's aid (+)(4)
 	fontType = 3; \
 	showLootbeam = true;
 
-rule (area:[3264,5120,0,3360,5760,3] && name:"Xeric's aid*") {COX_OVERLOAD_STYLE}
+rule (area:[3264,5120,0,3360,5760,3] && name:"Xeric's aid*") {COX_XERICS_AID_STYLE}
 
 /*@ define:input:cox
 label: Antipoison Potion Style
