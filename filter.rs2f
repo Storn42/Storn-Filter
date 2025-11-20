@@ -364,7 +364,7 @@ apply (name:HIDE_MAGE) {hidden=true;}
 
 /*@ define:input:hidden
 label: Hide "Fake" Items
-type: stringlist
+type: boolean
 group: Other
 */
 
