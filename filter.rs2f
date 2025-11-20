@@ -363,6 +363,17 @@ group: Equipment
 apply (name:HIDE_MAGE) {hidden=true;}
 
 /*@ define:input:hidden
+label: Hide "Fake" Items
+type: stringlist
+group: Other
+*/
+
+#define ENABLE_HIDE_FAKE true
+
+apply (ENABLE_HIDE_FAKE && area:[3167,2423,0,3167,2423,0] && name:"Spirit angler headband") {hidden=true;}
+
+
+/*@ define:input:hidden
 label: Herbs
 type: stringlist
 group: Skilling
@@ -9161,7 +9172,7 @@ type: stringlist
 group: Seeds
 */
 
-#define SEEDS_ALWAYS_SHOW ["Snape grass seed","Limpwurt seed","White lily seed","Ranarr seed","Toadflax seed","Irit seed","Avantoe seed","Kwuarm seed","Snapdragon seed","Cadantine seed","Lantadyme seed","Dwarf weed seed","Torstol seed","Huasca seed","Maple seed","Yew seed","Magic seed","Teak seed","Mahogany seed","Calquat tree seed","Celastrus seed","Spirit seed","Redwood tree seed","Crystal acorn","Papaya tree seed","Palm tree seed","Dragonfruit tree seed","Seaweed spore","Grape seed","Hespori seed","Potato cactus seed","Flax seed"]
+#define SEEDS_ALWAYS_SHOW ["Snape grass seed","Limpwurt seed","White lily seed","Ranarr seed","Toadflax seed","Irit seed","Avantoe seed","Kwuarm seed","Snapdragon seed","Cadantine seed","Lantadyme seed","Dwarf weed seed","Torstol seed","Huasca seed","Maple seed","Yew seed","Magic seed","Teak seed","Mahogany seed","Calquat tree seed","Celastrus seed","Spirit seed","Redwood tree seed","Crystal acorn","Papaya tree seed","Palm tree seed","Dragonfruit tree seed","Seaweed spore","Grape seed","Hespori seed","Potato cactus seed","Flax seed", "Hemp seed"]
 
 /*@ define:input:seeds
 label: Show if over Minimum Quantity
