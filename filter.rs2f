@@ -4913,7 +4913,7 @@ group: Tempoross
 
 #define TEMPOROSS_SHOW ["Bucket", "Bucket of water", "Rope", "Hammer"]
 
-apply (area:[3008,2818,0,3067,2883,0] && name:TEMPOROSS_SHOW && ((!SHOW_OTHER_DROPS && ownership:2) || SHOW_OTHER_DROPS))) {hidden = false;}
+apply (area:[3008,2818,0,3067,2883,0] && name:TEMPOROSS_SHOW && ((!SHOW_OTHER_DROPS && ownership:2) || SHOW_OTHER_DROPS)) {hidden = false;}
 
 /*@ define:input:boss_pvm
 label: Raw Fish
@@ -9161,7 +9161,7 @@ type: stringlist
 group: Seeds
 */
 
-#define SEEDS_ALWAYS_SHOW ["Snape grass seed","Limpwurt seed","White lily seed","Ranarr seed","Toadflax seed","Irit seed","Avantoe seed","Kwuarm seed","Snapdragon seed","Cadantine seed","Lantadyme seed","Dwarf weed seed","Torstol seed","Huasca seed","Maple seed","Yew seed","Magic seed","Teak seed","Mahogany seed","Calquat tree seed","Celastrus seed","Spirit seed","Redwood tree seed","Crystal acorn","Papaya tree seed","Palm tree seed","Dragonfruit tree seed","Seaweed spore","Grape seed","Hespori seed","Potato cactus seed"]
+#define SEEDS_ALWAYS_SHOW ["Snape grass seed","Limpwurt seed","White lily seed","Ranarr seed","Toadflax seed","Irit seed","Avantoe seed","Kwuarm seed","Snapdragon seed","Cadantine seed","Lantadyme seed","Dwarf weed seed","Torstol seed","Huasca seed","Maple seed","Yew seed","Magic seed","Teak seed","Mahogany seed","Calquat tree seed","Celastrus seed","Spirit seed","Redwood tree seed","Crystal acorn","Papaya tree seed","Palm tree seed","Dragonfruit tree seed","Seaweed spore","Grape seed","Hespori seed","Potato cactus seed","Flax seed"]
 
 /*@ define:input:seeds
 label: Show if over Minimum Quantity
