@@ -9966,6 +9966,246 @@ VALUE_RULESET(["Runite ore", "Runite bar"], RUNE_T5_STYLE, RUNE_T4_STYLE, RUNE_T
 /*@ define:input:ores_bars
 label: Show unnoted
 type: boolean
+group: Cupronickel
+*/
+
+#define CUPRONICKEL_SHOW_UNNOTED false
+
+/*@ define:input:ores_bars
+label: Reaplce T1 with Noted
+type: boolean
+group: Cupronickel
+*/
+
+#define CUPRONICKEL_REPLACE_T1 true
+
+/*@ define:input:ores_bars
+label: Minimum Quantity
+type: number
+group: Cupronickel
+*/
+
+#define CUPRONICKEL_QUANTITY 5
+
+/*@ define:input:ores_bars
+label: Tier 0
+type: style
+group: Cupronickel
+exampleItem: Cupronickel bar
+*/
+
+#define CUPRONICKEL_T0_STYLE \
+    color = "#ffA3764C"; \
+	menuTextColor = "#ffA3764C"; 
+
+
+/*@ define:input:ores_bars
+label: Tier 1
+type: style
+group: Cupronickel
+exampleItem: Cupronickel bar
+*/
+
+#define CUPRONICKEL_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#55A3764C";\
+	menuTextColor = "#ffA3764C";\
+	textAccent = 3;
+
+/*@ define:input:ores_bars
+label: Tier 2
+type: style
+group: Cupronickel
+exampleItem: Cupronickel bar
+*/
+
+#define CUPRONICKEL_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#99A3764C";\
+	menuTextColor = "#ffA3764C";\
+	textAccent = 3;
+
+/*@ define:input:ores_bars
+label: Tier 3
+type: style
+group: Cupronickel
+exampleItem: Cupronickel bar
+*/
+
+#define CUPRONICKEL_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#ddA3764C";\
+	menuTextColor = "#ffA3764C"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:ores_bars
+label: Tier 4
+type: style
+group: Cupronickel
+exampleItem: Cupronickel bar
+*/
+
+#define CUPRONICKEL_T4_STYLE \
+	backgroundColor = "#ffA3764C";\
+	menuTextColor = "#ffA3764C";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffA3764C";
+
+/*@ define:input:ores_bars
+label: Tier 5
+type: style
+group: Cupronickel
+exampleItem: Cupronickel bar
+*/
+
+#define CUPRONICKEL_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffA3764C";\
+	color = "#ffA3764C";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffA3764C";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffA3764C";
+
+
+rule (name:["Cupronickel bar"] && quantity:<CUPRONICKEL_QUANTITY) {hidden=true;}
+
+rule (!CUPRONICKEL_SHOW_UNNOTED && name:["Cupronickel bar"] && stackable:false) {hidden=true;}
+
+rule (CUPRONICKEL_REPLACE_T1 && name:["Cupronickel bar"] && stackable:true && value:<VALUE_TIER_2) {CUPRONICKEL_T1_STYLE}
+
+VALUE_RULESET(["Cupronickel bar"] && quantity:>=CUPRONICKEL_QUANTITY, CUPRONICKEL_T5_STYLE, CUPRONICKEL_T4_STYLE, CUPRONICKEL_T3_STYLE, CUPRONICKEL_T2_STYLE, CUPRONICKEL_T1_STYLE, CUPRONICKEL_T0_STYLE)
+
+/*@ define:input:ores_bars
+label: Show unnoted
+type: boolean
+group: Nickel
+*/
+
+#define NICKEL_SHOW_UNNOTED true
+
+/*@ define:input:ores_bars
+label: Reaplce T1 with Noted
+type: boolean
+group: Nickel
+*/
+
+#define NICKEL_REPLACE_T1 true
+
+/*@ define:input:ores_bars
+label: Minimum Quantity
+type: number
+group: Nickel
+*/
+
+#define NICKEL_QUANTITY 1
+
+/*@ define:input:ores_bars
+label: Tier 0
+type: style
+group: Nickel
+exampleItem: Nickel ore
+*/
+
+#define NICKEL_T0_STYLE \
+    color = "#ff6FA495"; \
+	menuTextColor = "#ff6FA495"; 
+
+
+/*@ define:input:ores_bars
+label: Tier 1
+type: style
+group: Nickel
+exampleItem: Nickel ore
+*/
+
+#define NICKEL_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#556FA495";\
+	menuTextColor = "#ff6FA495";\
+	textAccent = 3;
+
+/*@ define:input:ores_bars
+label: Tier 2
+type: style
+group: Nickel
+exampleItem: Nickel ore
+*/
+
+#define NICKEL_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#996FA495";\
+	menuTextColor = "#ff6FA495";\
+	textAccent = 3;
+
+/*@ define:input:ores_bars
+label: Tier 3
+type: style
+group: Nickel
+exampleItem: Nickel ore
+*/
+
+#define NICKEL_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#dd6FA495";\
+	menuTextColor = "#ff6FA495"; \
+	fontType = 2;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";
+
+/*@ define:input:ores_bars
+label: Tier 4
+type: style
+group: Nickel
+exampleItem: Nickel ore
+*/
+
+#define NICKEL_T4_STYLE \
+	backgroundColor = "#ff6FA495";\
+	menuTextColor = "#ff6FA495";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffffffff";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff6FA495";
+
+/*@ define:input:ores_bars
+label: Tier 5
+type: style
+group: Nickel
+exampleItem: Nickel ore
+*/
+
+#define NICKEL_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ff6FA495";\
+	color = "#ff6FA495";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff6FA495";\
+	showLootbeam = true;\
+	lootbeamColor = "#ff6FA495";
+
+
+rule (name:["Nickel ore"] && quantity:<NICKEL_QUANTITY) {hidden=true;}
+
+rule (!NICKEL_SHOW_UNNOTED && name:["Nickel ore"] && stackable:false) {hidden=true;}
+
+rule (NICKEL_REPLACE_T1 && name:["Nickel ore"] && stackable:true && value:<VALUE_TIER_2) {NICKEL_T1_STYLE}
+
+VALUE_RULESET(["Nickel ore"] && quantity:>=NICKEL_QUANTITY, NICKEL_T5_STYLE, NICKEL_T4_STYLE, NICKEL_T3_STYLE, NICKEL_T2_STYLE, NICKEL_T1_STYLE, NICKEL_T0_STYLE)
+
+/*@ define:input:ores_bars
+label: Show unnoted
+type: boolean
 group: Adamant
 */
 
