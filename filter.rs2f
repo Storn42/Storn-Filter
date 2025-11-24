@@ -7452,7 +7452,7 @@ group: Ocean Encounters
 enum: ["Tiny pearl","Small pearl","Shiny pearl","Bright pearl","Big pearl","Huge pearl","Enormous pearl","Shimmering pearl","Glistening peatl","Brilliant pearl","Radiant pearl"]
 */
 
-#define OCEAN_ENCOUNTERS_T2_UNIQUES ["Tiny pearl","Small pearl","Shiny pearl","Bright pearl","Big pearl","Huge pearl","Enormous pearl","Shimmering pearl","Glistening peatl","Brilliant pearl","Radiant pearl"] 
+#define OCEAN_ENCOUNTERS_T2_UNIQUES [] 
 
 rule (name:OCEAN_ENCOUNTERS_T2_UNIQUES) {UNIQUE_T2_STYLE}
 
@@ -7798,7 +7798,7 @@ type: stringlist
 group: Alchs
 */
 
-#define ALCHS_NAMES ["* dagger", "*axe", "* mace", "* claws", "* sword", "* Longsword", "* scimitar", "* spear", "* warhammer", "* Battleaxe", "* 2h sword", "* halberd", "* hasta", "* pickaxe", "* full helm", "* platebody", "* platelegs", "* plateskirt", "* kiteshield", "* med helm", "* chainbody", "* sq shield", "* boots", "* crossbow", "*battlestaff", "mystic *", "*d'hide*", "Onyx bolts*"]
+#define ALCHS_NAMES ["* dagger", "*axe", "* mace", "* claws", "* sword", "* Longsword", "* scimitar", "* spear", "* warhammer", "* Battleaxe", "* 2h sword", "* halberd", "* hasta", "* pickaxe", "* full helm", "* platebody", "* platelegs", "* plateskirt", "* kiteshield", "* med helm", "* chainbody", "* sq shield", "* boots", "* crossbow", "*battlestaff", "mystic *", "*d'hide*", "Onyx bolts*", "Tiny pearl", "Small pearl", "Shiny pearl", "Bright pearl", "Big pearl", "Huge pearl", "Enormous pearl", "Shimmering pearl", "Glistening peatl", "Brilliant pearl", "Radiant pearl"]
 
 /*@ define:input:alchs
 label: non-alchable Items
