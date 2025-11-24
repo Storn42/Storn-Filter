@@ -9969,7 +9969,7 @@ type: boolean
 group: Cupronickel
 */
 
-#define CUPRONICKEL_SHOW_UNNOTED false
+#define CUPRONICKEL_SHOW_UNNOTED true
 
 /*@ define:input:ores_bars
 label: Reaplce T1 with Noted
@@ -9985,7 +9985,7 @@ type: number
 group: Cupronickel
 */
 
-#define CUPRONICKEL_QUANTITY 5
+#define CUPRONICKEL_QUANTITY 1
 
 /*@ define:input:ores_bars
 label: Tier 0
