@@ -8414,7 +8414,7 @@ exampleItem: Crystal key
 
 #define KEYS_T2_STYLE \
 	color ="#ffea02ff";\
-    backgroundColor = "#ff621075";\
+    backgroundColor = "#66621075";\
 	menuTextColor = "#ff621075";\
 	textAccent = 3;
 
@@ -8863,7 +8863,7 @@ exampleItem: Zulrah's scales
 
 #define CHARGE_T2_STYLE \
 	color ="#ff00ffee";\
-    backgroundColor = "#ff2fa79f";\
+    backgroundColor = "#662fa79f";\
 	menuTextColor = "#ff2fa79f";\
 	textAccent = 3;
 
@@ -13576,6 +13576,122 @@ subtitle: Collect all sorts of Wood
 /*@ define:input:logs
 label: Show unnoted
 type: boolean
+group: Rosewood
+*/
+
+#define ROSEWOOD_SHOW_UNNOTED false
+
+/*@ define:input:logs
+label: Reaplce T1 with Noted
+type: boolean
+group: Rosewood
+*/
+
+#define ROSEWOOD_REPLACE_T1 true
+
+/*@ define:input:logs
+label: Minimum Quantity
+type: number
+group: Rosewood
+*/
+
+#define ROSEWOOD_QUANTITY 1
+
+/*@ define:input:logs
+label: Tier 0
+type: style
+group: Rosewood
+exampleItem: Rosewood logs
+*/
+
+#define ROSEWOOD_T0_STYLE \
+    color = "#ffA2706E"; \
+	menuTextColor = "#ffA2706E"; 
+
+
+/*@ define:input:logs
+label: Tier 1
+type: style
+group: Rosewood
+exampleItem: Rosewood logs
+*/
+
+#define ROSEWOOD_T1_STYLE \
+    color = "#ff5A4846";\
+    backgroundColor = "#44A2706E";\
+	menuTextColor = "#ffA2706E";
+
+/*@ define:input:logs
+label: Tier 2
+type: style
+group: Rosewood
+exampleItem: Rosewood logs
+*/
+
+#define ROSEWOOD_T2_STYLE \
+	color ="#ff5A4846";\
+    backgroundColor = "#99A2706E";\
+	menuTextColor = "#ffA2706E";
+
+/*@ define:input:logs
+label: Tier 3
+type: style
+group: Rosewood
+exampleItem: Rosewood logs
+*/
+
+#define ROSEWOOD_T3_STYLE \
+	color = "#ff5A4846";\
+	backgroundColor = "#aaA2706E";\
+	menuTextColor = "#ffA2706E"; \
+	fontType = 2;\
+	borderColor = "#ff5A4846";
+
+/*@ define:input:logs
+label: Tier 4
+type: style
+group: Rosewood
+exampleItem: Rosewood logs
+*/
+
+#define ROSEWOOD_T4_STYLE \
+	backgroundColor = "#ffA2706E";\
+	menuTextColor = "#ffA2706E";\
+	color = "#ff5A4846";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff5A4846";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffA2706E";
+
+/*@ define:input:logs
+label: Tier 5
+type: style
+group: Rosewood
+exampleItem: Rosewood logs
+*/
+
+#define ROSEWOOD_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffA2706E";\
+	color = "#ffA2706E";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffA2706E";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffA2706E";
+
+rule (name:["Rosewood logs"] && quantity:<ROSEWOOD_QUANTITY) {hidden=true;}
+
+rule (!ROSEWOOD_SHOW_UNNOTED && name:["Rosewood logs"] && stackable:false) {hidden=true;}
+
+rule (ROSEWOOD_REPLACE_T1 && name:["Rosewood logs"] && stackable:true && value:<VALUE_TIER_2) {ROSEWOOD_T1_STYLE}
+
+VALUE_RULESET(["Rosewood logs"] && quantity:>=ROSEWOOD_QUANTITY, ROSEWOOD_T5_STYLE, ROSEWOOD_T4_STYLE, ROSEWOOD_T3_STYLE, ROSEWOOD_T2_STYLE, ROSEWOOD_T1_STYLE, ROSEWOOD_T0_STYLE)
+
+/*@ define:input:logs
+label: Show unnoted
+type: boolean
 group: Redwood
 */
 
@@ -13688,6 +13804,123 @@ rule (!REDWOOD_SHOW_UNNOTED && name:["Redwood logs"] && stackable:false) {hidden
 rule (REDWOOD_REPLACE_T1 && name:["Redwood logs"] && stackable:true && value:<VALUE_TIER_2) {REDWOOD_T1_STYLE}
 
 VALUE_RULESET(["Redwood logs"] && quantity:>=REDWOOD_QUANTITY, REDWOOD_T5_STYLE, REDWOOD_T4_STYLE, REDWOOD_T3_STYLE, REDWOOD_T2_STYLE, REDWOOD_T1_STYLE, REDWOOD_T0_STYLE)
+
+
+/*@ define:input:logs
+label: Show unnoted
+type: boolean
+group: Ironwood
+*/
+
+#define IRONWOOD_SHOW_UNNOTED false
+
+/*@ define:input:logs
+label: Reaplce T1 with Noted
+type: boolean
+group: Ironwood
+*/
+
+#define IRONWOOD_REPLACE_T1 true
+
+/*@ define:input:logs
+label: Minimum Quantity
+type: number
+group: Ironwood
+*/
+
+#define IRONWOOD_QUANTITY 1
+
+/*@ define:input:logs
+label: Tier 0
+type: style
+group: Ironwood
+exampleItem: Ironwood logs
+*/
+
+#define IRONWOOD_T0_STYLE \
+    color = "#ffAA9087"; \
+	menuTextColor = "#ffAA9087"; 
+
+
+/*@ define:input:logs
+label: Tier 1
+type: style
+group: Ironwood
+exampleItem: Ironwood logs
+*/
+
+#define IRONWOOD_T1_STYLE \
+    color = "#ff715B5A";\
+    backgroundColor = "#44AA9087";\
+	menuTextColor = "#ffAA9087";
+
+/*@ define:input:logs
+label: Tier 2
+type: style
+group: Ironwood
+exampleItem: Ironwood logs
+*/
+
+#define IRONWOOD_T2_STYLE \
+	color ="#ff715B5A";\
+    backgroundColor = "#99AA9087";\
+	menuTextColor = "#ffAA9087";
+
+/*@ define:input:logs
+label: Tier 3
+type: style
+group: Ironwood
+exampleItem: Ironwood logs
+*/
+
+#define IRONWOOD_T3_STYLE \
+	color = "#ff715B5A";\
+	backgroundColor = "#aaAA9087";\
+	menuTextColor = "#ffAA9087"; \
+	fontType = 2;\
+	borderColor = "#ff715B5A";
+
+/*@ define:input:logs
+label: Tier 4
+type: style
+group: Ironwood
+exampleItem: Ironwood logs
+*/
+
+#define IRONWOOD_T4_STYLE \
+	backgroundColor = "#ffAA9087";\
+	menuTextColor = "#ffAA9087";\
+	color = "#ff715B5A";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff715B5A";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffAA9087";
+
+/*@ define:input:logs
+label: Tier 5
+type: style
+group: Ironwood
+exampleItem: Ironwood logs
+*/
+
+#define IRONWOOD_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffAA9087";\
+	color = "#ffAA9087";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffAA9087";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffAA9087";
+
+rule (name:["Ironwood logs"] && quantity:<IRONWOOD_QUANTITY) {hidden=true;}
+
+rule (!IRONWOOD_SHOW_UNNOTED && name:["Ironwood logs"] && stackable:false) {hidden=true;}
+
+rule (IRONWOOD_REPLACE_T1 && name:["Ironwood logs"] && stackable:true && value:<VALUE_TIER_2) {IRONWOOD_T1_STYLE}
+
+VALUE_RULESET(["Ironwood logs"] && quantity:>=IRONWOOD_QUANTITY, IRONWOOD_T5_STYLE, IRONWOOD_T4_STYLE, IRONWOOD_T3_STYLE, IRONWOOD_T2_STYLE, IRONWOOD_T1_STYLE, IRONWOOD_T0_STYLE)
 
 /*@ define:input:logs
 label: Show unnoted
@@ -13804,6 +14037,121 @@ rule (!MAGIC_SHOW_UNNOTED && name:["Magic logs"] && stackable:false) {hidden=tru
 rule (MAGIC_REPLACE_T1 && name:["Magic logs"] && stackable:true && value:<VALUE_TIER_2) {MAGIC_T1_STYLE}
 
 VALUE_RULESET(["Magic logs"] && quantity:>=MAGIC_QUANTITY, MAGIC_T5_STYLE, MAGIC_T4_STYLE, MAGIC_T3_STYLE, MAGIC_T2_STYLE, MAGIC_T1_STYLE, MAGIC_T0_STYLE)
+
+/*@ define:input:logs
+label: Show unnoted
+type: boolean
+group: Camphor
+*/
+
+#define CAMPHOR_SHOW_UNNOTED false
+
+/*@ define:input:logs
+label: Reaplce T1 with Noted
+type: boolean
+group: Camphor
+*/
+
+#define CAMPHOR_REPLACE_T1 true
+
+/*@ define:input:logs
+label: Minimum Quantity
+type: number
+group: Camphor
+*/
+
+#define CAMPHOR_QUANTITY 1
+
+/*@ define:input:logs
+label: Tier 0
+type: style
+group: Camphor
+exampleItem: Camphor logs
+*/
+
+#define CAMPHOR_T0_STYLE \
+    color = "#ffD1BBA1"; \
+	menuTextColor = "#ffD1BBA1"; 
+
+/*@ define:input:logs
+label: Tier 1
+type: style
+group: Camphor
+exampleItem: Camphor logs
+*/
+
+#define CAMPHOR_T1_STYLE \
+    color = "#ff85695A";\
+    backgroundColor = "#44D1BBA1";\
+	menuTextColor = "#ffD1BBA1";
+
+/*@ define:input:logs
+label: Tier 2
+type: style
+group: Camphor
+exampleItem: Camphor logs
+*/
+
+#define CAMPHOR_T2_STYLE \
+	color ="#ff85695A";\
+    backgroundColor = "#99D1BBA1";\
+	menuTextColor = "#ffD1BBA1";
+
+/*@ define:input:logs
+label: Tier 3
+type: style
+group: Camphor
+exampleItem: Camphor logs
+*/
+
+#define CAMPHOR_T3_STYLE \
+	color = "#ff85695A";\
+	backgroundColor = "#aaD1BBA1";\
+	menuTextColor = "#ffD1BBA1"; \
+	fontType = 2;\
+	borderColor = "#ff85695A";
+
+/*@ define:input:logs
+label: Tier 4
+type: style
+group: Camphor
+exampleItem: Camphor logs
+*/
+
+#define CAMPHOR_T4_STYLE \
+	backgroundColor = "#ffD1BBA1";\
+	menuTextColor = "#ffD1BBA1";\
+	color = "#ff85695A";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff85695A";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffD1BBA1";
+
+/*@ define:input:logs
+label: Tier 5
+type: style
+group: Camphor
+exampleItem: Camphor logs
+*/
+
+#define CAMPHOR_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffD1BBA1";\
+	color = "#ffD1BBA1";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffD1BBA1";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffD1BBA1";
+
+rule (name:["Camphor logs"] && quantity:<CAMPHOR_QUANTITY) {hidden=true;}
+
+rule (!CAMPHOR_SHOW_UNNOTED && name:["Camphor logs"] && stackable:false) {hidden=true;}
+
+rule (CAMPHOR_REPLACE_T1 && name:["Camphor logs"] && stackable:true && value:<VALUE_TIER_2) {CAMPHOR_T1_STYLE}
+
+VALUE_RULESET(["Camphor logs"] && quantity:>=CAMPHOR_QUANTITY, CAMPHOR_T5_STYLE, CAMPHOR_T4_STYLE, CAMPHOR_T3_STYLE, CAMPHOR_T2_STYLE, CAMPHOR_T1_STYLE, CAMPHOR_T0_STYLE)
 
 /*@ define:input:logs
 label: Show unnoted
@@ -14857,6 +15205,354 @@ subtitle: Materials for Aspiring Carpenters
 /*@ define:input:planks
 label: Show unnoted
 type: boolean
+group: Rosewood
+*/
+
+#define ROSEWOOD_PLANKS_SHOW_UNNOTED false
+
+/*@ define:input:planks
+label: Reaplce T1 with Noted
+type: boolean
+group: Rosewood
+*/
+
+#define ROSEWOOD_PLANKS_REPLACE_T1 true
+
+/*@ define:input:planks
+label: Minimum Quantity
+type: number
+group: Rosewood
+*/
+
+#define ROSEWOOD_PLANKS_QUANTITY 1
+
+/*@ define:input:planks
+label: Tier 0
+type: style
+group: Rosewood
+exampleItem: Rosewood plank
+*/
+
+#define ROSEWOOD_PLANKS_T0_STYLE \
+    color = "#ffA2706E"; \
+	menuTextColor = "#ffA2706E"; 
+
+
+/*@ define:input:planks
+label: Tier 1
+type: style
+group: Rosewood
+exampleItem: Rosewood plank
+*/
+
+#define ROSEWOOD_PLANKS_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#44A2706E";\
+	menuTextColor = "#ffA2706E";
+
+/*@ define:input:planks
+label: Tier 2
+type: style
+group: Rosewood
+exampleItem: Rosewood plank
+*/
+
+#define ROSEWOOD_PLANKS_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#99A2706E";\
+	menuTextColor = "#ffA2706E";
+
+/*@ define:input:planks
+label: Tier 3
+type: style
+group: Rosewood
+exampleItem: Rosewood plank
+*/
+
+#define ROSEWOOD_PLANKS_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#aaA2706E";\
+	menuTextColor = "#ffA2706E"; \
+	fontType = 2;\
+	borderColor = "#ff5A4846";
+
+/*@ define:input:planks
+label: Tier 4
+type: style
+group: Rosewood
+exampleItem: Rosewood plank
+*/
+
+#define ROSEWOOD_PLANKS_T4_STYLE \
+	backgroundColor = "#ffA2706E";\
+	menuTextColor = "#ffA2706E";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff5A4846";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffA2706E";
+
+/*@ define:input:planks
+label: Tier 5
+type: style
+group: Rosewood
+exampleItem: Rosewood plank
+*/
+
+#define ROSEWOOD_PLANKS_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffA2706E";\
+	color = "#ffA2706E";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffA2706E";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffA2706E";
+
+rule (name:["Rosewood planks"] && quantity:<ROSEWOOD_PLANKS_QUANTITY) {hidden=true;}
+
+rule (!ROSEWOOD_PLANKS_SHOW_UNNOTED && name:["Rosewood planks"] && stackable:false) {hidden=true;}
+
+rule (ROSEWOOD_PLANKS_REPLACE_T1 && name:["Rosewood planks"] && stackable:true && value:<VALUE_TIER_2) {ROSEWOOD_PLANKS_T1_STYLE}
+
+VALUE_RULESET(["Rosewood planks"] && quantity:>=ROSEWOOD_PLANKS_QUANTITY, ROSEWOOD_PLANKS_T5_STYLE, ROSEWOOD_PLANKS_T4_STYLE, ROSEWOOD_PLANKS_T3_STYLE, ROSEWOOD_PLANKS_T2_STYLE, ROSEWOOD_PLANKS_T1_STYLE, ROSEWOOD_PLANKS_T0_STYLE)
+
+/*@ define:input:planks
+label: Show unnoted
+type: boolean
+group: Ironwood
+*/
+
+#define IRONWOOD_PLANKS_SHOW_UNNOTED false
+
+/*@ define:input:planks
+label: Reaplce T1 with Noted
+type: boolean
+group: Ironwood
+*/
+
+#define IRONWOOD_PLANKS_REPLACE_T1 true
+
+/*@ define:input:planks
+label: Minimum Quantity
+type: number
+group: Ironwood
+*/
+
+#define IRONWOOD_PLANKS_QUANTITY 1
+
+/*@ define:input:planks
+label: Tier 0
+type: style
+group: Ironwood
+exampleItem: Ironwood plank
+*/
+
+#define IRONWOOD_PLANKS_T0_STYLE \
+    color = "#ffAA9087"; \
+	menuTextColor = "#ffAA9087"; 
+
+
+/*@ define:input:planks
+label: Tier 1
+type: style
+group: Ironwood
+exampleItem: Ironwood plank
+*/
+
+#define IRONWOOD_PLANKS_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#44AA9087";\
+	menuTextColor = "#ffAA9087";
+
+/*@ define:input:planks
+label: Tier 2
+type: style
+group: Ironwood
+exampleItem: Ironwood plank
+*/
+
+#define IRONWOOD_PLANKS_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#99AA9087";\
+	menuTextColor = "#ffAA9087";
+
+/*@ define:input:planks
+label: Tier 3
+type: style
+group: Ironwood
+exampleItem: Ironwood plank
+*/
+
+#define IRONWOOD_PLANKS_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#aaAA9087";\
+	menuTextColor = "#ffAA9087"; \
+	fontType = 2;\
+	borderColor = "#ff715B5A";
+
+/*@ define:input:planks
+label: Tier 4
+type: style
+group: Ironwood
+exampleItem: Ironwood plank
+*/
+
+#define IRONWOOD_PLANKS_T4_STYLE \
+	backgroundColor = "#ffAA9087";\
+	menuTextColor = "#ffAA9087";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff715B5A";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffAA9087";
+
+/*@ define:input:planks
+label: Tier 5
+type: style
+group: Ironwood
+exampleItem: Ironwood plank
+*/
+
+#define IRONWOOD_PLANKS_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffAA9087";\
+	color = "#ffAA9087";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffAA9087";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffAA9087";
+
+rule (name:["Ironwood planks"] && quantity:<IRONWOOD_PLANKS_QUANTITY) {hidden=true;}
+
+rule (!IRONWOOD_PLANKS_SHOW_UNNOTED && name:["Ironwood planks"] && stackable:false) {hidden=true;}
+
+rule (IRONWOOD_PLANKS_REPLACE_T1 && name:["Ironwood planks"] && stackable:true && value:<VALUE_TIER_2) {IRONWOOD_PLANKS_T1_STYLE}
+
+VALUE_RULESET(["Ironwood planks"] && quantity:>=IRONWOOD_PLANKS_QUANTITY, IRONWOOD_PLANKS_T5_STYLE, IRONWOOD_PLANKS_T4_STYLE, IRONWOOD_PLANKS_T3_STYLE, IRONWOOD_PLANKS_T2_STYLE, IRONWOOD_PLANKS_T1_STYLE, IRONWOOD_PLANKS_T0_STYLE)
+
+/*@ define:input:planks
+label: Show unnoted
+type: boolean
+group: Camphor
+*/
+
+#define CAMPHOR_PLANKS_PLANKS_SHOW_UNNOTED false
+
+/*@ define:input:planks
+label: Reaplce T1 with Noted
+type: boolean
+group: Camphor
+*/
+
+#define CAMPHOR_PLANKS_REPLACE_T1 true
+
+/*@ define:input:planks
+label: Minimum Quantity
+type: number
+group: Camphor
+*/
+
+#define CAMPHOR_PLANKS_QUANTITY 1
+
+/*@ define:input:planks
+label: Tier 0
+type: style
+group: Camphor
+exampleItem: Camphor plank
+*/
+
+#define CAMPHOR_PLANKS_T0_STYLE \
+    color = "#ffD1BBA1"; \
+	menuTextColor = "#ffD1BBA1"; 
+
+
+/*@ define:input:planks
+label: Tier 1
+type: style
+group: Camphor
+exampleItem: Camphor plank
+*/
+
+#define CAMPHOR_PLANKS_T1_STYLE \
+    color = "#ffffffff";\
+    backgroundColor = "#44D1BBA1";\
+	menuTextColor = "#ffD1BBA1";
+
+/*@ define:input:planks
+label: Tier 2
+type: style
+group: Camphor
+exampleItem: Camphor plank
+*/
+
+#define CAMPHOR_PLANKS_T2_STYLE \
+	color ="#ffffffff";\
+    backgroundColor = "#99D1BBA1";\
+	menuTextColor = "#ffD1BBA1";
+
+/*@ define:input:planks
+label: Tier 3
+type: style
+group: Camphor
+exampleItem: Camphor plank
+*/
+
+#define CAMPHOR_PLANKS_T3_STYLE \
+	color = "#ffffffff";\
+	backgroundColor = "#aaD1BBA1";\
+	menuTextColor = "#ffD1BBA1"; \
+	fontType = 2;\
+	borderColor = "#ff85695A";
+
+/*@ define:input:planks
+label: Tier 4
+type: style
+group: Camphor
+exampleItem: Camphor plank
+*/
+
+#define CAMPHOR_PLANKS_T4_STYLE \
+	backgroundColor = "#ffD1BBA1";\
+	menuTextColor = "#ffD1BBA1";\
+	color = "#ffffffff";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ff85695A";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffD1BBA1";
+
+/*@ define:input:planks
+label: Tier 5
+type: style
+group: Camphor
+exampleItem: Camphor plank
+*/
+
+#define CAMPHOR_PLANKS_T5_STYLE \
+	backgroundColor = "#ffffffff";\
+	menuTextColor = "#ffD1BBA1";\
+	color = "#ffD1BBA1";\
+	fontType = 3;\
+	textAccent = 3;\
+	borderColor = "#ffD1BBA1";\
+	showLootbeam = true;\
+	lootbeamColor = "#ffD1BBA1";
+
+rule (name:["Camphor planks"] && quantity:<CAMPHOR_PLANKS_QUANTITY) {hidden=true;}
+
+rule (!CAMPHOR_PLANKS_SHOW_UNNOTED && name:["Camphor planks"] && stackable:false) {hidden=true;}
+
+rule (CAMPHOR_PLANKS_REPLACE_T1 && name:["Camphor planks"] && stackable:true && value:<VALUE_TIER_2) {CAMPHOR_PLANKS_T1_STYLE}
+
+VALUE_RULESET(["Camphor planks"] && quantity:>=CAMPHOR_PLANKS_QUANTITY, CAMPHOR_PLANKS_T5_STYLE, CAMPHOR_PLANKS_T4_STYLE, CAMPHOR_PLANKS_T3_STYLE, CAMPHOR_PLANKS_T2_STYLE, CAMPHOR_PLANKS_T1_STYLE, CAMPHOR_PLANKS_T0_STYLE)
+
+/*@ define:input:planks
+label: Show unnoted
+type: boolean
 group: Mahogany
 */
 
@@ -15114,7 +15810,7 @@ group: Oak
 label: Tier 0
 type: style
 group: Oak
-exampleItem: Oak planks
+exampleItem: Oak plank
 */
 
 #define OAK_PLANKS_T0_STYLE \
@@ -15126,7 +15822,7 @@ exampleItem: Oak planks
 label: Tier 1
 type: style
 group: Oak
-exampleItem: Oak planks
+exampleItem: Oak plank
 */
 
 #define OAK_PLANKS_T1_STYLE \
@@ -15138,7 +15834,7 @@ exampleItem: Oak planks
 label: Tier 2
 type: style
 group: Oak
-exampleItem: Oak planks
+exampleItem: Oak plank
 */
 
 #define OAK_PLANKS_T2_STYLE \
@@ -15150,7 +15846,7 @@ exampleItem: Oak planks
 label: Tier 3
 type: style
 group: Oak
-exampleItem: Oak planks
+exampleItem: Oak plank
 */
 
 #define OAK_PLANKS_T3_STYLE \
@@ -15164,7 +15860,7 @@ exampleItem: Oak planks
 label: Tier 4
 type: style
 group: Oak
-exampleItem: Oak planks
+exampleItem: Oak plank
 */
 
 #define OAK_PLANKS_T4_STYLE \
@@ -15181,7 +15877,7 @@ exampleItem: Oak planks
 label: Tier 5
 type: style
 group: Oak
-exampleItem: Oak planks
+exampleItem: Oak plank
 */
 
 #define OAK_PLANKS_T5_STYLE \
