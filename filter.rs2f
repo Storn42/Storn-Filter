@@ -15440,7 +15440,7 @@ type: boolean
 group: Camphor
 */
 
-#define CAMPHOR_PLANKS_PLANKS_SHOW_UNNOTED false
+#define CAMPHOR_PLANKS_SHOW_UNNOTED false
 
 /*@ define:input:planks
 label: Reaplce T1 with Noted
