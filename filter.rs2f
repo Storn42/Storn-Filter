@@ -370,8 +370,7 @@ group: Other
 
 #define ENABLE_HIDE_FAKE true
 
-apply (ENABLE_HIDE_FAKE && area:[3167,2423,0,3167,2423,0] && name:"Spirit angler headband") {hidden=true;}
-
+apply (ENABLE_HIDE_FAKE && id:[2513,4178,4180,6967,21060,31252]) {hidden=true;}
 
 /*@ define:input:hidden
 label: Herbs
