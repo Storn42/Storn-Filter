@@ -517,10 +517,10 @@ apply (name:HIDE_MISC) {hidden=true;}
 
 #define HIDE_LIST name:HIDE_USER || name:HIDE_BRONZE || name:HIDE_IRON || name:HIDE_STEEL || name:HIDE_BLACK || name:HIDE_WHITE || name:HIDE_MITHRIL || name:HIDE_ADAMANT || name:HIDE_RUNE || name:HIDE_DRAGON || name:HIDE_RANGED || name:HIDE_MAGE || name:HIDE_HERBS || name:HIDE_SECONDARIES || name:HIDE_SEEDS || name:HIDE_PRAYER || name:HIDE_COOKING || name:HIDE_CRAFTING || name:HIDE_FISHING || name:HIDE_RUNECRAFT || name:HIDE_HUNTER || name:HIDE_BURNT_FOOD || name:HIDE_POTIONS || name:HIDE_CONTAINERS || name:HIDE_TOOLS || name:HIDE_MISC
 
-#define AREA_UNHIDE(_hidearea, _hideitems) apply (area:_hidearea && (HIDE_LIST) && name:_hideitems) {hidden = false; hideOverlay = true;} \
-apply (area:_hidearea && value:<HIDE_USER_MINIMUM && !name:HIDE_USER_MINIMUM_IGNORE && !FORCE_SHOW_UNTRADABLES && name:_hideitems) {hidden = false; hideOverlay = true;}\
-apply (area:_hidearea && value:<HIDE_USER_MINIMUM && !name:HIDE_USER_MINIMUM_IGNORE && FORCE_SHOW_UNTRADABLES && tradeable:true && name:_hideitems) {hidden = false; hideOverlay = true;}\
-apply (area:_hidearea && name:HIDE_USER_UNNOTED && stackable:false && name:_hideitems) {hidden = false; hideOverlay = true;}
+#define AREA_UNHIDE(_hidecondition) apply (_hidecondition && (HIDE_LIST)) {hidden = false; hideOverlay = true;} \
+apply (_hidecondition && value:<HIDE_USER_MINIMUM && !name:HIDE_USER_MINIMUM_IGNORE && !FORCE_SHOW_UNTRADABLES) {hidden = false; hideOverlay = true;}\
+apply (_hidecondition && value:<HIDE_USER_MINIMUM && !name:HIDE_USER_MINIMUM_IGNORE && FORCE_SHOW_UNTRADABLES && tradeable:true) {hidden = false; hideOverlay = true;}\
+apply (_hidecondition && name:HIDE_USER_UNNOTED && stackable:false) {hidden = false; hideOverlay = true;}
 
 
 /*@ define:module:uniques
@@ -2640,6 +2640,8 @@ group: Callisto and Artio
 
 #define CALLISTO_AND_ARTIO_MVP_SOUND 3018
 
+AREA_UNHIDE(area:[3336,10306,0,3383,10349,0] && name:"Big Bones" && ENABLE_CALLISTO_AND_ARTIO_MVP)
+AREA_UNHIDE(area:[1739,11522,0,1782,11566,0] && name:"Big Bones" && ENABLE_CALLISTO_AND_ARTIO_MVP)
 
 apply (area:[3336,10306,0,3383,10349,0] && name:"Big Bones" && ENABLE_CALLISTO_AND_ARTIO_MVP) {sound=CALLISTO_AND_ARTIO_MVP_SOUND;}
 apply (area:[1739,11522,0,1782,11566,0] && name:"Big Bones" && ENABLE_CALLISTO_AND_ARTIO_MVP) {sound=CALLISTO_AND_ARTIO_MVP_SOUND;}
@@ -2695,6 +2697,9 @@ group: Callisto and Artio
 */
 
 #define CALLISTO_AND_ARTIO_HIDE []
+
+rule (area:[3336,10306,0,3383,10349,0] && name:"Big Bones" && ENABLE_CALLISTO_AND_ARTIO_MVP && name:CALLISTO_AND_ARTIO_HIDE) {hideOverlay = true}
+rule (area:[1739,11522,0,1782,11566,0] && name:"Big Bones" && ENABLE_CALLISTO_AND_ARTIO_MVP && name:CALLISTO_AND_ARTIO_HIDE) {hideOverlay = true}
 
 rule (area:[3336,10306,0,3383,10349,0] && name:CALLISTO_AND_ARTIO_HIDE) {hidden = true;}
 rule (area:[1739,11522,0,1782,11566,0] && name:CALLISTO_AND_ARTIO_HIDE) {hidden = true;}
@@ -2915,9 +2920,9 @@ group: Corporeal Beast
 enum: ["Spectral sigil", "Spectral spirit shield", "Arcane sigil", "Arcane spirit shield", "Elysian sigil", "Elysian spirit shield", "Spirit shield", "Holy elixir", "Blessed spirit shield", "Jar of spirits"]
 */
 
-#define CORPOREAL_B1731_T3_UNIQUES ["Spectral sigil", "Spectral spirit shield", "Arcane sigil", "Arcane spirit shield", "Elysian sigil", "Elysian spirit shield", "Jar of spirits"]
+#define CORPOREAL_BEAST_T3_UNIQUES ["Spectral sigil", "Spectral spirit shield", "Arcane sigil", "Arcane spirit shield", "Elysian sigil", "Elysian spirit shield", "Jar of spirits"]
 
-rule (name:CORPOREAL_B1731_T3_UNIQUES) {UNIQUE_T3_STYLE}
+rule (name:CORPOREAL_BEAST_T3_UNIQUES) {UNIQUE_T3_STYLE}
 
 /*@ define:input:boss_pvm
 label: Unique T2
@@ -2926,9 +2931,9 @@ group: Corporeal Beast
 enum: ["Spectral sigil", "Spectral spirit shield", "Arcane sigil", "Arcane spirit shield", "Elysian sigil", "Elysian spirit shield", "Spirit shield", "Holy elixir", "Blessed spirit shield", "Jar of spirits"]
 */
 
-#define CORPOREAL_B1731_T2_UNIQUES ["Spirit shield", "Holy elixir", "Blessed spirit shield"] 
+#define CORPOREAL__T2_UNIQUES ["Spirit shield", "Holy elixir", "Blessed spirit shield"] 
 
-rule (name:CORPOREAL_B1731_T2_UNIQUES) {UNIQUE_T2_STYLE}
+rule (name:CORPOREAL_BEAST_T2_UNIQUES) {UNIQUE_T2_STYLE}
 
 /*@ define:input:boss_pvm
 label: Unique T1
@@ -2937,9 +2942,9 @@ group: Corporeal Beast
 enum: ["Spectral sigil", "Spectral spirit shield", "Arcane sigil", "Arcane spirit shield", "Elysian sigil", "Elysian spirit shield", "Spirit shield", "Holy elixir", "Blessed spirit shield", "Jar of spirits"]
 */
 
-#define CORPOREAL_B1731_T1_UNIQUES []
+#define CORPOREAL_BEAST_T1_UNIQUES []
 
-rule (name:CORPOREAL_B1731_T1_UNIQUES) {UNIQUE_T1_STYLE}
+rule (name:CORPOREAL_BEAST_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 
 /*@ define:input:boss_pvm
@@ -2948,9 +2953,9 @@ type: stringlist
 group: Corporeal Beast
 */
 
-#define CORPOREAL_B1731_HIDE []
+#define CORPOREAL_BEAST_HIDE []
 
-rule (area:[2884,5255,0,2909,5278,0] && name:CORPOREAL_B1731_HIDE) {hidden = true;}
+rule (area:[2884,5255,0,2909,5278,0] && name:CORPOREAL_BEAST_HIDE) {hidden = true;}
 
 /*@ define:input:boss_pvm
 label: Supply Drop
@@ -2959,9 +2964,9 @@ group: Corporeal Beast
 enum: ["Tuna potato"]
 */
 
-#define CORPOREAL_B1731_SUPPLY ["Tuna potato"]
+#define CORPOREAL_BEAST_SUPPLY ["Tuna potato"]
 
-rule (area:[2884,5255,0,2909,5278,0] && name:CORPOREAL_B1731_SUPPLY) {SUPPLY_DROP_STYLE}
+rule (area:[2884,5255,0,2909,5278,0] && name:CORPOREAL_BEAST_SUPPLY) {SUPPLY_DROP_STYLE}
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -3160,6 +3165,7 @@ group: Duke Sucellus
 
 #define DUKE_SUCELLUS_PERFECT_SOUND 3018
 
+AREA_UNHIDE(area:[3027,6433,0,3052,6459,0] && ENABLE_DUKE_SUCELLUS_PERFECT && (ENABLE_DUKE_SUCELLUS_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Bronze chainbody" && quantity:==17) || (name:"Mithril chainbody" && quantity:==7) || (name:"Adamant chainbody" && quantity:==7) || (name:"Dragon platelegs" && quantity:==7) || (name:"Coal" && quantity:==325) || (name: "Adamantite ore" && quantity:==112) || (name:"Rune javelin heads" && quantity:== 90) || (name:"Dragon javelin heads" && quantity:== 90) || (name:"Uncut ruby" && quantity:== 62) || (name:"Uncut diamond" && quantity:== 62) || (name:"Runite ore" && quantity:==45) || (name:"Dragon arrowtips" && quantity:==250) || (name:"Pure essence" && quantity:==300) || (name:"Iron ore" && quantity:==95) || (name:"Mithril ore" && quantity:==50) || (name:"Sapphire" && quantity:==42) || (name:"Emerald" && quantity:==42) || (name:"Ruby" && quantity:==42) || (name:"Bronze bar" && quantity:==95) || (name:"Raw sea turtle" && quantity:==300) || (name:"Chaos rune" && quantity:==150) || (name:"Mist rune" && quantity:==150) || (name:"Soul rune" && quantity:==1000) || (name:"Air rune" && quantity:==300)))
 
 apply (area:[3027,6433,0,3052,6459,0] && ENABLE_DUKE_SUCELLUS_PERFECT && (ENABLE_DUKE_SUCELLUS_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Bronze chainbody" && quantity:==17) || (name:"Mithril chainbody" && quantity:==7) || (name:"Adamant chainbody" && quantity:==7) || (name:"Dragon platelegs" && quantity:==7) || (name:"Coal" && quantity:==325) || (name: "Adamantite ore" && quantity:==112) || (name:"Rune javelin heads" && quantity:== 90) || (name:"Dragon javelin heads" && quantity:== 90) || (name:"Uncut ruby" && quantity:== 62) || (name:"Uncut diamond" && quantity:== 62) || (name:"Runite ore" && quantity:==45) || (name:"Dragon arrowtips" && quantity:==250) || (name:"Pure essence" && quantity:==300) || (name:"Iron ore" && quantity:==95) || (name:"Mithril ore" && quantity:==50) || (name:"Sapphire" && quantity:==42) || (name:"Emerald" && quantity:==42) || (name:"Ruby" && quantity:==42) || (name:"Bronze bar" && quantity:==95) || (name:"Raw sea turtle" && quantity:==300) || (name:"Chaos rune" && quantity:==150) || (name:"Mist rune" && quantity:==150) || (name:"Soul rune" && quantity:==1000) || (name:"Air rune" && quantity:==300))) {sound=DUKE_SUCELLUS_PERFECT_SOUND;}
 
@@ -3220,6 +3226,8 @@ group: Duke Sucellus
 */
 
 #define DUKE_SUCELLUS_HIDE []
+
+rule (area:[3027,6433,0,3052,6459,0] && name:DUKE_SUCELLUS_HIDE ENABLE_DUKE_SUCELLUS_PERFECT && (ENABLE_DUKE_SUCELLUS_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Bronze chainbody" && quantity:==17) || (name:"Mithril chainbody" && quantity:==7) || (name:"Adamant chainbody" && quantity:==7) || (name:"Dragon platelegs" && quantity:==7) || (name:"Coal" && quantity:==325) || (name: "Adamantite ore" && quantity:==112) || (name:"Rune javelin heads" && quantity:== 90) || (name:"Dragon javelin heads" && quantity:== 90) || (name:"Uncut ruby" && quantity:== 62) || (name:"Uncut diamond" && quantity:== 62) || (name:"Runite ore" && quantity:==45) || (name:"Dragon arrowtips" && quantity:==250) || (name:"Pure essence" && quantity:==300) || (name:"Iron ore" && quantity:==95) || (name:"Mithril ore" && quantity:==50) || (name:"Sapphire" && quantity:==42) || (name:"Emerald" && quantity:==42) || (name:"Ruby" && quantity:==42) || (name:"Bronze bar" && quantity:==95) || (name:"Raw sea turtle" && quantity:==300) || (name:"Chaos rune" && quantity:==150) || (name:"Mist rune" && quantity:==150) || (name:"Soul rune" && quantity:==1000) || (name:"Air rune" && quantity:==300))) {hideOverlay = true;}
 
 rule (area:[3027,6433,0,3052,6459,0] && name:DUKE_SUCELLUS_HIDE) {hidden = true;}
 
@@ -3733,7 +3741,7 @@ group: Hueycoatle
 
 #define HUEYCOATL_PERFECT_SOUND 3018
 
-AREA_UNHIDE([1501,3268,0,1538,3298,0], "Big Bones" && ENABLE_HUEYCOATL_MVP)
+AREA_UNHIDE(area:[1501,3268,0,1538,3298,0] && name:"Big Bones" && ENABLE_HUEYCOATL_MVP)
 
 apply (area:[1501,3268,0,1538,3298,0] && name:"Big Bones" && ENABLE_HUEYCOATL_MVP) {sound=HUEYCOATL_PERFECT_SOUND;}
 
@@ -3787,7 +3795,7 @@ group: Hueycoatle
 
 #define HUEYCOATL_HIDE []
 
-rule (area:[1501,3268,0,1538,3298,0] && name:HUEYCOATL_HIDE && name:"Big bones") {hideOverlay = true;}
+rule (area:[1501,3268,0,1538,3298,0] && name:HUEYCOATL_HIDE && name:"Big bones" && ENABLE_HUEYCOATL_MVP) {hideOverlay = true;}
 rule (area:[1501,3268,0,1538,3298,0] && name:HUEYCOATL_HIDE) {hidden = true;}
 
 /*@ define:input:boss_pvm
@@ -4164,6 +4172,8 @@ group: The Leviathan
 
 #define LEVIATHAN_PERFECT_SOUND 3018
 
+AREA_UNHIDE(area:[3027,6433,0,3052,6459,0] && ENABLE_LEVIATHAN_PERFECT && (ENABLE_LEVIATHAN_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Coal" && quantity:==292) || (name:"Gold ore" && quantity:==101) || (name:"Dragon javelin head" && quantity:==81) || (name:"Anglerfish" && quantity:==6) || (name:"Uncut ruby" && quantity:==56) || (name: "Uncut diamond" && quantity:==56) || (name:"Runite ore" && quantity:== 40) || (name:"Dragon bolts (unf)" && quantity:== 225) || (name:"Pure essence" && quantity:== 270) || (name:"Iron ore" && quantity:== 85) || (name:"Silver ore" && quantity:==85) || (name:"Adamantite ore" && quantity:==85) || (name:"Sapphire" && quantity:==38) || (name:"Emerald" && quantity:==38) || (name:"Ruby" && quantity:==38) || (name:"Onyx bolt tips" && quantity:==135) || (name:"Raw manta ray" && quantity:==270) || (name:"Rune arrow" && quantity:==81) || (name:"Smoke rune" && quantity:==450) || (name:"Soul rune" && quantity:==900) || (name:"Bronze arrow" && quantity:==94) || (name:"Mithril arrow" && quantity:==94) || (name:"Adamant arrow" && quantity:==94) || (name:"Body rune" && quantity:==270) || (name:"Earth rune" && quantity:==270)))
+
 apply (area:[3027,6433,0,3052,6459,0] && ENABLE_LEVIATHAN_PERFECT && (ENABLE_LEVIATHAN_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Coal" && quantity:==292) || (name:"Gold ore" && quantity:==101) || (name:"Dragon javelin head" && quantity:==81) || (name:"Anglerfish" && quantity:==6) || (name:"Uncut ruby" && quantity:==56) || (name: "Uncut diamond" && quantity:==56) || (name:"Runite ore" && quantity:== 40) || (name:"Dragon bolts (unf)" && quantity:== 225) || (name:"Pure essence" && quantity:== 270) || (name:"Iron ore" && quantity:== 85) || (name:"Silver ore" && quantity:==85) || (name:"Adamantite ore" && quantity:==85) || (name:"Sapphire" && quantity:==38) || (name:"Emerald" && quantity:==38) || (name:"Ruby" && quantity:==38) || (name:"Onyx bolt tips" && quantity:==135) || (name:"Raw manta ray" && quantity:==270) || (name:"Rune arrow" && quantity:==81) || (name:"Smoke rune" && quantity:==450) || (name:"Soul rune" && quantity:==900) || (name:"Bronze arrow" && quantity:==94) || (name:"Mithril arrow" && quantity:==94) || (name:"Adamant arrow" && quantity:==94) || (name:"Body rune" && quantity:==270) || (name:"Earth rune" && quantity:==270))) {sound=LEVIATHAN_PERFECT_SOUND;}
 
 
@@ -4225,6 +4235,8 @@ group: The Leviathan
 */
 
 #define LEVIATHAN_HIDE []
+
+rule (area:[2069,6361,0,2094,6385,0] && name:LEVIATHAN_HIDE] && ENABLE_LEVIATHAN_PERFECT && (ENABLE_LEVIATHAN_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Coal" && quantity:==292) || (name:"Gold ore" && quantity:==101) || (name:"Dragon javelin head" && quantity:==81) || (name:"Anglerfish" && quantity:==6) || (name:"Uncut ruby" && quantity:==56) || (name: "Uncut diamond" && quantity:==56) || (name:"Runite ore" && quantity:== 40) || (name:"Dragon bolts (unf)" && quantity:== 225) || (name:"Pure essence" && quantity:== 270) || (name:"Iron ore" && quantity:== 85) || (name:"Silver ore" && quantity:==85) || (name:"Adamantite ore" && quantity:==85) || (name:"Sapphire" && quantity:==38) || (name:"Emerald" && quantity:==38) || (name:"Ruby" && quantity:==38) || (name:"Onyx bolt tips" && quantity:==135) || (name:"Raw manta ray" && quantity:==270) || (name:"Rune arrow" && quantity:==81) || (name:"Smoke rune" && quantity:==450) || (name:"Soul rune" && quantity:==900) || (name:"Bronze arrow" && quantity:==94) || (name:"Mithril arrow" && quantity:==94) || (name:"Adamant arrow" && quantity:==94) || (name:"Body rune" && quantity:==270) || (name:"Earth rune" && quantity:==270))) {hideOverlay = true}
 
 rule (area:[2069,6361,0,2094,6385,0] && name:LEVIATHAN_HIDE) {hidden = true;}
 
@@ -4315,6 +4327,8 @@ group: Nex
 
 #define NEX_MVP_SOUND 3018
 
+AREA_UNHIDE(area:[1501,3268,0,1538,3298,0] && name:"Big Bones" && ENABLE_NEX_MVP)
+
 apply (area:[1501,3268,0,1538,3298,0] && name:"Big Bones" && ENABLE_NEX_MVP) {sound=NEX_MVP_SOUND;}
 
 /*@ define:input:boss_pvm
@@ -4367,6 +4381,8 @@ group: Nex
 
 #define NEX_HIDE []
 
+rule (area:[2910,5187,0,2944,5219,0] && name:NEX_HIDE && name:"Big bones" && ENABLE_NEX_MVP) {hideOverlay = true;}
+
 rule (area:[2910,5187,0,2944,5219,0] && name:NEX_HIDE) {hidden = true;}
 
 /*@ define:input:boss_pvm
@@ -4396,6 +4412,8 @@ group: The Nightmare
 */
 
 #define NIGHTMARE_MVP_SOUND 3018
+
+AREA_UNHIDE(area:[3830,9910,3,3914,9988,3] && name:"Big Bones" && ENABLE_NIGHTMARE_MVP)
 
 apply (area:[3830,9910,3,3914,9988,3] && name:"Big Bones" && ENABLE_NIGHTMARE_MVP) {sound=NIGHTMARE_MVP_SOUND;}
 
@@ -4449,6 +4467,7 @@ group: The Nightmare
 
 #define NIGHTMARE_HIDE []
 
+rule (area:[3830,9910,3,3914,9988,3] && name:NIGHTMARE_HIDE && name:"Big Bones" && ENABLE_NIGHTMARE_MVP) {hideOverlay = true;}
 rule (area:[3830,9910,3,3914,9988,3] && name:NIGHTMARE_HIDE) {hidden = true;}
 
 /*@ define:input:boss_pvm
@@ -5057,6 +5076,8 @@ group: Vardorvis
 
 #define VARDORVIS_PERFECT_SOUND 3018
 
+AREA_UNHIDE(area:[1114,3407,0,1142,3434,0] && ENABLE_VARDORVIS_PERFECT && (ENABLE_VARDORVIS_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Coal" && quantity:==195) || (name:"Adamantite ore" && quantity:==67) || (name:"Rune javelin heads" && quantity:==54) || (name:"Dragon javelin heads" && quantity:==54) || (name:"Uncut ruby" && quantity:==37) || (name:"Uncut diamond" && quantity:==37) || (name:"Runite ore" && quantity:==27) || (name:"Dragon dart tip" && quantity:==150) || (name:"Pure essence" && quantity:==180) || (name:"Iron ore" && quantity:==57) || (name:"Silver ore" && quantity:==57) || (name:"Mithril ore" && quantity:==57) || (name:"Sapphire" && quantity:==25) || (name:"Emerald" && quantity:==25) || (name:"Ruby" && quantity:==25) || (name:"Raw shark" && quantity:==300) || (name:"Lava rune" && quantity:==300) || (name:"Blood rune" && quantity:==300) || (name:"Soul rune" && quantity:==600) || (name:"Bronze javelin" && quantity:==63) || (name:"Mithril javelin" && quantity:==63) || (name:"Adamant javelin" && quantity:==63) || (name:"Onyx bolts (e)" && quantity:==90) || (name:"Mind rune" && quantity:==180) || (name:"Fire rune" && quantity:==180)))
+
 apply (area:[1114,3407,0,1142,3434,0] && ENABLE_VARDORVIS_PERFECT && (ENABLE_VARDORVIS_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Coal" && quantity:==195) || (name:"Adamantite ore" && quantity:==67) || (name:"Rune javelin heads" && quantity:==54) || (name:"Dragon javelin heads" && quantity:==54) || (name:"Uncut ruby" && quantity:==37) || (name:"Uncut diamond" && quantity:==37) || (name:"Runite ore" && quantity:==27) || (name:"Dragon dart tip" && quantity:==150) || (name:"Pure essence" && quantity:==180) || (name:"Iron ore" && quantity:==57) || (name:"Silver ore" && quantity:==57) || (name:"Mithril ore" && quantity:==57) || (name:"Sapphire" && quantity:==25) || (name:"Emerald" && quantity:==25) || (name:"Ruby" && quantity:==25) || (name:"Raw shark" && quantity:==300) || (name:"Lava rune" && quantity:==300) || (name:"Blood rune" && quantity:==300) || (name:"Soul rune" && quantity:==600) || (name:"Bronze javelin" && quantity:==63) || (name:"Mithril javelin" && quantity:==63) || (name:"Adamant javelin" && quantity:==63) || (name:"Onyx bolts (e)" && quantity:==90) || (name:"Mind rune" && quantity:==180) || (name:"Fire rune" && quantity:==180))) {sound=VARDORVIS_PERFECT_SOUND;}
 
 /*@ define:input:boss_pvm
@@ -5146,6 +5167,7 @@ group: Vardorvis
 
 #define VARDORVIS_HIDE []
 
+rule (area:[1114,3407,0,1142,3434,0] && name:VARDORVIS_HIDE && ENABLE_VARDORVIS_PERFECT && (ENABLE_VARDORVIS_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Coal" && quantity:==195) || (name:"Adamantite ore" && quantity:==67) || (name:"Rune javelin heads" && quantity:==54) || (name:"Dragon javelin heads" && quantity:==54) || (name:"Uncut ruby" && quantity:==37) || (name:"Uncut diamond" && quantity:==37) || (name:"Runite ore" && quantity:==27) || (name:"Dragon dart tip" && quantity:==150) || (name:"Pure essence" && quantity:==180) || (name:"Iron ore" && quantity:==57) || (name:"Silver ore" && quantity:==57) || (name:"Mithril ore" && quantity:==57) || (name:"Sapphire" && quantity:==25) || (name:"Emerald" && quantity:==25) || (name:"Ruby" && quantity:==25) || (name:"Raw shark" && quantity:==300) || (name:"Lava rune" && quantity:==300) || (name:"Blood rune" && quantity:==300) || (name:"Soul rune" && quantity:==600) || (name:"Bronze javelin" && quantity:==63) || (name:"Mithril javelin" && quantity:==63) || (name:"Adamant javelin" && quantity:==63) || (name:"Onyx bolts (e)" && quantity:==90) || (name:"Mind rune" && quantity:==180) || (name:"Fire rune" && quantity:==180))) {hideOverlay = true;}
 rule (area:[1114,3407,0,1142,3434,0] && name:VARDORVIS_HIDE) {hidden = true;}
 
 /*@ define:input:boss_pvm
@@ -5176,6 +5198,9 @@ group: Venenatis and Spindel
 */
 
 #define VENENATIS_AND_SPINDEL_MVP_SOUND 3018
+
+AREA_UNHIDE(area:[3403,10183,2,3443,10225,2] && name:"Big Bones" && ENABLE_VENENATIS_AND_SPINDEL_MVP)
+AREA_UNHIDE(area:[1608,11527,2,1652,11569,2] && name:"Big Bones" && ENABLE_VENENATIS_AND_SPINDEL_MVP)
 
 apply (area:[3403,10183,2,3443,10225,2] && name:"Big Bones" && ENABLE_VENENATIS_AND_SPINDEL_MVP) {sound=VENENATIS_AND_SPINDEL_MVP_SOUND;}
 apply (area:[1608,11527,2,1652,11569,2] && name:"Big Bones" && ENABLE_VENENATIS_AND_SPINDEL_MVP) {sound=VENENATIS_AND_SPINDEL_MVP_SOUND;}
@@ -5230,6 +5255,11 @@ group: Venenatis and Spindel
 
 #define VENENATIS_AND_SPINDEL_HIDE []
 
+
+
+rule (area:[3403,10183,2,3443,10225,2] && name:VENENATIS_AND_SPINDEL_HIDE && name:"Big Bones" && ENABLE_VENENATIS_AND_SPINDEL_MVP) {hideOverlay = true;}
+rule (area:[1608,11527,2,1652,11569,2] && name:VENENATIS_AND_SPINDEL_HIDE && name:"Big Bones" && ENABLE_VENENATIS_AND_SPINDEL_MVP) {hideOverlay = true;}
+
 rule (area:[3403,10183,2,3443,10225,2] && name:VENENATIS_AND_SPINDEL_HIDE) {hidden = true;}
 rule (area:[1608,11527,2,1652,11569,2] && name:VENENATIS_AND_SPINDEL_HIDE) {hidden = true;}
 
@@ -5262,6 +5292,9 @@ group: Vet'ion and Calver'ion
 */
 
 #define VETION_AND_CALVARION_MVP_SOUND 3018
+
+AREA_UNHIDE(area:[3283,10190,1,3307,10216,1] && name:"Big Bones" && ENABLE_VETION_AND_CALVARION_MVP)
+AREA_UNHIDE(area:[1877,11533,1,1898,11560,1] && name:"Big Bones" && ENABLE_VETION_AND_CALVARION_MVP)
 
 apply (area:[3283,10190,1,3307,10216,1] && name:"Big Bones" && ENABLE_VETION_AND_CALVARION_MVP) {sound=VETION_AND_CALVARION_MVP_SOUND;}
 apply (area:[1877,11533,1,1898,11560,1] && name:"Big Bones" && ENABLE_VETION_AND_CALVARION_MVP) {sound=VETION_AND_CALVARION_MVP_SOUND;}
@@ -5314,6 +5347,9 @@ group: Vet'ion and Calver'ion
 */
 
 #define VETION_AND_CALVARION_HIDE []
+
+rule (area:[3283,10190,1,3307,10216,1] && name:VETION_AND_CALVARION_HIDE && name:"Big Bones" && ENABLE_VETION_AND_CALVARION_MVP) {hideOverlay = true;}
+rule (area:[1877,11533,1,1898,11560,1] && name:VETION_AND_CALVARION_HIDE && name:"Big Bones" && ENABLE_VETION_AND_CALVARION_MVP) {hideOverlay = true;}
 
 rule (area:[3283,10190,1,3307,10216,1] && name:VETION_AND_CALVARION_HIDE) {hidden = true;}
 rule (area:[1877,11533,1,1898,11560,1] && name:VETION_AND_CALVARION_HIDE) {hidden = true;}
@@ -5437,6 +5473,10 @@ group: The Whisperer
 
 #define WHISPERER_PERFECT_SOUND 3018
 
+AREA_UNHIDE(area:[2370,6338,0,2429,6397,0] && ENABLE_WHISPERER_PERFECT && (ENABLE_WHISPERER_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Battlestaff" && quantity:==105) || (name:"Bronze longsword" && quantity:==24) || (name:"Mithril longsword" && quantity:==10) || (name:"Adamant longsword" && quantity:==14) || (name:"Dragon plateskirt" && quantity:==10) || (name:"Coal" && quantity:==455) || (name:"Adamantite ore" && quantity:==157) || (name:"Dragon javelin heads" && quantity:==126) || (name:"Runite bolts (unf)" && quantity:==126) || (name:"Uncut ruby" && quantity:==87) || (name:"Uncut diamond" && quantity:==87) || (name:"Runite ore" && quantity:==63) || (name:"Pure essence" && quantity:==420) || (name:"Iron ore" && quantity:==133) || (name:"Gold ore" && quantity:==133) || (name:"Mithril ore" && quantity:==133) || (name:"Sapphire" && quantity:==59) || (name:"Emerald" && quantity:==59) || (name:"Ruby" && quantity:==59) || (name:"Raw monkfish" && quantity:==1050) || (name:"Steam rune" && quantity:==700) || (name:"Death rune" && quantity:==700) || (name:"Soul rune" && quantity:==1400) || (name:"Water rune" && quantity:==420) || (name:"Chaos rune" && quantity:==210)))
+
+AREA_UNHIDE(area:[2629,6338,0,2685,6397,0] && ENABLE_WHISPERER_PERFECT && (ENABLE_WHISPERER_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Battlestaff" && quantity:==105) || (name:"Bronze longsword" && quantity:==24) || (name:"Mithril longsword" && quantity:==10) || (name:"Adamant longsword" && quantity:==14) || (name:"Dragon plateskirt" && quantity:==10) || (name:"Coal" && quantity:==455) || (name:"Adamantite ore" && quantity:==157) || (name:"Dragon javelin heads" && quantity:==126) || (name:"Runite bolts (unf)" && quantity:==126) || (name:"Uncut ruby" && quantity:==87) || (name:"Uncut diamond" && quantity:==87) || (name:"Runite ore" && quantity:==63) || (name:"Pure essence" && quantity:==420) || (name:"Iron ore" && quantity:==133) || (name:"Gold ore" && quantity:==133) || (name:"Mithril ore" && quantity:==133) || (name:"Sapphire" && quantity:==59) || (name:"Emerald" && quantity:==59) || (name:"Ruby" && quantity:==59) || (name:"Raw monkfish" && quantity:==1050) || (name:"Steam rune" && quantity:==700) || (name:"Death rune" && quantity:==700) || (name:"Soul rune" && quantity:==1400) || (name:"Water rune" && quantity:==420) || (name:"Chaos rune" && quantity:==210)))
+
 apply (area:[2370,6338,0,2429,6397,0] && ENABLE_WHISPERER_PERFECT && (ENABLE_WHISPERER_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Battlestaff" && quantity:==105) || (name:"Bronze longsword" && quantity:==24) || (name:"Mithril longsword" && quantity:==10) || (name:"Adamant longsword" && quantity:==14) || (name:"Dragon plateskirt" && quantity:==10) || (name:"Coal" && quantity:==455) || (name:"Adamantite ore" && quantity:==157) || (name:"Dragon javelin heads" && quantity:==126) || (name:"Runite bolts (unf)" && quantity:==126) || (name:"Uncut ruby" && quantity:==87) || (name:"Uncut diamond" && quantity:==87) || (name:"Runite ore" && quantity:==63) || (name:"Pure essence" && quantity:==420) || (name:"Iron ore" && quantity:==133) || (name:"Gold ore" && quantity:==133) || (name:"Mithril ore" && quantity:==133) || (name:"Sapphire" && quantity:==59) || (name:"Emerald" && quantity:==59) || (name:"Ruby" && quantity:==59) || (name:"Raw monkfish" && quantity:==1050) || (name:"Steam rune" && quantity:==700) || (name:"Death rune" && quantity:==700) || (name:"Soul rune" && quantity:==1400) || (name:"Water rune" && quantity:==420) || (name:"Chaos rune" && quantity:==210))) {sound=WHISPERER_PERFECT_SOUND;}
 
 apply (area:[2629,6338,0,2685,6397,0] && ENABLE_WHISPERER_PERFECT && (ENABLE_WHISPERER_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Battlestaff" && quantity:==105) || (name:"Bronze longsword" && quantity:==24) || (name:"Mithril longsword" && quantity:==10) || (name:"Adamant longsword" && quantity:==14) || (name:"Dragon plateskirt" && quantity:==10) || (name:"Coal" && quantity:==455) || (name:"Adamantite ore" && quantity:==157) || (name:"Dragon javelin heads" && quantity:==126) || (name:"Runite bolts (unf)" && quantity:==126) || (name:"Uncut ruby" && quantity:==87) || (name:"Uncut diamond" && quantity:==87) || (name:"Runite ore" && quantity:==63) || (name:"Pure essence" && quantity:==420) || (name:"Iron ore" && quantity:==133) || (name:"Gold ore" && quantity:==133) || (name:"Mithril ore" && quantity:==133) || (name:"Sapphire" && quantity:==59) || (name:"Emerald" && quantity:==59) || (name:"Ruby" && quantity:==59) || (name:"Raw monkfish" && quantity:==1050) || (name:"Steam rune" && quantity:==700) || (name:"Death rune" && quantity:==700) || (name:"Soul rune" && quantity:==1400) || (name:"Water rune" && quantity:==420) || (name:"Chaos rune" && quantity:==210))) {sound=WHISPERER_PERFECT_SOUND;}
@@ -5497,6 +5537,10 @@ group: The Whisperer
 */
 
 #define WHISPERER_HIDE []
+
+rule (area:[2370,6338,0,2429,6397,0] && name:WHISPERER_HIDE && ENABLE_WHISPERER_PERFECT && (ENABLE_WHISPERER_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Battlestaff" && quantity:==105) || (name:"Bronze longsword" && quantity:==24) || (name:"Mithril longsword" && quantity:==10) || (name:"Adamant longsword" && quantity:==14) || (name:"Dragon plateskirt" && quantity:==10) || (name:"Coal" && quantity:==455) || (name:"Adamantite ore" && quantity:==157) || (name:"Dragon javelin heads" && quantity:==126) || (name:"Runite bolts (unf)" && quantity:==126) || (name:"Uncut ruby" && quantity:==87) || (name:"Uncut diamond" && quantity:==87) || (name:"Runite ore" && quantity:==63) || (name:"Pure essence" && quantity:==420) || (name:"Iron ore" && quantity:==133) || (name:"Gold ore" && quantity:==133) || (name:"Mithril ore" && quantity:==133) || (name:"Sapphire" && quantity:==59) || (name:"Emerald" && quantity:==59) || (name:"Ruby" && quantity:==59) || (name:"Raw monkfish" && quantity:==1050) || (name:"Steam rune" && quantity:==700) || (name:"Death rune" && quantity:==700) || (name:"Soul rune" && quantity:==1400) || (name:"Water rune" && quantity:==420) || (name:"Chaos rune" && quantity:==210))) {hideOverlay = true;}
+
+rule (area:[2629,6338,0,2685,6397,0] && name:WHISPERER_HIDE && ENABLE_WHISPERER_PERFECT && (ENABLE_WHISPERER_PERFECT_OVERRIDE || value:<VALUE_TIER_3) && ((name:"Battlestaff" && quantity:==105) || (name:"Bronze longsword" && quantity:==24) || (name:"Mithril longsword" && quantity:==10) || (name:"Adamant longsword" && quantity:==14) || (name:"Dragon plateskirt" && quantity:==10) || (name:"Coal" && quantity:==455) || (name:"Adamantite ore" && quantity:==157) || (name:"Dragon javelin heads" && quantity:==126) || (name:"Runite bolts (unf)" && quantity:==126) || (name:"Uncut ruby" && quantity:==87) || (name:"Uncut diamond" && quantity:==87) || (name:"Runite ore" && quantity:==63) || (name:"Pure essence" && quantity:==420) || (name:"Iron ore" && quantity:==133) || (name:"Gold ore" && quantity:==133) || (name:"Mithril ore" && quantity:==133) || (name:"Sapphire" && quantity:==59) || (name:"Emerald" && quantity:==59) || (name:"Ruby" && quantity:==59) || (name:"Raw monkfish" && quantity:==1050) || (name:"Steam rune" && quantity:==700) || (name:"Death rune" && quantity:==700) || (name:"Soul rune" && quantity:==1400) || (name:"Water rune" && quantity:==420) || (name:"Chaos rune" && quantity:==210))) {hideOverlay = true;}
 
 rule (area:[2370,6338,0,2429,6397,0] && name:WHISPERER_HIDE) {hidden = true;}
 rule (area:[2629,6338,0,2685,6397,0] && name:WHISPERER_HIDE) {hidden = true;}
@@ -5637,6 +5681,8 @@ group: Zalcano
 
 #define ZALCANO_MVP_SOUND 3018
 
+AREA_UNHIDE(area:[3020,6036,0,3048,6064,0] && name:"Infernal ashes" && ENABLE_ZALCANO_MVP)
+
 apply (area:[3020,6036,0,3048,6064,0] && name:"Infernal ashes" && ENABLE_ZALCANO_MVP) {sound=ZALCANO_MVP_SOUND;}
 
 /*@ define:input:boss_pvm
@@ -5688,6 +5734,7 @@ group: Zalcano
 
 #define ZALCANO_HIDE []
 
+rule (area:[3020,6036,0,3048,6064,0] && name:ZALCANO_HIDE && name:"Infernal ashes" && ENABLE_ZALCANO_MVP) {hideOverlay = true;}
 rule (area:[3020,6036,0,3048,6064,0] && name:ZALCANO_HIDE) {hidden = true;}
 
 /*@ define:input:zulrah
