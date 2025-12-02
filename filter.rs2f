@@ -2931,7 +2931,7 @@ group: Corporeal Beast
 enum: ["Spectral sigil", "Spectral spirit shield", "Arcane sigil", "Arcane spirit shield", "Elysian sigil", "Elysian spirit shield", "Spirit shield", "Holy elixir", "Blessed spirit shield", "Jar of spirits"]
 */
 
-#define CORPOREAL__T2_UNIQUES ["Spirit shield", "Holy elixir", "Blessed spirit shield"] 
+#define CORPOREAL_BEAST_T2_UNIQUES ["Spirit shield", "Holy elixir", "Blessed spirit shield"] 
 
 rule (name:CORPOREAL_BEAST_T2_UNIQUES) {UNIQUE_T2_STYLE}
 
