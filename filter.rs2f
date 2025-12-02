@@ -515,7 +515,7 @@ group: Misc
 
 apply (name:HIDE_MISC) {hidden=true;}
 
-#define HIDE_LIST name:HIDE_USER || name:HIDE_BRONZE || name:HIDE_IRON || name:HIDE_STEEL || name:HIDE_BLACK || name:HIDE_WHITE || name:HIDE_MITHRIL || name:HIDE_ADAMANT || name:HIDE_RUNE || name:HIDE_DRAGON || name:HIDE_RANGED || name:HIDE_MAGE || name:HIDE_HERBS || name:HIDE_SECONDARIES || name:HIDE_SEEDS || name:HIDE_PRAYER || name:HIDE_COOKING || name:HIDE_CRAFTING || name:HIDE_FISHING || name:HIDE_RUNECRAFT || name:HIDE_HUNTER || name:HIDE_BURNT_FOOD || name:HIDE_POTIONS || name:HIDE_CONTAINERS || name:HIDE_TOOLS || name:HIDE_MISC)
+#define HIDE_LIST name:HIDE_USER || name:HIDE_BRONZE || name:HIDE_IRON || name:HIDE_STEEL || name:HIDE_BLACK || name:HIDE_WHITE || name:HIDE_MITHRIL || name:HIDE_ADAMANT || name:HIDE_RUNE || name:HIDE_DRAGON || name:HIDE_RANGED || name:HIDE_MAGE || name:HIDE_HERBS || name:HIDE_SECONDARIES || name:HIDE_SEEDS || name:HIDE_PRAYER || name:HIDE_COOKING || name:HIDE_CRAFTING || name:HIDE_FISHING || name:HIDE_RUNECRAFT || name:HIDE_HUNTER || name:HIDE_BURNT_FOOD || name:HIDE_POTIONS || name:HIDE_CONTAINERS || name:HIDE_TOOLS || name:HIDE_MISC
 
 #define AREA_UNHIDE(_hidearea, _hideitems) apply (area:_hidearea && (HIDE_LIST) && name:_hideitems) {hidden = false; hideOverlay = true;} \
 apply (area:_hidearea && value:<HIDE_USER_MINIMUM && !name:HIDE_USER_MINIMUM_IGNORE && !FORCE_SHOW_UNTRADABLES && name:_hideitems) {hidden = false; hideOverlay = true;}\
