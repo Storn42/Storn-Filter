@@ -2640,11 +2640,11 @@ group: Callisto and Artio
 
 #define CALLISTO_AND_ARTIO_MVP_SOUND 3018
 
-AREA_UNHIDE(area:[3336,10306,0,3383,10349,0] && name:"Big Bones" && ENABLE_CALLISTO_AND_ARTIO_MVP)
-AREA_UNHIDE(area:[1739,11522,0,1782,11566,0] && name:"Big Bones" && ENABLE_CALLISTO_AND_ARTIO_MVP)
+AREA_UNHIDE(area:[3336,10306,0,3383,10349,0] && name:"Big Bones" && ENABLE_CALLISTO_AND_ARTIO_MVP && ownership:1)
+AREA_UNHIDE(area:[1739,11522,0,1782,11566,0] && name:"Big Bones" && ENABLE_CALLISTO_AND_ARTIO_MVP && ownership:1)
 
-apply (area:[3336,10306,0,3383,10349,0] && name:"Big Bones" && ENABLE_CALLISTO_AND_ARTIO_MVP) {sound=CALLISTO_AND_ARTIO_MVP_SOUND;}
-apply (area:[1739,11522,0,1782,11566,0] && name:"Big Bones" && ENABLE_CALLISTO_AND_ARTIO_MVP) {sound=CALLISTO_AND_ARTIO_MVP_SOUND;}
+apply (area:[3336,10306,0,3383,10349,0] && name:"Big Bones" && ENABLE_CALLISTO_AND_ARTIO_MVP && ownership:1) {sound=CALLISTO_AND_ARTIO_MVP_SOUND;}
+apply (area:[1739,11522,0,1782,11566,0] && name:"Big Bones" && ENABLE_CALLISTO_AND_ARTIO_MVP && ownership:1) {sound=CALLISTO_AND_ARTIO_MVP_SOUND;}
 
 /*@ define:input:boss_pvm
 label: Ignore Me
@@ -2698,8 +2698,8 @@ group: Callisto and Artio
 
 #define CALLISTO_AND_ARTIO_HIDE []
 
-rule (area:[3336,10306,0,3383,10349,0] && name:"Big Bones" && ENABLE_CALLISTO_AND_ARTIO_MVP && name:CALLISTO_AND_ARTIO_HIDE) {hideOverlay = true;}
-rule (area:[1739,11522,0,1782,11566,0] && name:"Big Bones" && ENABLE_CALLISTO_AND_ARTIO_MVP && name:CALLISTO_AND_ARTIO_HIDE) {hideOverlay = true;}
+rule (area:[3336,10306,0,3383,10349,0] && name:"Big Bones" && ENABLE_CALLISTO_AND_ARTIO_MVP && name:CALLISTO_AND_ARTIO_HIDE && ownership:1) {hideOverlay = true;}
+rule (area:[1739,11522,0,1782,11566,0] && name:"Big Bones" && ENABLE_CALLISTO_AND_ARTIO_MVP && name:CALLISTO_AND_ARTIO_HIDE && ownership:1) {hideOverlay = true;}
 
 rule (area:[3336,10306,0,3383,10349,0] && name:CALLISTO_AND_ARTIO_HIDE) {hidden = true;}
 rule (area:[1739,11522,0,1782,11566,0] && name:CALLISTO_AND_ARTIO_HIDE) {hidden = true;}
@@ -3741,9 +3741,9 @@ group: Hueycoatle
 
 #define HUEYCOATL_PERFECT_SOUND 3018
 
-AREA_UNHIDE(area:[1501,3268,0,1538,3298,0] && name:"Big Bones" && ENABLE_HUEYCOATL_MVP)
+AREA_UNHIDE(area:[1501,3268,0,1538,3298,0] && name:"Big Bones" && ENABLE_HUEYCOATL_MVP && ownership:1)
 
-apply (area:[1501,3268,0,1538,3298,0] && name:"Big Bones" && ENABLE_HUEYCOATL_MVP) {sound=HUEYCOATL_PERFECT_SOUND;}
+apply (area:[1501,3268,0,1538,3298,0] && name:"Big Bones" && ENABLE_HUEYCOATL_MVP && ownership:1) {sound=HUEYCOATL_PERFECT_SOUND;}
 
 /*@ define:input:boss_pvm
 label: Ignore Me
@@ -3795,7 +3795,7 @@ group: Hueycoatle
 
 #define HUEYCOATL_HIDE []
 
-rule (area:[1501,3268,0,1538,3298,0] && name:HUEYCOATL_HIDE && name:"Big bones" && ENABLE_HUEYCOATL_MVP) {hideOverlay = true;}
+rule (area:[1501,3268,0,1538,3298,0] && name:HUEYCOATL_HIDE && name:"Big bones" && ENABLE_HUEYCOATL_MVP && ownership:1) {hideOverlay = true;}
 rule (area:[1501,3268,0,1538,3298,0] && name:HUEYCOATL_HIDE) {hidden = true;}
 
 /*@ define:input:boss_pvm
@@ -4327,9 +4327,9 @@ group: Nex
 
 #define NEX_MVP_SOUND 3018
 
-AREA_UNHIDE(area:[1501,3268,0,1538,3298,0] && name:"Big Bones" && ENABLE_NEX_MVP)
+AREA_UNHIDE(area:[1501,3268,0,1538,3298,0] && name:"Big Bones" && ENABLE_NEX_MVP && ownership:1)
 
-apply (area:[1501,3268,0,1538,3298,0] && name:"Big Bones" && ENABLE_NEX_MVP) {sound=NEX_MVP_SOUND;}
+apply (area:[1501,3268,0,1538,3298,0] && name:"Big Bones" && ENABLE_NEX_MVP && ownership:1) {sound=NEX_MVP_SOUND;}
 
 /*@ define:input:boss_pvm
 label: Ignore Me
@@ -4413,9 +4413,9 @@ group: The Nightmare
 
 #define NIGHTMARE_MVP_SOUND 3018
 
-AREA_UNHIDE(area:[3830,9910,3,3914,9988,3] && name:"Big Bones" && ENABLE_NIGHTMARE_MVP)
+AREA_UNHIDE(area:[3830,9910,3,3914,9988,3] && name:"Big Bones" && ENABLE_NIGHTMARE_MVP && ownership:1)
 
-apply (area:[3830,9910,3,3914,9988,3] && name:"Big Bones" && ENABLE_NIGHTMARE_MVP) {sound=NIGHTMARE_MVP_SOUND;}
+apply (area:[3830,9910,3,3914,9988,3] && name:"Big Bones" && ENABLE_NIGHTMARE_MVP && ownership:1) {sound=NIGHTMARE_MVP_SOUND;}
 
 /*@ define:input:boss_pvm
 label: Ignore Me
@@ -4467,7 +4467,7 @@ group: The Nightmare
 
 #define NIGHTMARE_HIDE []
 
-rule (area:[3830,9910,3,3914,9988,3] && name:NIGHTMARE_HIDE && name:"Big Bones" && ENABLE_NIGHTMARE_MVP) {hideOverlay = true;}
+rule (area:[3830,9910,3,3914,9988,3] && name:NIGHTMARE_HIDE && name:"Big Bones" && ENABLE_NIGHTMARE_MVP && ownership:1) {hideOverlay = true;}
 rule (area:[3830,9910,3,3914,9988,3] && name:NIGHTMARE_HIDE) {hidden = true;}
 
 /*@ define:input:boss_pvm
@@ -4952,7 +4952,7 @@ group: Tempoross
 
 #define TEMPOROSS_SHOW ["Bucket", "Bucket of water", "Rope", "Hammer"]
 
-apply (area:[3008,2818,0,3067,2883,0] && name:TEMPOROSS_SHOW && ((!SHOW_OTHER_DROPS && ownership:2) || SHOW_OTHER_DROPS)) {hidden = false;}
+apply (area:[3008,2818,0,3067,2883,0] && name:TEMPOROSS_SHOW && ((!SHOW_OTHER_DROPS && ownership:1) || SHOW_OTHER_DROPS)) {hidden = false;}
 
 /*@ define:input:boss_pvm
 label: Raw Fish
@@ -5199,11 +5199,11 @@ group: Venenatis and Spindel
 
 #define VENENATIS_AND_SPINDEL_MVP_SOUND 3018
 
-AREA_UNHIDE(area:[3403,10183,2,3443,10225,2] && name:"Big Bones" && ENABLE_VENENATIS_AND_SPINDEL_MVP)
-AREA_UNHIDE(area:[1608,11527,2,1652,11569,2] && name:"Big Bones" && ENABLE_VENENATIS_AND_SPINDEL_MVP)
+AREA_UNHIDE(area:[3403,10183,2,3443,10225,2] && name:"Big Bones" && ENABLE_VENENATIS_AND_SPINDEL_MVP && ownership:1)
+AREA_UNHIDE(area:[1608,11527,2,1652,11569,2] && name:"Big Bones" && ENABLE_VENENATIS_AND_SPINDEL_MVP && ownership:1)
 
-apply (area:[3403,10183,2,3443,10225,2] && name:"Big Bones" && ENABLE_VENENATIS_AND_SPINDEL_MVP) {sound=VENENATIS_AND_SPINDEL_MVP_SOUND;}
-apply (area:[1608,11527,2,1652,11569,2] && name:"Big Bones" && ENABLE_VENENATIS_AND_SPINDEL_MVP) {sound=VENENATIS_AND_SPINDEL_MVP_SOUND;}
+apply (area:[3403,10183,2,3443,10225,2] && name:"Big Bones" && ENABLE_VENENATIS_AND_SPINDEL_MVP && ownership:1) {sound=VENENATIS_AND_SPINDEL_MVP_SOUND;}
+apply (area:[1608,11527,2,1652,11569,2] && name:"Big Bones" && ENABLE_VENENATIS_AND_SPINDEL_MVP && ownership:1) {sound=VENENATIS_AND_SPINDEL_MVP_SOUND;}
 
 /*@ define:input:boss_pvm
 label: Ignore Me
@@ -5257,8 +5257,8 @@ group: Venenatis and Spindel
 
 
 
-rule (area:[3403,10183,2,3443,10225,2] && name:VENENATIS_AND_SPINDEL_HIDE && name:"Big Bones" && ENABLE_VENENATIS_AND_SPINDEL_MVP) {hideOverlay = true;}
-rule (area:[1608,11527,2,1652,11569,2] && name:VENENATIS_AND_SPINDEL_HIDE && name:"Big Bones" && ENABLE_VENENATIS_AND_SPINDEL_MVP) {hideOverlay = true;}
+rule (area:[3403,10183,2,3443,10225,2] && name:VENENATIS_AND_SPINDEL_HIDE && name:"Big Bones" && ENABLE_VENENATIS_AND_SPINDEL_MVP && ownership:1) {hideOverlay = true;}
+rule (area:[1608,11527,2,1652,11569,2] && name:VENENATIS_AND_SPINDEL_HIDE && name:"Big Bones" && ENABLE_VENENATIS_AND_SPINDEL_MVP && ownership:1) {hideOverlay = true;}
 
 rule (area:[3403,10183,2,3443,10225,2] && name:VENENATIS_AND_SPINDEL_HIDE) {hidden = true;}
 rule (area:[1608,11527,2,1652,11569,2] && name:VENENATIS_AND_SPINDEL_HIDE) {hidden = true;}
@@ -5293,11 +5293,11 @@ group: Vet'ion and Calver'ion
 
 #define VETION_AND_CALVARION_MVP_SOUND 3018
 
-AREA_UNHIDE(area:[3283,10190,1,3307,10216,1] && name:"Big Bones" && ENABLE_VETION_AND_CALVARION_MVP)
-AREA_UNHIDE(area:[1877,11533,1,1898,11560,1] && name:"Big Bones" && ENABLE_VETION_AND_CALVARION_MVP)
+AREA_UNHIDE(area:[3283,10190,1,3307,10216,1] && name:"Big Bones" && ENABLE_VETION_AND_CALVARION_MVP && ownership:1)
+AREA_UNHIDE(area:[1877,11533,1,1898,11560,1] && name:"Big Bones" && ENABLE_VETION_AND_CALVARION_MVP && ownership:1)
 
-apply (area:[3283,10190,1,3307,10216,1] && name:"Big Bones" && ENABLE_VETION_AND_CALVARION_MVP) {sound=VETION_AND_CALVARION_MVP_SOUND;}
-apply (area:[1877,11533,1,1898,11560,1] && name:"Big Bones" && ENABLE_VETION_AND_CALVARION_MVP) {sound=VETION_AND_CALVARION_MVP_SOUND;}
+apply (area:[3283,10190,1,3307,10216,1] && name:"Big Bones" && ENABLE_VETION_AND_CALVARION_MVP && ownership:1) {sound=VETION_AND_CALVARION_MVP_SOUND;}
+apply (area:[1877,11533,1,1898,11560,1] && name:"Big Bones" && ENABLE_VETION_AND_CALVARION_MVP && ownership:1) {sound=VETION_AND_CALVARION_MVP_SOUND;}
 
 /*@ define:input:boss_pvm
 label: Ignore Me
@@ -5348,8 +5348,8 @@ group: Vet'ion and Calver'ion
 
 #define VETION_AND_CALVARION_HIDE []
 
-rule (area:[3283,10190,1,3307,10216,1] && name:VETION_AND_CALVARION_HIDE && name:"Big Bones" && ENABLE_VETION_AND_CALVARION_MVP) {hideOverlay = true;}
-rule (area:[1877,11533,1,1898,11560,1] && name:VETION_AND_CALVARION_HIDE && name:"Big Bones" && ENABLE_VETION_AND_CALVARION_MVP) {hideOverlay = true;}
+rule (area:[3283,10190,1,3307,10216,1] && name:VETION_AND_CALVARION_HIDE && name:"Big Bones" && ENABLE_VETION_AND_CALVARION_MVP && ownership:1) {hideOverlay = true;}
+rule (area:[1877,11533,1,1898,11560,1] && name:VETION_AND_CALVARION_HIDE && name:"Big Bones" && ENABLE_VETION_AND_CALVARION_MVP && ownership:1) {hideOverlay = true;}
 
 rule (area:[3283,10190,1,3307,10216,1] && name:VETION_AND_CALVARION_HIDE) {hidden = true;}
 rule (area:[1877,11533,1,1898,11560,1] && name:VETION_AND_CALVARION_HIDE) {hidden = true;}
@@ -5681,9 +5681,9 @@ group: Zalcano
 
 #define ZALCANO_MVP_SOUND 3018
 
-AREA_UNHIDE(area:[3020,6036,0,3048,6064,0] && name:"Infernal ashes" && ENABLE_ZALCANO_MVP)
+AREA_UNHIDE(area:[3020,6036,0,3048,6064,0] && name:"Infernal ashes" && ENABLE_ZALCANO_MVP && ownership:1)
 
-apply (area:[3020,6036,0,3048,6064,0] && name:"Infernal ashes" && ENABLE_ZALCANO_MVP) {sound=ZALCANO_MVP_SOUND;}
+apply (area:[3020,6036,0,3048,6064,0] && name:"Infernal ashes" && ENABLE_ZALCANO_MVP && ownership:1) {sound=ZALCANO_MVP_SOUND;}
 
 /*@ define:input:boss_pvm
 label: Ignore Me
