@@ -17133,7 +17133,7 @@ exampleItem: Wyrm bones
 
 #define BONES_T1_STYLE \
     color = "#fffff759";\
-    backgroundColor = "#33ffffff";\
+    backgroundColor = "#33bbbbbb";\
 	menuTextColor = "#ffffffff";\
 	textAccent = 3;
 
@@ -17146,7 +17146,7 @@ exampleItem: Dragon bones
 
 #define BONES_T2_STYLE \
 	color ="#fffff759";\
-    backgroundColor = "#99ffffff";\
+    backgroundColor = "#99bbbbbb";\
 	menuTextColor = "#ffffffff";\
 	textAccent = 3;
 
@@ -17159,7 +17159,7 @@ exampleItem: Dagannoth bones
 
 #define BONES_T3_STYLE \
 	color = "#fffff759";\
-	backgroundColor = "#dddddddd";\
+	backgroundColor = "#ddbbbbbb";\
 	menuTextColor = "#ffffffff"; \
 	fontType = 2;\
 	textAccent = 3;\
