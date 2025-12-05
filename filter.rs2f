@@ -13635,7 +13635,7 @@ type: boolean
 group: Rosewood
 */
 
-#define ROSEWOOD_SHOW_UNNOTED false
+#define ROSEWOOD_SHOW_UNNOTED true
 
 /*@ define:input:logs
 label: Reaplce T1 with Noted
@@ -13868,7 +13868,7 @@ type: boolean
 group: Ironwood
 */
 
-#define IRONWOOD_SHOW_UNNOTED false
+#define IRONWOOD_SHOW_UNNOTED true
 
 /*@ define:input:logs
 label: Reaplce T1 with Noted
@@ -14100,7 +14100,7 @@ type: boolean
 group: Camphor
 */
 
-#define CAMPHOR_SHOW_UNNOTED false
+#define CAMPHOR_SHOW_UNNOTED true
 
 /*@ define:input:logs
 label: Reaplce T1 with Noted
