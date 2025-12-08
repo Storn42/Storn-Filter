@@ -461,7 +461,7 @@ group: Sailing
 */
 #define HIDE_OTHER_BOATS true
 
-apply (area:[3838,6432,0,3896,6465,3] && ownership:2) {hidden=true;}
+apply (HIDE_OTHER_BOATS && area:[3838,6432,0,3896,6465,3] && ownership:2) {hidden=true;}
 
 /*@ define:input:hidden
 label: Hide on Boat
