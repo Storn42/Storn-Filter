@@ -455,6 +455,103 @@ group: Skilling
 apply (name:HIDE_HUNTER) {hidden=true;}
 
 /*@ define:input:hidden
+label: Hide Drops from Other Boats
+type: boolean
+group: Sailing
+*/
+#define HIDE_OTHER_BOATS true
+
+apply (area:[3838,6432,0,3896,6465,3] && ownership:2) {hidden=true;}
+
+/*@ define:input:hidden
+label: Hide on Boat
+type: stringlist
+group: Sailing
+*/
+#define HIDE_SAILING []
+
+apply (area:[3838,6432,0,3896,6465,3] && name:HIDE_SAILING) {hidden=true;}
+
+/*@ define:input:hidden
+label: Hide Small Salvage
+type: stringlist
+group: Sailing
+*/
+#define HIDE_SMALL_SALVAGE ["Bronze bar", "Logs", "Plank", "Oak logs", "Iron bar", "Oak plank", "Steel bar", "Bones"]
+
+apply (area:[3838,6432,0,3896,6465,3] && name:HIDE_SMALL_SALVAGE) {hidden=true;}
+
+
+/*@ define:input:hidden
+label: Hide Fishy Salvage
+type: stringlist
+group: Sailing
+*/
+#define HIDE_FISHY_SALVAGE ["Oak logs", "Oak plank", "Logs", "Iron bar", "Iron nails", "Steel nails", "Plank", "Steel bar", "Raw lobster", "Raw mackerel", "Raw swordfish", "Fishing rod", "Harpoon", "Lobster pot", "Seaweed"]
+
+apply (area:[3838,6432,0,3896,6465,3] && name:HIDE_FISHY_SALVAGE) {hidden=true;}
+
+
+/*@ define:input:hidden
+label: Hide Barracuda Salvage
+type: stringlist
+group: Sailing
+*/
+#define HIDE_BARRACUDA_SALVAGE ["Oak logs", "Teak logs", "Rope", "Oak plank", "Copper ore", "Teak plank", "Lead ore", "Raw swordfish", "Raw shark", "Rum", "Banana"]
+
+apply (area:[3838,6432,0,3896,6465,3] && name:HIDE_BARRACUDA_SALVAGE) {hidden=true;}
+
+
+/*@ define:input:hidden
+label: Hide Large Salvage
+type: stringlist
+group: Sailing
+*/
+#define HIDE_LARGE_SALVAGE ["Teak logs", "Oak plank", "Gold ring", "Sapphire ring", "Emerald ring", "Diamond ring", "Oyster pearl", "Oyster pearls", "Casket", "Giant seaweed"]
+
+apply (area:[3838,6432,0,3896,6465,3] && name:HIDE_LARGE_SALVAGE) {hidden=true;}
+
+
+/*@ define:input:hidden
+label: Hide Plundered Salvage
+type: stringlist
+group: Sailing
+*/
+#define HIDE_PLUNDERED_SALVAGE ["Rum", "Mithril scimitar", "Gold ring", "Oyster pearls", "Sapphire ring", "Emerald bracelet", "Ruby bracelet", "Emerald ring", "Casket", "Diamond bracelet", "Diamond ring"]
+
+apply (area:[3838,6432,0,3896,6465,3] && name:HIDE_PLUNDERED_SALVAGE) {hidden=true;}
+
+
+/*@ define:input:hidden
+label: Hide Martial Salvage
+type: stringlist
+group: Sailing
+*/
+#define HIDE_MARTIAL_SALVAGE ["Mithril longsword", "Adamant longsword", "Mahogany logs", "Amulet of power"]
+
+apply (area:[3838,6432,0,3896,6465,3] && name:HIDE_MARTIAL_SALVAGE) {hidden=true;}
+
+
+/*@ define:input:hidden
+label: Hide Fremennik Salvage
+type: stringlist
+group: Sailing
+*/
+#define HIDE_FREMENNIK_SALVAGE ["Raw salmon", "Raw tuna", "Raw lobster", "Raw monkfish", "Mithril ore", "Arctic pine logs", "Mahogany plank", "Ensouled troll head"]
+
+apply (area:[3838,6432,0,3896,6465,3] && name:HIDE_FREMENNIK_SALVAGE) {hidden=true;}
+
+
+/*@ define:input:hidden
+label: Hide Opulent Salvage
+type: stringlist
+group: Sailing
+*/
+#define HIDE_OPULENT_SALVAGE ["Belladonna seed", "Poison ivy seed", "Cactus seed", "Potato cactus seed", "Uncut opal", "Uncut jade", "Uncut red topaz", "Silver ore, "Silver bar", "Tiara", "Jug of wine", "Spice", "Grey wolf fur", "Silk", "Nature talisman", "Rune javelin"]
+
+apply (area:[3838,6432,0,3896,6465,3] && name:HIDE_OPULENT_SALVAGE) {hidden=true;}
+
+/*@ define:input:hidden
 label: Cooked Food
 type: stringlist
 group: Misc
