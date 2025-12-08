@@ -547,7 +547,7 @@ label: Hide Opulent Salvage
 type: stringlist
 group: Sailing
 */
-#define HIDE_OPULENT_SALVAGE ["Belladonna seed", "Poison ivy seed", "Cactus seed", "Potato cactus seed", "Uncut opal", "Uncut jade", "Uncut red topaz", "Silver ore, "Silver bar", "Tiara", "Jug of wine", "Spice", "Grey wolf fur", "Silk", "Nature talisman", "Rune javelin"]
+#define HIDE_OPULENT_SALVAGE ["Belladonna seed", "Poison ivy seed", "Cactus seed", "Potato cactus seed", "Uncut opal", "Uncut jade", "Uncut red topaz", "Silver ore", "Silver bar", "Tiara", "Jug of wine", "Spice", "Grey wolf fur", "Silk", "Nature talisman", "Rune javelin"]
 
 apply (area:[3838,6432,0,3896,6465,3] && name:HIDE_OPULENT_SALVAGE) {hidden=true;}
 
