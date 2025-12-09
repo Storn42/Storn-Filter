@@ -16726,7 +16726,7 @@ exampleItem: Steel dart
 
 #define STEEL_AMMO_T1_STYLE \
     color = "#ffffffff";\
-    backgroundColor = "#554c4c70";\
+    backgroundColor = "#55908686";\
 	menuTextColor = "#ff908686";\
 	textAccent = 3;
 
@@ -16739,7 +16739,7 @@ exampleItem: Steel knife
 
 #define STEEL_AMMO_T2_STYLE \
 	color ="#ffffffff";\
-    backgroundColor = "#994c4c70";\
+    backgroundColor = "#99908686";\
 	menuTextColor = "#ff908686";\
 	textAccent = 3;
 
@@ -16752,7 +16752,7 @@ exampleItem: Steel thrownaxe
 
 #define STEEL_AMMO_T3_STYLE \
 	color = "#ffffffff";\
-	backgroundColor = "#dd4c4c70";\
+	backgroundColor = "#dd908686";\
 	menuTextColor = "#ff908686"; \
 	fontType = 2;\
 	textAccent = 3;\
@@ -16905,7 +16905,7 @@ exampleItem: Silver bolts
 
 #define SILVER_AMMO_T1_STYLE \
     color = "#ffffffff";\
-    backgroundColor = "#554c4c70";\
+    backgroundColor = "#55a8a8b4";\
 	menuTextColor = "#ffa8a8b4";\
 	textAccent = 3;
 
@@ -16918,7 +16918,7 @@ exampleItem: Silver bolts
 
 #define SILVER_AMMO_T2_STYLE \
 	color ="#ffffffff";\
-    backgroundColor = "#994c4c70";\
+    backgroundColor = "#99a8a8b4";\
 	menuTextColor = "#ffa8a8b4";\
 	textAccent = 3;
 
@@ -16931,7 +16931,7 @@ exampleItem: Silver bolts
 
 #define SILVER_AMMO_T3_STYLE \
 	color = "#ffffffff";\
-	backgroundColor = "#dd4c4c70";\
+	backgroundColor = "#dda8a8b4";\
 	menuTextColor = "#ffa8a8b4"; \
 	fontType = 2;\
 	textAccent = 3;\
