@@ -66,7 +66,7 @@ group: Show
 apply (!SHOW_OTHER_DROPS && ownership:2) {hidden = true;}
 
 #define FORCE_SHOW_RULESET(_area, _name) \
-rule (area:_area && name:_name && (!ownership:2 || SHOW_OTHER_DROPS)) {hidden = false;}
+apply (area:_area && name:_name && (!ownership:2 || SHOW_OTHER_DROPS)) {hidden = false;}
 
 /*@ define:input:settings
 label: Despawn Timer
@@ -971,6 +971,34 @@ group: Ankou
 
 SUPPLY_DROP_RULESET([1633,9986,0,1653,10003,0], ANKOU_CATACOMBS_SUPPLY)
 
+/*@ define:input:slayer_pvm
+label: Deepfin Mine - Hide Items
+type: stringlist
+group: Ankou
+*/
+#define ANKOU_DEEPFIN_HIDE ["Weapon poison", "Black knife", "Black robe", "Fried mushrooms", "Bass"]
+
+rule (area:[2040,9165,0,2079,9189,0] && name:ANKOU_DEEPFIN_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Deepfin Mine - Show Items
+type: stringlist
+group: Ankou
+*/
+#define ANKOU_DEEPFIN_SHOW []
+
+FORCE_SHOW_RULESET([2040,9165,0,2079,9189,0], ANKOU_DEEPFIN_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Deepfin Mine - Supply Drop
+type: enumlist
+enum: ["bass"]
+group: Ankou
+*/
+
+#define ANKOU_DEEPFIN_SUPPLY []
+
+SUPPLY_DROP_RULESET([2040,9165,0,2079,9189,0], ANKOU_DEEPFIN_SUPPLY)
 /*@ define:input:slayer_pvm
 label: Stronghold of Security - Hide Items
 type: stringlist
