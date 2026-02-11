@@ -3408,7 +3408,7 @@ rule (name:FORTIS_COLOSSEUM_T1_UNIQUES) {UNIQUE_T1_STYLE}
 /*@ define:input:boss_pvm
 label: Unique T3
 type: enumlist
-group: Guantlet
+group: Gauntlet
 enum: ["Crystal weapon seed", "Crystal armour seed", "Enhanced crystal weapon seed"]
 */
 
@@ -3419,7 +3419,7 @@ rule (name:GUANTLET_T3_UNIQUES) {UNIQUE_T3_STYLE}
 /*@ define:input:boss_pvm
 label: Unique T2
 type: enumlist
-group: Guantlet
+group: Gauntlet
 enum: ["Crystal weapon seed", "Crystal armour seed", "Enhanced crystal weapon seed"]
 */
 
@@ -3430,7 +3430,7 @@ rule (name:GUANTLET_T2_UNIQUES) {UNIQUE_T2_STYLE}
 /*@ define:input:boss_pvm
 label: Unique T1
 type: enumlist
-group: Guantlet
+group: Gauntlet
 enum: ["Crystal weapon seed", "Crystal armour seed", "Enhanced crystal weapon seed"]
 */
 
