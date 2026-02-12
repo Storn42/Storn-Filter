@@ -2329,8 +2329,8 @@ group: Nechryaels
 
 #define NECHRYAEL_SLAYER_TOWER_HIDE ["Malicious ashes"]
 
-rule (area:[3431,3556,2,3556,3580,2] && name:NECHRYAEL_SLAYER_TOWER_HIDE) {hidden = true;}
-rule (area:[3400,9948,3,3434,9976,3] && name:NECHRYAEL_SLAYER_TOWER_HIDE) {hidden = true;}
+rule (area:[3431,3556,2,3556,3580,2] && name:NECHRYAEL_SLAYER_TOWER_HIDE) {hidden = true;} // 3rd Floor
+rule (area:[3400,9948,3,3434,9976,3] && name:NECHRYAEL_SLAYER_TOWER_HIDE) {hidden = true;} // Basement
 
 /*@ define:input:slayer_pvm
 label: Slayer Tower - Show Items
@@ -2340,8 +2340,8 @@ group: Nechryaels
 
 #define NECHRYAEL_SLAYER_TOWER_SHOW []
 
-FORCE_SHOW_RULESET([3431,3556,2,3556,3580,2], NECHRYAEL_SLAYER_TOWER_SHOW)
-FORCE_SHOW_RULESET([3400,9948,3,3434,9976,3], NECHRYAEL_SLAYER_TOWER_SHOW)
+FORCE_SHOW_RULESET([3431,3556,2,3556,3580,2], NECHRYAEL_SLAYER_TOWER_SHOW) // 3rd Floor
+FORCE_SHOW_RULESET([3400,9948,3,3434,9976,3], NECHRYAEL_SLAYER_TOWER_SHOW) // Basement
 
 /*@ define:input:slayer_pvm
 label: Slayer Tower - Supply Drop
@@ -2352,8 +2352,42 @@ group: Nechryaels
 
 #define NECHRYAEL_SLAYER_TOWER_SUPPLY ["Tuna"]
 
-SUPPLY_DROP_RULESET([3431,3556,2,3556,3580,2], NECHRYAEL_SLAYER_TOWER_SUPPLY)
-SUPPLY_DROP_RULESET([3400,9948,3,3434,9976,3], NECHRYAEL_SLAYER_TOWER_SUPPLY)
+SUPPLY_DROP_RULESET([3431,3556,2,3556,3580,2], NECHRYAEL_SLAYER_TOWER_SUPPLY) // 3rd Floor
+SUPPLY_DROP_RULESET([3400,9948,3,3434,9976,3], NECHRYAEL_SLAYER_TOWER_SUPPLY) // Basement
+
+/*@ define:input:slayer_pvm
+label: Charred Dungeon - Hide Items
+type: stringlist
+group: Nechryaels
+*/
+
+#define NECHRYAEL_CHARRED_HIDE ["Malicious ashes"]
+
+rule (area:[2704,8875,0,2722,8886,0] && name:NECHRYAEL_CHARRED_HIDE) {hidden = true;} // North
+rule (area:[2692,8845,0,2707,8864,0] && name:NECHRYAEL_CHARRED_HIDE) {hidden = true;} // South
+
+/*@ define:input:slayer_pvm
+label: Charred Dungeon - Show Items
+type: stringlist
+group: Nechryaels
+*/
+
+#define NECHRYAEL_CHARRED_SHOW []
+
+FORCE_SHOW_RULESET([2704,8875,0,2722,8886,0], NECHRYAEL_CHARRED_SHOW) // North
+FORCE_SHOW_RULESET([2692,8845,0,2707,8864,0], NECHRYAEL_CHARRED_SHOW) // South
+
+/*@ define:input:slayer_pvm
+label: Charred Dungeon - Supply Drop
+type: enumlist
+enum: ["Tuna"]
+group: Nechryaels
+*/
+
+#define NECHRYAEL_CHARRED_SUPPLY ["Tuna"]
+
+SUPPLY_DROP_RULESET([2704,8875,0,2722,8886,0], NECHRYAEL_CHARRED_SUPPLY) // North
+SUPPLY_DROP_RULESET([2692,8845,0,2707,8864,0], NECHRYAEL_CHARRED_SUPPLY) // South
 
 /*@ define:input:slayer_pvm
 label: Catacombs of Kourend - Hide Items
