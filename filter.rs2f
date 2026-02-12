@@ -1807,13 +1807,6 @@ group: Ice Giants/Ice Warriors
 
 SUPPLY_DROP_RULESET([2944,3853,0,2988,3943,0], ICE_GIANTS_WARRIORS_WILDERNESS_SUPPLY)
 
-
-
-
-
-
-
-
 /*@ define:input:slayer_pvm
 label: Fremennik Slayer Dungeon - Hide Items
 type: stringlist
@@ -1866,7 +1859,7 @@ FORCE_SHOW_RULESET([3415,10094,0,3444,10113,0], JELLIES_WILDERNESS_SHOW)
 
 /*@ define:input:slayer_pvm
 label: Wilderness Slayer Cave - Supply Drop
-type: enumlist
+type: stringlist
 enum: ["Blighted anglerfish", "Blighted manta ray", "Blighted karambwan", "Blighted super restore(*)"]
 group: Jellies
 */
@@ -1876,37 +1869,99 @@ group: Jellies
 SUPPLY_DROP_RULESET([3415,10094,0,3444,10113,0], JELLIES_WILDERNESS_SUPPLY)
 
 /*@ define:input:slayer_pvm
-label: Hide Items
+label: Ynysdail Cavern - Hide Items
+type: stringlist
+group: Jellies
+*/
+
+#define JELLIES_YNSDAIL_HIDE []
+
+rule (area:[2254,9872,0,2272,9887,0] && name:JELLIES_YNSDAIL_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Ynysdail Cavern - Show Items
+type: stringlist
+group: Jellies
+*/
+
+#define JELLIES_YNSDAIL_SHOW []
+
+FORCE_SHOW_RULESET([2254,9872,0,2272,9887,0], JELLIES_YNSDAIL_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Ynysdail Cavern - Supply Drop
+type: stringlist
+group: Jellies
+*/
+
+#define JELLIES_YNSDAIL_SUPPLY []
+
+SUPPLY_DROP_RULESET([2254,9872,0,2272,9887,0], JELLIES_YNSDAIL_SUPPLY)
+
+/*@ define:input:slayer_pvm
+label: Ruins of Tapoyauik - Hide Items
 type: stringlist
 group: Chilled Jellies
 */
 
-#define CHILLED_JELLIES_HIDE []
+#define CHILLED_JELLIES_TAPOYAUIK_HIDE []
 
-rule (area:[1643,9644,0,1664,9664,0] && name:CHILLED_JELLIES_HIDE) {hidden = true;}
+rule (area:[1643,9644,0,1664,9664,0] && name:CHILLED_JELLIES_TAPOYAUIK_HIDE) {hidden = true;}
 
 /*@ define:input:slayer_pvm
-label: Show Items
+label: Ruins of Tapoyauik - Show Items
 type: stringlist
 group: Chilled Jellies
 */
 
-#define CHILLED_JELLIES_SHOW []
+#define CHILLED_JELLIES_TAPOYAUIK_SHOW []
 
-FORCE_SHOW_RULESET([1643,9644,0,1664,9664,0], CHILLED_JELLIES_SHOW)
+FORCE_SHOW_RULESET([1643,9644,0,1664,9664,0], CHILLED_JELLIES_TAPOYAUIK_SHOW)
 
 /*@ define:input:slayer_pvm
-label: Supply Drop
+label: Ruins of Tapoyauik - Supply Drop
 type: enumlist
 enum: ["Lobster"]
 group: Chilled Jellies
 */
 
-#define CHILLED_JELLIES_SUPPLY ["Lobster"]
+#define CHILLED_JELLIES_TAPOYAUIK_SUPPLY ["Lobster"]
 
-SUPPLY_DROP_RULESET([1643,9644,0,1664,9664,0], CHILLED_JELLIES_SUPPLY)
+SUPPLY_DROP_RULESET([1643,9644,0,1664,9664,0], CHILLED_JELLIES_TAPOYAUIK_SUPPLY)
 
+/*@ define:input:slayer_pvm
+label: Grimstone Dungeon - Hide Items
+type: stringlist
+group: Chilled Jellies
+*/
 
+#define CHILLED_JELLIES_GRIMSTONE_HIDE []
+
+rule (area:[2913,10473,0,2928,10487,0] && name:CHILLED_JELLIES_GRIMSTONE_HIDE) {hidden = true;} // North
+rule (area:[2895,10439,0,2910,10455,0] && name:CHILLED_JELLIES_GRIMSTONE_HIDE) {hidden = true;} // South
+
+/*@ define:input:slayer_pvm
+label: Grimstone Dungeon - Show Items
+type: stringlist
+group: Chilled Jellies
+*/
+
+#define CHILLED_JELLIES_GRIMSTONE_SHOW []
+
+FORCE_SHOW_RULESET([2913,10473,0,2928,10487,0], CHILLED_JELLIES_GRIMSTONE_SHOW) // North
+FORCE_SHOW_RULESET([2895,10439,0,2910,10455,0], CHILLED_JELLIES_GRIMSTONE_SHOW) // South
+
+/*@ define:input:slayer_pvm
+label: Grimstone Dungeon - Supply Drop
+type: enumlist
+enum: ["Lobster"]
+group: Chilled Jellies
+*/
+
+#define CHILLED_JELLIES_GRIMSTONE_SUPPLY ["Lobster"]
+
+SUPPLY_DROP_RULESET([2913,10473,0,2928,10487,0], CHILLED_JELLIES_GRIMSTONE_SUPPLY) // North
+SUPPLY_DROP_RULESET([2895,10439,0,2910,10455,0], CHILLED_JELLIES_GRIMSTONE_SUPPLY) // South
 
 /*@ define:input:slayer_pvm
 label: Hide Items
