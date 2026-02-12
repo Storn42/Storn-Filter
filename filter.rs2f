@@ -2650,7 +2650,6 @@ enum: ["Hydra's eye","Hydra's fang","Hydra's heart","Brimstone ring","Hydra tail
 
 rule (name:ALCHEMICAL_HYDRA_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
-
 /*@ define:input:boss_pvm
 label: Hide Items
 type: stringlist
