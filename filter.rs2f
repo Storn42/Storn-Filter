@@ -2125,6 +2125,37 @@ SUPPLY_DROP_RULESET([2828,9600,0,2849,9633,0], LESSER_DEMON_KARAMJA_SUPPLY) // N
 SUPPLY_DROP_RULESET([2828,9549,0,2850,9575,0], LESSER_DEMON_KARAMJA_SUPPLY) // South
 
 /*@ define:input:slayer_pvm
+label: Charred Dungeon - Hide Items
+type: stringlist
+group: Lesser Demons
+*/
+
+#define LESSER_DEMON_CHARRED_HIDE []
+
+rule (area:[2624,8832,0,2652,8847,0] && name:LESSER_DEMON_CHARRED_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Charred Dungeon - Show Items
+type: stringlist
+group: Lesser Demons
+*/
+
+#define LESSER_DEMON_CHARRED_SHOW []
+
+FORCE_SHOW_RULESET([2624,8832,0,2652,8847,0], LESSER_DEMON_CHARRED_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Charred Dungeon - Supply Drop
+type: enumlist
+enum: ["Jug of wine"]
+group: Lesser Demons
+*/
+
+#define LESSER_DEMON_CHARRED_SUPPLY []
+
+SUPPLY_DROP_RULESET([2624,8832,0,2652,8847,0], LESSER_DEMON_CHARRED_SUPPLY)
+
+/*@ define:input:slayer_pvm
 label: Isle of Souls Dungeon - Hide Items
 type: stringlist
 group: Lesser Demons
@@ -2280,9 +2311,9 @@ group: Mithril Dragons
 FORCE_SHOW_RULESET([1617,5322,1,1795,5362,1], MITH_DRAGON_SHOW)
 
 /*@ define:input:slayer_pvm
-label: Slayer Tower - Supply Drop
+label: Supply Drop
 type: enumlist
-enum: ["Tuna"]
+enum: ["Shark", "Prayer mix(*)","Superattack mix(*)","Super def. mix(*)","Super str. mix(*)"]
 group: Mithril Dragons
 */
 
