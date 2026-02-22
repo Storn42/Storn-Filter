@@ -5084,17 +5084,6 @@ group: Shellbane Gryphon
 rule (area:[3166,8863,0,3193,8888,0] && name:SHELLBANE_GRYPHON_HIDE) {hidden = true;}
 
 /*@ define:input:boss_pvm
-label: Supply Drop
-type: enumlist
-group: Shellbane Gryphon
-enum: ["Does Not Work"]
-*/
-
-#define SHELLBANE_GRYPHON_SUPPLY []
-
-rule (area:[3166,8863,0,3193,8888,0] && name:SHELLBANE_GRYPHON_SUPPLY) {SUPPLY_DROP_STYLE}
-
-/*@ define:input:boss_pvm
 label: Unique T3
 type: enumlist
 group: Skotizo
