@@ -4620,7 +4620,7 @@ group: Nex
 #define NEX_HIDE []
 
 rule (area:[2910,5187,0,2944,5219,0] && name:NEX_HIDE && name:"Big bones" && ENABLE_NEX_MVP && ownership:1) {hideOverlay = true;}
-
+ 
 rule (area:[2910,5187,0,2944,5219,0] && name:NEX_HIDE) {hidden = true;}
 
 /*@ define:input:boss_pvm
@@ -4889,7 +4889,7 @@ rule (name:SARACHNIS_T3_UNIQUES) {UNIQUE_T3_STYLE}
 label: Unique T2
 type: enumlist
 group: Sarachnis
-enum: ["Sarachnis cudgel","Jar of eyes"]
+enum: ["Sarachnis cudgel","Jar of eyes","Orange egg sac","Blue egg sac"]
 */
 
 #define SARACHNIS_T2_UNIQUES ["Sarachnis cudgel","Orange egg sac","Blue egg sac"] 
@@ -4900,7 +4900,7 @@ rule (name:SARACHNIS_T2_UNIQUES) {UNIQUE_T2_STYLE}
 label: Unique T1
 type: enumlist
 group: Sarachnis
-enum: ["Sarachnis cudgel","Jar of eyes"]
+enum: ["Sarachnis cudgel","Jar of eyes","Orange egg sac","Blue egg sac"]
 */
 
 #define SARACHNIS_T1_UNIQUES []
