@@ -5074,17 +5074,17 @@ rule (name:SHELLBANE_GRYPHON_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 
 /*@ define:input:boss_pvm
-label: Hide Items - Not Working Yet
+label: Hide Items
 type: stringlist
 group: Shellbane Gryphon
 */
 
 #define SHELLBANE_GRYPHON_HIDE []
 
-rule (area:[0,0,0,0,0,0] && name:SHELLBANE_GRYPHON_HIDE) {hidden = true;}
+rule (area:[3166,8863,0,3193,8888,0] && name:SHELLBANE_GRYPHON_HIDE) {hidden = true;}
 
 /*@ define:input:boss_pvm
-label: Supply Drop - Not Working Yet
+label: Supply Drop
 type: enumlist
 group: Shellbane Gryphon
 enum: ["Does Not Work"]
@@ -5092,7 +5092,7 @@ enum: ["Does Not Work"]
 
 #define SHELLBANE_GRYPHON_SUPPLY []
 
-rule (area:[0,0,0,0,0,0] && name:SHELLBANE_GRYPHON_SUPPLY) {SUPPLY_DROP_STYLE}
+rule (area:[3166,8863,0,3193,8888,0] && name:SHELLBANE_GRYPHON_SUPPLY) {SUPPLY_DROP_STYLE}
 
 /*@ define:input:boss_pvm
 label: Unique T3
