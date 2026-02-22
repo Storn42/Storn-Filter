@@ -5407,7 +5407,6 @@ enum: ["Tuna potato","Prayer potion(*)","Super combat potion(*)"]
 
 rule (area:[1114,3407,0,1142,3434,0] && name:VARDORVIS_SUPPLY) {SUPPLY_DROP_STYLE}
 
-
 /*@ define:input:boss_pvm
 label: Enable Sound on MVP
 type: boolean
@@ -5415,7 +5414,6 @@ group: Venenatis and Spindel
 */
 
 #define ENABLE_VENENATIS_AND_SPINDEL_MVP true
-
 
 /*@ define:input:boss_pvm
 label: Sound ID
