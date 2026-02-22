@@ -5043,10 +5043,10 @@ rule (area:[3286,9856,0,3311,9880,0] && name:SCURRIUS_SUPPLY) {SUPPLY_DROP_STYLE
 label: Unique T3
 type: enumlist
 group: Shellbane Gryphon
-enum: ["Belle's folly*"]
+enum: ["Belle's folly*","Jar of feathers"]
 */
 
-#define SHELLBANE_GRYPHON_T3_UNIQUES []
+#define SHELLBANE_GRYPHON_T3_UNIQUES ["Jar of feathers"]
 
 rule (name:SHELLBANE_GRYPHON_T3_UNIQUES) {UNIQUE_T3_STYLE}
 
@@ -5054,7 +5054,7 @@ rule (name:SHELLBANE_GRYPHON_T3_UNIQUES) {UNIQUE_T3_STYLE}
 label: Unique T2
 type: enumlist
 group: Shellbane Gryphon
-enum: ["Belle's folly*"]
+enum: ["Belle's folly*","Jar of feathers"]
 */
 
 #define SHELLBANE_GRYPHON_T2_UNIQUES ["Belle's folly*"] 
@@ -5065,7 +5065,7 @@ rule (name:SHELLBANE_GRYPHON_T2_UNIQUES) {UNIQUE_T2_STYLE}
 label: Unique T1
 type: enumlist
 group: Shellbane Gryphon
-enum: ["Belle's folly*"]
+enum: ["Belle's folly*","Jar of feathers"]
 */
 
 #define SHELLBANE_GRYPHON_T1_UNIQUES []
