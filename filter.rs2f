@@ -4557,7 +4557,6 @@ group: Nex
 
 #define ENABLE_NEX_MVP true
 
-
 /*@ define:input:boss_pvm
 label: Sound ID
 type: number
@@ -4620,7 +4619,7 @@ group: Nex
 
 #define NEX_HIDE []
 
-rule (area:[2910,5187,0,2944,5219,0] && name:NEX_HIDE && name:"Big bones" && ENABLE_NEX_MVP) {hideOverlay = true;}
+rule (area:[2910,5187,0,2944,5219,0] && name:NEX_HIDE && name:"Big bones" && ENABLE_NEX_MVP && ownership:1) {hideOverlay = true;}
 
 rule (area:[2910,5187,0,2944,5219,0] && name:NEX_HIDE) {hidden = true;}
 
