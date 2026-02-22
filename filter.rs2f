@@ -5479,8 +5479,6 @@ group: Venenatis and Spindel
 
 #define VENENATIS_AND_SPINDEL_HIDE []
 
-
-
 rule (area:[3403,10183,2,3443,10225,2] && name:VENENATIS_AND_SPINDEL_HIDE && name:"Big Bones" && ENABLE_VENENATIS_AND_SPINDEL_MVP && ownership:1) {hideOverlay = true;}
 rule (area:[1608,11527,2,1652,11569,2] && name:VENENATIS_AND_SPINDEL_HIDE && name:"Big Bones" && ENABLE_VENENATIS_AND_SPINDEL_MVP && ownership:1) {hideOverlay = true;}
 
@@ -5668,6 +5666,7 @@ group: The Whisperer
 #define ENABLE_WHISPERER_GOLDRING_T3 true
 
 rule (area:[2370,6338,0,2429,6397,0] && ENABLE_WHISPERER_GOLDRING_T3 && name:"Gold ring") {UNIQUE_T3_STYLE}
+rule (area:[2629,6338,0,2685,6397,0] && ENABLE_WHISPERER_GOLDRING_T3 && name:"Gold ring") {UNIQUE_T3_STYLE}
 
 /*@ define:input:boss_pvm
 label: Gold Ring T2 Unique
@@ -5678,6 +5677,7 @@ group: The Whisperer
 #define ENABLE_WHISPERER_GOLDRING_T2 false
 
 rule (area:[2370,6338,0,2429,6397,0] && ENABLE_WHISPERER_GOLDRING_T3 && name:"Gold ring") {UNIQUE_T2_STYLE}
+rule (area:[2629,6338,0,2685,6397,0] && ENABLE_WHISPERER_GOLDRING_T3 && name:"Gold ring") {UNIQUE_T2_STYLE}
 
 /*@ define:input:boss_pvm
 label: Gold Ring T1 Unique
@@ -5688,6 +5688,7 @@ group: The Whisperer
 #define ENABLE_WHISPERER_GOLDRING_T1 false
 
 rule (area:[2370,6338,0,2429,6397,0] && ENABLE_WHISPERER_GOLDRING_T3 && name:"Gold ring") {UNIQUE_T1_STYLE}
+rule (area:[2629,6338,0,2685,6397,0] && ENABLE_WHISPERER_GOLDRING_T3 && name:"Gold ring") {UNIQUE_T1_STYLE}
 
 /*@ define:input:whisperer
 label: Sound ID
