@@ -5072,7 +5072,6 @@ enum: ["Belle's folly*","Jar of feathers"]
 
 rule (name:SHELLBANE_GRYPHON_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
-
 /*@ define:input:boss_pvm
 label: Hide Items
 type: stringlist
