@@ -7323,7 +7323,7 @@ group: Boat Paints
 enum: ["Barracuda paint","Shark paint","Inky paint","Angler's paint","Salvor's paint","Armadylean paint","Zamorakian paint","Guthixian paint","Saradominist paint","Merchant's paint","Sandy paint"]
 */
 
-#define BOAT_PAINTS_T3_UNIQUES ["Merchant's paint","Sandy paint"]
+#define BOAT_PAINTS_T3_UNIQUES ["Angler's paint","Merchant's paint","Sandy paint"]
 
 rule (name:BOAT_PAINTS_T3_UNIQUES) {UNIQUE_T3_STYLE}
 
