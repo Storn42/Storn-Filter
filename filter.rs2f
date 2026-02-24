@@ -1297,7 +1297,7 @@ type: stringlist
 group: Elder Chaos Druids/Zombie Pirates
 */
 
-#define CHAOS_PIRATES_HIDE ["Dark fishing bait"]
+#define CHAOS_PIRATES_HIDE ["Dark fishing bait","Snape grass","Unholy mould","Vial of water"]
 
 rule (area:[3216,3587,0,3261,3634,0] && name:CHAOS_PIRATES_HIDE) {hidden = true;}
 
@@ -7349,9 +7349,6 @@ enum: ["Barracuda paint","Shark paint","Inky paint","Angler's paint","Salvor's p
 
 rule (name:ARIAL_FISHING_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
-
-
-
 /*@ define:input:misc_uniques
 label: Unique T3
 type: enumlist
@@ -7549,17 +7546,6 @@ enum: ["Elder chaos hood","Elder chaos robe","Elder chaos top"]
 #define ELDER_CHAOS_DRUIDS_T1_UNIQUES []
 
 rule (name:ELDER_CHAOS_DRUIDS_T1_UNIQUES) {UNIQUE_T1_STYLE}
-
-/*@ define:input:misc_uniques
-label: Hide Items
-type: stringlist
-group: Elder Chaos Druids
-*/
-
-#define ELDER_CHAOS_DRUIDS_HIDE ["Snape grass","Unholy mould","Vial of water"]
-
-rule (area:[3219,3592,0,3257,3633,0] && name:ELDER_CHAOS_DRUIDS_HIDE) {hidden = true;}
-
 
 /*@ define:input:misc_uniques
 label: Unique T3
