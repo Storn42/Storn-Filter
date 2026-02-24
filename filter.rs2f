@@ -4581,7 +4581,7 @@ group: Nex
 label: Unique T3
 type: enumlist
 group: Nex
-enum: ["Zaryte vambraces",Zaryte crossbow","Nihil horn","*Torva full helm*","*Torva platebody*","*Torva platelegs*","Ancient hilt*", "Ancient godsword"]
+enum: ["Zaryte vambraces","Zaryte crossbow","Nihil horn","*Torva full helm*","*Torva platebody*","*Torva platelegs*","Ancient hilt*", "Ancient godsword"]
 */
 
 #define NEX_T3_UNIQUES ["Zaryte vambraces","Zaryte crossbow","Nihil horn","*Torva full helm*","*Torva platebody*","*Torva platelegs*","Ancient hilt*", "Ancient godsword"]
@@ -4592,7 +4592,7 @@ rule (name:NEX_T3_UNIQUES) {UNIQUE_T3_STYLE}
 label: Unique T2
 type: enumlist
 group: Nex
-enum: ["Zaryte vambraces",Zaryte crossbow","Nihil horn","*Torva full helm*","*Torva platebody*","*Torva platelegs*","Ancient hilt*", "Ancient godsword"]
+enum: ["Zaryte vambraces","Zaryte crossbow","Nihil horn","*Torva full helm*","*Torva platebody*","*Torva platelegs*","Ancient hilt*", "Ancient godsword"]
 */
 
 #define NEX_T2_UNIQUES [] 
@@ -4603,7 +4603,7 @@ rule (name:NEX_T2_UNIQUES) {UNIQUE_T2_STYLE}
 label: Unique T1
 type: enumlist
 group: Nex
-enum: ["Zaryte vambraces",Zaryte crossbow","Nihil horn","*Torva full helm*","*Torva platebody*","*Torva platelegs*","Ancient hilt*", "Ancient godsword"]
+enum: ["Zaryte vambraces","Zaryte crossbow","Nihil horn","*Torva full helm*","*Torva platebody*","*Torva platelegs*","Ancient hilt*", "Ancient godsword"]
 */
 
 #define NEX_T1_UNIQUES []
@@ -6495,6 +6495,7 @@ group: Raid Items
 
 #define TOA_HIDE ["Apmeken's capture","Crondis' capture","Het's capture","Scabaras' capture","The wardens", "the jackal's torch"]
 
+rule (area:[3509,5107,0,3973,5443,3] && name:TOA_HIDE && ENABLE_TOA_MVP && name:["Big Banana", "Eldritch ashes", "Fang", "Scarab dung"]) {hideOverlay = true;}
 apply (area:[3509,5107,0,3973,5443,3] && name:TOA_HIDE) {hidden = true;}
 
 /*@ define:input:toa
@@ -6871,7 +6872,7 @@ rule (name:ELITE_CLUE_T1_UNIQUES) {UNIQUE_T1_STYLE}
 label: Unique T3
 type: enumlist
 group: Hard Clue Uniques
-enum: ["Robin hood hat","Zamorak full helm","Amulet of glory(t*)","Enchanted hat","Enchanted hat","Enchanted robe","Dragon boots ornament kit","Zamorak plate*","Guthix full helm","Guthix plate*","Saradomin full helm","Saradomin plate*","Ancient full helm","Ancient plate*","Armadyl full helm","Armadyl plate*","Bandos full helm","Bandos plate*","Saradomin coif","Saradomin chaps" ,"Saradomin bracers","Saradomin d'hide*","Guthix coif","Guthix chaps","Guthix bracers" ,"Guthix d'hide*" ,"Zamorak coif" ,"Zamorak chaps" ,"Zamorak bracers" ,"Zamorak d'hide*","Bandos coif","Bandos chaps","Bandos bracers","Bandos d'hide*","Armadyl coif" ,"Armadyl chaps" ,"Armadyl bracers","Armadyl d'hide*","Ancient coif" ,"Ancient chaps","Ancient bracers" ,"Ancient d'hide*","Zombie head" ,"Cyclops head","Pirate's hat" ,"* cavalier","Pith helmet","Explorer backpack","* dragon mask","Nunchaku","Rune cane","Dual sai","Thieving bag","Rune defender ornament kit*","Berserker necklace ornament kit","Tzhaar-ket-om ornament kit","Rune full helm (t)","Rune platebody (t)","Rune platelegs (t)","Rune plateskirt (t)","Rune kiteshield (t)","Rune full helm (g)","Rune platebody (g)","Rune platelegs (g)","Rune plateskirt (g)","Rune kiteshield (g)","Rune shield (h1)","Rune shield (h2)","Rune shield (h3)","Rune shield (h4)","Rune shield (h5)","Rune helm (h1)","Rune helm (h2)","Rune helm (h3)","Rune helm (h4)","Rune helm (h5)","Red d'hide body (g)","Red d'hide body (t)","Red d'hide chaps (g)","Red d'hide chaps (t)","Blue d'hide body (g)","Blue d'hide body (t)","Blue d'hide chaps (g)","Blue d'hide chaps (t)","Rune platebody (h1)","Rune platebody (h2)","Rune platebody (h3)","Rune platebody (h3)","Rune platebody (h5)","Magic comp bow"]
+enum: ["Robin hood hat","Zamorak full helm","Amulet of glory(t*)","Enchanted hat","Enchanted hat","Enchanted robe","Dragon boots ornament kit","Zamorak plate*","Guthix full helm","Guthix plate*","Saradomin full helm","Saradomin plate*","Ancient full helm","Ancient plate*","Armadyl full helm","Armadyl plate*","Bandos full helm","Bandos plate*","Saradomin coif","Saradomin chaps" ,"Saradomin bracers","Saradomin d'hide*","Guthix coif","Guthix chaps","Guthix bracers" ,"Guthix d'hide*" ,"Zamorak coif" ,"Zamorak chaps" ,"Zamorak bracers" ,"Zamorak d'hide*","Bandos coif","Bandos chaps","Bandos bracers","Bandos d'hide*","Armadyl coif" ,"Armadyl chaps" ,"Armadyl bracers","Armadyl d'hide*","Ancient coif" ,"Ancient chaps","Ancient bracers" ,"Ancient d'hide*","Zombie head" ,"Cyclops head","Pirate's hat" ,"* cavalier","Pith helmet","Explorer backpack","* dragon mask","Nunchaku","Rune cane","Dual sai","Thieving bag","Rune defender ornament kit*","Berserker necklace ornament kit","Tzhaar-ket-om ornament kit","Rune full helm (t)","Rune platebody (t)","Rune platelegs (t)","Rune plateskirt (t)","Rune kiteshield (t)","Rune full helm (g)","Rune platebody (g)","Rune platelegs (g)","Rune plateskirt (g)","Rune kiteshield (g)","Rune shield (h1)","Rune shield (h2)","Rune shield (h3)","Rune shield (h4)","Rune shield (h5)","Rune helm (h1)","Rune helm (h2)","Rune helm (h3)","Rune helm (h4)","Rune helm (h5)","Red d'hide body (g)","Red d'hide body (t)","Red d'hide chaps (g)","Red d'hide chaps (t)","Blue d'hide body (g)","Blue d'hide body (t)","Blue d'hide chaps (g)","Blue d'hide chaps (t)","Rune platebody (h1)","Rune platebody (h2)","Rune platebody (h3)","Rune platebody (h4)","Rune platebody (h5)","Magic comp bow"]
 */
 
 #define HARD_CLUE_T3_UNIQUES ["Robin hood hat"]
@@ -6882,7 +6883,7 @@ rule (name:HARD_CLUE_T3_UNIQUES) {UNIQUE_T3_STYLE}
 label: Unique T2
 type: enumlist
 group: Hard Clue Uniques
-enum: ["Robin hood hat","Zamorak full helm","Amulet of glory(t*)","Enchanted hat","Enchanted hat","Enchanted robe","Dragon boots ornament kit","Zamorak plate*","Guthix full helm","Guthix plate*","Saradomin full helm","Saradomin plate*","Ancient full helm","Ancient plate*","Armadyl full helm","Armadyl plate*","Bandos full helm","Bandos plate*","Saradomin coif","Saradomin chaps" ,"Saradomin bracers","Saradomin d'hide*","Guthix coif","Guthix chaps","Guthix bracers" ,"Guthix d'hide*" ,"Zamorak coif" ,"Zamorak chaps" ,"Zamorak bracers" ,"Zamorak d'hide*","Bandos coif","Bandos chaps","Bandos bracers","Bandos d'hide*","Armadyl coif" ,"Armadyl chaps" ,"Armadyl bracers","Armadyl d'hide*","Ancient coif" ,"Ancient chaps","Ancient bracers" ,"Ancient d'hide*","Zombie head" ,"Cyclops head","Pirate's hat" ,"* cavalier","Pith helmet","Explorer backpack","* dragon mask","Nunchaku","Rune cane","Dual sai","Thieving bag","Rune defender ornament kit*","Berserker necklace ornament kit","Tzhaar-ket-om ornament kit","Rune full helm (t)","Rune platebody (t)","Rune platelegs (t)","Rune plateskirt (t)","Rune kiteshield (t)","Rune full helm (g)","Rune platebody (g)","Rune platelegs (g)","Rune plateskirt (g)","Rune kiteshield (g)","Rune shield (h1)","Rune shield (h2)","Rune shield (h3)","Rune shield (h4)","Rune shield (h5)","Rune helm (h1)","Rune helm (h2)","Rune helm (h3)","Rune helm (h4)","Rune helm (h5)","Red d'hide body (g)","Red d'hide body (t)","Red d'hide chaps (g)","Red d'hide chaps (t)","Blue d'hide body (g)","Blue d'hide body (t)","Blue d'hide chaps (g)","Blue d'hide chaps (t)","Rune platebody (h1)","Rune platebody (h2)","Rune platebody (h3)","Rune platebody (h3)","Rune platebody (h5)","Magic comp bow"]
+enum: ["Robin hood hat","Zamorak full helm","Amulet of glory(t*)","Enchanted hat","Enchanted hat","Enchanted robe","Dragon boots ornament kit","Zamorak plate*","Guthix full helm","Guthix plate*","Saradomin full helm","Saradomin plate*","Ancient full helm","Ancient plate*","Armadyl full helm","Armadyl plate*","Bandos full helm","Bandos plate*","Saradomin coif","Saradomin chaps" ,"Saradomin bracers","Saradomin d'hide*","Guthix coif","Guthix chaps","Guthix bracers" ,"Guthix d'hide*" ,"Zamorak coif" ,"Zamorak chaps" ,"Zamorak bracers" ,"Zamorak d'hide*","Bandos coif","Bandos chaps","Bandos bracers","Bandos d'hide*","Armadyl coif" ,"Armadyl chaps" ,"Armadyl bracers","Armadyl d'hide*","Ancient coif" ,"Ancient chaps","Ancient bracers" ,"Ancient d'hide*","Zombie head" ,"Cyclops head","Pirate's hat" ,"* cavalier","Pith helmet","Explorer backpack","* dragon mask","Nunchaku","Rune cane","Dual sai","Thieving bag","Rune defender ornament kit*","Berserker necklace ornament kit","Tzhaar-ket-om ornament kit","Rune full helm (t)","Rune platebody (t)","Rune platelegs (t)","Rune plateskirt (t)","Rune kiteshield (t)","Rune full helm (g)","Rune platebody (g)","Rune platelegs (g)","Rune plateskirt (g)","Rune kiteshield (g)","Rune shield (h1)","Rune shield (h2)","Rune shield (h3)","Rune shield (h4)","Rune shield (h5)","Rune helm (h1)","Rune helm (h2)","Rune helm (h3)","Rune helm (h4)","Rune helm (h5)","Red d'hide body (g)","Red d'hide body (t)","Red d'hide chaps (g)","Red d'hide chaps (t)","Blue d'hide body (g)","Blue d'hide body (t)","Blue d'hide chaps (g)","Blue d'hide chaps (t)","Rune platebody (h1)","Rune platebody (h2)","Rune platebody (h3)","Rune platebody (h4)","Rune platebody (h5)","Magic comp bow"]
 */
 
 #define HARD_CLUE_T2_UNIQUES ["Zamorak full helm"] 
@@ -6893,10 +6894,10 @@ rule (name:HARD_CLUE_T2_UNIQUES) {UNIQUE_T2_STYLE}
 label: Unique T1
 type: enumlist
 group: Hard Clue Uniques
-enum: ["Robin hood hat","Zamorak full helm","Amulet of glory(t*)","Enchanted hat","Enchanted hat","Enchanted robe","Dragon boots ornament kit","Zamorak plate*","Guthix full helm","Guthix plate*","Saradomin full helm","Saradomin plate*","Ancient full helm","Ancient plate*","Armadyl full helm","Armadyl plate*","Bandos full helm","Bandos plate*","Saradomin coif","Saradomin chaps" ,"Saradomin bracers","Saradomin d'hide*","Guthix coif","Guthix chaps","Guthix bracers" ,"Guthix d'hide*" ,"Zamorak coif" ,"Zamorak chaps" ,"Zamorak bracers" ,"Zamorak d'hide*","Bandos coif","Bandos chaps","Bandos bracers","Bandos d'hide*","Armadyl coif" ,"Armadyl chaps" ,"Armadyl bracers","Armadyl d'hide*","Ancient coif" ,"Ancient chaps","Ancient bracers" ,"Ancient d'hide*","Zombie head" ,"Cyclops head","Pirate's hat" ,"* cavalier","Pith helmet","Explorer backpack","* dragon mask","Nunchaku","Rune cane","Dual sai","Thieving bag","Rune defender ornament kit*","Berserker necklace ornament kit","Tzhaar-ket-om ornament kit","Rune full helm (t)","Rune platebody (t)","Rune platelegs (t)","Rune plateskirt (t)","Rune kiteshield (t)","Rune full helm (g)","Rune platebody (g)","Rune platelegs (g)","Rune plateskirt (g)","Rune kiteshield (g)","Rune shield (h1)","Rune shield (h2)","Rune shield (h3)","Rune shield (h4)","Rune shield (h5)","Rune helm (h1)","Rune helm (h2)","Rune helm (h3)","Rune helm (h4)","Rune helm (h5)","Red d'hide body (g)","Red d'hide body (t)","Red d'hide chaps (g)","Red d'hide chaps (t)","Blue d'hide body (g)","Blue d'hide body (t)","Blue d'hide chaps (g)","Blue d'hide chaps (t)","Rune platebody (h1)","Rune platebody (h2)","Rune platebody (h3)","Rune platebody (h3)","Rune platebody (h5)","Magic comp bow"]
+enum: ["Robin hood hat","Zamorak full helm","Amulet of glory(t*)","Enchanted hat","Enchanted hat","Enchanted robe","Dragon boots ornament kit","Zamorak plate*","Guthix full helm","Guthix plate*","Saradomin full helm","Saradomin plate*","Ancient full helm","Ancient plate*","Armadyl full helm","Armadyl plate*","Bandos full helm","Bandos plate*","Saradomin coif","Saradomin chaps" ,"Saradomin bracers","Saradomin d'hide*","Guthix coif","Guthix chaps","Guthix bracers" ,"Guthix d'hide*" ,"Zamorak coif" ,"Zamorak chaps" ,"Zamorak bracers" ,"Zamorak d'hide*","Bandos coif","Bandos chaps","Bandos bracers","Bandos d'hide*","Armadyl coif" ,"Armadyl chaps" ,"Armadyl bracers","Armadyl d'hide*","Ancient coif" ,"Ancient chaps","Ancient bracers" ,"Ancient d'hide*","Zombie head" ,"Cyclops head","Pirate's hat" ,"* cavalier","Pith helmet","Explorer backpack","* dragon mask","Nunchaku","Rune cane","Dual sai","Thieving bag","Rune defender ornament kit*","Berserker necklace ornament kit","Tzhaar-ket-om ornament kit","Rune full helm (t)","Rune platebody (t)","Rune platelegs (t)","Rune plateskirt (t)","Rune kiteshield (t)","Rune full helm (g)","Rune platebody (g)","Rune platelegs (g)","Rune plateskirt (g)","Rune kiteshield (g)","Rune shield (h1)","Rune shield (h2)","Rune shield (h3)","Rune shield (h4)","Rune shield (h5)","Rune helm (h1)","Rune helm (h2)","Rune helm (h3)","Rune helm (h4)","Rune helm (h5)","Red d'hide body (g)","Red d'hide body (t)","Red d'hide chaps (g)","Red d'hide chaps (t)","Blue d'hide body (g)","Blue d'hide body (t)","Blue d'hide chaps (g)","Blue d'hide chaps (t)","Rune platebody (h1)","Rune platebody (h2)","Rune platebody (h3)","Rune platebody (h4)","Rune platebody (h5)","Magic comp bow"]
 */
 
-#define HARD_CLUE_T1_UNIQUES ["Amulet of glory(t*)","Enchanted hat","Enchanted hat","Enchanted robe","Dragon boots ornament kit","Zamorak plate*","Guthix full helm","Guthix plate*","Saradomin full helm","Saradomin plate*","Ancient full helm","Ancient plate*","Armadyl full helm","Armadyl plate*","Bandos full helm","Bandos plate*","Saradomin coif","Saradomin chaps" ,"Saradomin bracers","Saradomin d'hide*","Guthix coif","Guthix chaps","Guthix bracers" ,"Guthix d'hide*" ,"Zamorak coif" ,"Zamorak chaps" ,"Zamorak bracers" ,"Zamorak d'hide*","Bandos coif","Bandos chaps","Bandos bracers","Bandos d'hide*","Armadyl coif" ,"Armadyl chaps" ,"Armadyl bracers","Armadyl d'hide*","Ancient coif" ,"Ancient chaps","Ancient bracers" ,"Ancient d'hide*","Zombie head" ,"Cyclops head","Pirate's hat" ,"* cavalier","Pith helmet","Explorer backpack","* dragon mask","Nunchaku","Rune cane","Dual sai","Thieving bag","Rune defender ornament kit*","Berserker necklace ornament kit","Tzhaar-ket-om ornament kit","Rune full helm (t)","Rune platebody (t)","Rune platelegs (t)","Rune plateskirt (t)","Rune kiteshield (t)","Rune full helm (g)","Rune platebody (g)","Rune platelegs (g)","Rune plateskirt (g)","Rune kiteshield (g)","Rune shield (h1)","Rune shield (h2)","Rune shield (h3)","Rune shield (h4)","Rune shield (h5)","Rune helm (h1)","Rune helm (h2)","Rune helm (h3)","Rune helm (h4)","Rune helm (h5)","Red d'hide body (g)","Red d'hide body (t)","Red d'hide chaps (g)","Red d'hide chaps (t)","Blue d'hide body (g)","Blue d'hide body (t)","Blue d'hide chaps (g)","Blue d'hide chaps (t)","Rune platebody (h1)","Rune platebody (h2)","Rune platebody (h3)","Rune platebody (h3)","Rune platebody (h5)","Magic comp bow"]
+#define HARD_CLUE_T1_UNIQUES ["Amulet of glory(t*)","Enchanted hat","Enchanted hat","Enchanted robe","Dragon boots ornament kit","Zamorak plate*","Guthix full helm","Guthix plate*","Saradomin full helm","Saradomin plate*","Ancient full helm","Ancient plate*","Armadyl full helm","Armadyl plate*","Bandos full helm","Bandos plate*","Saradomin coif","Saradomin chaps" ,"Saradomin bracers","Saradomin d'hide*","Guthix coif","Guthix chaps","Guthix bracers" ,"Guthix d'hide*" ,"Zamorak coif" ,"Zamorak chaps" ,"Zamorak bracers" ,"Zamorak d'hide*","Bandos coif","Bandos chaps","Bandos bracers","Bandos d'hide*","Armadyl coif" ,"Armadyl chaps" ,"Armadyl bracers","Armadyl d'hide*","Ancient coif" ,"Ancient chaps","Ancient bracers" ,"Ancient d'hide*","Zombie head" ,"Cyclops head","Pirate's hat" ,"* cavalier","Pith helmet","Explorer backpack","* dragon mask","Nunchaku","Rune cane","Dual sai","Thieving bag","Rune defender ornament kit*","Berserker necklace ornament kit","Tzhaar-ket-om ornament kit","Rune full helm (t)","Rune platebody (t)","Rune platelegs (t)","Rune plateskirt (t)","Rune kiteshield (t)","Rune full helm (g)","Rune platebody (g)","Rune platelegs (g)","Rune plateskirt (g)","Rune kiteshield (g)","Rune shield (h1)","Rune shield (h2)","Rune shield (h3)","Rune shield (h4)","Rune shield (h5)","Rune helm (h1)","Rune helm (h2)","Rune helm (h3)","Rune helm (h4)","Rune helm (h5)","Red d'hide body (g)","Red d'hide body (t)","Red d'hide chaps (g)","Red d'hide chaps (t)","Blue d'hide body (g)","Blue d'hide body (t)","Blue d'hide chaps (g)","Blue d'hide chaps (t)","Rune platebody (h1)","Rune platebody (h2)","Rune platebody (h3)","Rune platebody (h4)","Rune platebody (h5)","Magic comp bow"]
 
 rule (name:HARD_CLUE_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
@@ -7273,9 +7274,9 @@ group: Vale Fletching
 enum: ["Fletching knife","Bow string spool", "Ent Branch", "Greenman mask"]
 */
 
-#define TVALE_FLETCHING_T1_UNIQUES ["Fletching knife","Bow string spool", "Ent Branch", "Greenman mask"]
+#define VALE_FLETCHING_T1_UNIQUES ["Fletching knife","Bow string spool", "Ent Branch", "Greenman mask"]
 
-rule (name:TEMPLE_TREKKING_T1_UNIQUES) {UNIQUE_T1_STYLE}
+rule (name:VALE_FLETCHING_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 /*@ define:module:misc_uniques
 name: Miscellaneous Uniques
@@ -7322,7 +7323,7 @@ group: Boat Paints
 enum: ["Barracuda paint","Shark paint","Inky paint","Angler's paint","Salvor's paint","Armadylean paint","Zamorakian paint","Guthixian paint","Saradominist paint","Merchant's paint","Sandy paint"]
 */
 
-#define BOAT_PAINTS_T3_UNIQUES []
+#define BOAT_PAINTS_T3_UNIQUES ["Merchant's paint","Sandy paint"]
 
 rule (name:BOAT_PAINTS_T3_UNIQUES) {UNIQUE_T3_STYLE}
 
@@ -7333,7 +7334,7 @@ group: Boat Paints
 enum: ["Barracuda paint","Shark paint","Inky paint","Angler's paint","Salvor's paint","Armadylean paint","Zamorakian paint","Guthixian paint","Saradominist paint","Merchant's paint","Sandy paint"]
 */
 
-#define BOAT_PAINTS_T2_UNIQUES ["Barracuda paint","Shark paint","Inky paint","Angler's paint","Salvor's paint","Armadylean paint","Zamorakian paint","Guthixian paint","Saradominist paint","Merchant's paint","Sandy paint"] 
+#define BOAT_PAINTS_T2_UNIQUES ["Barracuda paint","Inky paint","Salvor's paint"] 
 
 rule (name:ARIAL_FISHING_T2_UNIQUES) {UNIQUE_T2_STYLE}
 
@@ -7344,7 +7345,7 @@ group: Boat Paints
 enum: ["Barracuda paint","Shark paint","Inky paint","Angler's paint","Salvor's paint","Armadylean paint","Zamorakian paint","Guthixian paint","Saradominist paint","Merchant's paint","Sandy paint"]
 */
 
-#define BOAT_PAINTS_T1_UNIQUES []
+#define BOAT_PAINTS_T1_UNIQUES ["Shark paint","Armadylean paint","Zamorakian paint","Guthixian paint","Saradominist paint"]
 
 rule (name:ARIAL_FISHING_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
