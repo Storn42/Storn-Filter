@@ -7687,7 +7687,7 @@ group: Lost Schematics
 enum: ["Salvaging station schematic","Gale catcher schematic","Eternal brazier schematic","Rosewood cargo hold schematic","Rosewood hull schematic","Rosewood & cotton sails schematic","Dragon helm schematic","Dragon keel schematic","Dragon salvaging hook schematic","Dragon cannon schematic"]
 */
 
-#define LOST_SCHEMATICS_T2_UNIQUES ["Salvaging station schematic","Gale catcher schematic","Eternal brazier schematic","Rosewood cargo hold schematic","Rosewood hull schematic","Rosewood & cotton sails schematic","Dragon helm schematic","Dragon keel schematic","Dragon salvaging hook schematic","Dragon cannon schematic"] 
+#define LOST_SCHEMATICS_T2_UNIQUES [] 
 
 rule (name:LOST_SCHEMATICS_T2_UNIQUES) {UNIQUE_T2_STYLE}
 
@@ -7698,7 +7698,7 @@ group: Lost Schematics
 enum: ["Salvaging station schematic","Gale catcher schematic","Eternal brazier schematic","Rosewood cargo hold schematic","Rosewood hull schematic","Rosewood & cotton sails schematic","Dragon helm schematic","Dragon keel schematic","Dragon salvaging hook schematic","Dragon cannon schematic"]
 */
 
-#define LOST_SCHEMATICS_T1_UNIQUES []
+#define LOST_SCHEMATICS_T1_UNIQUES ["Salvaging station schematic","Gale catcher schematic","Eternal brazier schematic","Rosewood cargo hold schematic","Rosewood hull schematic","Rosewood & cotton sails schematic","Dragon helm schematic","Dragon keel schematic","Dragon salvaging hook schematic","Dragon cannon schematic"]
 
 rule (name:LOST_SCHEMATICS_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
@@ -7720,7 +7720,7 @@ group: Ocean Encounters
 enum: ["Tiny pearl","Small pearl","Shiny pearl","Bright pearl","Big pearl","Huge pearl","Enormous pearl","Shimmering pearl","Glistening peatl","Brilliant pearl","Radiant pearl"]
 */
 
-#define OCEAN_ENCOUNTERS_T2_UNIQUES [] 
+#define OCEAN_ENCOUNTERS_T2_UNIQUES ["Shimmering pearl","Glistening peatl","Brilliant pearl","Radiant pearl"] 
 
 rule (name:OCEAN_ENCOUNTERS_T2_UNIQUES) {UNIQUE_T2_STYLE}
 
@@ -7731,7 +7731,7 @@ group: Ocean Encounters
 enum: ["Tiny pearl","Small pearl","Shiny pearl","Bright pearl","Big pearl","Huge pearl","Enormous pearl","Shimmering pearl","Glistening peatl","Brilliant pearl","Radiant pearl"]
 */
 
-#define OCEAN_ENCOUNTERS_T1_UNIQUES []
+#define OCEAN_ENCOUNTERS_T1_UNIQUES ["Tiny pearl","Small pearl","Shiny pearl","Bright pearl","Big pearl","Huge pearl","Enormous pearl"]
 
 rule (name:OCEAN_ENCOUNTERS_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
@@ -7798,7 +7798,7 @@ group: Sailing Miscellaneous
 enum: ["Dragon metal sheet","Dragon nails","Dragon cannonball","Echo pearl","Swift albatross feather","Narwhal horn","Ray barbs","Broken dragon hook","Bottled storm","Dragon cannon barrel","Boat bottle (empty)"]
 */
 
-#define SAILING_MISC_T3_UNIQUES []
+#define SAILING_MISC_T3_UNIQUES ["Dragon cannon barrel","Bottled storm","Broken dragon hook"]
 
 rule (name:SAILING_MISC_T3_UNIQUES) {UNIQUE_T3_STYLE}
 
@@ -7809,7 +7809,7 @@ group: Sailing Miscellaneous
 enum: ["Dragon metal sheet","Dragon nails","Dragon cannonball","Echo pearl","Swift albatross feather","Narwhal horn","Ray barbs","Broken dragon hook","Bottled storm","Dragon cannon barrel","Boat bottle (empty)"]
 */
 
-#define SAILING_MISC_T2_UNIQUES ["Dragon metal sheet","Dragon nails","Dragon cannonball","Echo pearl","Swift albatross feather","Narwhal horn","Ray barbs","Broken dragon hook","Bottled storm","Dragon cannon barrel","Boat bottle (empty)"] 
+#define SAILING_MISC_T2_UNIQUES ["Dragon metal sheet"] 
 
 rule (name:SAILING_MISC_T2_UNIQUES) {UNIQUE_T2_STYLE}
 
@@ -7820,7 +7820,7 @@ group: Sailing Miscellaneous
 enum: ["Dragon metal sheet","Dragon nails","Dragon cannonball","Echo pearl","Swift albatross feather","Narwhal horn","Ray barbs","Broken dragon hook","Bottled storm","Dragon cannon barrel","Boat bottle (empty)"]
 */
 
-#define SAILING_MISC_T1_UNIQUES []
+#define SAILING_MISC_T1_UNIQUES ["Boat bottle (empty)","Facility bottle (empty)","Echo pearl","Swift albatross feather","Narwhal horn","Ray barbs"]
 
 rule (name:SAILING_MISC_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
@@ -7896,7 +7896,7 @@ rule (name:SHAYZIEN_ARMOUR_T1_UNIQUES) {UNIQUE_T1_STYLE}
 label: Unique T3
 type: enumlist
 group: Slayer Uniques
-enum: ["Crawling hand","Cockatrice head","Basilisk head","Kurask head","Imbued heart","Eternal gem","Dust battlestaff","Mist battlestaff","Mudskipper hat","Flippers","Brine sabre","Leaf-bladed sword","Leaf-bladed battleaxe","Black mask","Granite longsword","Granite boots","Wyvern visage","Granite legs","Granite helm","Bronze boots","Iron boots","Steel boots","Black boots","Mithril boots","Adamant boots","Rune boots","Dragon boots","Dark bow","Dragon sword","Broken dragon hasta","Drake's tooth","Drake's claw","Mystic hat (light)","Mystic robe top (light)","Mystic robe bottom (light)","Mystic gloves (light)","Mystic boots (light)","Mystic hat (dark)","Mystic robe top (dark)","Mystic robe bottom (dark)","Mystic gloves (dark)","Mystic boots (dark)","Mystic hat (dusk)","Mystic robe top (dusk)","Mystic robe bottom (dusk)","Mystic gloves (dusk)","Mystic boots (dusk)","Basilisk jaw","Dagon'hai hat","Dagon'hai robe top","Dagon'hai robe bottom","Blood shard","Ancient ceremonial mask","Ancient ceremonial top","Ancient ceremonial legs","Ancient ceremonial gloves","Ancient ceremonial boots","Warped sceptre","Sulphur blades","Teleport anchoring scroll","Aranea boots", "Earthbound tecpatl","Antler guard","Alchemist's signet","Medallion fragment","Medallion fragment","Broken antler","Dragon metal sheet","Horn of plenty (empty)","Gryphon feather"]
+enum: ["Crawling hand","Cockatrice head","Basilisk head","Kurask head","Imbued heart","Eternal gem","Dust battlestaff","Mist battlestaff","Mudskipper hat","Flippers","Brine sabre","Leaf-bladed sword","Leaf-bladed battleaxe","Black mask","Granite longsword","Granite boots","Wyvern visage","Granite legs","Granite helm","Bronze boots","Iron boots","Steel boots","Black boots","Mithril boots","Adamant boots","Rune boots","Dragon boots","Dark bow","Dragon sword","Broken dragon hasta","Drake's tooth","Drake's claw","Mystic hat (light)","Mystic robe top (light)","Mystic robe bottom (light)","Mystic gloves (light)","Mystic boots (light)","Mystic hat (dark)","Mystic robe top (dark)","Mystic robe bottom (dark)","Mystic gloves (dark)","Mystic boots (dark)","Mystic hat (dusk)","Mystic robe top (dusk)","Mystic robe bottom (dusk)","Mystic gloves (dusk)","Mystic boots (dusk)","Basilisk jaw","Dagon'hai hat","Dagon'hai robe top","Dagon'hai robe bottom","Blood shard","Ancient ceremonial mask","Ancient ceremonial top","Ancient ceremonial legs","Ancient ceremonial gloves","Ancient ceremonial boots","Warped sceptre","Sulphur blades","Teleport anchoring scroll","Aranea boots", "Earthbound tecpatl","Antler guard","Alchemist's signet","Broken antler","Dragon metal sheet","Horn of plenty (empty)","Gryphon feather"]
 */
 
 #define SLAYER_T3_UNIQUES ["Imbued heart","Eternal gem","Basilisk jaw"]
@@ -7907,7 +7907,7 @@ rule (name:SLAYER_T3_UNIQUES) {UNIQUE_T3_STYLE}
 label: Unique T2
 type: enumlist
 group: Slayer Uniques
-enum: ["Crawling hand","Cockatrice head","Basilisk head","Kurask head","Imbued heart","Eternal gem","Dust battlestaff","Mist battlestaff","Mudskipper hat","Flippers","Brine sabre","Leaf-bladed sword","Leaf-bladed battleaxe","Black mask","Granite longsword","Granite boots","Wyvern visage","Granite legs","Granite helm","Bronze boots","Iron boots","Steel boots","Black boots","Mithril boots","Adamant boots","Rune boots","Dragon boots","Dark bow","Dragon sword","Broken dragon hasta","Drake's tooth","Drake's claw","Mystic hat (light)","Mystic robe top (light)","Mystic robe bottom (light)","Mystic gloves (light)","Mystic boots (light)","Mystic hat (dark)","Mystic robe top (dark)","Mystic robe bottom (dark)","Mystic gloves (dark)","Mystic boots (dark)","Mystic hat (dusk)","Mystic robe top (dusk)","Mystic robe bottom (dusk)","Mystic gloves (dusk)","Mystic boots (dusk)","Basilisk jaw","Dagon'hai hat","Dagon'hai robe top","Dagon'hai robe bottom","Blood shard","Ancient ceremonial mask","Ancient ceremonial top","Ancient ceremonial legs","Ancient ceremonial gloves","Ancient ceremonial boots","Warped sceptre","Sulphur blades","Teleport anchoring scroll","Aranea boots", "Earthbound tecpatl", "Antler guard","Alchemist's signet","Medallion fragment","Medallion fragment","Broken antler","Dragon metal sheet","Horn of plenty (empty)","Gryphon feather"]
+enum: ["Crawling hand","Cockatrice head","Basilisk head","Kurask head","Imbued heart","Eternal gem","Dust battlestaff","Mist battlestaff","Mudskipper hat","Flippers","Brine sabre","Leaf-bladed sword","Leaf-bladed battleaxe","Black mask","Granite longsword","Granite boots","Wyvern visage","Granite legs","Granite helm","Bronze boots","Iron boots","Steel boots","Black boots","Mithril boots","Adamant boots","Rune boots","Dragon boots","Dark bow","Dragon sword","Broken dragon hasta","Drake's tooth","Drake's claw","Mystic hat (light)","Mystic robe top (light)","Mystic robe bottom (light)","Mystic gloves (light)","Mystic boots (light)","Mystic hat (dark)","Mystic robe top (dark)","Mystic robe bottom (dark)","Mystic gloves (dark)","Mystic boots (dark)","Mystic hat (dusk)","Mystic robe top (dusk)","Mystic robe bottom (dusk)","Mystic gloves (dusk)","Mystic boots (dusk)","Basilisk jaw","Dagon'hai hat","Dagon'hai robe top","Dagon'hai robe bottom","Blood shard","Ancient ceremonial mask","Ancient ceremonial top","Ancient ceremonial legs","Ancient ceremonial gloves","Ancient ceremonial boots","Warped sceptre","Sulphur blades","Teleport anchoring scroll","Aranea boots", "Earthbound tecpatl", "Antler guard","Alchemist's signet","Broken antler","Dragon metal sheet","Horn of plenty (empty)","Gryphon feather"]
 */
 
 #define SLAYER_T2_UNIQUES ["Dust battlestaff","Mist battlestaff","Black mask","Dragon boots","Dark bow","Broken dragon hasta","Drake's tooth","Drake's claw","Mystic hat (dusk)","Mystic robe top (dusk)","Mystic robe bottom (dusk)","Mystic gloves (dusk)","Mystic boots (dusk)","Dagon'hai hat","Dagon'hai robe top","Dagon'hai robe bottom","Blood shard","Teleport anchoring scroll","Aranea boots"] 
@@ -7918,10 +7918,10 @@ rule (name:SLAYER_T2_UNIQUES) {UNIQUE_T2_STYLE}
 label: Unique T1
 type: enumlist
 group: Slayer Uniques
-enum: ["Crawling hand","Cockatrice head","Basilisk head","Kurask head","Imbued heart","Eternal gem","Dust battlestaff","Mist battlestaff","Mudskipper hat","Flippers","Brine sabre","Leaf-bladed sword","Leaf-bladed battleaxe","Black mask","Granite longsword","Granite boots","Wyvern visage","Granite legs","Granite helm","Bronze boots","Iron boots","Steel boots","Black boots","Mithril boots","Adamant boots","Rune boots","Dragon boots","Dark bow","Dragon sword","Broken dragon hasta","Drake's tooth","Drake's claw","Mystic hat (light)","Mystic robe top (light)","Mystic robe bottom (light)","Mystic gloves (light)","Mystic boots (light)","Mystic hat (dark)","Mystic robe top (dark)","Mystic robe bottom (dark)","Mystic gloves (dark)","Mystic boots (dark)","Mystic hat (dusk)","Mystic robe top (dusk)","Mystic robe bottom (dusk)","Mystic gloves (dusk)","Mystic boots (dusk)","Basilisk jaw","Dagon'hai hat","Dagon'hai robe top","Dagon'hai robe bottom","Blood shard","Ancient ceremonial mask","Ancient ceremonial top","Ancient ceremonial legs","Ancient ceremonial gloves","Ancient ceremonial boots","Warped sceptre","Sulphur blades","Teleport anchoring scroll","Aranea boots","Earthbound tecpatl","Antler guard","Alchemist's signet","Medallion fragment","Medallion fragment","Broken antler","Dragon metal sheet","Horn of plenty (empty)","Gryphon feather"]
+enum: ["Crawling hand","Cockatrice head","Basilisk head","Kurask head","Imbued heart","Eternal gem","Dust battlestaff","Mist battlestaff","Mudskipper hat","Flippers","Brine sabre","Leaf-bladed sword","Leaf-bladed battleaxe","Black mask","Granite longsword","Granite boots","Wyvern visage","Granite legs","Granite helm","Bronze boots","Iron boots","Steel boots","Black boots","Mithril boots","Adamant boots","Rune boots","Dragon boots","Dark bow","Dragon sword","Broken dragon hasta","Drake's tooth","Drake's claw","Mystic hat (light)","Mystic robe top (light)","Mystic robe bottom (light)","Mystic gloves (light)","Mystic boots (light)","Mystic hat (dark)","Mystic robe top (dark)","Mystic robe bottom (dark)","Mystic gloves (dark)","Mystic boots (dark)","Mystic hat (dusk)","Mystic robe top (dusk)","Mystic robe bottom (dusk)","Mystic gloves (dusk)","Mystic boots (dusk)","Basilisk jaw","Dagon'hai hat","Dagon'hai robe top","Dagon'hai robe bottom","Blood shard","Ancient ceremonial mask","Ancient ceremonial top","Ancient ceremonial legs","Ancient ceremonial gloves","Ancient ceremonial boots","Warped sceptre","Sulphur blades","Teleport anchoring scroll","Aranea boots","Earthbound tecpatl","Antler guard","Alchemist's signet","Broken antler","Dragon metal sheet","Horn of plenty (empty)","Gryphon feather"]
 */
 
-#define SLAYER_T1_UNIQUES ["Crawling hand","Cockatrice head","Basilisk head","Kurask head","Mudskipper hat","Flippers","Brine sabre","Leaf-bladed sword","Leaf-bladed battleaxe","Granite longsword","Granite boots","Wyvern visage","Granite legs","Granite helm","Bronze boots","Iron boots","Steel boots","Black boots","Mithril boots","Adamant boots","Dragon sword","Mystic hat (light)","Mystic robe top (light)","Mystic robe bottom (light)","Mystic gloves (light)","Mystic boots (light)","Mystic hat (dark)","Mystic robe top (dark)","Mystic robe bottom (dark)","Mystic gloves (dark)","Mystic boots (dark)","Ancient ceremonial mask","Ancient ceremonial top","Ancient ceremonial legs","Ancient ceremonial gloves","Ancient ceremonial boots","Warped sceptre","Sulphur blades","Earthbound tecpatl","Antler guard","Alchemist's signet","Medallion fragment","Medallion fragment","Broken antler","Horn of plenty (empty)","Gryphon feather"]
+#define SLAYER_T1_UNIQUES ["Crawling hand","Cockatrice head","Basilisk head","Kurask head","Mudskipper hat","Flippers","Brine sabre","Leaf-bladed sword","Leaf-bladed battleaxe","Granite longsword","Granite boots","Wyvern visage","Granite legs","Granite helm","Bronze boots","Iron boots","Steel boots","Black boots","Mithril boots","Adamant boots","Dragon sword","Mystic hat (light)","Mystic robe top (light)","Mystic robe bottom (light)","Mystic gloves (light)","Mystic boots (light)","Mystic hat (dark)","Mystic robe top (dark)","Mystic robe bottom (dark)","Mystic gloves (dark)","Mystic boots (dark)","Ancient ceremonial mask","Ancient ceremonial top","Ancient ceremonial legs","Ancient ceremonial gloves","Ancient ceremonial boots","Warped sceptre","Sulphur blades","Earthbound tecpatl","Antler guard","Alchemist's signet","Broken antler","Horn of plenty (empty)","Gryphon feather"]
 
 rule (name:SLAYER_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
@@ -8026,10 +8026,10 @@ rule (area:[2368,5055,0,2560,5185,0] && name:TZHAAR_HIDE) {hidden = true;}
 label: Unique T3
 type: enumlist
 group: Miscellaneous Uniques
-enum: ["Dragon warhammer","Big swordfish","Big shark","Big bass","Long bone","Curved bone","Pharaoh's sceptre (*)","Chewed bones","Dragon full helm","Shield left half","Dragon metal slice","Dragon kiteshield","Dragon metal lump","Dragon platebody","Dragon limbs","Dragon crossbow","Dragon spear","Amulet of eternal glory","Shaman mask","Evil chicken head","Evil chicken wings","Evil chicken legs","Evil chicken feet","Mining gloves","Superior mining gloves","Expert mining gloves","Fresh crab claw","Fresh crab shell","Mask of ranul","Elven signet","Crystal grail","Enhanced crystal teleport seed","Dragonstone full helm","Dragonstone platebody","Dragonstone platelegs","Dragonstone boss_pvms","Dragonstone boots","Merfolk trident","*zombie axe","*zombie helmet","Helmet of the moon","Squid beak"]
+enum: ["Dragon warhammer","Big swordfish","Big shark","Big bass","Giant blue krill","Orangefin","Golden haddock","Huge halibut","Purplefin","Swift marlin","Long bone","Curved bone","Pharaoh's sceptre (*)","Chewed bones","Dragon full helm","Shield left half","Dragon metal slice","Dragon kiteshield","Dragon metal lump","Dragon platebody","Dragon limbs","Dragon crossbow","Dragon spear","Amulet of eternal glory","Shaman mask","Evil chicken head","Evil chicken wings","Evil chicken legs","Evil chicken feet","Mining gloves","Superior mining gloves","Expert mining gloves","Fresh crab claw","Fresh crab shell","Mask of ranul","Elven signet","Crystal grail","Enhanced crystal teleport seed","Dragonstone full helm","Dragonstone platebody","Dragonstone platelegs","Dragonstone gauntlets","Dragonstone boots","Merfolk trident","*zombie axe","*zombie helmet","Helmet of the moon","Squid beak"]
 */
 
-#define MISC_T3_UNIQUES ["Dragon warhammer","Dragon full helm","Dragon metal slice","Dragon metal lump","Dragon kiteshield","Dragon platebody","Amulet of eternal glory","Evil chicken head","Evil chicken wings","Evil chicken legs","Evil chicken feet","Dragonstone full helm","Dragonstone platebody","Dragonstone platelegs","Dragonstone boss_pvms","Dragonstone boots"]
+#define MISC_T3_UNIQUES ["Dragon warhammer","Dragon full helm","Dragon metal slice","Dragon metal lump","Dragon kiteshield","Dragon platebody","Amulet of eternal glory","Evil chicken head","Evil chicken wings","Evil chicken legs","Evil chicken feet","Dragonstone full helm","Dragonstone platebody","Dragonstone platelegs","Dragonstone gauntlets","Dragonstone boots"]
 
 rule (name:MISC_T3_UNIQUES) {UNIQUE_T3_STYLE}
 
@@ -8037,7 +8037,7 @@ rule (name:MISC_T3_UNIQUES) {UNIQUE_T3_STYLE}
 label: Unique T2
 type: enumlist
 group: Miscellaneous Uniques
-enum: ["Dragon warhammer","Big swordfish","Big shark","Big bass","Long bone","Curved bone","Pharaoh's sceptre (*)","Chewed bones","Dragon full helm","Shield left half","Dragon metal slice","Dragon kiteshield","Dragon metal lump","Dragon platebody","Dragon limbs","Dragon crossbow","Dragon spear","Amulet of eternal glory","Shaman mask","Evil chicken head","Evil chicken wings","Evil chicken legs","Evil chicken feet","Mining gloves","Superior mining gloves","Expert mining gloves","Fresh crab claw","Fresh crab shell","Mask of ranul","Elven signet","Crystal grail","Enhanced crystal teleport seed","Dragonstone full helm","Dragonstone platebody","Dragonstone platelegs","Dragonstone boss_pvms","Dragonstone boots","Merfolk trident","*zombie axe","*zombie helmet","Helmet of the moon","Squid beak"]
+enum: ["Dragon warhammer","Big swordfish","Big shark","Big bass","Giant blue krill","Orangefin","Golden haddock","Huge halibut","Purplefin","Swift marlin","Long bone","Curved bone","Pharaoh's sceptre (*)","Chewed bones","Dragon full helm","Shield left half","Dragon metal slice","Dragon kiteshield","Dragon metal lump","Dragon platebody","Dragon limbs","Dragon crossbow","Dragon spear","Amulet of eternal glory","Shaman mask","Evil chicken head","Evil chicken wings","Evil chicken legs","Evil chicken feet","Mining gloves","Superior mining gloves","Expert mining gloves","Fresh crab claw","Fresh crab shell","Mask of ranul","Elven signet","Crystal grail","Enhanced crystal teleport seed","Dragonstone full helm","Dragonstone platebody","Dragonstone platelegs","Dragonstone gauntlets","Dragonstone boots","Merfolk trident","*zombie axe","*zombie helmet","Helmet of the moon","Squid beak"]
 */
 
 #define MISC_T2_UNIQUES ["Curved bone","Pharaoh's sceptre (*)","Dragon limbs","Dragon crossbow","Expert mining gloves","Elven signet","Crystal grail","Enhanced crystal teleport seed","*zombie axe","*zombie helmet","Helmet of the moon"] 
@@ -8048,10 +8048,10 @@ rule (name:MISC_T2_UNIQUES) {UNIQUE_T2_STYLE}
 label: Unique T1
 type: enumlist
 group: Miscellaneous Uniques
-enum: ["Dragon warhammer","Big swordfish","Big shark","Big bass","Long bone","Curved bone","Pharaoh's sceptre (*)","Chewed bones","Dragon full helm","Shield left half","Dragon metal slice","Dragon kiteshield","Dragon metal lump","Dragon platebody","Dragon limbs","Dragon crossbow","Dragon spear","Amulet of eternal glory","Shaman mask","Evil chicken head","Evil chicken wings","Evil chicken legs","Evil chicken feet","Mining gloves","Superior mining gloves","Expert mining gloves","Fresh crab claw","Fresh crab shell","Mask of ranul","Elven signet","Crystal grail","Enhanced crystal teleport seed","Dragonstone full helm","Dragonstone platebody","Dragonstone platelegs","Dragonstone boss_pvms","Dragonstone boots","Merfolk trident","*zombie axe","*zombie helmet","Helmet of the moon","Squid beak"]
+enum: ["Dragon warhammer","Big swordfish","Big shark","Big bass","Giant blue krill","Orangefin","Golden haddock","Huge halibut","Purplefin","Swift marlin","Long bone","Curved bone","Pharaoh's sceptre (*)","Chewed bones","Dragon full helm","Shield left half","Dragon metal slice","Dragon kiteshield","Dragon metal lump","Dragon platebody","Dragon limbs","Dragon crossbow","Dragon spear","Amulet of eternal glory","Shaman mask","Evil chicken head","Evil chicken wings","Evil chicken legs","Evil chicken feet","Mining gloves","Superior mining gloves","Expert mining gloves","Fresh crab claw","Fresh crab shell","Mask of ranul","Elven signet","Crystal grail","Enhanced crystal teleport seed","Dragonstone full helm","Dragonstone platebody","Dragonstone platelegs","Dragonstone gauntlets","Dragonstone boots","Merfolk trident","*zombie axe","*zombie helmet","Helmet of the moon","Squid beak"]
 */
 
-#define MISC_T1_UNIQUES ["Big swordfish","Big shark","Big bass","Long bone","Chewed bones","Shield left half","Dragon spear","Shaman mask","Mining gloves","Superior mining gloves","Fresh crab claw","Fresh crab shell","Mask of ranul","Merfolk trident","Squid beak"]
+#define MISC_T1_UNIQUES ["Big swordfish","Big shark","Big bass","Giant blue krill","Orangefin","Golden haddock","Huge halibut","Purplefin","Swift marlin","Long bone","Chewed bones","Shield left half","Dragon spear","Shaman mask","Mining gloves","Superior mining gloves","Fresh crab claw","Fresh crab shell","Mask of ranul","Merfolk trident","Squid beak"]
 
 rule (name:MISC_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
