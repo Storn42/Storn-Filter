@@ -2667,7 +2667,7 @@ group: Alchemical Hydra
 enum: ["Shark", "Super restore(*)"]
 */
 
-#define ALCHEMICAL_HYDRA_SUPPLY ["Shark", "*Wild pie", "Prayer potion(*)", "Super combat potion(*)"]
+#define ALCHEMICAL_HYDRA_SUPPLY ["Shark","Super restore(*)"]
 
 rule (area:[1355,10254,0,1380,10282,0] && name:ALCHEMICAL_HYDRA_SUPPLY) {SUPPLY_DROP_STYLE}
 
@@ -3800,7 +3800,7 @@ group: General Graardor
 
 #define ENABLE_GENERAL_GRAARDOR_HAMMER true
 
-apply (area:[2848,5316,2,2883,5348,2] && name:["hammer"] && ENABLE_GENERAL_GRAARDOR_HAMMER) {hidden=false;}
+rule (area:[2848,5316,2,2883,5348,2] && name:["hammer"] && ENABLE_GENERAL_GRAARDOR_HAMMER) {hidden=false;}
 
 /*@ define:input:boss_pvm
 label: Bones to Peaches
