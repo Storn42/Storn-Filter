@@ -17657,6 +17657,54 @@ subtitle: Things Too Small for their own Catagory
 */
 
 /*@ define:input:misc
+label: Black Bead
+type: style
+group: Imp Beads
+*/
+
+#define BLACK_BEAD_STYLE \
+	color = "#ff000000";\
+	menuTextColor = "#ff000000";
+
+rule (name:"Black bead") {BLACK_BEAD_STYLE}
+
+/*@ define:input:misc
+label: Red Bead
+type: style
+group: Imp Beads
+*/
+
+#define RED_BEAD_STYLE \
+	color = "#ffff0000";\
+	menuTextColor = "#ffff0000";
+
+rule (name:"Red bead") {RED_BEAD_STYLE}
+
+/*@ define:input:misc
+label: Yellow Bead
+type: style
+group: Imp Beads
+*/
+
+#define YELLOW_BEAD_STYLE \
+	color = "#ffffff00";\
+	menuTextColor = "#ffffff00";
+
+rule (name:"Yellow bead") {YELLOW_BEAD_STYLE}
+
+/*@ define:input:misc
+label: White Bead
+type: style
+group: Imp Beads
+*/
+
+#define WHITE_BEAD_STYLE \
+	color = "#ffffffff"; \
+	menuTextColor = "#ffffffff";
+
+rule (name:"White bead") {WHITE_BEAD_STYLE}
+
+/*@ define:input:misc
 label: Red Spice
 type: style
 group: Spicy Stew
