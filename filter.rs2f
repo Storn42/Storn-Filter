@@ -2827,6 +2827,49 @@ rule (area:[3521,9661,0,3583,9729,3] && name:BARROWS_HIDE) {hidden = true;}
 /*@ define:input:boss_pvm
 label: Unique T3
 type: enumlist
+group: Brutus
+enum: ["Mooleta","Bottomless milk bucket (empty)","Cow slippers","Brutus slippers"]
+*/
+
+#define BRUTUS_S_UNIQUES ["Brutus slippers"]
+
+rule (name:BRUTUS_S_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:boss_pvm
+label: Unique T2
+type: enumlist
+group: Brutus
+enum: ["Mooleta","Bottomless milk bucket (empty)","Cow slippers","Brutus slippers"]
+*/
+
+#define BRUTUS_A_UNIQUES ["Cow slippers"]
+
+rule (name:BRUTUS_A_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:boss_pvm
+label: Unique T1
+type: enumlist
+group: Brutus
+enum: ["Mooleta","Bottomless milk bucket (empty)","Cow slippers","Brutus slippers"]
+*/
+
+#define BRUTUS_B_UNIQUES ["Mooleta","Bottomless milk bucket (empty)"]
+
+rule (name:BRUTUS_B_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:input:boss_pvm
+label: Hide Items
+type: stringlist
+group: Brutus
+*/
+
+#define BRUTUS_HIDE ["Raw t-bone steak", "Bull bones"]
+
+rule (area:[3240,3255,0,3266,3299,0] && name:BRUTUS_HIDE) {hidden = true;}
+
+/*@ define:input:boss_pvm
+label: Unique T3
+type: enumlist
 group: Bryophyta
 enum: ["Bryophyta's essence"]
 */
