@@ -4920,7 +4920,7 @@ rule (area:[2894,9556,0,2931,9583,0] && name:ROYAL_TITANS_SUPPLY) {SUPPLY_DROP_S
 label: Unique T3
 type: enumlist
 group: Sarachnis
-enum: ["Sarachnis cudgel","Jar of eyes","Orange egg sac","Blue egg sac"]
+enum: ["Sarachnis cudgel","Jar of eyes","Orange egg sac","Blue egg sac","Pristine spider silk"]
 */
 
 
@@ -4932,7 +4932,7 @@ rule (name:SARACHNIS_T3_UNIQUES) {UNIQUE_T3_STYLE}
 label: Unique T2
 type: enumlist
 group: Sarachnis
-enum: ["Sarachnis cudgel","Jar of eyes","Orange egg sac","Blue egg sac"]
+enum: ["Sarachnis cudgel","Jar of eyes","Orange egg sac","Blue egg sac","Pristine spider silk"]
 */
 
 #define SARACHNIS_T2_UNIQUES ["Sarachnis cudgel","Orange egg sac","Blue egg sac"] 
@@ -4943,10 +4943,10 @@ rule (name:SARACHNIS_T2_UNIQUES) {UNIQUE_T2_STYLE}
 label: Unique T1
 type: enumlist
 group: Sarachnis
-enum: ["Sarachnis cudgel","Jar of eyes","Orange egg sac","Blue egg sac"]
+enum: ["Sarachnis cudgel","Jar of eyes","Orange egg sac","Blue egg sac","Pristine spider silk"]
 */
 
-#define SARACHNIS_T1_UNIQUES []
+#define SARACHNIS_T1_UNIQUES ["Pristine spider silk"]
 
 rule (name:SARACHNIS_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
