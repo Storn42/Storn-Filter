@@ -9243,16 +9243,16 @@ subtitle: Dont forget your sack!
 /*@ define:input:herbs
 label: Alwasy Show
 type: enumlist
-enum: ["*Guam leaf","*Marrentill","*Tarromin","*Harralander","*Ranarr weed","*Toadflax","*Irit leaf","*Avantoe","*Kwuarm","*Huasca","*Snapdragon","*Cadantine","*Lantadyme","*Dwarf weed","*Torstol"]
+enum: ["*Guam leaf","*Marrentill","*Tarromin","*Harralander","*Ranarr weed","*Toadflax","*Irit leaf","*Avantoe","*Kwuarm","*Huasca","*Snapdragon","*Cadantine","*Lantadyme","*Dwarf weed","*Torstol","Elkhorn coral","Pillar coral","Umbral coral"]
 group: Herbs
 */
 
-#define HERBS_ALWAYS_SHOW ["*Ranarr weed","*Toadflax","*Irit leaf","*Avantoe","*Kwuarm","*Huasca","*Snapdragon","*Cadantine","*Lantadyme","*Dwarf weed","*Torstol"]
+#define HERBS_ALWAYS_SHOW ["*Ranarr weed","*Toadflax","*Irit leaf","*Avantoe","*Kwuarm","*Huasca","*Snapdragon","*Cadantine","*Lantadyme","*Dwarf weed","*Torstol","Elkhorn coral","Pillar coral","Umbral coral"]
 
 /*@ define:input:herbs
 label: Show if Stackable
 type: enumlist
-enum: ["*Guam leaf","*Marrentill","*Tarromin","*Harralander","*Ranarr weed","*Toadflax","*Irit leaf","*Avantoe","*Kwuarm","*Huasca","*Snapdragon","*Cadantine","*Lantadyme","*Dwarf weed","*Torstol"]
+enum: ["*Guam leaf","*Marrentill","*Tarromin","*Harralander","*Ranarr weed","*Toadflax","*Irit leaf","*Avantoe","*Kwuarm","*Huasca","*Snapdragon","*Cadantine","*Lantadyme","*Dwarf weed","*Torstol","Elkhorn coral","Pillar coral","Umbral coral"]
 group: Herbs
 */
 
