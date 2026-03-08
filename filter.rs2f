@@ -4,7 +4,7 @@ name: header
 */
 
 meta {
-    name = "[default: Storn's filter]";
+    name = "Storn's filter";
     description = "Storn's Ironman Focused Filter";
 	}
 
