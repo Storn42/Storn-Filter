@@ -63,7 +63,7 @@ type: boolean
 group: Show
 */
 
-#define SHOW_OTHER_DROPS false
+#define SHOW_OTHER_DROPS true
 
 apply (!SHOW_OTHER_DROPS && ownership:2) {hidden = true;}
 
@@ -76,7 +76,7 @@ type: boolean
 group: Show
 */
 
-#define SHOW_DEPSAWN_TIMER true
+#define SHOW_DEPSAWN_TIMER false
 
 apply (SHOW_DEPSAWN_TIMER) {showDespawn = true;}
 
@@ -86,7 +86,7 @@ type: boolean
 group: Show
 */
 
-#define SHOW_ITEM_VALUE true
+#define SHOW_ITEM_VALUE false
 
 apply (SHOW_ITEM_VALUE) {showValue = true;}
 
