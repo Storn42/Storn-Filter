@@ -63,7 +63,7 @@ type: boolean
 group: Show
 */
 
-#define SHOW_OTHER_DROPS true
+#define SHOW_OTHER_DROPS false
 
 apply (!SHOW_OTHER_DROPS && ownership:2) {hidden = true;}
 
