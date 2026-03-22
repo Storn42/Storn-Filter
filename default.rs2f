@@ -5,7 +5,7 @@ name: header
 
 meta {
     name = "[default: Storn's filter]";
-    description = "Storn's Ironman Focused Filter";
+    description = "Storn's Original Filter.                              Highlights items based on Catagory    and GE Value";
 	}
 
 /*@ define:module:greetings
