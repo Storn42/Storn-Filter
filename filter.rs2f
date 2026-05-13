@@ -3861,7 +3861,7 @@ apply (area:[2863,5350,2,2878,5374,2] && name:["Bones", "Big Bones"] && ENABLE_G
 label: Unique T3
 type: enumlist
 group: Giant Mole
-enum: ["Mole claw", "Mole skin"]
+enum: ["Mole claw", "Mole skin","Immaculate mole skin"]
 */
 
 #define GIANT_MOLE_T3_UNIQUES []
@@ -3872,10 +3872,10 @@ rule (name:GIANT_MOLE_T3_UNIQUES) {UNIQUE_T3_STYLE}
 label: Unique T2
 type: enumlist
 group: Giant Mole
-enum: ["Mole claw", "Mole skin"]
+enum: ["Mole claw", "Mole skin","Immaculate mole skin"]
 */
 
-#define GIANT_MOLE_T2_UNIQUES [] 
+#define GIANT_MOLE_T2_UNIQUES ["Immaculate mole skin"] 
 
 rule (name:GIANT_MOLE_T2_UNIQUES) {UNIQUE_T2_STYLE}
 
@@ -3883,7 +3883,7 @@ rule (name:GIANT_MOLE_T2_UNIQUES) {UNIQUE_T2_STYLE}
 label: Unique T1
 type: enumlist
 group: Giant Mole
-enum: ["Mole claw", "Mole skin"]
+enum: ["Mole claw", "Mole skin","Immaculate mole skin"]
 */
 
 #define GIANT_MOLE_T1_UNIQUES ["Mole claw", "Mole skin"]
