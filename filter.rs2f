@@ -1323,6 +1323,39 @@ group: Elder Chaos Druids/Zombie Pirates
 
 SUPPLY_DROP_RULESET([3216,3587,0,3261,3634,0], CHAOS_PIRATES_SUPPLY)
 
+/*@ define:input:slayer_pvm
+label: Hide Items
+type: stringlist
+group: Frost Dragons
+*/
+
+#define FROST_DRAGON_HIDE []
+
+rule (area:[2891,10450,0,2920,10477,0] && name:FROST_DRAGON_HIDE) {hidden = true;}
+rule (area:[2845,10443,0,2884,10482,0] && name:FROST_DRAGON_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Show Items
+type: stringlist
+group: Frost Dragons
+*/
+
+#define FROST_DRAGON_SHOW []
+
+FORCE_SHOW_RULESET([2891,10450,0,2920,10477,0], FROST_DRAGON_SHOW)
+FORCE_SHOW_RULESET([2845,10443,0,2884,10482,0], FROST_DRAGON_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Supply Drop
+type: enumlist
+enum: ["Apple pie"]
+group: Frost Dragons
+*/
+
+#define FROST_DRAGON_SUPPLY []
+
+SUPPLY_DROP_RULESET([2891,10450,0,2920,10477,0], FROST_DRAGON_SUPPLY)
+SUPPLY_DROP_RULESET([2845,10443,0,2884,10482,0], FROST_DRAGON_SUPPLY)
 
 /*@ define:input:slayer_pvm
 label: Myths' Guild Basement - Hide Items
