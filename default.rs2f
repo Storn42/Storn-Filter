@@ -2064,6 +2064,40 @@ group: Lava Dragons
 SUPPLY_DROP_RULESET([3174,3800,0,3234,3856,0], LAVA_DRAGON_SUPPLY)
 
 /*@ define:input:slayer_pvm
+label: Hide Items
+type: stringlist
+group: Lava Strykewyrms
+*/
+
+#define LAVA_STRYKEWYRM_HIDE []
+
+rule (area:[2710,8851,0,2733,8875,0] && name:LAVA_STRYKEWYRM_HIDE) {hidden = true;}
+rule (area:[2722,8875,0,2743,8893,0] && name:LAVA_STRYKEWYRM_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Show Items
+type: stringlist
+group: Lava Strykewyrms
+*/
+
+#define LAVA_STRYKEWYRM_SHOW []
+
+FORCE_SHOW_RULESET([2710,8851,0,2733,8875,0], LAVA_STRYKEWYRM_SHOW)
+FORCE_SHOW_RULESET([2722,8875,0,2743,8893,0], LAVA_STRYKEWYRM_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Supply Drop
+type: enumlist
+enum: ["Chilli potato"]
+group: Lava Strykewyrms
+*/
+
+#define LAVA_STRYKEWYRM_SUPPLY []
+
+SUPPLY_DROP_RULESET([2710,8851,0,2733,8875,0], LAVA_STRYKEWYRM_SUPPLY)
+SUPPLY_DROP_RULESET([2722,8875,0,2743,8893,0], LAVA_STRYKEWYRM_SUPPLY)
+
+/*@ define:input:slayer_pvm
 label: Catacombs of Kourend - Hide Items
 type: stringlist
 group: Lesser Demons
