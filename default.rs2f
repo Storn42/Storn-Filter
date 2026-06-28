@@ -2069,7 +2069,7 @@ type: stringlist
 group: Lava Strykewyrms
 */
 
-#define LAVA_STRYKEWYRM_HIDE []
+#define LAVA_STRYKEWYRM_HIDE ["fire orb"]
 
 rule (area:[2710,8851,0,2733,8875,0] && name:LAVA_STRYKEWYRM_HIDE) {hidden = true;}
 rule (area:[2722,8875,0,2743,8893,0] && name:LAVA_STRYKEWYRM_HIDE) {hidden = true;}
