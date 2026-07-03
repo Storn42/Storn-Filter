@@ -2843,7 +2843,7 @@ rule (area:[3607,9795,0,3651,9837,0] && name:ARAXXOR_HIDE) {hidden = true;}
 label: Supply Drop
 type: enumlist
 group: Araxxor
-enum: ["Shark", "*Wild pie", "Prayer potion(*)", "Super combat potion(*)", "Araxyte venom sack"]
+enum: ["Shark", "*Wild pie", "Prayer potion(*)", "Super combat potion(*)", "Araxyte venom sac"]
 */
 
 #define ARAXXOR_SUPPLY ["Shark", "*Wild pie", "Prayer potion(*)"]
@@ -9434,7 +9434,7 @@ type: stringlist
 group: Secondaries
 */
 
-#define HERBLORE_SECONDARIES_ALWAYS_SHOW ["Volcanic ash","Giant egg sac","Aldarium","Scaly blue dragonhide","Nail beast nails","Magic roots","Nihil dust","Lily of the sands","Crushed superior dragon bones","Crystal dust", "Swamp tar","Lava scale*","Araxyte venom sack"]
+#define HERBLORE_SECONDARIES_ALWAYS_SHOW ["Volcanic ash","Giant egg sac","Aldarium","Scaly blue dragonhide","Nail beast nails","Magic roots","Nihil dust","Lily of the sands","Crushed superior dragon bones","Crystal dust", "Swamp tar","Lava scale*","Araxyte venom sac"]
 
 /*@ define:input:herblore_secondaries
 label: Show only if Stackable
