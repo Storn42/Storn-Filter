@@ -4603,6 +4603,49 @@ enum: ["Sea turtle", "Prayer potion(*)", "Ranging potion(*)", "Anglerfish"]
 rule (area:[2068,6360,0,2096,6386,3] && name:LEVIATHAN_SUPPLY) {SUPPLY_DROP_STYLE}
 
 /*@ define:input:boss_pvm
+label: SS Tier Uniques
+type: enumlist
+group: Maggot King
+enum: ["Elder venator fang","Etched elder venator fang","Necklace of rupture","Crimson kisten"]
+*/
+
+#define MAGGOT_KING_T3_UNIQUES ["Elder venator fang","Etched elder venator fang","Necklace of rupture","Crimson kisten"]
+
+rule (name:MAGGOT_KING_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:boss_pvm
+label: S Tier Uniques
+type: enumlist
+group: Maggot King
+enum: ["Elder venator fang","Etched elder venator fang","Necklace of rupture","Crimson kisten"]
+*/
+
+#define MAGGOT_KING_T2_UNIQUES []
+
+rule (name:MAGGOT_KING_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:boss_pvm
+label: A Tier Uniques
+type: enumlist
+group: Maggot King
+enum: ["Elder venator fang","Etched elder venator fang","Necklace of rupture","Crimson kisten"]
+*/
+
+#define MAGGOT_KING_T1_UNIQUES []
+
+rule (name:MAGGOT_KING_T1_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:input:boss_pvm
+label: Hide Items
+type: stringlist
+group: Maggot King
+*/
+
+#define MAGGOT_KING_HIDE []
+
+rule (area:[2902,8030,0,2921,8038,0] && name:MAGGOT_KING_HIDE) {hidden = true;}
+
+/*@ define:input:boss_pvm
 label: Unique T3
 type: enumlist
 group: Moons of Peril
