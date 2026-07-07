@@ -4646,6 +4646,17 @@ group: Maggot King
 rule (area:[2902,8030,0,2921,8038,0] && name:MAGGOT_KING_HIDE) {hidden = true;}
 
 /*@ define:input:boss_pvm
+label: Supply Drop
+type: enumlist
+group: Maggot King
+enum: ["Stymphike tartare","Dull ancient medal"]
+*/
+
+#define MAGGOT_KING_SUPPLY ["Stymphike tartare","Dull ancient medal"]
+
+rule (area:[2902,8030,0,2921,8038,0] && name:MAGGOT_KING_SUPPLY) {SUPPLY_DROP_STYLE}
+
+/*@ define:input:boss_pvm
 label: Unique T3
 type: enumlist
 group: Moons of Peril
