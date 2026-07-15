@@ -8232,7 +8232,7 @@ type: stringlist
 group: Alchs
 */
 
-#define ALCHS_NAMES ["* dagger", "*axe", "* mace", "* claws", "* sword", "* Longsword", "* scimitar", "* spear", "* warhammer", "* Battleaxe", "* 2h sword", "* halberd", "* hasta", "* pickaxe", "* full helm", "* platebody", "* platelegs", "* plateskirt", "* kiteshield", "* med helm", "* chainbody", "* sq shield", "* boots", "* crossbow", "*battlestaff", "mystic *", "*d'hide*", "Onyx bolts*", "Tiny pearl", "Small pearl", "Shiny pearl", "Bright pearl", "Big pearl", "Huge pearl", "Enormous pearl", "Shimmering pearl", "Glistening peatl", "Brilliant pearl", "Radiant pearl", "Orikalkum gravel"]
+#define ALCHS_NAMES ["* dagger", "*axe", "* mace", "* claws", "* sword", "* Longsword", "* scimitar", "* spear", "* warhammer", "* Battleaxe", "* 2h sword", "* halberd", "* hasta", "* pickaxe", "* full helm", "* platebody", "* platelegs", "* plateskirt", "* kiteshield", "* med helm", "* chainbody", "* sq shield", "* boots", "* crossbow", "*battlestaff", "mystic *", "*d'hide*", "Onyx bolts*", "Tiny pearl", "Small pearl", "Shiny pearl", "Bright pearl", "Big pearl", "Huge pearl", "Enormous pearl", "Shimmering pearl", "Glistening peatl", "Brilliant pearl", "Radiant pearl", "Orikalkum gravel","Tarnished 2h sword", "Tarnished amulet", "Tarnished battleaxe", "Tarnished halberd", "Tarnished longsword", "Tarnished necklace", "Tarnished bracelet", "Tarnished ring", "Tarnished spear"]
 
 /*@ define:input:alchs
 label: non-alchable Items
