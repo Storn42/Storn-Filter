@@ -5,7 +5,7 @@ name: header
 
 meta {
     name = "Storn's filter";
-    description = "Storn's Original Filter.                              Highlights items based on Catagory    and GE Value";
+    description = "Storn's Original Filter.                              Highlights items based on Category    and GE Value";
 	}
 
 /*@ define:module:greetings
@@ -625,6 +625,7 @@ apply (_hidecondition && name:HIDE_USER_UNNOTED && stackable:false) {hidden = fa
 /*@ define:module:uniques
 name: Uniques 
 subtitle: Style your Collection Log drops 
+description: Uniques Item Tier Placement can be found under their Boss/Raid/Collection Log Category 
 */
 
 /*@ define:input:uniques
@@ -17819,7 +17820,7 @@ rule (name: "Ensouled * head" && !name: ENSOULED_HEADS_NAMES) {hidden=true;}
 
 /*@ define:module:misc
 name: Miscellaneous
-subtitle: Things Too Small for their own Catagory  
+subtitle: Things Too Small for their own Category  
 */
 
 /*@ define:input:misc
@@ -17921,7 +17922,7 @@ rule (name:"Orange spice*") {ORANGE_SPICE_STYLE}
 
 /*@ define:module:fallback
 name: Fallback Tier Styles
-subtitle: For Items that haven't been Changed by Other Catagories
+subtitle: For Items that haven't been Changed by Other Categories
 description: If you find anything 
 */
 
