@@ -66,6 +66,7 @@ group: Show
 #define SHOW_OTHER_DROPS false
 
 apply (!SHOW_OTHER_DROPS && ownership:2) {hidden = true;}
+apply (!accountType:0 && ownership:2) {hidden = true;}
 
 #define FORCE_SHOW_RULESET(_area, _name) \
 apply (area:_area && name:_name && (!ownership:2 || SHOW_OTHER_DROPS)) {hidden = false;}
