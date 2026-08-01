@@ -751,6 +751,222 @@ group: Extra Food & Potions
 
 #define EXTRA_FOOD_3_NAMES []
 
+/*@ define:input:food_and_pots
+label: Extra Food 4
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_4_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 5
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_5_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 6
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_6_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 7
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_7_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 8
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_8_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 9
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_9_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 10
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_10_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 11
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_11_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 12
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_12_NAMES []
+
+
+/*@ define:input:food_and_pots
+label: Extra Food 13
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_13_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 14
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_14_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 15
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_15_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 16
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_16_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 17
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_17_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 18
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_18_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 19
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_19_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 20
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_20_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 21
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_21_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 22
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_22_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 23
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_23_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 24
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_24_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 25
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_25_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 26
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_26_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 27
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_27_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 28
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_28_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 29
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_29_NAMES []
+
+/*@ define:input:food_and_pots
+label: Extra Food 30
+type: stringlist
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_30_NAMES []
 
 /*@ define:input:food_and_pots
 label: Extra Food 1
@@ -776,10 +992,253 @@ group: Extra Food & Potions
 
 #define EXTRA_FOOD_3_STYLE
 
-rule (name:EXTRA_FOOD_1_NAMES && stackable:false) {EXTRA_FOOD_1_STYLE}
-rule (name:EXTRA_FOOD_2_NAMES && stackable:false) {EXTRA_FOOD_2_STYLE}
-rule (name:EXTRA_FOOD_3_NAMES && stackable:false) {EXTRA_FOOD_3_STYLE}
+/*@ define:input:food_and_pots
+label: Extra Food 4
+type: style
+group: Extra Food & Potions
+*/
 
+#define EXTRA_FOOD_4_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 5
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_5_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 6
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_6_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 7
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_7_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 8
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_8_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 9
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_9_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 10
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_10_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 11
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_11_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 12
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_12_STYLE
+
+
+/*@ define:input:food_and_pots
+label: Extra Food 13
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_13_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 14
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_14_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 15
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_15_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 16
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_16_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 17
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_17_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 18
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_18_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 19
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_19_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 20
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_20_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 21
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_21_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 22
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_22_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 23
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_23_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 24
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_24_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 25
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_25_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 26
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_26_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 27
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_27_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 28
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_28_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 29
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_29_STYLE
+
+/*@ define:input:food_and_pots
+label: Extra Food 30
+type: style
+group: Extra Food & Potions
+*/
+
+#define EXTRA_FOOD_30_STYLE
+
+rule (name:EXTRA_FOOD_1_NAMES && noted:false) {EXTRA_FOOD_1_STYLE}
+rule (name:EXTRA_FOOD_2_NAMES && noted:false) {EXTRA_FOOD_2_STYLE}
+rule (name:EXTRA_FOOD_3_NAMES && noted:false) {EXTRA_FOOD_3_STYLE}
+rule (name:EXTRA_FOOD_4_NAMES && noted:false) {EXTRA_FOOD_4_STYLE}
+rule (name:EXTRA_FOOD_5_NAMES && noted:false) {EXTRA_FOOD_5_STYLE}
+rule (name:EXTRA_FOOD_6_NAMES && noted:false) {EXTRA_FOOD_6_STYLE}
+rule (name:EXTRA_FOOD_7_NAMES && noted:false) {EXTRA_FOOD_7_STYLE}
+rule (name:EXTRA_FOOD_8_NAMES && noted:false) {EXTRA_FOOD_8_STYLE}
+rule (name:EXTRA_FOOD_9_NAMES && noted:false) {EXTRA_FOOD_9_STYLE}
+rule (name:EXTRA_FOOD_10_NAMES && noted:false) {EXTRA_FOOD_10_STYLE}
+rule (name:EXTRA_FOOD_11_NAMES && noted:false) {EXTRA_FOOD_11_STYLE}
+rule (name:EXTRA_FOOD_12_NAMES && noted:false) {EXTRA_FOOD_12_STYLE}
+rule (name:EXTRA_FOOD_13_NAMES && noted:false) {EXTRA_FOOD_13_STYLE}
+rule (name:EXTRA_FOOD_14_NAMES && noted:false) {EXTRA_FOOD_14_STYLE}
+rule (name:EXTRA_FOOD_15_NAMES && noted:false) {EXTRA_FOOD_15_STYLE}
+rule (name:EXTRA_FOOD_16_NAMES && noted:false) {EXTRA_FOOD_16_STYLE}
+rule (name:EXTRA_FOOD_17_NAMES && noted:false) {EXTRA_FOOD_17_STYLE}
+rule (name:EXTRA_FOOD_18_NAMES && noted:false) {EXTRA_FOOD_18_STYLE}
+rule (name:EXTRA_FOOD_19_NAMES && noted:false) {EXTRA_FOOD_19_STYLE}
+rule (name:EXTRA_FOOD_20_NAMES && noted:false) {EXTRA_FOOD_20_STYLE}
+rule (name:EXTRA_FOOD_21_NAMES && noted:false) {EXTRA_FOOD_21_STYLE}
+rule (name:EXTRA_FOOD_22_NAMES && noted:false) {EXTRA_FOOD_22_STYLE}
+rule (name:EXTRA_FOOD_23_NAMES && noted:false) {EXTRA_FOOD_23_STYLE}
+rule (name:EXTRA_FOOD_24_NAMES && noted:false) {EXTRA_FOOD_24_STYLE}
+rule (name:EXTRA_FOOD_25_NAMES && noted:false) {EXTRA_FOOD_25_STYLE}
+rule (name:EXTRA_FOOD_26_NAMES && noted:false) {EXTRA_FOOD_26_STYLE}
+rule (name:EXTRA_FOOD_27_NAMES && noted:false) {EXTRA_FOOD_27_STYLE}
+rule (name:EXTRA_FOOD_28_NAMES && noted:false) {EXTRA_FOOD_28_STYLE}
+rule (name:EXTRA_FOOD_29_NAMES && noted:false) {EXTRA_FOOD_29_STYLE}
+rule (name:EXTRA_FOOD_30_NAMES && noted:false) {EXTRA_FOOD_30_STYLE}
 
 /*@ define:module:slayer_pvm
 name: Monsters
