@@ -3360,9 +3360,9 @@ group: Brutus
 enum: ["Mooleta","Bottomless milk bucket (empty)","Cow slippers","Brutus slippers"]
 */
 
-#define BRUTUS_S_UNIQUES ["Brutus slippers"]
+#define BRUTUS_T3_UNIQUES ["Brutus slippers"]
 
-rule (name:BRUTUS_S_UNIQUES) {UNIQUE_T3_STYLE}
+rule (name:BRUTUS_T3_UNIQUES) {UNIQUE_T3_STYLE}
 
 /*@ define:input:boss_pvm
 label: Unique T2
@@ -3371,9 +3371,9 @@ group: Brutus
 enum: ["Mooleta","Bottomless milk bucket (empty)","Cow slippers","Brutus slippers"]
 */
 
-#define BRUTUS_A_UNIQUES ["Cow slippers"]
+#define BRUTUS_T2_UNIQUES ["Cow slippers"]
 
-rule (name:BRUTUS_A_UNIQUES) {UNIQUE_T2_STYLE}
+rule (name:BRUTUS_T2_UNIQUES) {UNIQUE_T2_STYLE}
 
 /*@ define:input:boss_pvm
 label: Unique T1
@@ -3382,9 +3382,9 @@ group: Brutus
 enum: ["Mooleta","Bottomless milk bucket (empty)","Cow slippers","Brutus slippers"]
 */
 
-#define BRUTUS_B_UNIQUES ["Mooleta","Bottomless milk bucket (empty)"]
+#define BRUTUS_T1_UNIQUES ["Mooleta","Bottomless milk bucket (empty)"]
 
-rule (name:BRUTUS_B_UNIQUES) {UNIQUE_T1_STYLE}
+rule (name:BRUTUS_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 /*@ define:input:boss_pvm
 label: Hide Items
@@ -5061,6 +5061,60 @@ enum: ["Sea turtle", "Prayer potion(*)", "Ranging potion(*)", "Anglerfish"]
 #define LEVIATHAN_SUPPLY ["Sea turtle", "Prayer potion(*)", "Anglerfish"]
 
 rule (area:[2068,6360,0,2096,6386,3] && name:LEVIATHAN_SUPPLY) {SUPPLY_DROP_STYLE}
+
+/*@ define:input:boss_pvm
+label: Unique T3
+type: enumlist
+group: Mad Angel
+enum: ["Hallowfell","Jar of light"]
+*/
+
+#define MAD_ANGEL_A_UNIQUES ["Jar of light"]
+
+rule (name:MAD_ANGEL_A_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:boss_pvm
+label: Unique T2
+type: enumlist
+group: Mad Angel
+enum: ["Hallowfell","Jar of light"]
+*/
+
+#define MAD_ANGEL_B_UNIQUES ["Hallowfell"]
+
+rule (name:MAD_ANGEL_B_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:boss_pvm
+label: Unique T1
+type: enumlist
+group: Mad Angel
+enum: ["Hallowfell","Jar of light"]
+*/
+
+#define MAD_ANGEL_C_UNIQUES []
+
+rule (name:MAD_ANGEL_C_UNIQUES) {UNIQUE_T1_STYLE}
+
+/*@ define:input:boss_pvm
+label: Hide Items
+type: stringlist
+group: Mad Angel
+*/
+
+#define MAD_ANGEL_HIDE ["Papyrus"]
+
+rule (area:[2518,2202,0,2546,2228,0] && name:MAD_ANGEL_HIDE) {hidden = true;}
+
+/*@ define:input:boss_pvm
+label: Supply Drop
+type: enumlist
+group: Mad Angel
+enum: ["Prayer potion(*)","Super combat potion(*)","Shark","Yellowfin"]
+*/
+
+#define MAD_ANGEL_SUPPLY ["Prayer potion(*)","Super combat potion(*)","Shark","Yellowfin"]
+
+rule (area:[2518,2202,0,2546,2228,0] && name:MAD_ANGEL_SUPPLY) {SUPPLY_DROP_STYLE}
 
 /*@ define:input:boss_pvm
 label: SS Tier Uniques
