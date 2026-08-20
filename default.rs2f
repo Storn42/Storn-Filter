@@ -6988,7 +6988,6 @@ exampleItem: Mallignum root plank
 
 rule (name:"Mallignum root plank"){COX_PLANKS}
 
-
 /*@ define:input:cox
 label: Golpar Seeds
 type: style
@@ -6996,11 +6995,11 @@ group: Raid Items
 exampleItem: Golpar seed
 */
 
-#define COX_GOLPAR \
+#define COX_GOLPAR_SEED \
 	fontType = 2;\
 	backgroundColor = "#669F99DB";
 	
-rule (name:"Golpar seed"){COX_GOLPAR}
+rule (name:"Golpar seed"){COX_GOLPAR_SEED}
 
 /*@ define:input:cox
 label: Buchu seeds
@@ -7009,11 +7008,11 @@ group: Raid Items
 exampleItem: Buchu seed
 */
 
-#define COX_BUCHU \
+#define COX_BUCHU_SEED \
 	fontType = 2;\
 	backgroundColor = "#66A04039";
 	
-rule (name:"Buchu seed"){COX_BUCHU}
+rule (name:"Buchu seed"){COX_BUCHU_SEED}
 
 /*@ define:input:cox
 label: Noxifer Seeds
@@ -7022,11 +7021,47 @@ group: Raid Items
 exampleItem: Noxifer seed
 */
 
-#define COX_NOXIFER \
+#define COX_NOXIFER_SEED \
 	fontType = 2;\
 	backgroundColor = "#663D348F";
 
-rule (name:"Noxifer seed"){COX_NOXIFER}
+rule (name:"Noxifer seed"){COX_NOXIFER_SEED}
+
+/*@ define:input:cox
+label: Golpar Herbs
+type: style
+group: Raid Items
+exampleItem: Grimy golpar
+*/
+
+#define COX_GOLPAR_HERB \
+	backgroundColor = "#FF9F99DB";
+	
+rule (name:["Golpar","Grimy golpar"]){COX_GOLPAR_HERB}
+
+/*@ define:input:cox
+label: Buchu Herbs
+type: style
+group: Raid Items
+exampleItem: Grimy buchu
+*/
+
+#define COX_BUCHU_HERB \
+	backgroundColor = "#FFA04039";
+	
+rule (name:["Buchu", "Grimy buchu"]){COX_BUCHU_HERB}
+
+/*@ define:input:cox
+label: Noxifer Herbs
+type: style
+group: Raid Items
+exampleItem: Grimy noxifer
+*/
+
+#define COX_NOXIFER_HERB \
+	textColor = "#FF3D348F";
+
+rule (name:["Noxifer","Grimy noxifer"]){COX_NOXIFER_HERB}
 
 /*@ define:input:cox
 label: Hide Items
