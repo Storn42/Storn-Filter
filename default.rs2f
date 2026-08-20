@@ -7035,7 +7035,7 @@ exampleItem: Grimy golpar
 */
 
 #define COX_GOLPAR_HERB \
-	backgroundColor = "#FF9F99DB";
+	textColor = "#FF9F99DB";
 	
 rule (name:["Golpar","Grimy golpar"]){COX_GOLPAR_HERB}
 
@@ -7047,7 +7047,7 @@ exampleItem: Grimy buchu
 */
 
 #define COX_BUCHU_HERB \
-	backgroundColor = "#FFA04039";
+	textColor = "#FFA04039";
 	
 rule (name:["Buchu", "Grimy buchu"]){COX_BUCHU_HERB}
 
