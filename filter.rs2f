@@ -710,8 +710,8 @@ exampleItem: Saradomin brew(4)
     fontType = 3; \
     showLootbeam = true;
 
-rule (name:MYFOOD_NAMES && stackable:false) {MYFOOD_STYLE}
-rule (name:MYPOTS_NAMES && stackable:false) {MYPOTS_STYLE}
+rule (name:MYFOOD_NAMES && noted:false) {MYFOOD_STYLE}
+rule (name:MYPOTS_NAMES && noted:false) {MYPOTS_STYLE}
 
 /*@ define:input:food_and_pots
 label: Supply Drops
@@ -725,7 +725,7 @@ exampleItem: Wild pie
 	hidden = false;
 	
 #define SUPPLY_DROP_RULESET(_area, _name) \
-rule (area:_area && name:_name && (!ownership:2 || SHOW_OTHER_DROPS)) {SUPPLY_DROP_STYLE}
+rule (area:_area && name:_name && (!ownership:2 || SHOW_OTHER_DROPS) && noted:false) {SUPPLY_DROP_STYLE}
 
 /*@ define:input:food_and_pots
 label: Extra Food 1
@@ -3144,7 +3144,7 @@ enum: ["Chilli potato", "Super restore(*)", "Saradomin brew(*)"]
 
 #define ABYSSAL_SIRE_SUPPLY ["Chilli potato", "Super restore(*)", "Saradomin brew(*)"]
 
-rule (area:[2949,4737,0,3135,4865,0] && name:ABYSSAL_SIRE_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([2949,4737,0,3135,4865,0], ABYSSAL_SIRE_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -3198,7 +3198,7 @@ enum: ["Shark", "Super restore(*)"]
 
 #define ALCHEMICAL_HYDRA_SUPPLY ["Shark","Super restore(*)"]
 
-rule (area:[1355,10254,0,1380,10282,0] && name:ALCHEMICAL_HYDRA_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([1355,10254,0,1380,10282,0], ALCHEMICAL_HYDRA_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -3253,7 +3253,7 @@ group: Amoxliatl
 
 #define AMOXLIATL_SUPPLY ["Prayer potion(*)"]
 
-rule (area:[1346,4493,0,1388,4530,0] && name:AMOXLIATL_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([1346,4493,0,1388,4530,0], AMOXLIATL_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -3308,7 +3308,7 @@ enum: ["Shark", "*Wild pie", "Prayer potion(*)", "Super combat potion(*)", "Arax
 
 #define ARAXXOR_SUPPLY ["Shark", "*Wild pie", "Prayer potion(*)"]
 
-rule (area:[3607,9795,0,3651,9837,0] && name:ARAXXOR_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([3607,9795,0,3651,9837,0], ARAXXOR_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -3529,8 +3529,8 @@ enum: ["Blighted anglerfish","Blighted karambwan","Blighted super restore(*)","R
 
 #define CALLISTO_AND_ARTIO_SUPPLY ["Blighted anglerfish","Blighted karambwan","Blighted super restore(*)","Ranging potion(*)","Super combat potion(*)","Dark crab","Super restore(*)"]
 
-rule (area:[3336,10306,0,3383,10349,0] && name:CALLISTO_AND_ARTIO_SUPPLY && stackable:false) {SUPPLY_DROP_STYLE}
-rule (area:[1739,11522,0,1782,11566,0] && name:CALLISTO_AND_ARTIO_SUPPLY && stackable:false) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([3336,10306,0,3383,10349,0], CALLISTO_AND_ARTIO_SUPPLY)
+SUPPLY_DROP_RULESET([1739,11522,0,1782,11566,0], CALLISTO_AND_ARTIO_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -3584,7 +3584,7 @@ enum: ["Super restore(*)", "*Summer pie"]
 
 #define CERBERUS_SUPPLY ["Super restore(*)", "*Summer pie"]
 
-rule (area:[1211,1213,0,1390,1346,0] && name:CERBERUS_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([1211,1213,0,1390,1346,0], CERBERUS_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Hide Items
@@ -3605,7 +3605,7 @@ enum: ["Blighted anglerfish", "Blighted karambwan", "Blighted super restore(*)",
 
 #define CHAOS_ELEMENTAL_SUPPLY ["Blighted anglerfish", "Blighted karambwan", "Blighted super restore(*)"]
 
-rule (area:[3172,3904,0,3300,3967,0] && name:CHAOS_ELEMENTAL_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([3172,3904,0,3300,3967,0], CHAOS_ELEMENTAL_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -3660,7 +3660,7 @@ enum: ["Monkfish", "Shark", "Prayer potion(*)"]
 
 #define CHAOS_FANATIC_SUPPLY ["Prayer potion(*)"]
 
-rule (area:[2961,3830,0,2995,3856,0] && name:CHAOS_FANATIC_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([2961,3830,0,2995,3856,0], CHAOS_FANATIC_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -3715,7 +3715,7 @@ enum: ["Monkfish", "*Summer pie", "Prayer potion(*)","Super defence(*)","Magic p
 
 #define COMMANDER_ZILYANA_SUPPLY ["Monkfish", "*Summer pie", "Prayer potion(*)", "Saradomin brew(*)", "Super restore(*)"]
 
-rule (area:[2884,5255,0,2909,5278,0] && name:COMMANDER_ZILYANA_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([2884,5255,0,2909,5278,0], COMMANDER_ZILYANA_SUPPLY)
 
 
 /*@ define:input:boss_pvm
@@ -3782,7 +3782,7 @@ enum: ["Tuna potato"]
 
 #define CORPOREAL_BEAST_SUPPLY ["Tuna potato"]
 
-rule (area:[2884,5255,0,2909,5278,0] && name:CORPOREAL_BEAST_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([2884,5255,0,2909,5278,0], CORPOREAL_BEAST_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -3837,7 +3837,7 @@ enum: ["Shark","Potato with cheese","Prayer potion(*)"]
 
 #define CRAZY_ARCHAEOLOGIST_SUPPLY ["Shark","Potato with cheese","Prayer potion(*)"]
 
-rule (area:[2950,3675,0,3008,3724,0] && name:CRAZY_ARCHAEOLOGIST_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([2950,3675,0,3008,3724,0], CRAZY_ARCHAEOLOGIST_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -3892,7 +3892,7 @@ enum: ["Bass", "Swordfish", "Shark"]
 
 #define DAGANNOTH_KINGS_SUPPLY ["Swordfish", "Shark"]
 
-rule (area:[2889,4362,0,2937,4473,0] && name:DAGANNOTH_KINGS_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([2889,4362,0,2937,4473,0], DAGANNOTH_KINGS_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -4056,7 +4056,7 @@ enum: ["*Pineapple pizza", "Prayer potion(*)", "Super combat potion(*)"]
 
 #define DUKE_SUCELLUS_SUPPLY ["*Pineapple pizza", "Prayer potion(*)"]
 
-rule (area:[3027,6433,0,3052,6459,0] && name:DUKE_SUCELLUS_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([3027,6433,0,3052,6459,0], DUKE_SUCELLUS_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -4362,7 +4362,7 @@ enum: ["Super restore(*)", "Shark", "Chilli potato"]
 
 #define GENERAL_GRAARDOR_SUPPLY ["Super restore(*)", "Shark", "Chilli potato"]
 
-rule (area:[2863,5350,2,2878,5374,2] && name:GENERAL_GRAARDOR_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([2863,5350,2,2878,5374,2], GENERAL_GRAARDOR_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Show Hammer
@@ -4437,7 +4437,7 @@ enum: ["Shark"]
 
 #define GIANT_MOLE_SUPPLY ["Shark"]
 
-rule (area:[1728,5129,0,1792,5247,0] && name:GIANT_MOLE_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([1728,5129,0,1792,5247,0], GIANT_MOLE_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -4492,7 +4492,7 @@ enum: ["Mushroom potato", "Saradomin brew(*)", "Magic potion(*)", "Ranging potio
 
 #define GROTESQUE_GUARDIANS_SUPPLY ["Mushroom potato", "Saradomin brew(*)", "Prayer potion(*)"]
 
-rule (area:[1671,4549,0,1724,4603,0] && name:GROTESQUE_GUARDIANS_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([1671,4549,0,1724,4603,0], GROTESQUE_GUARDIANS_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -4696,7 +4696,7 @@ enum: ["Monkfish", "Shark", "Dark crab", "Saradomin brew(*)", "Prayer potion(*)"
 
 #define KALPHITE_QUEEN_SUPPLY ["Monkfish", "Shark", "Dark crab", "Saradomin brew(*)", "Prayer potion(*)", "Super restore(*)"]
 
-rule (area:[3464,9480,0,3510,9521,0] && name:KALPHITE_QUEEN_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([3464,9480,0,3510,9521,0], KALPHITE_QUEEN_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -4751,7 +4751,7 @@ enum: ["Shark"]
 
 #define KING_BLACK_DRAGON_SUPPLY ["Shark"]
 
-rule (area:[2253,4676,0,2291,4716,0] && name:KING_BLACK_DRAGON_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([2253,4676,0,2291,4716,0], KING_BLACK_DRAGON_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -4806,7 +4806,7 @@ enum: ["Shark", "Edible seaweed", "Sanfew serum(*)"]
 
 #define KRAKEN_SUPPLY ["Shark"]
 
-rule (area:[2268,10020,0,2292,10049,0] && name:KRAKEN_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([2268,10020,0,2292,10049,0], KRAKEN_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -4861,7 +4861,7 @@ enum: ["Ranging potion(*)", "Super defence(*)", "Manta ray", "Mushroom potato"]
 
 #define KREEARRA_SUPPLY ["Manta ray", "Mushroom potato"]
 
-rule (area:[2820,5295,2,2844,5310,2] && name:KREEARRA_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([2820,5295,2,2844,5310,2], KREEARRA_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Bones to Peaches
@@ -4926,7 +4926,7 @@ enum: ["Super attack(*)", "Super strength(*)", "Super restore(*)", "Zamorak brew
 
 #define KRIL_TSUTSAROTH_SUPPLY ["Super restore(*)", "Shark", "Tuna potato"]
 
-rule (area:[2917,5317,2,2942,5333,2] && name:KRIL_TSUTSAROTH_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([2917,5317,2,2942,5333,2], KRIL_TSUTSAROTH_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Enable Sound on Perfect Kill
@@ -5060,7 +5060,7 @@ enum: ["Sea turtle", "Prayer potion(*)", "Ranging potion(*)", "Anglerfish"]
 
 #define LEVIATHAN_SUPPLY ["Sea turtle", "Prayer potion(*)", "Anglerfish"]
 
-rule (area:[2068,6360,0,2096,6386,3] && name:LEVIATHAN_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([2068,6360,0,2096,6386,3], LEVIATHAN_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -5114,7 +5114,7 @@ enum: ["Prayer potion(*)","Super combat potion(*)","Shark","Yellowfin"]
 
 #define MAD_ANGEL_SUPPLY ["Prayer potion(*)","Super combat potion(*)","Shark","Yellowfin"]
 
-rule (area:[2518,2202,0,2546,2228,0] && name:MAD_ANGEL_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([2518,2202,0,2546,2228,0], MAD_ANGEL_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: SS Tier Uniques
@@ -5168,7 +5168,7 @@ enum: ["Stymphike tartare","Dull ancient medal"]
 
 #define MAGGOT_KING_SUPPLY ["Stymphike tartare","Dull ancient medal"]
 
-rule (area:[2902,8030,0,2921,8038,0] && name:MAGGOT_KING_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([2902,8030,0,2921,8038,0], MAGGOT_KING_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -5225,9 +5225,9 @@ enum: ["Raw moss lizard", "Cooked moss lizard", "Raw bream", "Cooked bream", "Mo
 
 #define MOONS_OF_PERIL_SUPPLY ["Raw moss lizard", "Cooked moss lizard", "Raw bream", "Cooked bream", "Moonlight potion(*)"]
 
-rule (area:[1343,9606,0,1535,9743,1] && name:MOONS_OF_PERIL_SUPPLY) {SUPPLY_DROP_STYLE} // Main Areas & Bosses
-rule (area:[1343,9533,0,1398,9606,0] && name:MOONS_OF_PERIL_SUPPLY) {SUPPLY_DROP_STYLE} // Eclipse Area
-rule (area:[1490,9558,0,1536,9601,0] && name:MOONS_OF_PERIL_SUPPLY) {SUPPLY_DROP_STYLE} // Treasure Room
+SUPPLY_DROP_RULESET([1343,9606,0,1535,9743,1], MOONS_OF_PERIL_SUPPLY) // Main Areas & Bosses
+SUPPLY_DROP_RULESET([1343,9533,0,1398,9606,0], MOONS_OF_PERIL_SUPPLY) // Eclipse Area
+SUPPLY_DROP_RULESET([1490,9558,0,1536,9601,0], MOONS_OF_PERIL_SUPPLY) // Treasure Room
 
 /*@ define:input:boss_pvm
 label: Enable Sound on MVP
@@ -5312,7 +5312,7 @@ enum: ["Shark", "Prayer potion(*)", "Saradomin brew(*)", "Super restore(*)"]
 
 #define NEX_SUPPLY ["Shark", "Prayer potion(*)", "Saradomin brew(*)", "Super restore(*)"]
 
-rule (area:[2910,5187,0,2944,5219,0] && name:NEX_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([2910,5187,0,2944,5219,0], NEX_SUPPLY)
 
 
 /*@ define:input:boss_pvm
@@ -5397,7 +5397,7 @@ enum: ["Bass","Shark","Prayer potion(*)","Sanfew serum(*)","Saradomin brew(*)","
 
 #define NIGHTMARE_SUPPLY ["Bass","Shark","Prayer potion(*)","Sanfew serum(*)","Saradomin brew(*)","Zamorak brew(*)"]
 
-rule (area:[3830,9910,3,3914,9988,3] && name:NIGHTMARE_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([3830,9910,3,3914,9988,3], NIGHTMARE_SUPPLY)
 
 /*@ define:input:obor
 label: Unique T3
@@ -5496,7 +5496,7 @@ enum: ["Shark","*Summer pie","Ancient brew(*)","Ranging potion(*)","Super restor
 
 #define PHANTOM_MUSPAH_SUPPLY ["Shark","*Summer pie","Super restore(*)","Prayer potion(*)"]
 
-rule (area:[2831,4244,0,2861,4275,0] && name:PHANTOM_MUSPAH_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([2831,4244,0,2861,4275,0], PHANTOM_MUSPAH_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -5551,7 +5551,7 @@ enum: ["Prayer potion(*)"]
 
 #define ROYAL_TITANS_SUPPLY ["Prayer potion(*)"]
 
-rule (area:[2894,9556,0,2931,9583,0] && name:ROYAL_TITANS_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([2894,9556,0,2931,9583,0], ROYAL_TITANS_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -5607,7 +5607,7 @@ enum: ["Egg potato"]
 
 #define SARACHNIS_SUPPLY ["Egg potato"]
 
-rule (area:[1829,9889,0,1855,9914,0] && name:SARACHNIS_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([1829,9889,0,1855,9914,0], SARACHNIS_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -5662,7 +5662,7 @@ enum: ["Blighted anglerfish","Blighted super restore(*)"]
 
 #define SCORPIA_SUPPLY ["Blighted anglerfish","Blighted super restore(*)"]
 
-rule (area:[3218,10330,0,3249,10354,0] && name:SCORPIA_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([3218,10330,0,3249,10354,0], SCORPIA_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -5717,7 +5717,7 @@ enum: ["Trout","Tuna","Lobster","Prayer potion(*)","Shark","Ranging potion(*)","
 
 #define SCURRIUS_SUPPLY ["Trout","Tuna","Lobster","Prayer potion(*)","Shark"]
 
-rule (area:[3286,9856,0,3311,9880,0] && name:SCURRIUS_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([3286,9856,0,3311,9880,0], SCURRIUS_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Unique T3
@@ -5954,8 +5954,7 @@ enum: ["Tuna potato", "Sanfew serum(*)","Ugthanki kebab","Prayer potion(*)"]
 
 #define THERMONUCLEAR_SMOKE_DEVIL_SUPPLY ["Tuna potato","Ugthanki kebab","Prayer potion(*)"]
 
-rule (area:[2347,9437,0,2378,9463,0] && name:THERMONUCLEAR_SMOKE_DEVIL_SUPPLY) {SUPPLY_DROP_STYLE}
-
+SUPPLY_DROP_RULESET([2347,9437,0,2378,9463,0], THERMONUCLEAR_SMOKE_DEVIL_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Enable Sound on Perfect Kill
@@ -6085,7 +6084,7 @@ enum: ["Tuna potato","Prayer potion(*)","Super combat potion(*)"]
 
 #define VARDORVIS_SUPPLY ["Tuna potato","Prayer potion(*)"]
 
-rule (area:[1114,3407,0,1142,3434,0] && name:VARDORVIS_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([1114,3407,0,1142,3434,0], VARDORVIS_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Enable Sound on MVP
@@ -6174,8 +6173,8 @@ enum: ["Blighted anglerfish","Blighted karambwan","Blighted super restore(*)","R
 
 #define VENENATIS_AND_SPINDEL_SUPPLY ["Blighted anglerfish","Blighted karambwan","Blighted super restore(*)","Dark crab","Super restore(*)"]
 
-rule (area:[3403,10183,2,3443,10225,2] && name:VENENATIS_AND_SPINDEL_SUPPLY) {SUPPLY_DROP_STYLE}
-rule (area:[1608,11527,2,1652,11569,2] && name:VENENATIS_AND_SPINDEL_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([3403,10183,2,3443,10225,2], VENENATIS_AND_SPINDEL_SUPPLY)
+SUPPLY_DROP_RULESET([1608,11527,2,1652,11569,2], VENENATIS_AND_SPINDEL_SUPPLY)
 
 
 /*@ define:input:vetion_and_calverion
@@ -6265,8 +6264,8 @@ enum: ["Blighted anglerfish","Blighted karambwan","Blighted super restore(*)","R
 
 #define VETION_AND_CALVARION_SUPPLY ["Blighted anglerfish","Blighted karambwan","Blighted super restore(*)","Dark crab","Super restore(*)"]
 
-rule (area:[3283,10190,1,3307,10216,1] && name:VETION_AND_CALVARION_SUPPLY && stackable:false) {SUPPLY_DROP_STYLE}
-rule (area:[1877,11533,1,1898,11560,1] && name:VETION_AND_CALVARION_SUPPLY && stackable:false) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([3283,10190,1,3307,10216,1], VETION_AND_CALVARION_SUPPLY)
+SUPPLY_DROP_RULESET([1877,11533,1,1898,11560,1], VETION_AND_CALVARION_SUPPLY)
 
 /*@ define:input:vorkath
 label: Unique T3
@@ -6459,8 +6458,8 @@ enum: ["Ancient brew(*)","Prayer potion(*)","Manta ray"]
 
 #define WHISPERER_SUPPLY ["Ancient brew(*)","Prayer potion(*)","Manta ray"]
 
-rule (area:[2370,6338,0,2429,6397,0] && name:WHISPERER_SUPPLY) {SUPPLY_DROP_STYLE}
-rule (area:[2629,6338,0,2685,6397,0] && name:WHISPERER_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([2370,6338,0,2429,6397,0], WHISPERER_SUPPLY)
+SUPPLY_DROP_RULESET([2629,6338,0,2685,6397,0], WHISPERER_SUPPLY)
 
 /*@ define:input:wintertodt
 label: Unique T3
@@ -6568,7 +6567,7 @@ enum: ["*Pineapple pizza","*Wild pie","Prayer potion(*)","Super combat potion(*)
 
 #define YAMA_SUPPLY ["*Pineapple pizza","*Wild pie","Prayer potion(*)","Super restore mix(*)"]
 
-rule (area:[1475,10053,1,1528,10106,1] && name:YAMA_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([1475,10053,1,1528,10106,1], YAMA_SUPPLY)
 
 /*@ define:input:boss_pvm
 label: Enable Sound on MVP
@@ -7882,7 +7881,7 @@ enum: ["Prayer potion(*)","Monkfish","Sanfew serum(*)"]
 
 #define HALLOWED_SEPULCHRE_SUPPLY ["Monkfish"]
 
-rule (area:[2224,5798,0,2582,6049,3] && name:HALLOWED_SEPULCHRE_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([2224,5798,0,2582,6049,3], HALLOWED_SEPULCHRE_SUPPLY)
 
 /*@ define:input:mini_games
 label: Unique T3
@@ -8226,8 +8225,8 @@ enum: ["Lobster"]
 
 #define CYCLOPES_SUPPLY ["Lobster"]
 
-rule (area:[2837,3533,2,2878,3558,2] && name:CYCLOPES_SUPPLY) {SUPPLY_DROP_STYLE} // Top Floor
-rule (area:[2904,9956,0,2942,9975,0] && name:CYCLOPES_SUPPLY) {SUPPLY_DROP_STYLE} // Basement
+SUPPLY_DROP_RULESET([2837,3533,2,2878,3558,2], CYCLOPES_SUPPLY) // Top Floor
+SUPPLY_DROP_RULESET([2904,9956,0,2942,9975,0], CYCLOPES_SUPPLY) // Basement
 
 /*@ define:input:misc_uniques
 label: Unique T3
@@ -8348,7 +8347,7 @@ enum: ["Shark","Saradomin brew(*)"]
 
 #define DEMONIC_GORILLA_SUPPLY ["Shark"]
 
-rule (area:[2066,5637,0,2166,5691,0] && name:DEMONIC_GORILLA_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([2066,5637,0,2166,5691,0], DEMONIC_GORILLA_SUPPLY)
 
 /*@ define:input:misc_uniques
 label: Unique T3
@@ -8503,7 +8502,7 @@ enum: ["Blighted manta ray","Blighted anglerfish","Blighted karambwan","Blighted
 
 #define REVENANTS_SUPPLY ["Blighted manta ray","Blighted anglerfish","Blighted karambwan","Blighted super restore(*)"]
 
-rule (area:[3143,10050,0,3266,10237,0] && name:REVENANTS_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([3143,10050,0,3266,10237,0], REVENANTS_SUPPLY)
 
 
 /*@ define:input:misc_uniques
@@ -8692,7 +8691,7 @@ enum: ["Manta ray","Smouldering gland","Smouldering pile of flesh","Prayer potio
 
 #define TORMENTED_DEMONS_SUPPLY ["Manta ray","Smouldering gland","Smouldering pile of flesh","Prayer potion(*)","Smouldering heart"]
 
-rule (area:[4020,4352,0,4167,4479,0] && name:TORMENTED_DEMONS_SUPPLY) {SUPPLY_DROP_STYLE}
+SUPPLY_DROP_RULESET([4020,4352,0,4167,4479,0], TORMENTED_DEMONS_SUPPLY)
 
 /*@ define:input:tzhaar
 label: Unique T3
