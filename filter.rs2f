@@ -7041,13 +7041,13 @@ rule (name:["Golpar","Grimy golpar"]){COX_GOLPAR_HERB}
 label: Buchu Herbs
 type: style
 group: Raid Items
-exampleItem: Grimy buchu
+exampleItem: Grimy buchu leaf
 */
 
 #define COX_BUCHU_HERB \
 	textColor = "#FFA04039";
 	
-rule (name:["Buchu", "Grimy buchu"]){COX_BUCHU_HERB}
+rule (name:["Buchu leaf", "Grimy buchu leaf"]){COX_BUCHU_HERB}
 
 /*@ define:input:cox
 label: Noxifer Herbs
