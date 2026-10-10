@@ -1618,6 +1618,76 @@ group: Cave Horrors
 FORCE_SHOW_RULESET([3716,9348,0,3839,9472,0], CAVE_HORROR_SHOW)
 
 /*@ define:input:slayer_pvm
+label: Slayer Tower - Hide Items
+type: stringlist
+group: Crawling Hands
+*/
+#define CRAWLING_HAND_SLAYER_TOWER_HIDE ["Leather gloves", "Purple gloves", "Yellow gloves", "Red gloves", "Teal gloves"]
+
+rule (area:[3404,3568,0,3453,3580,0] && name:CRAWLING_HAND_SLAYER_TOWER_HIDE) {hidden = true;}
+rule (area:[3404,3541,0,3426,3580,0] && name:CRAWLING_HAND_SLAYER_TOWER_HIDE) {hidden = true;}
+rule (area:[3404,3541,0,3426,3580,0] && name:CRAWLING_HAND_SLAYER_TOWER_HIDE) {hidden = true;}
+rule (area:[3431,3557,0,3433,3562,0] && name:CRAWLING_HAND_SLAYER_TOWER_HIDE) {hidden = true;}
+rule (area:[3431,3541,0,3437,3547,0] && name:CRAWLING_HAND_SLAYER_TOWER_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Slayer Tower - Show Items
+type: stringlist
+group: Crawling Hands
+*/
+#define CRAWLING_HAND_SLAYER_TOWER_SHOW []
+
+FORCE_SHOW_RULESET([3404,3568,0,3453,3580,0], CRAWLING_HAND_SLAYER_TOWER_SHOW)
+FORCE_SHOW_RULESET([3404,3541,0,3426,3580,0], CRAWLING_HAND_SLAYER_TOWER_SHOW)
+FORCE_SHOW_RULESET([3404,3541,0,3426,3580,0], CRAWLING_HAND_SLAYER_TOWER_SHOW)
+FORCE_SHOW_RULESET([3431,3557,0,3433,3562,0], CRAWLING_HAND_SLAYER_TOWER_SHOW)
+FORCE_SHOW_RULESET([3431,3541,0,3437,3547,0], CRAWLING_HAND_SLAYER_TOWER_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Slayer Tower - Supply Drop
+type: enumlist
+enum: ["Energy potion(*)"]
+group: Crawling Hands
+*/
+
+#define CRAWLING_HAND_SLAYER_TOWER_SUPPLY []
+
+SUPPLY_DROP_RULESET([3404,3568,0,3453,3580,0], CRAWLING_HAND_SLAYER_TOWER_SUPPLY)
+SUPPLY_DROP_RULESET([3404,3541,0,3426,3580,0], CRAWLING_HAND_SLAYER_TOWER_SUPPLY)
+SUPPLY_DROP_RULESET([3426,3541,0,3431,3562,0], CRAWLING_HAND_SLAYER_TOWER_SUPPLY)
+SUPPLY_DROP_RULESET([3431,3557,0,3433,3562,0], CRAWLING_HAND_SLAYER_TOWER_SUPPLY)
+SUPPLY_DROP_RULESET([3431,3541,0,3437,3547,0], CRAWLING_HAND_SLAYER_TOWER_SUPPLY)
+
+/*@ define:input:slayer_pvm
+label: Meiyerditch Laboratories - Hide Items
+type: stringlist
+group: Crawling Hands
+*/
+#define CRAWLING_HAND_MEIYERDITCH_LABORATORIES_HIDE ["Leather gloves", "Purple gloves", "Yellow gloves", "Red gloves", "Teal gloves"]
+
+rule (area:[3603,9745,0,3627,9783,0] && name:CRAWLING_HAND_MEIYERDITCH_LABORATORIES_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Meiyerditch Laboratories - Show Items
+type: stringlist
+group: Crawling Hands
+*/
+#define CRAWLING_HAND_MEIYERDITCH_LABORATORIES_SHOW []
+
+FORCE_SHOW_RULESET([3603,9745,0,3627,9783,0], CRAWLING_HAND_MEIYERDITCH_LABORATORIES_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Meiyerditch Laboratories - Supply Drop
+type: enumlist
+enum: ["Energy potion(*)"]
+group: Crawling Hands
+*/
+
+#define CRAWLING_HAND_MEIYERDITCH_LABORATORIES_SUPPLY []
+
+SUPPLY_DROP_RULESET([3603,9745,0,3627,9783,0], CRAWLING_HAND_MEIYERDITCH_LABORATORIES_SUPPLY)
+
+/*@ define:input:slayer_pvm
 label: Dragon Chainbody T3 Unique
 type: boolean
 group: Dust Devils
