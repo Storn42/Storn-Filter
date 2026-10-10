@@ -2594,9 +2594,9 @@ group: Lava Dragons
 SUPPLY_DROP_RULESET([3174,3800,0,3234,3856,0], LAVA_DRAGON_SUPPLY)
 
 /*@ define:input:slayer_pvm
-label: Hide Items
+label: Charred Dungeon - Hide Items
 type: stringlist
-group: Lava Strykewyrms - Charred Dungeon
+group: Lava Strykewyrms
 */
 
 #define LAVA_STRYKEWYRM_CHARRED_HIDE ["fire orb"]
@@ -2605,9 +2605,9 @@ rule (area:[2710,8851,0,2733,8875,0] && name:LAVA_STRYKEWYRM_CHARRED_HIDE) {hidd
 rule (area:[2722,8875,0,2743,8893,0] && name:LAVA_STRYKEWYRM_CHARRED_HIDE) {hidden = true;}
 
 /*@ define:input:slayer_pvm
-label: Show Items
+label: Charred Dungeon - Show Items
 type: stringlist
-group: Lava Strykewyrms - Charred Dungeon
+group: Lava Strykewyrms
 */
 
 #define LAVA_STRYKEWYRM_CHARRED_SHOW []
@@ -2616,10 +2616,10 @@ FORCE_SHOW_RULESET([2710,8851,0,2733,8875,0], LAVA_STRYKEWYRM_CHARRED_SHOW)
 FORCE_SHOW_RULESET([2722,8875,0,2743,8893,0], LAVA_STRYKEWYRM_CHARRED_SHOW)
 
 /*@ define:input:slayer_pvm
-label: Supply Drop
+label: Charred Dungeon - Supply Drop
 type: enumlist
 enum: ["Chilli potato"]
-group: Lava Strykewyrms - Charred Dungeon
+group: Lava Strykewyrms
 */
 
 #define LAVA_STRYKEWYRM_CHARRED_SUPPLY []
@@ -2628,9 +2628,9 @@ SUPPLY_DROP_RULESET([2710,8851,0,2733,8875,0], LAVA_STRYKEWYRM_CHARRED_SUPPLY)
 SUPPLY_DROP_RULESET([2722,8875,0,2743,8893,0], LAVA_STRYKEWYRM_CHARRED_SUPPLY)
 
 /*@ define:input:slayer_pvm
-label: Hide Items
+label: Wyrmscraig - Hide Items
 type: stringlist
-group: Lava Strykewyrms - Wyrmscraig
+group: Lava Strykewyrms
 */
 
 #define LAVA_STRYKEWYRM_WYRMSCRAIG_HIDE ["fire orb"]
@@ -2638,9 +2638,9 @@ group: Lava Strykewyrms - Wyrmscraig
 rule (area:[2584,8572,0,2614,8590,0] && name:LAVA_STRYKEWYRM_WYRMSCRAIG_HIDE) {hidden = true;}
 
 /*@ define:input:slayer_pvm
-label: Show Items
+label: Wyrmscraig - Show Items
 type: stringlist
-group: Lava Strykewyrms - Wyrmscraig
+group: Lava Strykewyrms
 */
 
 #define LAVA_STRYKEWYRM_WYRMSCRAIG_SHOW []
@@ -2648,10 +2648,10 @@ group: Lava Strykewyrms - Wyrmscraig
 FORCE_SHOW_RULESET([2584,8572,0,2614,8590,0], LAVA_STRYKEWYRM_WYRMSCRAIG_SHOW)
 
 /*@ define:input:slayer_pvm
-label: Supply Drop
+label: Wyrmscraig - Supply Drop
 type: enumlist
 enum: ["Chilli potato"]
-group: Lava Strykewyrms - Wyrmscraig
+group: Lava Strykewyrms
 */
 
 #define LAVA_STRYKEWYRM_WYRMSCRAIG_SUPPLY []
