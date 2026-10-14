@@ -1439,6 +1439,7 @@ label: Deepfin Mine - Hide Items
 type: stringlist
 group: Ankou
 */
+
 #define ANKOU_DEEPFIN_HIDE ["Weapon poison", "Black knife", "Black robe", "Fried mushrooms", "Bass"]
 
 rule (area:[2040,9165,0,2079,9189,0] && name:ANKOU_DEEPFIN_HIDE) {hidden = true;}
@@ -1448,6 +1449,7 @@ label: Deepfin Mine - Show Items
 type: stringlist
 group: Ankou
 */
+
 #define ANKOU_DEEPFIN_SHOW []
 
 FORCE_SHOW_RULESET([2040,9165,0,2079,9189,0], ANKOU_DEEPFIN_SHOW)
@@ -1462,11 +1464,13 @@ group: Ankou
 #define ANKOU_DEEPFIN_SUPPLY []
 
 SUPPLY_DROP_RULESET([2040,9165,0,2079,9189,0], ANKOU_DEEPFIN_SUPPLY)
+
 /*@ define:input:slayer_pvm
 label: Stronghold of Security - Hide Items
 type: stringlist
 group: Ankou
 */
+
 #define ANKOU_SECURITY_HIDE ["Weapon poison", "Black knife", "Black robe", "Fried mushrooms", "Bass"]
 
 rule (area:[2303,5183,0,2369,5249,0] && name:ANKOU_SECURITY_HIDE) {hidden = true;}
@@ -1496,6 +1500,7 @@ label: Stronghold Slayer Cave - Hide Items
 type: stringlist
 group: Ankou
 */
+
 #define ANKOU_STRONGHOLD_HIDE ["Weapon poison", "Black knife", "Black robe", "Fried mushrooms", "Bass"]
 
 rule (area:[2466,9792,0,2488,9814,0] && name:ANKOU_STRONGHOLD_HIDE) {hidden = true;}
@@ -1598,6 +1603,80 @@ group: Araxyte
 #define ARAXYTE_SHOW []
 
 FORCE_SHOW_RULESET([3654,9795,0,3711,9868,0], ARAXYTE_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Hide Items
+type: stringlist
+group: Banshee
+*/
+
+#define BANSHEE_HIDE ["Fishing bait", "Energy potion*"]
+
+rule (area:[3432,3531,0,3453,3541,0] && name:BANSHEE_HIDE) {hidden = true;}
+rule (area:[3437,3541,0,3450,3547,0] && name:BANSHEE_HIDE) {hidden = true;}
+rule (area:[3431,3547,0,3450,3557,0] && name:BANSHEE_HIDE) {hidden = true;}
+rule (area:[3433,3557,0,3450,3562,0] && name:BANSHEE_HIDE) {hidden = true;}
+rule (area:[3426,3562,0,3450,3568,0] && name:BANSHEE_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Show Items
+type: stringlist
+group: Banshee
+*/
+
+#define BANSHEE_SHOW []
+
+FORCE_SHOW_RULESET([3432,3531,0,3453,3541,0], BANSHEE_SHOW)
+FORCE_SHOW_RULESET([3437,3541,0,3450,3547,0], BANSHEE_SHOW)
+FORCE_SHOW_RULESET([3431,3547,0,3450,3557,0], BANSHEE_SHOW)
+FORCE_SHOW_RULESET([3433,3557,0,3450,3562,0], BANSHEE_SHOW)
+FORCE_SHOW_RULESET([3426,3562,0,3450,3568,0], BANSHEE_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Supply Drop
+type: enumlist
+enum: ["Energy potion(*)"]
+group: Banshee
+*/
+
+#define BANSHEE_SUPPLY []
+
+SUPPLY_DROP_RULESET([3432,3531,0,3453,3541,0], BANSHEE_SUPPLY)
+SUPPLY_DROP_RULESET([3437,3541,0,3450,3547,0], BANSHEE_SUPPLY)
+SUPPLY_DROP_RULESET([3431,3547,0,3450,3557,0], BANSHEE_SUPPLY)
+SUPPLY_DROP_RULESET([3433,3557,0,3450,3562,0], BANSHEE_SUPPLY)
+SUPPLY_DROP_RULESET([3426,3562,0,3450,3568,0], BANSHEE_SUPPLY)
+
+/*@ define:input:slayer_pvm
+label: Hide Items
+type: stringlist
+group: Twisted Banshee
+*/
+
+#define TWISTED_BANSHEE_HIDE []
+
+rule (area:[1605,9989,0,1630,10004,0] && name:TWISTED_BANSHEE_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Show Items
+type: stringlist
+group: Twisted Banshee
+*/
+
+#define TWISTED_BANSHEE_SHOW []
+
+FORCE_SHOW_RULESET([1605,9989,0,1630,10004,0], TWISTED_BANSHEE_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Supply Drop
+type: enumlist
+enum: ["Swordfish"]
+group: Twisted Banshee
+*/
+
+#define TWISTED_BANSHEE_SUPPLY []
+
+SUPPLY_DROP_RULESET([1605,9989,0,1630,10004,0], TWISTED_BANSHEE_SUPPLY)
 
 /*@ define:input:slayer_pvm
 label: Hide Items

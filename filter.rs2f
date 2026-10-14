@@ -1601,6 +1601,80 @@ FORCE_SHOW_RULESET([3654,9795,0,3711,9868,0], ARAXYTE_SHOW)
 /*@ define:input:slayer_pvm
 label: Hide Items
 type: stringlist
+group: Banshee
+*/
+
+#define BANSHEE_HIDE ["Fishing bait", "Energy potion*"]
+
+rule (area:[3432,3531,0,3453,3541,0] && name:BANSHEE_HIDE) {hidden = true;}
+rule (area:[3437,3541,0,3450,3547,0] && name:BANSHEE_HIDE) {hidden = true;}
+rule (area:[3431,3547,0,3450,3557,0] && name:BANSHEE_HIDE) {hidden = true;}
+rule (area:[3433,3557,0,3450,3562,0] && name:BANSHEE_HIDE) {hidden = true;}
+rule (area:[3426,3562,0,3450,3568,0] && name:BANSHEE_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Show Items
+type: stringlist
+group: Banshee
+*/
+
+#define BANSHEE_SHOW []
+
+FORCE_SHOW_RULESET([3432,3531,0,3453,3541,0], BANSHEE_SHOW)
+FORCE_SHOW_RULESET([3437,3541,0,3450,3547,0], BANSHEE_SHOW)
+FORCE_SHOW_RULESET([3431,3547,0,3450,3557,0], BANSHEE_SHOW)
+FORCE_SHOW_RULESET([3433,3557,0,3450,3562,0], BANSHEE_SHOW)
+FORCE_SHOW_RULESET([3426,3562,0,3450,3568,0], BANSHEE_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Supply Drop
+type: enumlist
+enum: ["Energy potion(*)"]
+group: Banshee
+*/
+
+#define BANSHEE_SUPPLY []
+
+SUPPLY_DROP_RULESET([3432,3531,0,3453,3541,0], BANSHEE_SUPPLY)
+SUPPLY_DROP_RULESET([3437,3541,0,3450,3547,0], BANSHEE_SUPPLY)
+SUPPLY_DROP_RULESET([3431,3547,0,3450,3557,0], BANSHEE_SUPPLY)
+SUPPLY_DROP_RULESET([3433,3557,0,3450,3562,0], BANSHEE_SUPPLY)
+SUPPLY_DROP_RULESET([3426,3562,0,3450,3568,0], BANSHEE_SUPPLY)
+
+/*@ define:input:slayer_pvm
+label: Hide Items
+type: stringlist
+group: Twisted Banshee
+*/
+
+#define TWISTED_BANSHEE_HIDE []
+
+rule (area:[1605,9989,0,1630,10004,0] && name:TWISTED_BANSHEE_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Show Items
+type: stringlist
+group: Twisted Banshee
+*/
+
+#define TWISTED_BANSHEE_SHOW []
+
+FORCE_SHOW_RULESET([1605,9989,0,1630,10004,0], TWISTED_BANSHEE_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Supply Drop
+type: enumlist
+enum: ["Swordfish"]
+group: Twisted Banshee
+*/
+
+#define TWISTED_BANSHEE_SUPPLY []
+
+SUPPLY_DROP_RULESET([1605,9989,0,1630,10004,0], TWISTED_BANSHEE_SUPPLY)
+
+/*@ define:input:slayer_pvm
+label: Hide Items
+type: stringlist
 group: Cave Horrors
 */
 #define CAVE_HORROR_HIDE ["Adamant full helm", "Mahogany logs", "Limpwurt root"]
