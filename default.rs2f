@@ -2213,6 +2213,37 @@ rule (area:[1635,10053,0,1655,10077,0] && ENABLE_HELLHOUND_STONE_T1 && name:"Smo
 rule (area:[1325,10189,2,1358,10217,2] && ENABLE_HELLHOUND_STONE_T1 && name:"Smouldering stone") {UNIQUE_T1_STYLE} // Karuulm Slayer Dungeon
 
 /*@ define:input:slayer_pvm
+label: Hide Items
+type: stringlist
+group: Hydra
+*/
+
+#define HYDRA_HIDE []
+
+rule (area:[1295,10224,0,1333,10278,0] && name:HYDRA_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Show Items
+type: stringlist
+group: Hydra
+*/
+
+#define HYDRA_SHOW []
+
+FORCE_SHOW_RULESET([1295,10224,0,1333,10278,0], HYDRA_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Supply Drop
+type: enumlist
+enum: ["Monkfish", "Super restore(*)","Super combat potion(*)"]
+group: Hydra
+*/
+
+#define HYDRA_SUPPLY []
+
+SUPPLY_DROP_RULESET([1295,10224,0,1333,10278,0], HYDRA_SUPPLY)
+
+/*@ define:input:slayer_pvm
 label: Ignore Me
 type: stringlist
 group: Hellhounds
