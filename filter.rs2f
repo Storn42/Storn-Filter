@@ -2156,6 +2156,37 @@ SUPPLY_DROP_RULESET([3392,10115,0,3410,10133,0], GREEN_DRAGON_SLAYER_CAVE_SUPPLY
 SUPPLY_DROP_RULESET([3407,10056,0,3424,10075,0], GREEN_DRAGON_SLAYER_CAVE_SUPPLY) // South
 
 /*@ define:input:slayer_pvm
+label: Hide Items
+type: stringlist
+group: Gryphon
+*/
+
+#define GRYPHON_HIDE ["Onion","Strawberry","Potato","Cabbage","Tomato","Watermelon","Raw lobster","Raw swordfish","Sweetcorn","Basket","Empty sack"]
+
+rule (area:[3080,8839,0,3129,8885,0] && name:GRYPHON_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Show Items
+type: stringlist
+group: Gryphon
+*/
+
+#define GRYPHON_SHOW []
+
+FORCE_SHOW_RULESET([3080,8839,0,3129,8885,0], GRYPHON_SHOW)
+
+/*@ define:input:slayer_pvm
+label: Supply Drop
+type: enumlist
+enum: ["Onion","Strawberry","Potato","Cabbage","Tomato"]
+group: Gryphon
+*/
+
+#define GRYPHON_SUPPLY []
+
+SUPPLY_DROP_RULESET([3080,8839,0,3129,8885,0], GRYPHON_SUPPLY)
+
+/*@ define:input:slayer_pvm
 label: Smouldering Stone T3 Unique
 type: boolean
 group: Hellhounds
