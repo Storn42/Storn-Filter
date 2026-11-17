@@ -3264,6 +3264,26 @@ group: Greater Nechryaels
 SUPPLY_DROP_RULESET([3329,10096,0,3344,10120,0], NECHRYAEL_WILDERNESS_SUPPLY)
 
 /*@ define:input:slayer_pvm
+label: Hide Items
+type: stringlist
+group: Sea Snakes
+*/
+
+#define SEA_SNAKE_HIDE ["Water orb","Broad arrow"]
+
+rule (area:[2565,10241,0,2624,10305,0] && name:SEA_SNAKE_HIDE) {hidden = true;}
+
+/*@ define:input:slayer_pvm
+label: Show Items
+type: stringlist
+group: Sea Snakes
+*/
+
+#define SEA_SNAKE_SHOW []
+
+FORCE_SHOW_RULESET([2565,10241,0,2624,10305,0], SEA_SNAKE_SHOW)
+
+/*@ define:input:slayer_pvm
 label: Dragon Chainbody T3 Unique
 type: boolean
 group: Smoke Devils
