@@ -8775,9 +8775,9 @@ group: Prison of Raeun
 enum: ["Sunken treasure", "Fremennik graceful ornament kit","Fremennik sail fabric"]
 */
 
-#define PRISON OF RAEUN_T3_UNIQUES []
+#define PRISON_OF_RAEUN_T3_UNIQUES []
 
-rule (name:PRISON OF RAEUN_T3_UNIQUES) {UNIQUE_T3_STYLE}
+rule (name:PRISON_OF_RAEUN_T3_UNIQUES) {UNIQUE_T3_STYLE}
 
 /*@ define:input:misc_uniques
 label: Unique T2
@@ -8786,9 +8786,9 @@ group: Prison of Raeun
 enum: ["Sunken treasure", "Fremennik graceful ornament kit","Fremennik sail fabric"]
 */
 
-#define PRISON OF RAEUN_T2_UNIQUES []
+#define PRISON_OF_RAEUN_T2_UNIQUES []
 
-rule (name:PRISON OF RAEUN_T2_UNIQUES) {UNIQUE_T2_STYLE}
+rule (name:PRISON_OF_RAEUN_T2_UNIQUES) {UNIQUE_T2_STYLE}
 
 /*@ define:input:misc_uniques
 label: Unique T1
@@ -8797,9 +8797,9 @@ group: Prison of Raeun
 enum: ["Sunken treasure", "Fremennik graceful ornament kit","Fremennik sail fabric"]
 */
 
-#define PRISON OF RAEUN_T1_UNIQUES ["Sunken treasure", "Fremennik graceful ornament kit","Fremennik sail fabric"]
+#define PRISON_OF_RAEUN_T1_UNIQUES ["Sunken treasure", "Fremennik graceful ornament kit","Fremennik sail fabric"]
 
-rule (name:PRISON OF RAEUN_T1_UNIQUES) {UNIQUE_T1_STYLE}
+rule (name:PRISON_OF_RAEUN_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 /*@ define:input:misc_uniques
 label: Unique T3
