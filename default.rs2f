@@ -8775,6 +8775,38 @@ enum: ["Tiny pearl","Small pearl","Shiny pearl","Bright pearl","Big pearl","Huge
 
 rule (name:OCEAN_ENCOUNTERS_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
+/*@ define:input:misc_uniques
+label: Unique T3
+type: enumlist
+group: Prison of Raeun
+enum: ["Sunken treasure", "Fremennik graceful ornament kit","Fremennik sail fabric"]
+*/
+
+#define PRISON OF RAEUN_T3_UNIQUES []
+
+rule (name:PRISON OF RAEUN_T3_UNIQUES) {UNIQUE_T3_STYLE}
+
+/*@ define:input:misc_uniques
+label: Unique T2
+type: enumlist
+group: Prison of Raeun
+enum: ["Sunken treasure", "Fremennik graceful ornament kit","Fremennik sail fabric"]
+*/
+
+#define PRISON OF RAEUN_T2_UNIQUES []
+
+rule (name:PRISON OF RAEUN_T2_UNIQUES) {UNIQUE_T2_STYLE}
+
+/*@ define:input:misc_uniques
+label: Unique T1
+type: enumlist
+group: Prison of Raeun
+enum: ["Sunken treasure", "Fremennik graceful ornament kit","Fremennik sail fabric"]
+*/
+
+#define PRISON OF RAEUN_T1_UNIQUES ["Sunken treasure", "Fremennik graceful ornament kit","Fremennik sail fabric"]
+
+rule (name:PRISON OF RAEUN_T1_UNIQUES) {UNIQUE_T1_STYLE}
 
 /*@ define:input:misc_uniques
 label: Unique T3
